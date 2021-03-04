@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+html body {
+  background-color: #40434E;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.footer {
+  height: 5vh;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.pattern {
+  background-image: url("../assets/crossline-lines.png");
+  background-repeat: repeat;
+  color: #40434E;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+
