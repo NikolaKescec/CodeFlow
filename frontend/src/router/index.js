@@ -22,7 +22,6 @@ const CodeFlowRouter = () => {
         className="d-flex justify-content-between column full-height pattern p-0"
       >
         <TopBar></TopBar>
-
         <Switch>
           {routes.map((route, index) => (
             <Renderer {...route} key={index} />
