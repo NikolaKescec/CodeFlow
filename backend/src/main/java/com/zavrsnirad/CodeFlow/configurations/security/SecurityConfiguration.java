@@ -1,5 +1,7 @@
 package com.zavrsnirad.CodeFlow.configurations.security;
 
+import com.zavrsnirad.CodeFlow.configurations.security.authpoint.JwtAuthenticationPoint;
+import com.zavrsnirad.CodeFlow.configurations.security.filter.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
