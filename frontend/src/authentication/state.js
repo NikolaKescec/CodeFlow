@@ -1,7 +1,7 @@
 const authState = {
-  loading: null,
-  error: null,
-  data: null,
+  loading: undefined,
+  error: undefined,
+  data: undefined,
 };
 
 export default authState;

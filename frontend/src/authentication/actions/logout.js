@@ -5,7 +5,6 @@ const logout = (history) => (authDispatch) => {
 
   debugger;
 
-  localStorage.removeItem("token");
   localStorage.removeItem("auth");
   authDispatch({
     type: authActions.LOGOUT,

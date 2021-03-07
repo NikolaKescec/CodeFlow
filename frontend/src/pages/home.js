@@ -1,12 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import useAuth from "../authentication/hook/useAuth";
 import { Button, Container } from "react-bootstrap";
 import { AuthContext } from "../authentication/context/AuthProvider";
 import logout from "../authentication/actions/logout";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 
 const Home = () => {
-  const { auth, dispatch } = useContext(AuthContext);
+  debugger;
+  const [auth, dispatch, checking] = useAuth();
   const [users, setUsers] = useState([]);
   const history = useHistory();
 
@@ -19,14 +21,17 @@ const Home = () => {
   };
 
   useEffect(() => {
-    getUsers();
-  }, []);
+    if (!checking) getUsers();
+  }, [checking]);
 
   return (
     <Container fluid>
       <Button variant="wine" onClick={() => logout(history)(dispatch)}>
         Logout
       </Button>
+      <Link to="/profile">
+        <Button variant="wine">Profile</Button>
+      </Link>
       <Container fluid className="bg-baby-powder">
         <p className="overflow-auto">{JSON.stringify(auth)}</p>
       </Container>

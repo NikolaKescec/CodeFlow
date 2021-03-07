@@ -3,6 +3,7 @@ import Register from "../pages/register";
 import Welcome from "../pages/welcome";
 import Error from "../pages/error";
 import Home from "../pages/home";
+import Profile from "../pages/profile";
 
 const routes = [
   {
@@ -24,6 +25,13 @@ const routes = [
     exact: true,
     component: Home,
     title: "Home page",
+    authenticated: true,
+  },
+  {
+    path: "/profile",
+    exact: true,
+    component: Profile,
+    title: "Profile page",
     authenticated: true,
   },
   {
