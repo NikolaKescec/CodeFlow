@@ -6,8 +6,12 @@ import java.util.UUID;
 @Entity
 public class RefreshToken {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private UUID id;
+
     @OneToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name="user_id")
+    @MapsId
     private User user;
 
     @Column(unique = true, nullable = false)
