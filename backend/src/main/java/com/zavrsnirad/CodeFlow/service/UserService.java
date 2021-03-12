@@ -1,6 +1,7 @@
 package com.zavrsnirad.CodeFlow.service;
 
 import com.zavrsnirad.CodeFlow.domain.User;
+import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface UserService {
 
     List<User> getUsers();
 
-    User addUser(User user);
+    User addUser(UserDtoReq user);
 
     void removeUser(String username);
 

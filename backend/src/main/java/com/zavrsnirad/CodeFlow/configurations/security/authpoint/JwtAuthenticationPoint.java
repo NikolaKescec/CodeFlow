@@ -16,6 +16,6 @@ public class JwtAuthenticationPoint implements AuthenticationEntryPoint, Seriali
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         httpServletResponse.setContentType("application/json");
         httpServletResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        httpServletResponse.getOutputStream().println("{ \"error\": \"" + e.getMessage() + "\" }");
+        httpServletResponse.getOutputStream().println("{ \"message\": \"" + e.getMessage() + "\" }");
     }
 }

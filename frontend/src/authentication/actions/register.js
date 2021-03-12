@@ -3,32 +3,34 @@ import axios from "axios";
 
 // konvencije radi, dispatch se predaje kao drugi poziv funkcije (poput middlewarea)
 
-const login = ({ username, password }) => (authDispatch) => {
+const register = ({ username, email, password }, history) => (authDispatch) => {
   authDispatch({
-    type: authActions.LOGIN_LOADING,
+    type: authActions.REGISTER_LOADING,
   });
 
   axios
     .post(
-      "/authenticate",
+      "/user/register",
       {
         username,
+        email,
         password,
       },
       { baseURL: "http://localhost:8080", withCredentials: true }
     )
     .then((res) => {
       authDispatch({
-        type: authActions.LOGIN_SUCCESS,
+        type: authActions.REGISTER_SUCCESS,
         payload: res.data,
       });
+      history.push("/");
     })
     .catch((err) => {
       authDispatch({
-        type: authActions.LOGIN_ERROR,
+        type: authActions.REGISTER_ERROR,
         payload: err.response ? err.response.data : "COULD NOT CONNECT",
       });
     });
 };
 
-export default login;
+export default register;

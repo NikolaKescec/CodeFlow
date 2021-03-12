@@ -1,9 +1,12 @@
 import { TextField } from "@material-ui/core";
 import { useFormik } from "formik";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../authentication/context/AuthProvider";
 import "../styles/register.css";
+import { useContext, useEffect } from "react";
+import register from "../authentication/actions/register";
+import { useHistory } from "react-router-dom";
 
 const validate = (values) => {
   debugger;
@@ -31,6 +34,9 @@ const validate = (values) => {
 };
 
 const Register = () => {
+  const { auth, dispatch } = useContext(AuthContext);
+  const history = useHistory();
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -40,9 +46,15 @@ const Register = () => {
     },
     validate,
     onSubmit: (values) => {
-      console.log(values);
+      register(values, history)(dispatch);
     },
   });
+
+  useEffect(() => {
+    return () => {
+      if (auth.error) dispatch({ type: "REMOVE_ERROR" });
+    };
+  }, [auth]);
 
   return (
     <Container className="bg-baby-powder border-rich-black rounded p-2">
@@ -52,6 +64,15 @@ const Register = () => {
         </Col>
         <Col className="d-flex column justify-content-center ">
           <h2 className="text-wine">Register</h2>
+          {auth.error && (
+            <Alert
+              variant="wine"
+              onClose={() => dispatch({ type: "REMOVE_ERROR" })}
+              dismissible
+            >
+              <p>{auth.error.message}</p>
+            </Alert>
+          )}
           <Form onSubmit={formik.handleSubmit} className="  p-2 form">
             <Form.Group>
               <TextField

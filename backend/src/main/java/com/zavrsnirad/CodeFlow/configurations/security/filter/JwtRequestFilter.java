@@ -40,18 +40,24 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String jwt = null;
         String username = null;
 
-        try {
-            if(cookies != null) {
-                jwt = CookieUtils.extractAccessTokenFromCookies(cookies);
-                if(jwt != null)
-                    username = jwtUtil.extractUsername(jwt);
-            }
-        } catch (JwtException ex) {
-            if(!(httpServletRequest.getRequestURI().equals("/authenticate") || httpServletRequest.getRequestURI().equals("/refresh"))) {
-                jwtAuthenticationPoint.commence(httpServletRequest, httpServletResponse, new BadCredentialsException("Bad authorization."));
-                return;
+        // ignored urls for jwt-s
+        if(!(httpServletRequest.getRequestURI().equals("/authenticate")
+                || httpServletRequest.getRequestURI().equals("/refresh")
+                || httpServletRequest.getRequestURI().equals("/user/register") )) {
+            try {
+                if(cookies != null) {
+                    jwt = CookieUtils.extractAccessTokenFromCookies(cookies);
+                    if(jwt != null)
+                        username = jwtUtil.extractUsername(jwt);
+                }
+            } catch (JwtException ex) {
+                {
+                    jwtAuthenticationPoint.commence(httpServletRequest, httpServletResponse, new BadCredentialsException("Bad authorization."));
+                    return;
+                }
             }
         }
+
 
         if(username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = userDetailsService.loadUserByUsername(username);

@@ -1,4 +1,4 @@
-import { Button, Col, Container, Row, Form } from "react-bootstrap";
+import { Button, Col, Container, Row, Form, Alert } from "react-bootstrap";
 import { useFormik } from "formik";
 import { TextField } from "@material-ui/core";
 import { Link, Redirect, useHistory } from "react-router-dom";
@@ -32,9 +32,6 @@ const Login = () => {
 
   debugger;
 
-  console.log(auth);
-  console.log(dispatch);
-
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -48,6 +45,9 @@ const Login = () => {
 
   useEffect(() => {
     if (auth.data) history.push("/home");
+    return () => {
+      if (auth.error) dispatch({ type: "REMOVE_ERROR" });
+    };
   }, [auth]);
 
   return (
@@ -72,9 +72,22 @@ const Login = () => {
             className="text-center  d-flex column justify-content-center p-1 border-charcoal rounded form"
           >
             {auth.error && (
-              <span className=" text-rich-dark text-center">
-                {auth.error.message}
-              </span>
+              <Alert
+                variant="wine"
+                onClose={() => dispatch({ type: "REMOVE_ERROR" })}
+                dismissible
+              >
+                <p>{auth.error.message}</p>
+              </Alert>
+            )}
+            {auth.message && (
+              <Alert
+                variant="danger"
+                onClose={() => dispatch({ type: "REMOVE_MESSAGE" })}
+                dismissible
+              >
+                <p>{auth.message}</p>
+              </Alert>
             )}
             <Form onSubmit={formik.handleSubmit} className=" p-2  ">
               <Form.Group>

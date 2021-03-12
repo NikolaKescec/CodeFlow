@@ -17,6 +17,8 @@ const authReducer = (state, { type, payload }) => {
         ...state,
         ...state.auth,
         data: payload,
+        message: undefined,
+        error: undefined,
         loading: false,
       };
     case authActions.REGISTER_ERROR:
@@ -30,6 +32,18 @@ const authReducer = (state, { type, payload }) => {
     case authActions.LOGOUT:
       return {
         ...authState,
+      };
+    case authActions.REMOVE_ERROR:
+      return {
+        ...state,
+        ...state.auth,
+        error: undefined,
+      };
+    case authActions.REMOVE_MESSAGE:
+      return {
+        ...state,
+        ...state.auth,
+        message: undefined,
       };
     default:
       return state;
