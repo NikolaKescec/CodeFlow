@@ -23,11 +23,11 @@ public class SolutionComment {
     private String comment;
 
     @ManyToOne
-    @JoinColumn(name = "commenter_id")
+    @JoinColumn(name = "commenter_id", referencedColumnName = "user_id")
     private User commenter;
 
     @ManyToOne
-    @JoinColumn(name="solution_id")
+    @JoinColumn(name="solution_id", referencedColumnName = "solution_id")
     private Solution solution;
 
     public SolutionComment() {

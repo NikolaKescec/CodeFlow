@@ -25,11 +25,11 @@ public class SolutionGrade {
     private Integer grade;
 
     @ManyToOne
-    @JoinColumn(name = "grader_id")
+    @JoinColumn(name = "grader_id", referencedColumnName = "user_id")
     private User grader;
 
     @ManyToOne
-    @JoinColumn(name="solution_id")
+    @JoinColumn(name="solution_id", referencedColumnName = "solution_id")
     private Solution solution;
 
     public SolutionGrade() {

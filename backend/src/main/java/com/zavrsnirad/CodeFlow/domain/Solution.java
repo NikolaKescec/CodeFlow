@@ -3,6 +3,7 @@ package com.zavrsnirad.CodeFlow.domain;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,8 +24,11 @@ public class Solution {
     private String language;
 
     @ManyToOne
-    @JoinColumn(name = "author_id")
+    @JoinColumn(name = "author_id", referencedColumnName = "user_id")
     private User author;
+
+    @OneToMany(cascade = CascadeType.REFRESH, mappedBy = "solution")
+    private List<SolutionComment> comments;
 
     public Solution() {
     }
@@ -33,6 +37,14 @@ public class Solution {
         this.code = code;
         this.language = language;
         this.author = author;
+    }
+
+    public List<SolutionComment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<SolutionComment> comments) {
+        this.comments = comments;
     }
 
     public UUID getSolutionId() {

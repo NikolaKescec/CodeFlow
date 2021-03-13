@@ -21,12 +21,12 @@ public class TaskComment {
     private String comment;
 
     @ManyToOne
-    @JoinColumn(name = "commenter_id")
+    @JoinColumn(name = "commenter_id", referencedColumnName = "user_id")
     private User commenter;
 
     @ManyToOne
-    @JoinColumn(name="task_id")
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="task_id", referencedColumnName = "task_id")
+    @JoinColumn(name="user_id", referencedColumnName = "user_id")
     private Task task;
 
     public TaskComment() {

@@ -25,12 +25,12 @@ public class TaskGrade{
     private Integer grade;
 
     @ManyToOne
-    @JoinColumn(name = "grader_id")
+    @JoinColumn(name = "grader_id", referencedColumnName = "user_id")
     private User grader;
 
     @ManyToOne
-    @JoinColumn(name="task_id")
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="task_id", referencedColumnName = "task_id")
+    @JoinColumn(name="user_id", referencedColumnName = "user_id")
     private Task task;
 
     public TaskGrade() {

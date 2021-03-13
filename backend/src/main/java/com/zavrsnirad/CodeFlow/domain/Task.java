@@ -1,6 +1,7 @@
 package com.zavrsnirad.CodeFlow.domain;
 
 import com.zavrsnirad.CodeFlow.domain.composite.TaskId;
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class Task {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User owner;
 
     @Column(name = "task_text", nullable = false)
@@ -33,24 +34,56 @@ public class Task {
     @Column(nullable = false)
     private String correctOutput;
 
-    @Column(name="author_solution")
+    @Column(name="author_solution", length = 4096)
     private String authorSolution;
 
-    @OneToMany
-    @JoinColumn(name="task_id")
-    @JoinColumn(name="user_id")
+    @Formula("(SELECT AVG(G.GRADE) FROM TASK_GRADE G WHERE G.task_id = task_id)")
+    private Double averageGrade;
+
+    @OneToMany(cascade = CascadeType.REMOVE)
+    @JoinColumn(name="task_id", referencedColumnName = "task_id")
+    @JoinColumn(name="user_id", referencedColumnName = "user_id")
     private List<Solution> solutions;
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "task")
+    private List<TaskComment> comments;
+
+    @OneToMany(mappedBy = "task")
+    private List<TaskGrade> grades;
 
     public Task() {
     }
 
-    public Task(User owner, String taskText, String language, String correctOutput, String authorSolution, List<Solution> solutions) {
+    public Task(User owner, String taskText, String language, String correctOutput, String authorSolution) {
         this.owner = owner;
         this.taskText = taskText;
         this.language = language;
         this.correctOutput = correctOutput;
         this.authorSolution = authorSolution;
-        this.solutions = solutions;
+    }
+
+    public List<TaskGrade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(List<TaskGrade> grades) {
+        this.grades = grades;
+    }
+
+    public Double getAverageGrade() {
+        return averageGrade;
+    }
+
+    public void setAverageGrade(Double averageGrade) {
+        this.averageGrade = averageGrade;
+    }
+
+    public List<TaskComment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<TaskComment> comments) {
+        this.comments = comments;
     }
 
     public UUID getTaskId() {
