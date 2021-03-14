@@ -1,4 +1,5 @@
 import authActions from "./authActions";
+import axiosInstance from "../../utils/axiosInstance";
 
 const logout = (history) => (authDispatch) => {
   //CHANGE TO HTTP COOKIE REMOVE
@@ -6,10 +7,15 @@ const logout = (history) => (authDispatch) => {
   debugger;
 
   localStorage.removeItem("auth");
+
   authDispatch({
     type: authActions.LOGOUT,
   });
-  history.push("/");
+
+  axiosInstance(authDispatch, history)
+    .get("/deauthenticate")
+    .then((res) => history.push("/"))
+    .catch((err) => console.log(err));
 };
 
 export default logout;

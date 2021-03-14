@@ -1,36 +1,41 @@
 import axios from "axios";
-import authState from "../authentication/state";
+import authActions from "../authentication/actions/authActions";
 
-debugger;
-const backend_url = "http://localhost:8080";
+const axiosInstance = (dispatch = null, history = null) => {
+  debugger;
+  const backend_url = "http://localhost:8080";
 
-const axiosInstance = axios.create({
-  baseURL: backend_url,
-  withCredentials: true,
-});
+  const axiosInstance = axios.create({
+    baseURL: backend_url,
+    withCredentials: true,
+  });
 
-axiosInstance.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async function (error) {
-    debugger;
-    const originalRequest = error.config;
-    if (error.response.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
-      await refreshAccessToken();
-      return axiosInstance(originalRequest);
+  axiosInstance.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    async function (error) {
+      const originalRequest = error.config;
+      if (error.response.status === 401 && !originalRequest._retry) {
+        originalRequest._retry = true;
+        await axiosInstance.get("/refresh");
+        return axiosInstance(originalRequest);
+      }
+      if (error.response.status === 403) {
+        debugger;
+        await axiosInstance.get("/deauthenticate");
+        dispatch({ type: authActions.LOGOUT });
+        if (history) {
+          history.push("/");
+        } else {
+          window.location = "/";
+        }
+      }
+      return Promise.reject(error);
     }
-    if (error.response.status === 403) {
-      localStorage.auth = JSON.stringify(authState);
-      window.location = "/";
-    }
-    return Promise.reject(error);
-  }
-);
+  );
 
-async function refreshAccessToken() {
-  let result = await axiosInstance.get("/refresh");
-}
+  return axiosInstance;
+};
 
 export default axiosInstance;

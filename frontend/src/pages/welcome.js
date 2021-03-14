@@ -44,6 +44,7 @@ const Login = () => {
   });
 
   useEffect(() => {
+    debugger;
     if (auth.data) history.push("/home");
     return () => {
       if (auth.error) dispatch({ type: "REMOVE_ERROR" });

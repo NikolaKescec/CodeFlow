@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import useAuth from "../authentication/hook/useAuth";
-import { Button, Container } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { AuthContext } from "../authentication/context/AuthProvider";
 import logout from "../authentication/actions/logout";
 import { Link, useHistory } from "react-router-dom";
@@ -10,12 +10,11 @@ const Home = () => {
   debugger;
   const [auth, dispatch, checking] = useAuth();
   const [users, setUsers] = useState([]);
-  const history = useHistory();
 
   const getUsers = async () => {
     debugger;
     try {
-      let res = await axiosInstance.get("/user");
+      let res = await axiosInstance(dispatch).get("/user");
       setUsers(res.data);
     } catch (err) {}
   };
@@ -25,26 +24,15 @@ const Home = () => {
   }, [checking]);
 
   return (
-    <Container fluid>
-      <Button variant="wine" onClick={() => logout(history)(dispatch)}>
-        Logout
-      </Button>
-      <Link to="/profile">
-        <Button variant="wine">Profile</Button>
-      </Link>
-      <Container fluid className="bg-baby-powder">
-        <p className="overflow-auto">{JSON.stringify(auth)}</p>
-      </Container>
-      <Container>
-        {users.map((user) => {
-          return (
-            <div className="overflow-auto bg-baby-powder" key={user.id}>
-              <p>{user.id}</p>
-              <p>{user.username}</p>
-            </div>
-          );
-        })}
-      </Container>
+    <Container fluid className="flex-grow-1">
+      <Row className="h-100">
+        <Col xs={12} md={9} className="bg-baby-powder">
+          <div>
+            <p>Dobar dan gospodo!</p>
+          </div>
+        </Col>
+        <Col xs={0} md={3}></Col>
+      </Row>
     </Container>
   );
 };

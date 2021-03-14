@@ -60,7 +60,7 @@ public class AuthController {
         else
             newRefreshToken = refreshTokenService.changeRefreshToken(user);
 
-        setCookies(newRefreshToken.getRefreshToken(), jwt, response);
+        setCookies(newRefreshToken.getRefreshToken(), jwt, response, 120, 3600*24);
 
         return ResponseEntity.ok(MapperUser.UserToJson(user));
     }
@@ -91,7 +91,7 @@ public class AuthController {
             // save the refresh token in a new cookie and make a new jwt
             String newJwt = jwtTokenUtil.generateToken(user);
 
-            setCookies(newRefreshToken.getRefreshToken(), newJwt, response);
+            setCookies(newRefreshToken.getRefreshToken(), newJwt, response, 120, 3600*24);
 
             return ResponseEntity.ok().build();
         } catch (IllegalArgumentException | NoSuchAlgorithmException ex) {
@@ -99,24 +99,30 @@ public class AuthController {
         }
     }
 
-    private Cookie setRefreshCookie(UUID refreshToken) {
-        Cookie cookie = new Cookie("Refresh-token", refreshToken.toString());
+    @RequestMapping(value = "/deauthenticate", method = RequestMethod.GET)
+    public ResponseEntity<?> logout(HttpServletResponse response){
+        setCookies(null, null, response, 0, 0);
+        return ResponseEntity.ok().build();
+    }
+
+    private Cookie setRefreshCookie(UUID refreshToken, int expiration) {
+        Cookie cookie = new Cookie("Refresh-token", refreshToken == null ? "" : refreshToken.toString());
         cookie.setHttpOnly(true);
-        cookie.setMaxAge(3600);
+        cookie.setMaxAge(expiration);
         cookie.setPath("/refresh");
         return cookie;
     }
 
-    private Cookie setJwtCookie(String jwt) {
-        Cookie cookie = new Cookie("Access-token", jwt);
+    private Cookie setJwtCookie(String jwt, int expiration) {
+        Cookie cookie = new Cookie("Access-token", jwt == null ? "" : jwt);
         cookie.setHttpOnly(true);
-        cookie.setMaxAge(3600);
+        cookie.setMaxAge(expiration);
         return cookie;
     }
 
-    private void setCookies(UUID refreshToken, String jwt, HttpServletResponse response) {
-        Cookie refreshTokenCookie = setRefreshCookie(refreshToken);
-        Cookie jwtCookie = setJwtCookie(jwt);
+    private void setCookies(UUID refreshToken, String jwt, HttpServletResponse response, int jwtExpiration, int refreshExpiration) {
+        Cookie refreshTokenCookie = setRefreshCookie(refreshToken, refreshExpiration);
+        Cookie jwtCookie = setJwtCookie(jwt, jwtExpiration);
         response.addCookie(refreshTokenCookie);
         response.addCookie(jwtCookie);
     }

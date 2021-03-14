@@ -13,7 +13,9 @@ const Profile = () => {
   const getUser = async () => {
     debugger;
     try {
-      let res = await axiosInstance.get("/user/" + auth.data.username);
+      let res = await axiosInstance(dispatch, history).get(
+        "/user/" + auth.data.username
+      );
       setUser(res.data);
     } catch (err) {}
   };
