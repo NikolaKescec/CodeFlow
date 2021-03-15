@@ -8,6 +8,7 @@ import { useContext, useEffect } from "react";
 import login from "../authentication/actions/login";
 
 import "../styles/login.css";
+import useApp from "../app/hook/useApp";
 
 const validate = (values) => {
   const errors = {};
@@ -27,7 +28,8 @@ const validate = (values) => {
 };
 
 const Login = () => {
-  const { auth, dispatch } = useContext(AuthContext);
+  const { auth, authDispatch } = useContext(AuthContext);
+  const [app, navigation] = useApp("/");
   const history = useHistory();
 
   debugger;
@@ -39,15 +41,18 @@ const Login = () => {
     },
     validate,
     onSubmit: (values) => {
-      login(values)(dispatch);
+      login(values)(authDispatch);
     },
   });
 
   useEffect(() => {
     debugger;
-    if (auth.data) history.push("/home");
+    if (auth.data) {
+      navigation.changePage("/home");
+      history.push("/home");
+    }
     return () => {
-      if (auth.error) dispatch({ type: "REMOVE_ERROR" });
+      if (auth.error) authDispatch({ type: "REMOVE_ERROR" });
     };
   }, [auth]);
 
@@ -75,7 +80,7 @@ const Login = () => {
             {auth.error && (
               <Alert
                 variant="wine"
-                onClose={() => dispatch({ type: "REMOVE_ERROR" })}
+                onClose={() => authDispatch({ type: "REMOVE_ERROR" })}
                 dismissible
               >
                 <p>{auth.error.message}</p>
@@ -84,7 +89,7 @@ const Login = () => {
             {auth.message && (
               <Alert
                 variant="danger"
-                onClose={() => dispatch({ type: "REMOVE_MESSAGE" })}
+                onClose={() => authDispatch({ type: "REMOVE_MESSAGE" })}
                 dismissible
               >
                 <p>{auth.message}</p>

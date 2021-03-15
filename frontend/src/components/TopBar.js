@@ -10,21 +10,20 @@ import {
 import { Nav, Navbar } from "react-bootstrap";
 import { useHistory } from "react-router";
 import { AuthContext } from "../authentication/context/AuthProvider";
+import useApp from "../app/hook/useApp";
+import appActions from "../app/actions/appActions";
 import logo from "../assets/processor.png";
 import profile from "../assets/profile.png";
 import logout from "../authentication/actions/logout";
 import { Link } from "react-router-dom";
 
-const TopBar = () => {
+const TopBar = ({ path }) => {
   const history = useHistory();
-  const { auth, dispatch } = useContext(AuthContext);
-  const [path, setPath] = useState();
+  const { auth, authDispatch } = useContext(AuthContext);
 
-  useEffect(() => {
-    if (auth.loading) {
-      setPath("/home");
-    }
-  });
+  debugger;
+
+  console.log("RERENDER");
 
   return (
     <Navbar
@@ -47,34 +46,30 @@ const TopBar = () => {
       {auth.data && (
         <NavDropdown
           title={
-            <img alt="" src={profile} width="30" height="30" className="" />
+            <>
+              <img alt="" src={profile} width="30" height="30" className="" />
+            </>
           }
           id="nav-dropdown"
           className="rounded-pill border border-rich-black bg-wine ml-auto"
           alignRight
         >
+          <NavDropdown.Header>
+            <span className="text-wine"> {auth.data.username} </span>
+          </NavDropdown.Header>
+          <NavDropdown.Divider />
           {path !== "/home" && (
-            <NavDropdown.Item
-              className="text-left"
-              as={Link}
-              to="/home"
-              onClick={() => setPath("/home")}
-            >
+            <NavDropdown.Item className="text-left" as={Link} to="/home">
               Home
             </NavDropdown.Item>
           )}
           {path !== "/profile" && (
-            <NavDropdown.Item
-              className="text-left"
-              as={Link}
-              to="/profile"
-              onClick={() => setPath("/profile")}
-            >
+            <NavDropdown.Item className="text-left" as={Link} to="/profile">
               Profile
             </NavDropdown.Item>
           )}
           <NavDropdown.Divider />
-          <NavDropdown.Item onClick={() => logout(history)(dispatch)}>
+          <NavDropdown.Item onClick={() => logout(history)(authDispatch)}>
             Logout
           </NavDropdown.Item>
         </NavDropdown>

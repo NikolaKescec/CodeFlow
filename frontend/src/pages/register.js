@@ -34,7 +34,7 @@ const validate = (values) => {
 };
 
 const Register = () => {
-  const { auth, dispatch } = useContext(AuthContext);
+  const { auth, authDispatch } = useContext(AuthContext);
   const history = useHistory();
 
   const formik = useFormik({
@@ -46,13 +46,13 @@ const Register = () => {
     },
     validate,
     onSubmit: (values) => {
-      register(values, history)(dispatch);
+      register(values, history)(authDispatch);
     },
   });
 
   useEffect(() => {
     return () => {
-      if (auth.error) dispatch({ type: "REMOVE_ERROR" });
+      if (auth.error) authDispatch({ type: "REMOVE_ERROR" });
     };
   }, [auth]);
 
@@ -67,7 +67,7 @@ const Register = () => {
           {auth.error && (
             <Alert
               variant="wine"
-              onClose={() => dispatch({ type: "REMOVE_ERROR" })}
+              onClose={() => authDispatch({ type: "REMOVE_ERROR" })}
               dismissible
             >
               <p>{auth.error.message}</p>

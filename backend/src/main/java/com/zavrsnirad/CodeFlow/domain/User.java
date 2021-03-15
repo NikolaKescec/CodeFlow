@@ -3,6 +3,7 @@ package com.zavrsnirad.CodeFlow.domain;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,6 +31,10 @@ public class User {
     @Column(nullable = false)
     private String role;
 
+    @Column(nullable = false)
+    @Min(0)
+    private Integer points;
+
     @ManyToMany
     @JoinColumn(name = "user_id")
     private List<User> followers;
@@ -43,11 +48,35 @@ public class User {
         this.role = role;
     }
 
+    public User(String username, String email, String password, String role, @Min(0) Integer points) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.points = points;
+    }
+
     public User(String username, String email, String password, String role) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
+
+    public List<User> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(List<User> followers) {
+        this.followers = followers;
     }
 
     public UUID getUserId() {

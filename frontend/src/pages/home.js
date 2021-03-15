@@ -5,33 +5,26 @@ import { AuthContext } from "../authentication/context/AuthProvider";
 import logout from "../authentication/actions/logout";
 import { Link, useHistory } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
+import useApp from "../app/hook/useApp";
+import Feed from "../components/Feed";
+import Scoreboard from "../components/Scoreboard";
 
 const Home = () => {
   debugger;
-  const [auth, dispatch, checking] = useAuth();
+  const [auth, authDispatch, checking] = useAuth();
+  const [tasks, setTasks] = useState([]);
   const [users, setUsers] = useState([]);
-
-  const getUsers = async () => {
-    debugger;
-    try {
-      let res = await axiosInstance(dispatch).get("/user");
-      setUsers(res.data);
-    } catch (err) {}
-  };
-
-  useEffect(() => {
-    if (!checking) getUsers();
-  }, [checking]);
+  const [feed, setFeed] = useState("fresh");
 
   return (
     <Container fluid className="flex-grow-1">
       <Row className="h-100">
         <Col xs={12} md={9} className="bg-baby-powder">
-          <div>
-            <p>Dobar dan gospodo!</p>
-          </div>
+          <Feed parameter={feed}></Feed>
         </Col>
-        <Col xs={0} md={3}></Col>
+        <Col xs={0} md={3}>
+          <Scoreboard></Scoreboard>
+        </Col>
       </Row>
     </Container>
   );

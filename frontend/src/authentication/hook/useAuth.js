@@ -4,19 +4,19 @@ import axiosInstance from "../../utils/axiosInstance";
 import { useHistory } from "react-router";
 
 const useAuth = () => {
-  const { auth, dispatch } = useContext(AuthContext);
+  const { auth, authDispatch } = useContext(AuthContext);
   const [checking, setChecking] = useState(true);
   const history = useHistory();
 
   useEffect(() => {
-    axiosInstance(dispatch, history)
+    axiosInstance(authDispatch, history)
       .get("/check")
       .then((res) => {
         setChecking(false);
       });
   }, []);
 
-  return [auth, dispatch, checking];
+  return [auth, authDispatch, checking];
 };
 
 export default useAuth;

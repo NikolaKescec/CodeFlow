@@ -6,7 +6,7 @@ export const AuthContext = createContext({});
 
 //destrukturiranje djece ovog komponenta
 export const AuthProvider = ({ children }) => {
-  const [auth, dispatch] = useReducer(authReducer, {}, () => {
+  const [auth, dispatch] = useReducer(authReducer, authState, () => {
     debugger;
     const auth =
       localStorage.auth !== undefined
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   }, [auth]);
 
   return (
-    <AuthContext.Provider value={{ auth, dispatch }}>
+    <AuthContext.Provider value={{ auth, authDispatch: dispatch }}>
       {children}
     </AuthContext.Provider>
   );

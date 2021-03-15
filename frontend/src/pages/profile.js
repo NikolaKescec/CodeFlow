@@ -4,16 +4,18 @@ import logout from "../authentication/actions/logout";
 import { useHistory } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import useAuth from "../authentication/hook/useAuth";
+import useApp from "../app/hook/useApp";
 
 const Profile = () => {
-  const [auth, dispatch, checking] = useAuth();
+  const [auth, authDispatch, checking] = useAuth();
+  const [app, navigation] = useApp("/profile");
   const [user, setUser] = useState(null);
   const history = useHistory();
 
   const getUser = async () => {
     debugger;
     try {
-      let res = await axiosInstance(dispatch, history).get(
+      let res = await axiosInstance(authDispatch, history).get(
         "/user/" + auth.data.username
       );
       setUser(res.data);
@@ -26,7 +28,7 @@ const Profile = () => {
 
   return (
     <Container fluid>
-      <Button variant="wine" onClick={() => logout(history)(dispatch)}>
+      <Button variant="wine" onClick={() => logout(history)(authDispatch)}>
         Logout
       </Button>
       <Container fluid className="bg-baby-powder">
