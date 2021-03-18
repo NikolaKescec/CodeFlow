@@ -49,7 +49,7 @@ const Home = () => {
                 activeElement={taskFeed}
               ></FeedButton>
               <FeedButton
-                text={"Followed"}
+                text={"Following"}
                 selectFunction={changeFunctionTasks}
                 activeElement={taskFeed}
                 middle={true}
@@ -60,12 +60,13 @@ const Home = () => {
                 activeElement={taskFeed}
               ></FeedButton>
             </Container>
+            <hr className="bg-rich-black p-0 mt-1 mb-0"></hr>
             <Feed text={taskFeed}></Feed>
           </Col>
-          <Col xs={0} md={3} className="d-none d-md-inline p-0 home-pattern ">
+          <Col xs={0} md={3} className="d-none d-md-inline p-0 home-pattern">
             <Container
               fluid
-              className="d-flex m-0 p-0 justify-content-between text-center p-0"
+              className="d-flex m-0 p-0 justify-content-between text-center"
             >
               <FeedButton
                 text={"Taskers"}

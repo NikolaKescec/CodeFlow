@@ -1,5 +1,6 @@
 import "../../styles/spinner.css";
 import "../../styles/feed.css";
+import "../../styles/scoreboard.css";
 import axiosInstance from "../../utils/axiosInstance";
 import { useEffect, useState } from "react";
 import { Button, Container, Table } from "react-bootstrap";
@@ -26,10 +27,15 @@ const ScoreBoard = ({ text }) => {
   }, [text]);
 
   return (
-    <Container className="scrollable-feed p-0">
+    <Container className="scrollable-feed p-2">
       {loading && <div class="loader">Loading...</div>}
       {!loading && (
-        <Table bordered hover variant="darker-wine text-baby-powder">
+        <Table
+          striped
+          size="sm"
+          variant="charcoal"
+          className="bg-charcoal text-baby-powder"
+        >
           <thead>
             <tr>
               <th>Position</th>
@@ -42,9 +48,9 @@ const ScoreBoard = ({ text }) => {
             {users.map((user, index) => {
               return (
                 <tr key={user.id}>
-                  <th>{index}</th>
-                  <th>{user.username}</th>
-                  <th>
+                  <th className="align-middle">{index + 1}</th>
+                  <th className="align-middle">{user.username}</th>
+                  <th className="align-middle">
                     {text.toLowerCase() === "taskers"
                       ? user.taskPoints
                       : user.solutionPoints}
