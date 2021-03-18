@@ -1,0 +1,9 @@
+.home-pattern {
+    background-image: url("../assets/home-patter.png");
+    background-repeat: repeat;
+}
+
+.scrollable-feed {
+    height: 85vh;
+    overflow-y: auto;
+}

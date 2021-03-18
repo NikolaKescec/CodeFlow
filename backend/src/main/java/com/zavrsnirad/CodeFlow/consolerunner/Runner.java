@@ -25,15 +25,15 @@ public class Runner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         //bigPP
-        User PP = userRepository.save(new User("PP", "pp@email.com", "$2y$12$A5dMg1i8IBdguxPHW6y2T.ljLswMdiLoiH0CX3mAVZjHi1Oz9gJBS", "ADMIN", 1023));
+        User PP = userRepository.save(new User("PP", "pp@email.com", "$2y$12$A5dMg1i8IBdguxPHW6y2T.ljLswMdiLoiH0CX3mAVZjHi1Oz9gJBS", "ADMIN", 1023, 2212));
         //catCatcat
-        User BigBertha =userRepository.save(new User("BigBertha", "bigBertha@email.com", "$2y$12$6J74jRs1b6LVcLGvWVm37OsCGQpAUM7UDkoEzbnEneVm8kqLgV.ke","USER",255));
+        User BigBertha =userRepository.save(new User("BigBertha", "bigBertha@email.com", "$2y$12$6J74jRs1b6LVcLGvWVm37OsCGQpAUM7UDkoEzbnEneVm8kqLgV.ke","USER",255, 1203));
         //konzumWOM
-        User Lelok =userRepository.save(new User("Lelok", "Lelok@email.com", "$2y$12$TM1DnU.F2iYaACgfQWFsruC2zcSxKM7xT6Mh/stbxWvlWz0roTffy", "USER", 332));
+        User Lelok =userRepository.save(new User("Lelok", "Lelok@email.com", "$2y$12$TM1DnU.F2iYaACgfQWFsruC2zcSxKM7xT6Mh/stbxWvlWz0roTffy", "USER", 332, 13));
         //motoriImotori
-        User Kovakov =userRepository.save(new User("Kovakov", "Kovakov@email.com", "$2y$12$oW4jFJOCFc07n4lmWbWSuOwAs0tnIKe4z4PZ1vtEeHojAFVy9oT9O",  "USER", 18));
+        User Kovakov =userRepository.save(new User("Kovakov", "Kovakov@email.com", "$2y$12$oW4jFJOCFc07n4lmWbWSuOwAs0tnIKe4z4PZ1vtEeHojAFVy9oT9O",  "USER", 18, 5));
         //lošMikrofonGuy
-        User Mucero =userRepository.save(new User("Mucero", "Mucero@email.com", "$2y$12$W0EmyNEPJ7PyPubegYF/sO3uEp4EnhXBNMZmFVHI2U4a6ff1V2K36",  "USER", 2));
+        User Mucero =userRepository.save(new User("Mucero", "Mucero@email.com", "$2y$12$W0EmyNEPJ7PyPubegYF/sO3uEp4EnhXBNMZmFVHI2U4a6ff1V2K36",  "USER", 2, 0));
 
         // some tasks
         // TASK 1

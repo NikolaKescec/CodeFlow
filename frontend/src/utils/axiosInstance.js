@@ -2,7 +2,6 @@ import axios from "axios";
 import authActions from "../authentication/actions/authActions";
 
 const axiosInstance = (dispatch = null, history = null) => {
-  debugger;
   const backend_url = "http://localhost:8080";
 
   const axiosInstance = axios.create({
@@ -30,8 +29,9 @@ const axiosInstance = (dispatch = null, history = null) => {
         } else {
           window.location = "/";
         }
+      } else {
+        return Promise.reject(error);
       }
-      return Promise.reject(error);
     }
   );
 

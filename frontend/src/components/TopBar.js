@@ -31,7 +31,7 @@ const TopBar = ({ path }) => {
       variant="dark"
       sticky="top"
       expand="lg"
-      className="border-bottom border-wine"
+      className="border-bottom border-rich-black"
     >
       <Navbar.Brand className="text-red-violet">
         <img
@@ -41,7 +41,7 @@ const TopBar = ({ path }) => {
           height="30"
           className="d-inline-block align-top"
         />
-        <span> CodeFlow</span>
+        <span className="font-weight-bold"> CodeFlow</span>
       </Navbar.Brand>
       {auth.data && (
         <NavDropdown

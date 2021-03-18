@@ -1,0 +1,24 @@
+.feed-button {
+    color: #ebebf2;
+    transition: all 0.15s ease-in;
+    cursor: pointer;
+}
+
+.feed-button-inactive {
+    background-color: #40434e;
+    border-bottom: 1px solid #080705;
+}
+
+.feed-button-active {
+    background-color: #4e1b24;
+    border-bottom: 1px solid #4e1b24;
+}
+
+.feed-button-middle {
+    border-right: 1px solid #080705;
+    border-left: 1px solid #080705;
+}
+
+.feed-button:hover {
+    color: #080705
+}

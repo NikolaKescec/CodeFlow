@@ -26,7 +26,7 @@ public class TaskController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("")
+    @GetMapping("/fresh")
     public ResponseEntity<?> getTasks(Principal principal) {
         User user = userService.findByUsername(principal.getName());
         List<TaskDtoJson> response = MapperList.getList(taskService.listAllTasks(), task -> MapperTask.TaskToJson(task, user));

@@ -6,20 +6,30 @@ public class UserDtoJson {
 
     private UUID id;
     private String username;
-    private Integer points;
+    private Integer solutionPoints;
+    private Integer taskPoints;
 
-    public UserDtoJson(UUID id, String username, Integer points) {
+    public UserDtoJson(UUID id, String username, Integer solutionPoints, Integer taskPoints) {
         this.id = id;
         this.username = username;
-        this.points = points;
+        this.solutionPoints = solutionPoints;
+        this.taskPoints = taskPoints;
     }
 
-    public Integer getPoints() {
-        return points;
+    public Integer getSolutionPoints() {
+        return solutionPoints;
     }
 
-    public void setPoints(Integer points) {
-        this.points = points;
+    public void setSolutionPoints(Integer solutionPoints) {
+        this.solutionPoints = solutionPoints;
+    }
+
+    public Integer getTaskPoints() {
+        return taskPoints;
+    }
+
+    public void setTaskPoints(Integer taskPoints) {
+        this.taskPoints = taskPoints;
     }
 
     public UUID getId() {

@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
 html body {
   background-color: #40434E;
   font-family: 'Roboto Mono', monospace;
@@ -27,4 +26,25 @@ a {
   text-decoration: none !important;
 }
 
+/* Works on Firefox */
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #080705 #40434E;
+}
+
+/* Works on Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #40434E;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #40434E;
+  border-radius: 20px;
+  border: 3px solid #080705;
+}

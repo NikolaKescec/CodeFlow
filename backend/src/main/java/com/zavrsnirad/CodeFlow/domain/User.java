@@ -33,7 +33,11 @@ public class User {
 
     @Column(nullable = false)
     @Min(0)
-    private Integer points;
+    private Integer taskPoints;
+
+    @Column(nullable = false)
+    @Min(0)
+    private Integer solutionPoints;
 
     @ManyToMany
     @JoinColumn(name = "user_id")
@@ -48,12 +52,13 @@ public class User {
         this.role = role;
     }
 
-    public User(String username, String email, String password, String role, @Min(0) Integer points) {
+    public User(String username, String email, String password, String role, @Min(0) Integer taskPoints, @Min(0) Integer solutionPoints) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.points = points;
+        this.taskPoints = taskPoints;
+        this.solutionPoints = solutionPoints;
     }
 
     public User(String username, String email, String password, String role) {
@@ -63,12 +68,20 @@ public class User {
         this.role = role;
     }
 
-    public Integer getPoints() {
-        return points;
+    public Integer getTaskPoints() {
+        return taskPoints;
     }
 
-    public void setPoints(Integer points) {
-        this.points = points;
+    public void setTaskPoints(Integer taskPoints) {
+        this.taskPoints = taskPoints;
+    }
+
+    public Integer getSolutionPoints() {
+        return solutionPoints;
+    }
+
+    public void setSolutionPoints(Integer solutionPoints) {
+        this.solutionPoints = solutionPoints;
     }
 
     public List<User> getFollowers() {

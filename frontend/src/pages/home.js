@@ -1,31 +1,87 @@
 import { useEffect, useState } from "react";
 import useAuth from "../authentication/hook/useAuth";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, ButtonGroup, Col, Container, Row } from "react-bootstrap";
 import { AuthContext } from "../authentication/context/AuthProvider";
 import logout from "../authentication/actions/logout";
 import { Link, useHistory } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import useApp from "../app/hook/useApp";
-import Feed from "../components/Feed";
+import Feed from "../components/Task/Feed";
 import Scoreboard from "../components/Scoreboard";
+import FeedButton from "../components/Task/FeedButton";
+
+import "../styles/home.css";
+import "../styles/spinner.css";
 
 const Home = () => {
   debugger;
   const [auth, authDispatch, checking] = useAuth();
-  const [tasks, setTasks] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [feed, setFeed] = useState("fresh");
+  const [userFeed, setUserFeed] = useState("Taskers");
+  const [taskFeed, setTaskFeed] = useState("Fresh");
+
+  const changeFunctionTasks = (text) => {
+    console.log(text);
+    setTaskFeed(text);
+  };
+
+  const changeFunctionUsers = (text) => {
+    console.log(text);
+    setUserFeed(text);
+  };
 
   return (
     <Container fluid className="flex-grow-1">
-      <Row className="h-100">
-        <Col xs={12} md={9} className="bg-baby-powder">
-          <Feed parameter={feed}></Feed>
-        </Col>
-        <Col xs={0} md={3}>
-          <Scoreboard></Scoreboard>
-        </Col>
-      </Row>
+      {checking && <div class="loader my-auto">Loading...</div>}
+      {!checking && (
+        <Row className="h-100">
+          <Col
+            xs={12}
+            md={9}
+            className="home-pattern p-0 border-lg border-right border-rich-black"
+          >
+            <Container
+              fluid
+              className="d-flex m-0 p-0 justify-content-between text-center"
+            >
+              <FeedButton
+                text={"Fresh"}
+                selectFunction={changeFunctionTasks}
+                activeElement={taskFeed}
+              ></FeedButton>
+              <FeedButton
+                text={"Followed"}
+                selectFunction={changeFunctionTasks}
+                activeElement={taskFeed}
+                middle={true}
+              ></FeedButton>
+              <FeedButton
+                text={"Best"}
+                selectFunction={changeFunctionTasks}
+                activeElement={taskFeed}
+              ></FeedButton>
+            </Container>
+            <Feed text={taskFeed}></Feed>
+          </Col>
+          <Col xs={0} md={3} className="d-sm-none d-xs-none d-md-inline p-0">
+            <Container
+              fluid
+              className="d-flex m-0 p-0 justify-content-between text-center p-0"
+            >
+              <FeedButton
+                text={"Taskers"}
+                selectFunction={changeFunctionUsers}
+                activeElement={userFeed}
+              ></FeedButton>
+              <FeedButton
+                text={"Solvers"}
+                selectFunction={changeFunctionUsers}
+                activeElement={userFeed}
+              ></FeedButton>
+            </Container>
+            <Scoreboard></Scoreboard>
+          </Col>
+        </Row>
+      )}
     </Container>
   );
 };

@@ -25,6 +25,16 @@ public class UserServiceJpa implements UserService {
     }
 
     @Override
+    public List<User> getUsersTaskers() {
+        return userRepository.findTop20ByOrderByTaskPointsDesc();
+    }
+
+    @Override
+    public List<User> getUsersSolvers() {
+        return userRepository.findTop20ByOrderBySolutionPointsDesc();
+    }
+
+    @Override
     public List<User> getUsers() {
         return userRepository.findAll();
     }

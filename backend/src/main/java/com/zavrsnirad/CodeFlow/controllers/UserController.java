@@ -1,6 +1,7 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
 import com.zavrsnirad.CodeFlow.dto.json.UserDtoJson;
+import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperUser;
 import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
 import com.zavrsnirad.CodeFlow.service.UserService;
@@ -37,6 +38,15 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid user data.");
         userService.addUser(newUser);
         return ResponseEntity.status(HttpStatus.CREATED).body("Please login with your new username and password.");
+    }
+    @GetMapping("/top/tasks")
+    public ResponseEntity<?> topTaskers() {
+        return ResponseEntity.status(HttpStatus.OK).body(MapperList.getList(userService.getUsersTaskers(), MapperUser::UserToJson));
+    }
+
+    @GetMapping("/top/solutions")
+    public ResponseEntity<?> topSolvers() {
+        return ResponseEntity.status(HttpStatus.OK).body(MapperList.getList(userService.getUsersSolvers(), MapperUser::UserToJson));
     }
 
 }

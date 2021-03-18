@@ -7,7 +7,7 @@ import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
 public class MapperUser {
 
     public static UserDtoJson UserToJson(User user) {
-        return new UserDtoJson(user.getUserId(), user.getUsername(), user.getPoints());
+        return new UserDtoJson(user.getUserId(), user.getUsername(), user.getSolutionPoints(), user.getTaskPoints());
     }
 
     public static User UserDtoToUser(UserDtoReq user) {

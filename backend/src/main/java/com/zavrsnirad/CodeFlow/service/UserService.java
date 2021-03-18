@@ -9,6 +9,10 @@ public interface UserService {
 
     User findByUsername(String username);
 
+    List<User> getUsersTaskers();
+
+    List<User> getUsersSolvers();
+
     List<User> getUsers();
 
     User addUser(UserDtoReq user);
