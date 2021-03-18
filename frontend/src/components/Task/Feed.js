@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import TaskSnippet from "../TaskSnippet";
+import TaskSnippet from "./TaskSnippet";
 
 import "../../styles/spinner.css";
 import "../../styles/feed.css";
@@ -12,9 +12,13 @@ const Feed = ({ text }) => {
 
   const getTasks = async () => {
     debugger;
-    let res = await axiosInstance().get(`/task/${text.toLowerCase()}`);
-    setTasks([...res.data]);
-    setLoading(false);
+    try {
+      let res = await axiosInstance().get(`/task/${text.toLowerCase()}`);
+      setTasks([...res.data]);
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   useEffect(() => {

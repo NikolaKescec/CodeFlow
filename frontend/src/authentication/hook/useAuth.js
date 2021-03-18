@@ -13,6 +13,9 @@ const useAuth = () => {
       .get("/check")
       .then((res) => {
         setChecking(false);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
 

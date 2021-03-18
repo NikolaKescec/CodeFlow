@@ -39,12 +39,12 @@ public class UserController {
         userService.addUser(newUser);
         return ResponseEntity.status(HttpStatus.CREATED).body("Please login with your new username and password.");
     }
-    @GetMapping("/top/tasks")
+    @GetMapping("/top/taskers")
     public ResponseEntity<?> topTaskers() {
         return ResponseEntity.status(HttpStatus.OK).body(MapperList.getList(userService.getUsersTaskers(), MapperUser::UserToJson));
     }
 
-    @GetMapping("/top/solutions")
+    @GetMapping("/top/solvers")
     public ResponseEntity<?> topSolvers() {
         return ResponseEntity.status(HttpStatus.OK).body(MapperList.getList(userService.getUsersSolvers(), MapperUser::UserToJson));
     }

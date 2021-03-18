@@ -6,8 +6,8 @@ import logout from "../authentication/actions/logout";
 import { Link, useHistory } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import useApp from "../app/hook/useApp";
+import ScoreBoard from "../components/Users/ScoreBoard";
 import Feed from "../components/Task/Feed";
-import Scoreboard from "../components/Scoreboard";
 import FeedButton from "../components/Task/FeedButton";
 
 import "../styles/home.css";
@@ -62,7 +62,7 @@ const Home = () => {
             </Container>
             <Feed text={taskFeed}></Feed>
           </Col>
-          <Col xs={0} md={3} className="d-sm-none d-xs-none d-md-inline p-0">
+          <Col xs={0} md={3} className="d-none d-md-inline p-0 home-pattern ">
             <Container
               fluid
               className="d-flex m-0 p-0 justify-content-between text-center p-0"
@@ -78,7 +78,7 @@ const Home = () => {
                 activeElement={userFeed}
               ></FeedButton>
             </Container>
-            <Scoreboard></Scoreboard>
+            <ScoreBoard text={userFeed}></ScoreBoard>
           </Col>
         </Row>
       )}

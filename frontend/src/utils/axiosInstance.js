@@ -15,6 +15,7 @@ const axiosInstance = (dispatch = null, history = null) => {
     },
     async function (error) {
       const originalRequest = error.config;
+      debugger;
       if (error.response.status === 401 && !originalRequest._retry) {
         originalRequest._retry = true;
         await axiosInstance.get("/refresh");
@@ -23,7 +24,10 @@ const axiosInstance = (dispatch = null, history = null) => {
       if (error.response.status === 403) {
         debugger;
         await axiosInstance.get("/deauthenticate");
-        dispatch({ type: authActions.LOGOUT });
+        if (dispatch) {
+          dispatch({ type: authActions.LOGOUT });
+        } else {
+        }
         if (history) {
           history.push("/");
         } else {

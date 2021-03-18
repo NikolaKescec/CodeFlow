@@ -43,6 +43,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         // ignored urls for jwt-s
         if(!(httpServletRequest.getRequestURI().equals("/authenticate")
                 || httpServletRequest.getRequestURI().equals("/refresh")
+                || httpServletRequest.getRequestURI().equals("/deauthenticate")
                 || httpServletRequest.getRequestURI().equals("/user/register") )) {
             try {
                 if(cookies != null) {
