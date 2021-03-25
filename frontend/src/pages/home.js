@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import useAuth from "../authentication/hook/useAuth";
-import { Button, ButtonGroup, Col, Container, Row } from "react-bootstrap";
+import {
+  Button,
+  ButtonGroup,
+  Col,
+  Container,
+  Row,
+  Spinner,
+} from "react-bootstrap";
 import { AuthContext } from "../authentication/context/AuthProvider";
 import logout from "../authentication/actions/logout";
 import { Link, useHistory } from "react-router-dom";
@@ -11,13 +18,12 @@ import Feed from "../components/Task/Feed";
 import FeedButton from "../components/Task/FeedButton";
 
 import "../styles/home.css";
-import "../styles/spinner.css";
 
 const Home = () => {
   debugger;
   const [auth, authDispatch, checking] = useAuth();
   const [userFeed, setUserFeed] = useState("Taskers");
-  const [taskFeed, setTaskFeed] = useState("Fresh");
+  const [taskFeed, setTaskFeed] = useState("fresh");
 
   const changeFunctionTasks = (text) => {
     console.log(text);
@@ -31,7 +37,7 @@ const Home = () => {
 
   return (
     <Container fluid className="flex-grow-1">
-      {checking && <div class="loader my-auto">Loading...</div>}
+      {checking && <Spinner></Spinner>}
       {!checking && (
         <Row className="h-100">
           <Col
@@ -44,24 +50,26 @@ const Home = () => {
               className="d-flex m-0 p-0 justify-content-between text-center"
             >
               <FeedButton
-                text={"Fresh"}
+                text={"fresh"}
                 selectFunction={changeFunctionTasks}
                 activeElement={taskFeed}
               ></FeedButton>
               <FeedButton
-                text={"Following"}
+                text={"following"}
                 selectFunction={changeFunctionTasks}
                 activeElement={taskFeed}
                 middle={true}
               ></FeedButton>
               <FeedButton
-                text={"Best"}
+                text={"best"}
                 selectFunction={changeFunctionTasks}
                 activeElement={taskFeed}
               ></FeedButton>
             </Container>
             <hr className="bg-rich-black p-0 mt-1 mb-0"></hr>
-            <Feed text={taskFeed}></Feed>
+            <div className="scrollable-feed">
+              <Feed text={taskFeed}></Feed>
+            </div>
           </Col>
           <Col xs={0} md={3} className="d-none d-md-inline p-0 home-pattern">
             <Container

@@ -1,9 +1,8 @@
-import "../../styles/spinner.css";
 import "../../styles/feed.css";
 import "../../styles/scoreboard.css";
 import axiosInstance from "../../utils/axiosInstance";
 import { useEffect, useState } from "react";
-import { Button, Container, Table } from "react-bootstrap";
+import { Button, Container, Spinner, Table } from "react-bootstrap";
 
 const ScoreBoard = ({ text }) => {
   const [users, setUsers] = useState([]);
@@ -28,13 +27,13 @@ const ScoreBoard = ({ text }) => {
 
   return (
     <Container className="scrollable-feed p-2">
-      {loading && <div class="loader">Loading...</div>}
+      {loading && <Spinner></Spinner>}
       {!loading && (
         <Table
           striped
           size="sm"
           variant="charcoal"
-          className="bg-charcoal text-baby-powder"
+          className="bg-charcoal text-baby-powder rounded"
         >
           <thead>
             <tr>

@@ -13,7 +13,7 @@ const Feed = ({ text }) => {
   const getTasks = async () => {
     debugger;
     try {
-      let res = await axiosInstance().get(`/task/${text.toLowerCase()}`);
+      let res = await axiosInstance().get(`/task/${text}`);
       setTasks([...res.data]);
       setLoading(false);
     } catch (e) {
@@ -26,7 +26,7 @@ const Feed = ({ text }) => {
   }, [text]);
 
   return (
-    <Container fluid className="scrollable-feed">
+    <Container fluid>
       {loading && <div class="loader">Loading...</div>}
       {!loading &&
         tasks.map((task) => {

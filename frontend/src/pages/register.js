@@ -57,13 +57,13 @@ const Register = () => {
   }, [auth]);
 
   return (
-    <Container className="bg-baby-powder border-rich-black rounded p-2">
+    <Container className="bg-dark border-rich-black rounded rounded p-2 text-white">
       <Row>
-        <Col className="d-sm-none d-xs-none d-md-block border-wine border-right">
+        <Col className="d-none d-md-block border-wine border-right">
           <Container fluid className="bg-register"></Container>
         </Col>
         <Col className="d-flex column justify-content-center ">
-          <h2 className="text-wine">Register</h2>
+          <h2 className="text-red-violet">Register</h2>
           {auth.error && (
             <Alert
               variant="wine"
@@ -73,7 +73,7 @@ const Register = () => {
               <p>{auth.error.message}</p>
             </Alert>
           )}
-          <Form onSubmit={formik.handleSubmit} className="  p-2 form">
+          <Form onSubmit={formik.handleSubmit} className="p-2 form">
             <Form.Group>
               <TextField
                 fullWidth
@@ -140,11 +140,11 @@ const Register = () => {
               ></TextField>
             </Form.Group>
             <Form.Group>
-              <Button type="submit" variant="outline-wine mr-2">
+              <Button type="submit" variant="red-violet mr-2">
                 Register
               </Button>
               <Link to="/">
-                <Button variant="outline-wine">Return</Button>
+                <Button variant="red-violet">Return</Button>
               </Link>
             </Form.Group>
           </Form>

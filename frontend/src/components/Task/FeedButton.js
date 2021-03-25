@@ -28,7 +28,7 @@ const FeedButton = ({ text, selectFunction, activeElement, middle }) => {
       onClick={() => selectFunction(text)}
     >
       {isActive() && <HiOutlineSelector></HiOutlineSelector>}
-      {text}
+      {text.toUpperCase()}
       {isActive() && <HiOutlineSelector></HiOutlineSelector>}
     </div>
   );

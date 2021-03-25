@@ -6,11 +6,15 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const CodeFlowTheme = createMuiTheme({
   palette: {
-    secondary: {
-      main: "#ebebf2",
-    },
     primary: {
       main: "#912f40",
+    },
+    secondary: {
+      main: "#912f40",
+    },
+    text: {
+      primary: "#FFFFFF",
+      secondary: "#FFFFFF",
     },
   },
 });

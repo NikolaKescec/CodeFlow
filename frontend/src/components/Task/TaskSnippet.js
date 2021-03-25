@@ -31,7 +31,7 @@ const TaskSnippet = ({ task }) => {
             </span>
           )}
         </span>
-        <Button variant="outline-rich-black" className="ml-auto">
+        <Button variant="rich-black" className="ml-auto">
           {task.loggedInUserSolution && <AiFillCheckCircle></AiFillCheckCircle>}
           SOLVE
         </Button>

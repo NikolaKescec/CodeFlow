@@ -14,11 +14,11 @@
 }
 
 .form {
-    background: #ebebf2;
-    transition: background 0.5s ease-in-out;
+    background: #343A40;
+    transition: background 0.15s ease-in-out;
 }
 
 .form:hover {
-    background-color: #DBDBE3 !important;
+    background-color: #383E44 !important;
     border: #40434e;
 }

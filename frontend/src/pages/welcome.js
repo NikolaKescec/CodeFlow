@@ -57,9 +57,9 @@ const Login = () => {
   }, [auth]);
 
   return (
-    <Container className="d-flex p-2 bg-baby-powder column justify-content-around border rounded">
+    <Container className="d-flex p-2 bg-dark column justify-content-around border border-rich-black text-white rounded">
       <Container>
-        <Row className="bg-baby-powder">
+        <Row className="bg-dark">
           <Col xs={{ span: 12, order: "last" }} md={{ order: "first" }}>
             <Container fluid className="justify-content-center p-1">
               <h2>
@@ -127,7 +127,7 @@ const Login = () => {
                   helperText={formik.touched.password && formik.errors.password}
                 ></TextField>
               </Form.Group>
-              <Button type="submit" variant="outline-wine">
+              <Button type="submit" variant="red-violet">
                 Login
               </Button>
             </Form>
@@ -137,7 +137,7 @@ const Login = () => {
             <Container>
               <span>Dont have an account? </span>
               <Link to="/register">
-                <Button variant="outline-wine" className="d-inline">
+                <Button variant="red-violet" className="d-inline">
                   Register!
                 </Button>
               </Link>
@@ -149,7 +149,7 @@ const Login = () => {
         <hr className="bg-red-violet"></hr>
         Quench your problem solving thirst!
       </Container>
-      <Container className="justify-content-center bg-baby-powder rounded">
+      <Container className="justify-content-center bg-dark rounded">
         <div>
           <h1 className="pt-2">
             Not sure what <b className="text-red-violet">CodeFlow</b> is?

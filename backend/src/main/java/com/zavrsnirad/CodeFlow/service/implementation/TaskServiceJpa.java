@@ -19,7 +19,7 @@ public class TaskServiceJpa implements TaskService {
 
     @Override
     public List<Task> tasksByUser(String username) {
-        return null;
+        return taskRepository.findAllByUsername(username);
     }
 
     @Override
