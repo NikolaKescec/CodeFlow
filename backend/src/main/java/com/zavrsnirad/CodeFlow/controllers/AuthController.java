@@ -1,11 +1,11 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
+import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.domain.RefreshToken;
-import com.zavrsnirad.CodeFlow.domain.User;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperUser;
 import com.zavrsnirad.CodeFlow.dto.req.AuthReq;
 import com.zavrsnirad.CodeFlow.service.RefreshTokenService;
-import com.zavrsnirad.CodeFlow.service.UserService;
+import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import com.zavrsnirad.CodeFlow.util.CookieUtils;
 import com.zavrsnirad.CodeFlow.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class AuthController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UserService userService;
+    private ProgrammerService programmerService;
 
     @Autowired
     private RefreshTokenService refreshTokenService;
@@ -48,21 +48,21 @@ public class AuthController {
             throw new IllegalArgumentException("Incorrect username or password", e);
         }
 
-        final User user = userService.findByUsername(authRequest.getUsername());
-        final String jwt = jwtTokenUtil.generateToken(user);
+        final Programmer programmer = programmerService.findByUsername(authRequest.getUsername());
+        final String jwt = jwtTokenUtil.generateToken(programmer);
 
         RefreshToken newRefreshToken;
 
         // TODO: check and add token
-        RefreshToken oldRefreshToken = refreshTokenService.retrieveRefreshToken(user);
+        RefreshToken oldRefreshToken = refreshTokenService.retrieveRefreshToken(programmer);
         if(oldRefreshToken == null)
-            newRefreshToken = refreshTokenService.addRefreshToken(user);
+            newRefreshToken = refreshTokenService.addRefreshToken(programmer);
         else
-            newRefreshToken = refreshTokenService.changeRefreshToken(user);
+            newRefreshToken = refreshTokenService.changeRefreshToken(programmer);
 
         setCookies(newRefreshToken.getRefreshToken(), jwt, response, 120, 3600*24);
 
-        return ResponseEntity.ok(MapperUser.UserToJson(user));
+        return ResponseEntity.ok(MapperUser.UserToJson(programmer));
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.GET)
@@ -83,13 +83,13 @@ public class AuthController {
             if(refreshToken == null)
                 throw new IllegalArgumentException();
 
-            User user = refreshTokenService.retrieveUser(refreshToken);
+            Programmer programmer = refreshTokenService.retrieveUser(refreshToken);
 
             // create new refresh token and set it in the database
-            RefreshToken newRefreshToken = refreshTokenService.changeRefreshToken(user);
+            RefreshToken newRefreshToken = refreshTokenService.changeRefreshToken(programmer);
 
             // save the refresh token in a new cookie and make a new jwt
-            String newJwt = jwtTokenUtil.generateToken(user);
+            String newJwt = jwtTokenUtil.generateToken(programmer);
 
             setCookies(newRefreshToken.getRefreshToken(), newJwt, response, 120, 3600*24);
 

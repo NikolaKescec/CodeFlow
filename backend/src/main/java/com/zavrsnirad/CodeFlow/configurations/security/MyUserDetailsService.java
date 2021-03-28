@@ -1,7 +1,7 @@
 package com.zavrsnirad.CodeFlow.configurations.security;
 
-import com.zavrsnirad.CodeFlow.domain.User;
-import com.zavrsnirad.CodeFlow.repository.UserRepository;
+import com.zavrsnirad.CodeFlow.domain.Programmer;
+import com.zavrsnirad.CodeFlow.repository.ProgrammerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,19 +12,19 @@ import org.springframework.stereotype.Service;
 public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private ProgrammerRepository programmerRepository;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        final User user = userRepository.findByUsername(s);
-        if(user == null) {
+        final Programmer programmer = programmerRepository.findByUsername(s);
+        if(programmer == null) {
             throw new UsernameNotFoundException(s);
         }
 
         return org.springframework.security.core.userdetails.User
-                .withUsername(user.getUsername())
-                .password(user.getPassword())
-                .authorities(user.getRole())
+                .withUsername(programmer.getUsername())
+                .password(programmer.getPassword())
+                .authorities(programmer.getRole())
                 .build();
     }
 }

@@ -4,15 +4,15 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-public class RefreshToken {
+public class RefreshToken extends  TimeAndUser{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
 
-    @OneToOne
-    @JoinColumn(name="user_id")
+    @OneToOne(optional = false, cascade = CascadeType.REMOVE)
+    @JoinColumn(name="programmer_id")
     @MapsId
-    private User user;
+    private Programmer programmer;
 
     @Column(unique = true, nullable = false)
     private UUID refreshToken;
@@ -20,9 +20,9 @@ public class RefreshToken {
     public RefreshToken() {
     }
 
-    public RefreshToken(UUID refreshToken, User user) {
+    public RefreshToken(UUID refreshToken, Programmer programmer) {
         this.refreshToken = refreshToken;
-        this.user = user;
+        this.programmer = programmer;
     }
 
     public UUID getRefreshToken() {
@@ -33,12 +33,12 @@ public class RefreshToken {
         this.refreshToken = refreshToken;
     }
 
-    public User getUser() {
-        return user;
+    public Programmer getUser() {
+        return programmer;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Programmer programmer) {
+        this.programmer = programmer;
     }
 
 }

@@ -1,39 +1,35 @@
 package com.zavrsnirad.CodeFlow.domain;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
+import java.util.Objects;
 
 @Entity
-public class Solution {
+public class Solution extends TimeAndUser{
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name="UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="solution_id")
-    private UUID solutionId;
+    private Long solutionId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 4096)
     private String code;
 
-    private String language;
+    @ManyToOne(optional = false, cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "language_id", referencedColumnName = "language_id")
+    private Language language;
 
-    @ManyToOne
-    @JoinColumn(name = "author_id", referencedColumnName = "user_id")
-    private User author;
+    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "author_id", referencedColumnName = "programmer_id")
+    private Programmer author;
 
-    @OneToMany(cascade = CascadeType.REFRESH, mappedBy = "solution")
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "solution")
     private List<SolutionComment> comments;
 
     public Solution() {
     }
 
-    public Solution(String code, String language, User author) {
+    public Solution(String code, Language language, Programmer author) {
         this.code = code;
         this.language = language;
         this.author = author;
@@ -47,11 +43,11 @@ public class Solution {
         this.comments = comments;
     }
 
-    public UUID getSolutionId() {
+    public Long getSolutionId() {
         return solutionId;
     }
 
-    public void setSolutionId(UUID solutionId) {
+    public void setSolutionId(Long solutionId) {
         this.solutionId = solutionId;
     }
 
@@ -63,19 +59,32 @@ public class Solution {
         this.code = code;
     }
 
-    public String getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 
-    public User getAuthor() {
+    public Programmer getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(Programmer author) {
         this.author = author;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Solution solution = (Solution) o;
+        return Objects.equals(solutionId, solution.solutionId) && Objects.equals(code, solution.code) && Objects.equals(language, solution.language) && Objects.equals(author, solution.author) && Objects.equals(comments, solution.comments);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(solutionId, code, language, author, comments);
     }
 }

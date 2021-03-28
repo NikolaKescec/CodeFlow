@@ -1,32 +1,24 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-import com.zavrsnirad.CodeFlow.domain.Solution;
-import com.zavrsnirad.CodeFlow.domain.User;
-
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import java.util.UUID;
-
 public class SolutionCommentDtoJson {
 
-    private UUID solutionCommentId;
+    private Long solutionCommentId;
 
     private String comment;
 
     private UserDtoJson commenter;
 
-    public SolutionCommentDtoJson(UUID solutionCommentId, String comment, UserDtoJson commenter) {
+    public SolutionCommentDtoJson(Long solutionCommentId, String comment, UserDtoJson commenter) {
         this.solutionCommentId = solutionCommentId;
         this.comment = comment;
         this.commenter = commenter;
     }
 
-    public UUID getSolutionCommentId() {
+    public Long getSolutionCommentId() {
         return solutionCommentId;
     }
 
-    public void setSolutionCommentId(UUID solutionCommentId) {
+    public void setSolutionCommentId(Long solutionCommentId) {
         this.solutionCommentId = solutionCommentId;
     }
 

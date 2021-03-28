@@ -1,25 +1,20 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-import com.zavrsnirad.CodeFlow.domain.SolutionComment;
-import com.zavrsnirad.CodeFlow.domain.User;
-
-import javax.persistence.*;
 import java.util.List;
-import java.util.UUID;
 
 public class SolutionDtoJson {
 
-    private UUID solutionId;
+    private Long solutionId;
 
     private String code;
 
-    private String language;
+    private LanguageDtoJson language;
 
     private UserDtoJson author;
 
     private List<SolutionCommentDtoJson> comments;
 
-    public SolutionDtoJson(UUID solutionId, String code, String language, UserDtoJson author, List<SolutionCommentDtoJson> comments) {
+    public SolutionDtoJson(Long solutionId, String code, LanguageDtoJson language, UserDtoJson author, List<SolutionCommentDtoJson> comments) {
         this.solutionId = solutionId;
         this.code = code;
         this.language = language;
@@ -27,11 +22,11 @@ public class SolutionDtoJson {
         this.comments = comments;
     }
 
-    public UUID getSolutionId() {
+    public Long getSolutionId() {
         return solutionId;
     }
 
-    public void setSolutionId(UUID solutionId) {
+    public void setSolutionId(Long solutionId) {
         this.solutionId = solutionId;
     }
 
@@ -43,11 +38,11 @@ public class SolutionDtoJson {
         this.code = code;
     }
 
-    public String getLanguage() {
+    public LanguageDtoJson getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(LanguageDtoJson language) {
         this.language = language;
     }
 

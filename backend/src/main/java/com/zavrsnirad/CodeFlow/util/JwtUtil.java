@@ -1,6 +1,6 @@
 package com.zavrsnirad.CodeFlow.util;
 
-import com.zavrsnirad.CodeFlow.domain.User;
+import com.zavrsnirad.CodeFlow.domain.Programmer;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
@@ -27,10 +27,10 @@ public class JwtUtil {
 
     private Key key;
 
-    public String generateToken(User user) throws NoSuchAlgorithmException {
+    public String generateToken(Programmer programmer) throws NoSuchAlgorithmException {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("name", user.getUsername());
-        return createToken(claims, user.getUserId().toString());
+        claims.put("name", programmer.getUsername());
+        return createToken(claims, programmer.getProgrammerId().toString());
     }
 
     private String createToken(Map<String, Object> claims, String subject) throws NoSuchAlgorithmException {

@@ -1,68 +1,58 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-import java.util.UUID;
+import java.util.List;
 
 public class TaskDtoJson {
 
-    UserDtoJson author;
+    private Long authorId;
 
-    private UUID taskId;
+    private Long taskId;
 
     private String taskText;
 
-    private String language;
+    private List<LanguageDtoJson> writtenIn;
 
-    private String correctOutput;
+    private List<TestCaseDtoJson> testCases;
 
-    private String authorSolution;
+    private String inputFormat;
+
+    private String outputFormat;
+
+    private Long authorSolution;
 
     private Double averageGrade;
 
-    private SolutionDtoJson loggedInUserSolution;
+    private Long loggedInUserSolution;
 
     private TaskGradeDtoJson loggedInUserGrade;
 
-    public TaskDtoJson(UserDtoJson author, UUID taskId, String taskText, String language, String correctOutput, String authorSolution, Double averageGrade, SolutionDtoJson loggedInUserSolution, TaskGradeDtoJson loggedInUserGrade) {
-        this.author = author;
+    public TaskDtoJson(Long authorId, Long taskId, String taskText, List<LanguageDtoJson> writtenIn, List<TestCaseDtoJson> testCases, String inputFormat, String outputFormat, Long authorSolution, Double averageGrade, Long loggedInUserSolution, TaskGradeDtoJson loggedInUserGrade) {
+        this.authorId = authorId;
         this.taskId = taskId;
         this.taskText = taskText;
-        this.language = language;
-        this.correctOutput = correctOutput;
+        this.writtenIn = writtenIn;
+        this.testCases = testCases;
+        this.inputFormat = inputFormat;
+        this.outputFormat = outputFormat;
         this.authorSolution = authorSolution;
         this.averageGrade = averageGrade;
         this.loggedInUserSolution = loggedInUserSolution;
         this.loggedInUserGrade = loggedInUserGrade;
     }
 
-    public Double getAverageGrade() {
-        return averageGrade;
+    public Long getAuthorId() {
+        return authorId;
     }
 
-    public void setAverageGrade(Double averageGrade) {
-        this.averageGrade = averageGrade;
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
     }
 
-    public TaskGradeDtoJson getLoggedInUserGrade() {
-        return loggedInUserGrade;
-    }
-
-    public void setLoggedInUserGrade(TaskGradeDtoJson loggedInUserGrade) {
-        this.loggedInUserGrade = loggedInUserGrade;
-    }
-
-    public UserDtoJson getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(UserDtoJson author) {
-        this.author = author;
-    }
-
-    public UUID getTaskId() {
+    public Long getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(UUID taskId) {
+    public void setTaskId(Long taskId) {
         this.taskId = taskId;
     }
 
@@ -74,35 +64,67 @@ public class TaskDtoJson {
         this.taskText = taskText;
     }
 
-    public String getLanguage() {
-        return language;
+    public List<LanguageDtoJson> getWrittenIn() {
+        return writtenIn;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setWrittenIn(List<LanguageDtoJson> writtenIn) {
+        this.writtenIn = writtenIn;
     }
 
-    public String getCorrectOutput() {
-        return correctOutput;
+    public String getInputFormat() {
+        return inputFormat;
     }
 
-    public void setCorrectOutput(String correctOutput) {
-        this.correctOutput = correctOutput;
+    public void setInputFormat(String inputFormat) {
+        this.inputFormat = inputFormat;
     }
 
-    public String getAuthorSolution() {
+    public String getOutputFormat() {
+        return outputFormat;
+    }
+
+    public void setOutputFormat(String outputFormat) {
+        this.outputFormat = outputFormat;
+    }
+
+    public Long getAuthorSolution() {
         return authorSolution;
     }
 
-    public void setAuthorSolution(String authorSolution) {
+    public void setAuthorSolution(Long authorSolution) {
         this.authorSolution = authorSolution;
     }
 
-    public SolutionDtoJson getLoggedInUserSolution() {
+    public Double getAverageGrade() {
+        return averageGrade;
+    }
+
+    public void setAverageGrade(Double averageGrade) {
+        this.averageGrade = averageGrade;
+    }
+
+    public Long getLoggedInUserSolution() {
         return loggedInUserSolution;
     }
 
-    public void setLoggedInUserSolution(SolutionDtoJson loggedInUserSolution) {
+    public void setLoggedInUserSolution(Long loggedInUserSolution) {
         this.loggedInUserSolution = loggedInUserSolution;
+    }
+
+    public List<TestCaseDtoJson> getTestCases() {
+        return testCases;
+    }
+
+    public void setTestCases(List<TestCaseDtoJson> testCases) {
+        this.testCases = testCases;
+    }
+
+    public TaskGradeDtoJson getLoggedInUserGrade() {
+        return loggedInUserGrade;
+    }
+
+    public void setLoggedInUserGrade(TaskGradeDtoJson loggedInUserGrade) {
+        this.loggedInUserGrade = loggedInUserGrade;
     }
 }

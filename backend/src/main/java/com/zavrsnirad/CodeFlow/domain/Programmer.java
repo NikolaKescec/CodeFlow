@@ -1,23 +1,17 @@
 package com.zavrsnirad.CodeFlow.domain;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.util.List;
-import java.util.UUID;
+import java.util.Objects;
 
 @Entity
-public class User {
+public class Programmer extends TimeAndUser{
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name="UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    @Column(name = "user_id")
-    private UUID userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="programmer_id")
+    private Long programmerId;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -39,20 +33,19 @@ public class User {
     @Min(0)
     private Integer solutionPoints;
 
-    @ManyToMany
-    @JoinColumn(name = "user_id")
-    private List<User> followers;
+    @OneToMany(mappedBy = "programmer")
+    private List<Follower> followers;
 
-    public User() {
+    public Programmer() {
     }
 
-    public User(String username, String email, String role) {
+    public Programmer(String username, String email, String role) {
         this.username = username;
         this.email = email;
         this.role = role;
     }
 
-    public User(String username, String email, String password, String role, @Min(0) Integer taskPoints, @Min(0) Integer solutionPoints) {
+    public Programmer(String username, String email, String password, String role, @Min(0) Integer taskPoints, @Min(0) Integer solutionPoints) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -61,7 +54,7 @@ public class User {
         this.solutionPoints = solutionPoints;
     }
 
-    public User(String username, String email, String password, String role) {
+    public Programmer(String username, String email, String password, String role) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -84,20 +77,20 @@ public class User {
         this.solutionPoints = solutionPoints;
     }
 
-    public List<User> getFollowers() {
+    public List<Follower> getFollowers() {
         return followers;
     }
 
-    public void setFollowers(List<User> followers) {
+    public void setFollowers(List<Follower> followers) {
         this.followers = followers;
     }
 
-    public UUID getUserId() {
-        return userId;
+    public Long getProgrammerId() {
+        return programmerId;
     }
 
-    public void setUserId(UUID userId) {
-        this.userId = userId;
+    public void setProgrammerId(Long programmerId) {
+        this.programmerId = programmerId;
     }
 
     public String getUsername() {
@@ -130,5 +123,18 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Programmer that = (Programmer) o;
+        return Objects.equals(programmerId, that.programmerId) && Objects.equals(username, that.username) && Objects.equals(email, that.email) && Objects.equals(password, that.password) && Objects.equals(role, that.role) && Objects.equals(taskPoints, that.taskPoints) && Objects.equals(solutionPoints, that.solutionPoints) && Objects.equals(followers, that.followers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(programmerId, username, email, password, role, taskPoints, solutionPoints, followers);
     }
 }

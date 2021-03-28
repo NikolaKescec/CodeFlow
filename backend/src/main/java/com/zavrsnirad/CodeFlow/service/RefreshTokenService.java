@@ -1,19 +1,19 @@
 package com.zavrsnirad.CodeFlow.service;
 
+import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.domain.RefreshToken;
-import com.zavrsnirad.CodeFlow.domain.User;
 
 import java.util.UUID;
 
 public interface RefreshTokenService {
 
-    User retrieveUser(UUID refreshToken);
+    Programmer retrieveUser(UUID refreshToken);
 
-    RefreshToken changeRefreshToken(User user);
+    RefreshToken changeRefreshToken(Programmer programmer);
 
-    RefreshToken addRefreshToken(User user);
+    RefreshToken addRefreshToken(Programmer programmer);
 
-    RefreshToken retrieveRefreshToken(User user);
+    RefreshToken retrieveRefreshToken(Programmer programmer);
 
     void removeRefreshToken(UUID refreshToken);
 

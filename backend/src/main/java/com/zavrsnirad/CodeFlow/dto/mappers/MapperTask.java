@@ -3,27 +3,28 @@ package com.zavrsnirad.CodeFlow.dto.mappers;
 import com.zavrsnirad.CodeFlow.domain.*;
 import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
 
-import java.util.function.Predicate;
-
 public class MapperTask {
 
-    public static TaskDtoJson TaskToJson(Task task, User loggedInUser) {
+    public static TaskDtoJson TaskToJson(Task task, Programmer loggedInProgrammer) {
         Solution loggedInUserSolution =
-                MapperFilter.filterOne(task.getSolutions(), solution -> solution.getAuthor().getUserId().equals(loggedInUser.getUserId()));
+                MapperFilter.filterOne(task.getSolutions(), solution -> solution.getAuthor().getProgrammerId().equals(loggedInProgrammer.getProgrammerId()));
 
         TaskGrade loggedInUserGrade =
-                MapperFilter.filterOne(task.getGrades(), grade -> grade.getGrader().getUserId().equals(loggedInUser.getUserId()));
+                MapperFilter.filterOne(task.getGrades(), grade -> grade.getGrader().getProgrammerId().equals(loggedInProgrammer.getProgrammerId()));
 
-        return new TaskDtoJson(MapperUser.UserToJson(task.getOwner()),
+        return new TaskDtoJson(
+                task.getOwner().getProgrammerId(),
                 task.getTaskId(),
                 task.getTaskText(),
-                task.getLanguage(),
-                task.getCorrectOutput(),
-                task.getAuthorSolution(),
+                MapperList.getList(task.getWrittenIn(), MapperLanguage::LanguageToJson),
+                MapperList.getList(task.getTestCases(), MapperTestCase::TestCaseToJson),
+                task.getInputFormat(),
+                task.getOutputFormat(),
+                task.getAuthorSolution() != null ? task.getAuthorSolution().getSolutionId() : null,
                 task.getAverageGrade(),
-                loggedInUserSolution != null ? MapperSolution.SolutionToJson(loggedInUserSolution) : null,
+                loggedInUserSolution != null ? loggedInUserSolution.getSolutionId() : null,
                 loggedInUserGrade != null ? MapperGrade.TaskGradeToJson(loggedInUserGrade) : null
-                );
+        );
     }
 
 }

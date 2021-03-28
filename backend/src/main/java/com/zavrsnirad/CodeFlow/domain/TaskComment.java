@@ -3,46 +3,41 @@ package com.zavrsnirad.CodeFlow.domain;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.UUID;
+import java.util.Objects;
 
 @Entity(name = "TASK_COMMENT")
-public class TaskComment {
+public class TaskComment extends TimeAndUser{
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name="UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="task_comment_id")
-    private UUID taskCommentId;
+    private Long taskCommentId;
 
     @Column(nullable = false)
     private String comment;
 
-    @ManyToOne
-    @JoinColumn(name = "commenter_id", referencedColumnName = "user_id")
-    private User commenter;
+    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "commenter_id", referencedColumnName = "programmer_id")
+    private Programmer commenter;
 
-    @ManyToOne
+    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
     @JoinColumn(name="task_id", referencedColumnName = "task_id")
-    @JoinColumn(name="user_id", referencedColumnName = "user_id")
     private Task task;
 
     public TaskComment() {
     }
 
-    public TaskComment(String comment, User commenter, Task task) {
+    public TaskComment(String comment, Programmer commenter, Task task) {
         this.comment = comment;
         this.commenter = commenter;
         this.task = task;
     }
 
-    public UUID getTaskCommentId() {
+    public Long getTaskCommentId() {
         return taskCommentId;
     }
 
-    public void setTaskCommentId(UUID taskCommentId) {
+    public void setTaskCommentId(Long taskCommentId) {
         this.taskCommentId = taskCommentId;
     }
 
@@ -54,11 +49,11 @@ public class TaskComment {
         this.comment = comment;
     }
 
-    public User getCommenter() {
+    public Programmer getCommenter() {
         return commenter;
     }
 
-    public void setCommenter(User commenter) {
+    public void setCommenter(Programmer commenter) {
         this.commenter = commenter;
     }
 
@@ -68,5 +63,18 @@ public class TaskComment {
 
     public void setTask(Task task) {
         this.task = task;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TaskComment that = (TaskComment) o;
+        return Objects.equals(taskCommentId, that.taskCommentId) && Objects.equals(comment, that.comment) && Objects.equals(commenter, that.commenter) && Objects.equals(task, that.task);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskCommentId, comment, commenter, task);
     }
 }

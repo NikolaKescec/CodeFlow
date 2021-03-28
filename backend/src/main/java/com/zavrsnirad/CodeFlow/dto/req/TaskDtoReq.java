@@ -1,21 +1,19 @@
 package com.zavrsnirad.CodeFlow.dto.req;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 import java.util.UUID;
 
 public class TaskDtoReq {
 
     @NotEmpty
-    private UUID owner;
+    private Long author;
 
     @NotEmpty
     private String taskText;
 
-    private String language;
+    private List<String> language;
 
-    @NotEmpty
-    private String correctOutput;
-
-    private String authorSolution;
+    private List<String> testCases;
 
 }

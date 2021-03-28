@@ -1,12 +1,11 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
-import com.zavrsnirad.CodeFlow.domain.Task;
-import com.zavrsnirad.CodeFlow.domain.User;
+import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
 import com.zavrsnirad.CodeFlow.service.TaskService;
-import com.zavrsnirad.CodeFlow.service.UserService;
+import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,22 +25,22 @@ public class TaskController {
     private TaskService taskService;
 
     @Autowired
-    private UserService userService;
+    private ProgrammerService programmerService;
 
     @GetMapping("/fresh")
     public ResponseEntity<?> getTasks(Principal principal) {
-        User user = userService.findByUsername(principal.getName());
-        List<TaskDtoJson> response = MapperList.getList(taskService.listAllTasks(), task -> MapperTask.TaskToJson(task, user));
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        List<TaskDtoJson> response = MapperList.getList(taskService.listAllTasks(), task -> MapperTask.TaskToJson(task, programmer));
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @GetMapping("/{username}")
     public ResponseEntity<?> getTasksByUsername(@PathVariable("username") String username, Principal principal) {
-        User user = userService.findByUsername(principal.getName());
-        if(!user.getUsername().equals(username) || !user.getRole().equals("ADMIN"))
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        if(!programmer.getUsername().equals(username) || !programmer.getRole().equals("ADMIN"))
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 
-        List<TaskDtoJson> response = MapperList.getList(taskService.tasksByUser(username), task -> MapperTask.TaskToJson(task, user));
+        List<TaskDtoJson> response = MapperList.getList(taskService.tasksByUser(username), task -> MapperTask.TaskToJson(task, programmer));
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

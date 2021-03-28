@@ -1,7 +1,7 @@
 package com.zavrsnirad.CodeFlow.service.implementation;
 
+import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.domain.RefreshToken;
-import com.zavrsnirad.CodeFlow.domain.User;
 import com.zavrsnirad.CodeFlow.repository.RefreshTokenRepository;
 import com.zavrsnirad.CodeFlow.service.RefreshTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +16,15 @@ public class RefreshTokenServiceJpa implements RefreshTokenService {
     private RefreshTokenRepository refreshTokenRepository;
 
     @Override
-    public User retrieveUser(UUID refreshToken) {
+    public Programmer retrieveUser(UUID refreshToken) {
         RefreshToken foundRefreshToken = findRefreshToken(refreshToken);
 
         return foundRefreshToken.getUser();
     }
 
     @Override
-    public RefreshToken changeRefreshToken(User user) {
-        RefreshToken oldRefreshToken = refreshTokenRepository.findByUserId(user.getUserId());
+    public RefreshToken changeRefreshToken(Programmer programmer) {
+        RefreshToken oldRefreshToken = refreshTokenRepository.findByProgrammerId(programmer.getProgrammerId());
         if(oldRefreshToken == null)
             throw new IllegalArgumentException("No such entry!");
 
@@ -36,17 +36,17 @@ public class RefreshTokenServiceJpa implements RefreshTokenService {
     }
 
     @Override
-    public RefreshToken addRefreshToken(User user) {
+    public RefreshToken addRefreshToken(Programmer programmer) {
         UUID token = UUID.randomUUID();
-        RefreshToken refreshToken = new RefreshToken(token, user);
+        RefreshToken refreshToken = new RefreshToken(token, programmer);
         refreshTokenRepository.save(refreshToken);
 
         return refreshToken;
     }
 
     @Override
-    public RefreshToken retrieveRefreshToken(User user) {
-        return refreshTokenRepository.findByUserId(user.getUserId());
+    public RefreshToken retrieveRefreshToken(Programmer programmer) {
+        return refreshTokenRepository.findByProgrammerId(programmer.getProgrammerId());
     }
 
     @Override

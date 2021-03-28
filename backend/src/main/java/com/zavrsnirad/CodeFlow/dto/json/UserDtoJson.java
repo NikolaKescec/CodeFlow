@@ -1,15 +1,13 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-import java.util.UUID;
-
 public class UserDtoJson {
 
-    private UUID id;
+    private Long id;
     private String username;
     private Integer solutionPoints;
     private Integer taskPoints;
 
-    public UserDtoJson(UUID id, String username, Integer solutionPoints, Integer taskPoints) {
+    public UserDtoJson(Long id, String username, Integer solutionPoints, Integer taskPoints) {
         this.id = id;
         this.username = username;
         this.solutionPoints = solutionPoints;
@@ -32,11 +30,11 @@ public class UserDtoJson {
         this.taskPoints = taskPoints;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

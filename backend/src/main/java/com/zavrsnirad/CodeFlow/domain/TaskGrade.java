@@ -5,48 +5,43 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import java.util.UUID;
+import java.util.Objects;
 
 @Entity(name = "TASK_GRADE")
-public class TaskGrade{
+public class TaskGrade extends TimeAndUser{
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name="UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="task_grade_id")
-    private UUID taskGradeId;
+    private Long taskGradeId;
 
     @Column(nullable = false)
     @Min(1)
     @Max(5)
     private Integer grade;
 
-    @ManyToOne
-    @JoinColumn(name = "grader_id", referencedColumnName = "user_id")
-    private User grader;
+    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "grader_id", referencedColumnName = "programmer_id")
+    private Programmer grader;
 
-    @ManyToOne
+    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
     @JoinColumn(name="task_id", referencedColumnName = "task_id")
-    @JoinColumn(name="user_id", referencedColumnName = "user_id")
     private Task task;
 
     public TaskGrade() {
     }
 
-    public TaskGrade(@Min(1) @Max(5) Integer grade, User grader, Task task) {
+    public TaskGrade(@Min(1) @Max(5) Integer grade, Programmer grader, Task task) {
         this.grade = grade;
         this.grader = grader;
         this.task = task;
     }
 
-    public UUID getTaskGradeId() {
+    public Long getTaskGradeId() {
         return taskGradeId;
     }
 
-    public void setTaskGradeId(UUID taskGradeId) {
+    public void setTaskGradeId(Long taskGradeId) {
         this.taskGradeId = taskGradeId;
     }
 
@@ -66,13 +61,24 @@ public class TaskGrade{
         this.grade = grade;
     }
 
-    public User getGrader() {
+    public Programmer getGrader() {
         return grader;
     }
 
-    public void setGrader(User grader) {
+    public void setGrader(Programmer grader) {
         this.grader = grader;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TaskGrade taskGrade = (TaskGrade) o;
+        return Objects.equals(taskGradeId, taskGrade.taskGradeId) && Objects.equals(grade, taskGrade.grade) && Objects.equals(grader, taskGrade.grader) && Objects.equals(task, taskGrade.task);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskGradeId, grade, grader, task);
+    }
 }

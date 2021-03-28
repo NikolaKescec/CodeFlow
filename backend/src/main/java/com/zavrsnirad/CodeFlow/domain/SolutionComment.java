@@ -3,47 +3,41 @@ package com.zavrsnirad.CodeFlow.domain;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import java.util.UUID;
+import java.util.Objects;
 
 @Entity(name = "SOLUTION_COMMENT")
-public class SolutionComment {
+public class SolutionComment extends TimeAndUser{
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name="UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="solution_comment_id")
-    private UUID solutionCommentId;
+    private Long solutionCommentId;
 
     @Column(nullable = false)
     private String comment;
 
-    @ManyToOne
-    @JoinColumn(name = "commenter_id", referencedColumnName = "user_id")
-    private User commenter;
+    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "commenter_id", referencedColumnName = "programmer_id")
+    private Programmer commenter;
 
-    @ManyToOne
+    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
     @JoinColumn(name="solution_id", referencedColumnName = "solution_id")
     private Solution solution;
 
     public SolutionComment() {
     }
 
-    public SolutionComment(String comment, User commenter, Solution solution) {
+    public SolutionComment(String comment, Programmer commenter, Solution solution) {
         this.comment = comment;
         this.commenter = commenter;
         this.solution = solution;
     }
 
-    public UUID getSolutionCommentId() {
+    public Long getSolutionCommentId() {
         return solutionCommentId;
     }
 
-    public void setSolutionCommentId(UUID solutionCommentId) {
+    public void setSolutionCommentId(Long solutionCommentId) {
         this.solutionCommentId = solutionCommentId;
     }
 
@@ -55,11 +49,11 @@ public class SolutionComment {
         this.comment = comment;
     }
 
-    public User getCommenter() {
+    public Programmer getCommenter() {
         return commenter;
     }
 
-    public void setCommenter(User commenter) {
+    public void setCommenter(Programmer commenter) {
         this.commenter = commenter;
     }
 
@@ -69,5 +63,18 @@ public class SolutionComment {
 
     public void setSolution(Solution solution) {
         this.solution = solution;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SolutionComment that = (SolutionComment) o;
+        return Objects.equals(solutionCommentId, that.solutionCommentId) && Objects.equals(comment, that.comment) && Objects.equals(commenter, that.commenter) && Objects.equals(solution, that.solution);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(solutionCommentId, comment, commenter, solution);
     }
 }

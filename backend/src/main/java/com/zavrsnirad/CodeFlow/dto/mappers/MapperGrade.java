@@ -8,10 +8,18 @@ import com.zavrsnirad.CodeFlow.dto.json.TaskGradeDtoJson;
 public class MapperGrade {
 
     public static TaskGradeDtoJson TaskGradeToJson(TaskGrade grade) {
-        return new TaskGradeDtoJson(grade.getTaskGradeId(), grade.getGrade(), MapperUser.UserToJson(grade.getGrader()));
+        return new TaskGradeDtoJson(
+                grade.getTaskGradeId(),
+                grade.getGrade(),
+                MapperUser.UserToJson(grade.getGrader())
+        );
     }
 
     public static SolutionGradeDtoJson SolutionGradeToJson(SolutionGrade grade) {
-        return new SolutionGradeDtoJson(grade.getSolutionGradeId(), grade.getGrade(), MapperUser.UserToJson(grade.getGrader()));
+        return new SolutionGradeDtoJson(
+                grade.getSolutionGradeId(),
+                grade.getGrade(),
+                MapperUser.UserToJson(grade.getGrader())
+        );
     }
 }
