@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Programmer extends TimeAndUser{
@@ -25,16 +26,19 @@ public class Programmer extends TimeAndUser{
     @Column(nullable = false)
     private String role;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name="task_points")
     @Min(0)
     private Integer taskPoints;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name="solution_points")
     @Min(0)
     private Integer solutionPoints;
 
     @OneToMany(mappedBy = "programmer")
     private List<Follower> followers;
+
+    @ManyToMany
+    private Set<ProgrammerCategory> programmerCategories;
 
     public Programmer() {
     }
@@ -59,6 +63,14 @@ public class Programmer extends TimeAndUser{
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public Set<ProgrammerCategory> getProgrammerCategories() {
+        return programmerCategories;
+    }
+
+    public void setProgrammerCategories(Set<ProgrammerCategory> programmerCategories) {
+        this.programmerCategories = programmerCategories;
     }
 
     public Integer getTaskPoints() {

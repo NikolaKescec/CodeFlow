@@ -1,3 +1,4 @@
+/*
 package com.zavrsnirad.CodeFlow.consolerunner;
 
 import com.zavrsnirad.CodeFlow.domain.*;
@@ -135,3 +136,4 @@ public class Runner implements CommandLineRunner {
     }
 
 }
+*/
