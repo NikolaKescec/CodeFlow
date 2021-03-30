@@ -8,6 +8,7 @@ import javax.validation.constraints.Min;
 import java.util.Objects;
 
 @Entity(name = "SOLUTION_GRADE")
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"grader_id", "solution_id"})})
 public class SolutionGrade extends TimeAndUser{
 
     @Id

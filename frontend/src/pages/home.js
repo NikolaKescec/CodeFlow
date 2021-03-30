@@ -50,25 +50,28 @@ const Home = () => {
               className="d-flex m-0 p-0 justify-content-between text-center"
             >
               <FeedButton
-                text={"fresh"}
+                name={"fresh"}
+                link={"fresh"}
                 selectFunction={changeFunctionTasks}
                 activeElement={taskFeed}
               ></FeedButton>
               <FeedButton
-                text={"following"}
+                name={"following"}
+                link={"following"}
                 selectFunction={changeFunctionTasks}
                 activeElement={taskFeed}
                 middle={true}
               ></FeedButton>
               <FeedButton
-                text={"best"}
+                name={"best"}
+                link={"best"}
                 selectFunction={changeFunctionTasks}
                 activeElement={taskFeed}
               ></FeedButton>
             </Container>
             <hr className="bg-rich-black p-0 mt-1 mb-0"></hr>
             <div className="scrollable-feed">
-              <Feed text={taskFeed}></Feed>
+              <Feed text={taskFeed} loggedInUser={auth.data.username}></Feed>
             </div>
           </Col>
           <Col xs={0} md={3} className="d-none d-md-inline p-0 home-pattern">
@@ -77,12 +80,14 @@ const Home = () => {
               className="d-flex m-0 p-0 justify-content-between text-center"
             >
               <FeedButton
-                text={"Taskers"}
+                name={"Taskers"}
+                link={"Taskers"}
                 selectFunction={changeFunctionUsers}
                 activeElement={userFeed}
               ></FeedButton>
               <FeedButton
-                text={"Solvers"}
+                name={"Solvers"}
+                link={"Solvers"}
                 selectFunction={changeFunctionUsers}
                 activeElement={userFeed}
               ></FeedButton>

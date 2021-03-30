@@ -13,7 +13,7 @@ public class MapperTask {
                 MapperFilter.filterOne(task.getGrades(), grade -> grade.getGrader().getProgrammerId().equals(loggedInProgrammer.getProgrammerId()));
 
         return new TaskDtoJson(
-                task.getOwner().getProgrammerId(),
+                task.getOwner().getUsername(),
                 task.getTaskId(),
                 task.getTaskText(),
                 MapperList.getList(task.getWrittenIn(), MapperLanguage::LanguageToJson),

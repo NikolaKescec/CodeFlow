@@ -4,7 +4,7 @@ import java.util.List;
 
 public class TaskDtoJson {
 
-    private Long authorId;
+    private String author;
 
     private Long taskId;
 
@@ -26,8 +26,8 @@ public class TaskDtoJson {
 
     private TaskGradeDtoJson loggedInUserGrade;
 
-    public TaskDtoJson(Long authorId, Long taskId, String taskText, List<LanguageDtoJson> writtenIn, List<TestCaseDtoJson> testCases, String inputFormat, String outputFormat, Long authorSolution, Double averageGrade, Long loggedInUserSolution, TaskGradeDtoJson loggedInUserGrade) {
-        this.authorId = authorId;
+    public TaskDtoJson(String author, Long taskId, String taskText, List<LanguageDtoJson> writtenIn, List<TestCaseDtoJson> testCases, String inputFormat, String outputFormat, Long authorSolution, Double averageGrade, Long loggedInUserSolution, TaskGradeDtoJson loggedInUserGrade) {
+        this.author = author;
         this.taskId = taskId;
         this.taskText = taskText;
         this.writtenIn = writtenIn;
@@ -40,12 +40,12 @@ public class TaskDtoJson {
         this.loggedInUserGrade = loggedInUserGrade;
     }
 
-    public Long getAuthorId() {
-        return authorId;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Long getTaskId() {

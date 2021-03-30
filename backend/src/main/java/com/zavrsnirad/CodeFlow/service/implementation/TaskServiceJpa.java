@@ -23,6 +23,11 @@ public class TaskServiceJpa implements TaskService {
     }
 
     @Override
+    public List<Task> taskSolvedByUser(String username) {
+        return taskRepository.findSolvedByUsername(username);
+    }
+
+    @Override
     public List<Task> bestEver() {
         return null;
     }

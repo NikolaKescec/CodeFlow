@@ -1,5 +1,6 @@
 .feed-button {
     color: #ebebf2;
+    text-align: center;
     transition: all 0.15s ease-in;
     cursor: pointer;
 }

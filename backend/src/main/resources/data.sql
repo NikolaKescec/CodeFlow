@@ -192,7 +192,7 @@ INSERT INTO
 VALUES
     (
         3,
-        1,
+        5,
         'Ispišite sve brojeve do broja 10',
         null,
         '',
@@ -267,7 +267,7 @@ VALUES
 INSERT INTO
     task_grade (task_grade_id, grade, grader_id, task_id)
 VALUES
-    (1, 2, 1, 2);
+    (1, 2, 1, 3);
 
 INSERT INTO
     task_grade (task_grade_id, grade, grader_id, task_id)
@@ -277,17 +277,17 @@ VALUES
 INSERT INTO
     task_grade (task_grade_id, grade, grader_id, task_id)
 VALUES
-    (3, 2, 1, 2);
+    (3, 2, 3 , 2);
 
 INSERT INTO
     task_grade (task_grade_id, grade, grader_id, task_id)
 VALUES
-    (4, 5, 1, 2);
+    (4, 5, 4, 2);
 
 INSERT INTO
     task_grade (task_grade_id, grade, grader_id, task_id)
 VALUES
-    (5, 4, 1, 2);
+    (5, 4, 5, 2);
 
 INSERT INTO
     task_grade (task_grade_id, grade, grader_id, task_id)
@@ -302,7 +302,7 @@ VALUES
 INSERT INTO
     task_grade (task_grade_id, grade, grader_id, task_id)
 VALUES
-    (8, 2, 4, 1);
+    (8, 2, 5, 1);
 
 /* SOLUTIONS */
 INSERT INTO

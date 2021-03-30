@@ -1,9 +1,9 @@
 import "../../styles/feed.css";
 import { HiOutlineSelector } from "react-icons/hi";
 
-const FeedButton = ({ text, selectFunction, activeElement, middle }) => {
+const FeedButton = ({ name, link, selectFunction, activeElement, middle }) => {
   const isActive = () => {
-    if (text === activeElement) {
+    if (link === activeElement) {
       return true;
     }
     return false;
@@ -25,10 +25,10 @@ const FeedButton = ({ text, selectFunction, activeElement, middle }) => {
   return (
     <div
       className={"feed-button flex-fill " + setClass() + " " + isMiddle()}
-      onClick={() => selectFunction(text)}
+      onClick={() => selectFunction(link)}
     >
       {isActive() && <HiOutlineSelector></HiOutlineSelector>}
-      {text.toUpperCase()}
+      {name.toUpperCase()}
       {isActive() && <HiOutlineSelector></HiOutlineSelector>}
     </div>
   );

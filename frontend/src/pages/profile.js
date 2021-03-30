@@ -1,26 +1,34 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import logout from "../authentication/actions/logout";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axiosInstance from "../utils/axiosInstance";
 import useAuth from "../authentication/hook/useAuth";
 import useApp from "../app/hook/useApp";
 import Feed from "../components/Task/Feed";
+import FeedButton from "../components/Task/FeedButton";
 
 const Profile = () => {
   const [auth, authDispatch, checking] = useAuth();
   const history = useHistory();
+  const [text, setText] = useState(auth.data.username);
+
+  const changeText = (newText) => {
+    setText(newText);
+  };
 
   return (
     <Container className="text-white h-100 mt-3">
       <Row>
-        <Col md={3} className="bg-dark border-rich-black rounded p-2">
+        <Col md={3} className="bg-dark border-rich-black rounded p-2 sm-mt-2">
           <p>User name: {auth.data.username}</p>
           <hr className="bg-wine"></hr>
-          <Button variant="wine">Edit your profile</Button>
+          <Button variant="wine" className="w-100">
+            Edit your profile
+          </Button>
         </Col>
         <Col md={6}>
-          <div className="d-flex flex-column bg-dark border-rich-black rounded p-2 h-100 justify-content-center">
+          <div className="d-flex flex-column bg-dark border-rich-black rounded p-2 h-100 justify-content-center sm-mt-2">
             <p>
               Total task points:
               <strong className="text-red-violet">
@@ -33,18 +41,36 @@ const Profile = () => {
                 {auth.data.solutionPoints}
               </strong>
             </p>
+            <div>
+              <FeedButton
+                name="Your tasks"
+                link={auth.data.username}
+                selectFunction={changeText}
+                activeElement={text}
+              ></FeedButton>
+              <FeedButton
+                name="Solved tasks"
+                link={"solved/" + auth.data.username}
+                selectFunction={changeText}
+                activeElement={text}
+              ></FeedButton>
+            </div>
           </div>
         </Col>
         <Col
           md={3}
-          className="d-flex flex-column bg-dark border-rich-black rounded p-2 justify-content-center"
+          className="d-flex flex-column bg-dark border-rich-black rounded p-2 justify-content-center sm-mt-2"
         >
-          <Button variant="wine">Create a new task!</Button>
+          <Link to="/create-task">
+            <Button variant="wine" className="w-100">
+              Create a new task!
+            </Button>
+          </Link>
         </Col>
       </Row>
       <Container fluid className="mt-3">
         <h2 className="text-white">Your tasks</h2>
-        <Feed text={auth.data.username}></Feed>
+        <Feed text={text} loggedInUser={auth.data.username}></Feed>
       </Container>
     </Container>
   );

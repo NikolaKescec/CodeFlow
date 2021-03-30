@@ -7,8 +7,15 @@ import {
 } from "react-icons/ai";
 import Grade from "../Grade";
 
-const TaskSnippet = ({ task }) => {
+const TaskSnippet = ({ task, loggedInUser }) => {
   debugger;
+
+  const inspectUser = () => {
+    if (task.author === loggedInUser) return <span>INSPECT</span>;
+    if (task.loggedInUserSolution) return <span>SOLVED</span>;
+    else return <span>SOLVE</span>;
+  };
+
   return (
     <Card
       bg={"charcoal"}
@@ -16,10 +23,10 @@ const TaskSnippet = ({ task }) => {
     >
       <Card.Body>{task.taskText}</Card.Body>
       <Card.Footer className="d-flex">
-        <span className="border-right border-rich-black text-rich-black p-2 mr-1">
-          <strong>{task.author.username}</strong>
+        <span className=" text-baby-powder p-1 mr-1">
+          <strong>{task.author}</strong>
         </span>
-        <span className="border-right border-rich-black  p-1 mr-1">
+        <span className="  p-1 mr-1">
           {task.averageGrade == null ? (
             <Grade grade={0}></Grade>
           ) : (
@@ -31,10 +38,15 @@ const TaskSnippet = ({ task }) => {
             </span>
           )}
         </span>
-        <Button variant="rich-black" className="ml-auto">
-          {task.loggedInUserSolution && <AiFillCheckCircle></AiFillCheckCircle>}
-          SOLVE
-        </Button>
+
+        <div className="ml-auto">
+          <span>
+            {task.loggedInUserSolution && loggedInUser !== task.author && (
+              <AiFillCheckCircle className="ml-auto mr-2"></AiFillCheckCircle>
+            )}
+          </span>
+          <Button variant="rich-black">{inspectUser()}</Button>
+        </div>
       </Card.Footer>
     </Card>
   );

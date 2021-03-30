@@ -6,7 +6,7 @@ import "../../styles/spinner.css";
 import "../../styles/feed.css";
 import axiosInstance from "../../utils/axiosInstance";
 
-const Feed = ({ text }) => {
+const Feed = ({ text, loggedInUser }) => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -30,7 +30,13 @@ const Feed = ({ text }) => {
       {loading && <div class="loader">Loading...</div>}
       {!loading &&
         tasks.map((task) => {
-          return <TaskSnippet key={task.taskId} task={task}></TaskSnippet>;
+          return (
+            <TaskSnippet
+              key={task.taskId}
+              task={task}
+              loggedInUser={loggedInUser}
+            ></TaskSnippet>
+          );
         })}
     </Container>
   );

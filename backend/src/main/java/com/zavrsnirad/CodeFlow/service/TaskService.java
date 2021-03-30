@@ -10,6 +10,8 @@ public interface TaskService {
 
     List<Task> tasksByUser(String username);
 
+    List<Task> taskSolvedByUser(String username);
+
     List<Task> bestEver();
 
     List<Task> taskFromFollowedPeople(UUID userId);

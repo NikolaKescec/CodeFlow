@@ -58,6 +58,12 @@ const TopBar = ({ path }) => {
             <span className="text-wine"> {auth.data.username} </span>
           </NavDropdown.Header>
           <NavDropdown.Divider />
+          {path !== "/create-task" && (
+            <NavDropdown.Item className="text-left" as={Link} to="/create-task">
+              Create task
+            </NavDropdown.Item>
+          )}
+          <NavDropdown.Divider />
           {path !== "/home" && (
             <NavDropdown.Item className="text-left" as={Link} to="/home">
               Home
