@@ -27,7 +27,7 @@ const Feed = ({ text, loggedInUser }) => {
 
   return (
     <Container fluid>
-      {loading && <div class="loader">Loading...</div>}
+      {loading && <div className="loader">Loading...</div>}
       {!loading &&
         tasks.map((task) => {
           return (

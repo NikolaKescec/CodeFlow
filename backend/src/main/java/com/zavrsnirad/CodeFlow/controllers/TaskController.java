@@ -4,15 +4,13 @@ import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
+import com.zavrsnirad.CodeFlow.dto.req.TaskDtoReq;
 import com.zavrsnirad.CodeFlow.service.TaskService;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -50,6 +48,16 @@ public class TaskController {
 
         List<TaskDtoJson> response = MapperList.getList(taskService.taskSolvedByUser(username), task -> MapperTask.TaskToJson(task, programmer));
         return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @PostMapping("/create-task")
+    public ResponseEntity<?> createTask(@RequestBody TaskDtoReq task, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        if(!task.getAuthor().equals(programmer.getProgrammerId()))
+            throw new IllegalArgumentException("Unable to create task for mismatching users!");
+
+        TaskDtoJson createdTask = MapperTask.TaskToJson(taskService.addTask(task, programmer), programmer);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdTask);
     }
 
 }

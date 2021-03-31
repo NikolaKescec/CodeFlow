@@ -20,8 +20,8 @@ const axiosInstance = (dispatch = null, history = null) => {
         originalRequest._retry = true;
         await axiosInstance.get("/refresh");
         return axiosInstance(originalRequest);
-      }
-      if (error.response.status === 403) {
+      } else if (error.response.status === 401) {
+      } else if (error.response.status === 403) {
         debugger;
         await axiosInstance.get("/deauthenticate");
         if (dispatch) {

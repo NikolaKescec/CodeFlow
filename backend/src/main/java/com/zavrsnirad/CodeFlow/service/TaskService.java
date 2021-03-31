@@ -1,5 +1,6 @@
 package com.zavrsnirad.CodeFlow.service;
 
+import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.domain.Task;
 import com.zavrsnirad.CodeFlow.dto.req.TaskDtoReq;
 
@@ -18,7 +19,7 @@ public interface TaskService {
 
     List<Task> listAllTasks();
 
-    Task addTask(TaskDtoReq task);
+    Task addTask(TaskDtoReq task, Programmer author);
 
     Task removeTask(UUID taskId);
 

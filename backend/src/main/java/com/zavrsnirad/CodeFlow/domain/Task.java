@@ -168,6 +168,18 @@ public class Task extends TimeAndUser{
         this.solutions.remove(solution);
     }
 
+    public void addWrittenInLanguage(Language language) {
+        if(this.writtenIn == null)
+            writtenIn = new ArrayList<>();
+        writtenIn.add(language);
+    }
+
+    public void addTestCase(TestCase testCase) {
+        if(this.testCases == null)
+            testCases = new ArrayList<>();
+        testCases.add(testCase);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -14,9 +14,7 @@ const useAuth = () => {
       .then((res) => {
         setChecking(false);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   return [auth, authDispatch, checking];

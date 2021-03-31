@@ -6,11 +6,11 @@ import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
 public class MapperTask {
 
     public static TaskDtoJson TaskToJson(Task task, Programmer loggedInProgrammer) {
-        Solution loggedInUserSolution =
-                MapperFilter.filterOne(task.getSolutions(), solution -> solution.getAuthor().getProgrammerId().equals(loggedInProgrammer.getProgrammerId()));
+        Solution loggedInUserSolution = task.getSolutions() != null ?
+                MapperFilter.filterOne(task.getSolutions(), solution -> solution.getAuthor().getProgrammerId().equals(loggedInProgrammer.getProgrammerId())) : null;
 
-        TaskGrade loggedInUserGrade =
-                MapperFilter.filterOne(task.getGrades(), grade -> grade.getGrader().getProgrammerId().equals(loggedInProgrammer.getProgrammerId()));
+        TaskGrade loggedInUserGrade = task.getGrades() != null ?
+                MapperFilter.filterOne(task.getGrades(), grade -> grade.getGrader().getProgrammerId().equals(loggedInProgrammer.getProgrammerId())) : null;
 
         return new TaskDtoJson(
                 task.getOwner().getUsername(),

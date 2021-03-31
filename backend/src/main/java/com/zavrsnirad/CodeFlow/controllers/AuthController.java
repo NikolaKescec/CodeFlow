@@ -60,7 +60,7 @@ public class AuthController {
         else
             newRefreshToken = refreshTokenService.changeRefreshToken(programmer);
 
-        setCookies(newRefreshToken.getRefreshToken(), jwt, response, 120, 3600*24);
+        setCookies(newRefreshToken.getRefreshToken(), jwt, response, 120, 3600*24*1000);
 
         return ResponseEntity.ok(MapperUser.UserToJson(programmer));
     }
@@ -91,11 +91,11 @@ public class AuthController {
             // save the refresh token in a new cookie and make a new jwt
             String newJwt = jwtTokenUtil.generateToken(programmer);
 
-            setCookies(newRefreshToken.getRefreshToken(), newJwt, response, 120, 3600*24);
+            setCookies(newRefreshToken.getRefreshToken(), newJwt, response, 120, 3600*24*1000);
 
             return ResponseEntity.ok().build();
         } catch (IllegalArgumentException | NoSuchAlgorithmException ex) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid refresh token.");
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("\"message\": \"" +"Invalid refresh token." + "\"");
         }
     }
 

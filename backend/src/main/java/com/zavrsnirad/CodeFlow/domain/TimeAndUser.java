@@ -22,6 +22,7 @@ public class TimeAndUser {
 
     public TimeAndUser() {
         this.created = new Timestamp(new Date().getTime());
+        this.modified = this.created;
     }
 
     public TimeAndUser(String userCreated) {
