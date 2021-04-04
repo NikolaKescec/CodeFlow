@@ -40,6 +40,14 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<?> getTaskById(@PathVariable("id") Long id, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        TaskDtoJson response = MapperTask.TaskToJson(taskService.taskByTaskId(id), programmer);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
     @GetMapping("/solved/{username}")
     public ResponseEntity<?> getSolvedTasksByUsername(@PathVariable("username") String username, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());

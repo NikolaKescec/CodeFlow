@@ -21,6 +21,8 @@ public interface TaskService {
 
     Task addTask(TaskDtoReq task, Programmer author);
 
+    Task taskByTaskId(Long id);
+
     Task removeTask(UUID taskId);
 
     Task updateTask(UUID taskId, TaskDtoReq task);

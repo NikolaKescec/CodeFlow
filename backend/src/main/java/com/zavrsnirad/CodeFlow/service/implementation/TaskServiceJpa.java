@@ -12,6 +12,7 @@ import com.zavrsnirad.CodeFlow.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.UUID;
 
@@ -68,6 +69,15 @@ public class TaskServiceJpa implements TaskService {
         }
 
         return taskRepository.save(newTask);
+    }
+
+    @Override
+    public Task taskByTaskId(Long id) {
+        try {
+            return taskRepository.getOne(id);
+        } catch (EntityNotFoundException e) {
+            throw new IllegalArgumentException("No such task with given id: " + id);
+        }
     }
 
     @Override

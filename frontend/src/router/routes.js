@@ -5,6 +5,7 @@ import Error from "../pages/Error";
 import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import CreateTask from "../pages/CreateTask";
+import Task from "../pages/Task";
 
 const routes = [
   {
@@ -40,6 +41,13 @@ const routes = [
     exact: true,
     component: CreateTask,
     title: "Create task",
+    authenticated: true,
+  },
+  {
+    path: "/task/:id",
+    exact: true,
+    component: Task,
+    title: "Inspect task",
     authenticated: true,
   },
   {
