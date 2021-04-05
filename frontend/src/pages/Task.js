@@ -25,7 +25,7 @@ const Task = () => {
       secondary={
         <CommentsPanel
           authDispatch={authDispatch}
-          commentsSource={"task-comments/"}
+          commentsSource={"task/comments/"}
           id={id}
         ></CommentsPanel>
       }

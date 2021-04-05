@@ -33,7 +33,11 @@ const TopBar = ({ path }) => {
       expand="lg"
       className="border-bottom border-rich-black"
     >
-      <Navbar.Brand className="text-red-violet">
+      <Navbar.Brand
+        as={Link}
+        to="/home"
+        className="text-red-violet rounded p-1 bg-charcoal"
+      >
         <img
           alt=""
           src={logo}

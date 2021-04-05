@@ -1,5 +1,7 @@
 package com.zavrsnirad.CodeFlow.domain;
 
+import org.hibernate.annotations.Formula;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -26,6 +28,16 @@ public class Solution extends TimeAndUser{
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "solution")
     private List<SolutionComment> comments;
 
+    @Formula("(SELECT AVG(G.GRADE) FROM SOLUTION_GRADE G WHERE G.solution_id = solution_id)")
+    private Double averageGrade;
+
+    @OneToMany(mappedBy = "solution")
+    private List<SolutionGrade> grades;
+
+    @ManyToOne
+    @JoinColumn(name="task_id", referencedColumnName = "task_id")
+    private Task task;
+
     public Solution() {
     }
 
@@ -33,6 +45,14 @@ public class Solution extends TimeAndUser{
         this.code = code;
         this.language = language;
         this.author = author;
+    }
+
+    public List<SolutionGrade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(List<SolutionGrade> grades) {
+        this.grades = grades;
     }
 
     public List<SolutionComment> getComments() {
@@ -75,16 +95,32 @@ public class Solution extends TimeAndUser{
         this.author = author;
     }
 
+    public Double getAverageGrade() {
+        return averageGrade;
+    }
+
+    public void setAverageGrade(Double averageGrade) {
+        this.averageGrade = averageGrade;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Solution solution = (Solution) o;
-        return Objects.equals(solutionId, solution.solutionId) && Objects.equals(code, solution.code) && Objects.equals(language, solution.language) && Objects.equals(author, solution.author) && Objects.equals(comments, solution.comments);
+        return Objects.equals(solutionId, solution.solutionId) && Objects.equals(code, solution.code) && Objects.equals(language, solution.language) && Objects.equals(author, solution.author) && Objects.equals(comments, solution.comments) && Objects.equals(averageGrade, solution.averageGrade) && Objects.equals(grades, solution.grades) && Objects.equals(task, solution.task);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(solutionId, code, language, author, comments);
+        return Objects.hash(solutionId, code, language, author, comments, averageGrade, grades, task);
     }
 }

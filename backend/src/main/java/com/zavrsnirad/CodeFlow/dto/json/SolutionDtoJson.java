@@ -1,25 +1,43 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-import java.util.List;
-
 public class SolutionDtoJson {
 
     private Long solutionId;
 
     private String code;
 
+    private Double averageGrade;
+
+    private SolutionGradeDtoJson loggedInUserGrade;
+
     private LanguageDtoJson language;
 
     private UserDtoJson author;
 
-    private List<SolutionCommentDtoJson> comments;
 
-    public SolutionDtoJson(Long solutionId, String code, LanguageDtoJson language, UserDtoJson author, List<SolutionCommentDtoJson> comments) {
+    public SolutionDtoJson(Long solutionId, String code, Double averageGrade, SolutionGradeDtoJson loggedInUserGrade, LanguageDtoJson language, UserDtoJson author) {
         this.solutionId = solutionId;
         this.code = code;
+        this.averageGrade = averageGrade;
+        this.loggedInUserGrade = loggedInUserGrade;
         this.language = language;
         this.author = author;
-        this.comments = comments;
+    }
+
+    public Double getAverageGrade() {
+        return averageGrade;
+    }
+
+    public void setAverageGrade(Double averageGrade) {
+        this.averageGrade = averageGrade;
+    }
+
+    public SolutionGradeDtoJson getLoggedInUserGrade() {
+        return loggedInUserGrade;
+    }
+
+    public void setLoggedInUserGrade(SolutionGradeDtoJson loggedInUserGrade) {
+        this.loggedInUserGrade = loggedInUserGrade;
     }
 
     public Long getSolutionId() {
@@ -52,13 +70,5 @@ public class SolutionDtoJson {
 
     public void setAuthor(UserDtoJson author) {
         this.author = author;
-    }
-
-    public List<SolutionCommentDtoJson> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<SolutionCommentDtoJson> comments) {
-        this.comments = comments;
     }
 }

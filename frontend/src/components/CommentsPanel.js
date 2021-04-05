@@ -30,6 +30,8 @@ const CommentsPanel = ({ commentsSource, id, authDispatch }) => {
       });
   }, []);
 
+  console.log(comments);
+
   return <Container>{id}</Container>;
 };
 

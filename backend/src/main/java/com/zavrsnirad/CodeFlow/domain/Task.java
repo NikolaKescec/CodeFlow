@@ -38,8 +38,7 @@ public class Task extends TimeAndUser{
     @OneToMany(mappedBy = "task")
     private List<TestCase> testCases;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
-    @JoinColumn(name="task_id", referencedColumnName = "task_id")
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "task")
     private List<Solution> solutions;
 
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "task")

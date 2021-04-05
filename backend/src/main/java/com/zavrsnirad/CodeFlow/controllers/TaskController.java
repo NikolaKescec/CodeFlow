@@ -1,12 +1,19 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
+import com.zavrsnirad.CodeFlow.dto.json.SolutionDtoJson;
+import com.zavrsnirad.CodeFlow.dto.json.TaskCommentDtoJson;
 import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
+import com.zavrsnirad.CodeFlow.dto.mappers.MapperComment;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
+import com.zavrsnirad.CodeFlow.dto.mappers.MapperSolution;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
 import com.zavrsnirad.CodeFlow.dto.req.TaskDtoReq;
+import com.zavrsnirad.CodeFlow.service.SolutionService;
+import com.zavrsnirad.CodeFlow.service.TaskCommentService;
 import com.zavrsnirad.CodeFlow.service.TaskService;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
+import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +28,12 @@ public class TaskController {
 
     @Autowired
     private TaskService taskService;
+
+    @Autowired
+    private SolutionService solutionService;
+
+    @Autowired
+    private TaskCommentService taskCommentService;
 
     @Autowired
     private ProgrammerService programmerService;
@@ -46,6 +59,22 @@ public class TaskController {
 
         TaskDtoJson response = MapperTask.TaskToJson(taskService.taskByTaskId(id), programmer);
         return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @GetMapping("/solutions/{id}")
+    public ResponseEntity<?> getTaskSolutions(@PathVariable("id") Long id, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        List<SolutionDtoJson> solutions = MapperList.getList(solutionService.findSolutionsFromTask(id), solution -> MapperSolution.SolutionToJson(solution, programmer));
+        return ResponseEntity.status(HttpStatus.OK).body(solutions);
+    }
+
+    @GetMapping("/comments/{id}")
+    public ResponseEntity<?> getTaskComments(@PathVariable("id") Long id, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        List<TaskCommentDtoJson> comments = MapperList.getList(taskCommentService.findTaskComments(id), MapperComment::TaskCommentToJson);
+        return ResponseEntity.status(HttpStatus.OK).body(comments);
     }
 
     @GetMapping("/solved/{username}")

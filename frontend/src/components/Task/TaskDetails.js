@@ -2,35 +2,37 @@ import { useEffect, useState } from "react";
 import { Button, Card, Container } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import { useHistory, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosInstance from "../../utils/axiosInstance";
 import Grade from "../Grade";
+import SolutionTable from "../Solution/SolutionTable";
 import Spinner from "../Spinner";
 
 const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
   const [task, setTask] = useState();
   const [loading, setLoading] = useState(true);
   const history = useHistory();
+  const [solutions, setSolutions] = useState();
 
-  const notify = (message) => {
-    debugger;
-    toast.error(message, {
-      autoClose: 8000,
-      position: toast.POSITION.TOP_RIGHT,
-      className: "bg-wine",
-    });
+  const getTaskAndSolutions = async () => {
+    try {
+      let resTask = await axiosInstance(authDispatch, history).get(
+        "task/detail/" + id
+      );
+      setTask(resTask.data);
+      let resSolutions = await axiosInstance(authDispatch, history).get(
+        "task/solutions/" + id
+      );
+      setSolutions(resSolutions.data);
+      setLoading(false);
+    } catch (e) {
+      toast(e.message);
+    }
   };
 
   useEffect(() => {
-    axiosInstance(authDispatch, history)
-      .get("task/detail/" + id)
-      .then((res) => {
-        setTask(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        notify(err.message);
-      });
+    getTaskAndSolutions();
   }, []);
 
   if (loading) return <Spinner></Spinner>;
@@ -48,22 +50,21 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
           </span>
         </Card.Header>
         <Card.Body>
-          <p>
+          <div>
             <ReactMarkdown children={task.taskText}></ReactMarkdown>
-          </p>
-          <p className="highlight p-1 border border-wine">
-            <p>
+          </div>
+          <div className="highlight p-1 border border-wine mb-3">
+            <div>
               <strong>Input format: </strong>
               <ReactMarkdown children={task.inputFormat}></ReactMarkdown>
-            </p>
+            </div>
             <hr className="bg-wine m-0"></hr>
-
-            <p>
+            <div>
               <strong>Output format: </strong>
               <ReactMarkdown children={task.outputFormat}></ReactMarkdown>
-            </p>
-          </p>
-          <p>
+            </div>
+          </div>
+          <div className="mb-2">
             <span>
               <strong>Allowed languages: </strong>
             </span>
@@ -74,23 +75,29 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
                 </span>
               );
             })}
-          </p>
-          <p>
+          </div>
+          <hr className="bg-wine"></hr>
+          <div className="mb-2">
             <strong>Average grade:</strong>{" "}
-            <Grade grade={task.averageGrade}></Grade>
-          </p>
+            {task.averageGrade === null ? (
+              <Grade grade={0}></Grade>
+            ) : (
+              <Grade grade={task.averageGrade}></Grade>
+            )}{" "}
+          </div>
           {task.author !== loggedInUser.username && (
             <p>
               {task.loggedInUserGrade ? (
                 <>
                   <strong>Your grade: </strong>
-                  <Grade grade={task.loggedInUserGrade.grade}></Grade>
+                  <Grade grade={task.loggedInUserGrade}></Grade>
                   <Button variant="wine" className="ml-1">
                     Edit grade
                   </Button>
                 </>
               ) : (
                 <>
+                  <span>You havent graded yet. </span>
                   <Button
                     variant="wine"
                     disabled={task.loggedInUserSolution !== undefined}
@@ -110,6 +117,23 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
           )}
         </Card.Footer>
       </Card>
+      {task.authorSolution && (
+        <Card
+          bg={"charcoal"}
+          className="mb-2 mt-1 border border-rich-black text-baby-powder"
+        >
+          <Card.Body className="text-center">
+            Check out task author's{" "}
+            <Link to={"solution/" + task.authorSolution}>solution</Link>.
+          </Card.Body>
+        </Card>
+      )}
+      <SolutionTable
+        solutions={solutions}
+        changeSolutions={setSolutions}
+        loggedInUser={loggedInUser}
+        task={task}
+      ></SolutionTable>
     </Container>
   );
 };
