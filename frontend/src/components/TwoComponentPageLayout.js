@@ -1,10 +1,9 @@
-import { Container } from "@material-ui/core";
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 const TwoComponentPageLayout = ({ main, secondary }) => {
   return (
     <Container fluid className="flex-grow-1">
-      <Row>
+      <Row className="h-100">
         <Col
           xs={12}
           md={9}

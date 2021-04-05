@@ -5,6 +5,7 @@ import {
   AiOutlineCode,
   AiOutlineSolution,
 } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import Grade from "../Grade";
 
 const TaskSnippet = ({ task, loggedInUser }) => {
@@ -45,7 +46,9 @@ const TaskSnippet = ({ task, loggedInUser }) => {
               <AiFillCheckCircle className="ml-auto mr-2"></AiFillCheckCircle>
             )}
           </span>
-          <Button variant="rich-black">{inspectUser()}</Button>
+          <Link to={"/task/" + task.taskId}>
+            <Button variant="rich-black">{inspectUser()}</Button>
+          </Link>
         </div>
       </Card.Footer>
     </Card>

@@ -3,9 +3,11 @@ import CommentsPanel from "../components/CommentsPanel";
 import TwoComponentPageLayout from "../components/TwoComponentPageLayout";
 import Spinner from "../components/Spinner";
 import TaskDetails from "../components/Task/TaskDetails";
+import { useParams } from "react-router-dom";
 
 const Task = () => {
   debugger;
+  let { id } = useParams();
   const [auth, authDispatch, checking] = useAuth();
 
   if (checking) {
@@ -13,8 +15,20 @@ const Task = () => {
   }
   return (
     <TwoComponentPageLayout
-      main={<TaskDetails></TaskDetails>}
-      side={<CommentsPanel commentsSource={"task-comments/"}></CommentsPanel>}
+      main={
+        <TaskDetails
+          id={id}
+          authDispatch={authDispatch}
+          loggedInUser={auth.data}
+        ></TaskDetails>
+      }
+      secondary={
+        <CommentsPanel
+          authDispatch={authDispatch}
+          commentsSource={"task-comments/"}
+          id={id}
+        ></CommentsPanel>
+      }
     ></TwoComponentPageLayout>
   );
 };

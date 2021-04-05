@@ -52,3 +52,8 @@ a {
 input, select, textarea {
   color: white;
 }
+
+.highlight {
+  background: #2C2E36 !important;
+  border-radius: 5px;
+}

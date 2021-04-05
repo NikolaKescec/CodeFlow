@@ -31,10 +31,11 @@ const Renderer = (route) => {
 function RouteWrapper({ component: Component, layout: Layout, path }) {
   return (
     <Route
+      path={path}
       exact
-      render={() => (
+      render={(props) => (
         <Layout path={path}>
-          <Component />
+          <Component {...props} />
         </Layout>
       )}
     />

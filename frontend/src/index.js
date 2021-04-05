@@ -20,10 +20,8 @@ const CodeFlowTheme = createMuiTheme({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ThemeProvider theme={CodeFlowTheme}>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>,
+  <ThemeProvider theme={CodeFlowTheme}>
+    <App />
+  </ThemeProvider>,
   document.getElementById("root")
 );
