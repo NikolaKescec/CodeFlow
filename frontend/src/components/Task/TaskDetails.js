@@ -31,6 +31,8 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
     }
   };
 
+  console.log(solutions);
+
   useEffect(() => {
     getTaskAndSolutions();
   }, []);
@@ -91,7 +93,7 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
                 <>
                   <strong>Your grade: </strong>
                   <Grade grade={task.loggedInUserGrade}></Grade>
-                  <Button variant="wine" className="ml-1">
+                  <Button variant="rich-black" className="ml-1">
                     Edit grade
                   </Button>
                 </>
@@ -99,7 +101,7 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
                 <>
                   <span>You havent graded yet. </span>
                   <Button
-                    variant="wine"
+                    variant="rich-black"
                     disabled={task.loggedInUserSolution !== undefined}
                   >
                     Grade task
@@ -111,9 +113,9 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
         </Card.Body>
         <Card.Footer className="d-flex">
           {task.loggedInUserSolution ? (
-            <Button variant="wine">Edit solution</Button>
+            <Button variant="rich-black">Inspect my solution</Button>
           ) : (
-            <Button variant="wine">Add solution</Button>
+            <Button variant="rich-black">Add solution</Button>
           )}
         </Card.Footer>
       </Card>
@@ -128,12 +130,14 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
           </Card.Body>
         </Card>
       )}
-      <SolutionTable
-        solutions={solutions}
-        changeSolutions={setSolutions}
-        loggedInUser={loggedInUser}
-        task={task}
-      ></SolutionTable>
+      {solutions.length !== 0 && (
+        <SolutionTable
+          solutions={solutions}
+          changeSolutions={setSolutions}
+          loggedInUser={loggedInUser}
+          task={task}
+        ></SolutionTable>
+      )}
     </Container>
   );
 };

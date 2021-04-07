@@ -1,8 +1,8 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
+import com.zavrsnirad.CodeFlow.dto.json.CommentDtoJson;
 import com.zavrsnirad.CodeFlow.dto.json.SolutionDtoJson;
-import com.zavrsnirad.CodeFlow.dto.json.TaskCommentDtoJson;
 import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperComment;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
@@ -67,14 +67,6 @@ public class TaskController {
 
         List<SolutionDtoJson> solutions = MapperList.getList(solutionService.findSolutionsFromTask(id), solution -> MapperSolution.SolutionToJson(solution, programmer));
         return ResponseEntity.status(HttpStatus.OK).body(solutions);
-    }
-
-    @GetMapping("/comments/{id}")
-    public ResponseEntity<?> getTaskComments(@PathVariable("id") Long id, Principal principal) {
-        Programmer programmer = programmerService.findByUsername(principal.getName());
-
-        List<TaskCommentDtoJson> comments = MapperList.getList(taskCommentService.findTaskComments(id), MapperComment::TaskCommentToJson);
-        return ResponseEntity.status(HttpStatus.OK).body(comments);
     }
 
     @GetMapping("/solved/{username}")

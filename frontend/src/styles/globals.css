@@ -57,3 +57,42 @@ input, select, textarea {
   background: #2C2E36 !important;
   border-radius: 5px;
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+  .scrollable-feed {
+    height: 82vh;
+    overflow-y: auto;
+  }
+  .scrollable-panel {
+    height: 72vh;
+    overflow-y: auto;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+  .scrollable-feed {
+    height: 83vh;
+    overflow-y: auto;
+  }
+  .scrollable-panel {
+    height: 73vh;
+    overflow-y: auto;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+  .scrollable-feed {
+    height: 86vh;
+    overflow-y: auto;
+  }
+  .scrollable-panel {
+    height: 75vh;
+    overflow-y: auto;
+  }
+}

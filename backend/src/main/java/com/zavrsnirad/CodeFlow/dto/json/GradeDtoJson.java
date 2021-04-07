@@ -1,25 +1,25 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-public class SolutionGradeDtoJson {
+public class GradeDtoJson {
 
-    private Long solutionGradeId;
+    private Long gradeId;
 
     private Integer grade;
 
     private UserDtoJson grader;
 
-    public SolutionGradeDtoJson(Long solutionGradeId, Integer grade, UserDtoJson grader) {
-        this.solutionGradeId = solutionGradeId;
+    public GradeDtoJson(Long gradeId, Integer grade, UserDtoJson grader) {
+        this.gradeId = gradeId;
         this.grade = grade;
         this.grader = grader;
     }
 
-    public Long getSolutionGradeId() {
-        return solutionGradeId;
+    public Long getGradeId() {
+        return gradeId;
     }
 
-    public void setSolutionGradeId(Long solutionGradeId) {
-        this.solutionGradeId = solutionGradeId;
+    public void setGradeId(Long gradeId) {
+        this.gradeId = gradeId;
     }
 
     public Integer getGrade() {
@@ -37,4 +37,5 @@ public class SolutionGradeDtoJson {
     public void setGrader(UserDtoJson grader) {
         this.grader = grader;
     }
+
 }

@@ -24,9 +24,9 @@ public class TaskDtoJson {
 
     private Long loggedInUserSolution;
 
-    private TaskGradeDtoJson loggedInUserGrade;
+    private GradeDtoJson loggedInUserGrade;
 
-    public TaskDtoJson(String author, Long taskId, String taskText, List<LanguageDtoJson> writtenIn, List<TestCaseDtoJson> testCases, String inputFormat, String outputFormat, Long authorSolution, Double averageGrade, Long loggedInUserSolution, TaskGradeDtoJson loggedInUserGrade) {
+    public TaskDtoJson(String author, Long taskId, String taskText, List<LanguageDtoJson> writtenIn, List<TestCaseDtoJson> testCases, String inputFormat, String outputFormat, Long authorSolution, Double averageGrade, Long loggedInUserSolution, GradeDtoJson loggedInUserGrade) {
         this.author = author;
         this.taskId = taskId;
         this.taskText = taskText;
@@ -120,11 +120,11 @@ public class TaskDtoJson {
         this.testCases = testCases;
     }
 
-    public TaskGradeDtoJson getLoggedInUserGrade() {
+    public GradeDtoJson getLoggedInUserGrade() {
         return loggedInUserGrade;
     }
 
-    public void setLoggedInUserGrade(TaskGradeDtoJson loggedInUserGrade) {
+    public void setLoggedInUserGrade(GradeDtoJson loggedInUserGrade) {
         this.loggedInUserGrade = loggedInUserGrade;
     }
 }

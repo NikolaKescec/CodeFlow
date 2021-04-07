@@ -11,7 +11,7 @@ const TwoComponentPageLayout = ({ main, secondary }) => {
         >
           {main}
         </Col>
-        <Col xs={0} md={3} className="d-none d-md-inline p-0 home-pattern">
+        <Col xs={0} md={3} className="d-md-inline bg-charcoal p-0 d-flex">
           {secondary}
         </Col>
       </Row>

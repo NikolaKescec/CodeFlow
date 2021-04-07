@@ -1,5 +1,5 @@
 import useAuth from "../authentication/hook/useAuth";
-import CommentsPanel from "../components/CommentsPanel";
+import CommentsPanel from "../components/Comment/CommentsPanel";
 import TwoComponentPageLayout from "../components/TwoComponentPageLayout";
 import Spinner from "../components/Spinner";
 import TaskDetails from "../components/Task/TaskDetails";
@@ -24,8 +24,9 @@ const Task = () => {
       }
       secondary={
         <CommentsPanel
+          loggedInUser={auth.data}
           authDispatch={authDispatch}
-          commentsSource={"task/comments/"}
+          commentsSource={"task-comments/"}
           id={id}
         ></CommentsPanel>
       }

@@ -1,11 +1,93 @@
+import { useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import {
+  TiArrowSortedDown,
+  TiArrowSortedUp,
+  TiArrowUnsorted,
+} from "react-icons/ti";
 import { Link } from "react-router-dom";
 import Grade from "../Grade";
 
-const SolutionTable = ({ task, solutions, changeSolutions, loggedInUser }) => {
+const SolutionTable = ({ task, solutions, loggedInUser }) => {
+  const [tableSolutions, setTableSolutions] = useState([...solutions]);
+  let [sortColumn, setSortColumn] = useState();
+
+  const columnName = (column, name) => {
+    debugger;
+    if (sortColumn === undefined || sortColumn.column !== column)
+      return (
+        <>
+          <TiArrowUnsorted></TiArrowUnsorted>
+          <span>{name}</span>
+          <TiArrowUnsorted></TiArrowUnsorted>
+        </>
+      );
+
+    let icon = sortColumn.asc ? (
+      <TiArrowSortedUp></TiArrowSortedUp>
+    ) : (
+      <TiArrowSortedDown></TiArrowSortedDown>
+    );
+
+    return (
+      <>
+        {icon}
+        <span>{name}</span>
+        {icon}
+      </>
+    );
+  };
+
   const sortSolutions = (column) => {
-    //TODO
+    debugger;
+
+    if (sortColumn === undefined) {
+      sortColumn = { column, asc: true };
+    }
+
+    if (sortColumn.column === column) {
+      sortColumn.asc = !sortColumn.asc;
+    } else {
+      sortColumn.column = column;
+      sortColumn.asc = true;
+    }
+
+    let sortFunction;
+    switch (column) {
+      case 1:
+        sortFunction = function (a, b) {
+          let result = a.solutionId - b.solutionId;
+          return result * (sortColumn.asc ? -1 : 1);
+        };
+        break;
+      case 2:
+        sortFunction = function (a, b) {
+          let result = a.author.username.localeCompare(b.author.username);
+          result = result * (sortColumn.asc ? -1 : 1);
+          return result;
+        };
+        break;
+      case 3:
+        sortFunction = function (a, b) {
+          return (
+            a.language.language.localeCompare(b.language.language) *
+            (sortColumn.asc ? -1 : 1)
+          );
+        };
+        break;
+      case 4:
+        sortFunction = function (a, b) {
+          let result = b.averageGrade - a.averageGrade;
+          return result * (sortColumn.asc ? -1 : 1);
+        };
+        break;
+      default:
+        throw Error;
+    }
+    tableSolutions.sort(sortFunction);
+    setTableSolutions([...tableSolutions]);
+    setSortColumn(sortColumn);
   };
 
   return (
@@ -20,15 +102,43 @@ const SolutionTable = ({ task, solutions, changeSolutions, loggedInUser }) => {
     >
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Author</th>
-          <th>Language</th>
-          <th>Average grade</th>
+          <th
+            onClick={() => {
+              sortSolutions(1);
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            {columnName(1, "ID")}
+          </th>
+          <th
+            onClick={() => {
+              sortSolutions(2);
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            {columnName(2, "Author")}
+          </th>
+          <th
+            onClick={() => {
+              sortSolutions(3);
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            {columnName(3, "Language")}
+          </th>
+          <th
+            onClick={() => {
+              sortSolutions(4);
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            {columnName(4, "Average grade")}
+          </th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        {solutions.map((solution) => {
+        {tableSolutions.map((solution) => {
           return (
             <tr key={solution.solutionId + "-" + solution.author.username}>
               <td>
@@ -62,7 +172,7 @@ const SolutionTable = ({ task, solutions, changeSolutions, loggedInUser }) => {
                 {loggedInUser.id === solution.author.id ? (
                   <Link to={"edit-solution/" + solution.solutionId}>
                     <Button variant="rich-black" block>
-                      Edit
+                      Inspect my solution
                     </Button>
                   </Link>
                 ) : (

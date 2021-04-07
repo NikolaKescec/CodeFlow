@@ -1,25 +1,25 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-public class SolutionCommentDtoJson {
+public class CommentDtoJson {
 
-    private Long solutionCommentId;
+    private Long commentId;
 
     private String comment;
 
     private UserDtoJson commenter;
 
-    public SolutionCommentDtoJson(Long solutionCommentId, String comment, UserDtoJson commenter) {
-        this.solutionCommentId = solutionCommentId;
+    public CommentDtoJson(Long commentId, String comment, UserDtoJson commenter) {
+        this.commentId = commentId;
         this.comment = comment;
         this.commenter = commenter;
     }
 
-    public Long getSolutionCommentId() {
-        return solutionCommentId;
+    public Long getCommentId() {
+        return commentId;
     }
 
-    public void setSolutionCommentId(Long solutionCommentId) {
-        this.solutionCommentId = solutionCommentId;
+    public void setCommetId(Long taskCommentId) {
+        this.commentId = taskCommentId;
     }
 
     public String getComment() {
@@ -37,4 +37,5 @@ public class SolutionCommentDtoJson {
     public void setCommenter(UserDtoJson commenter) {
         this.commenter = commenter;
     }
+
 }
