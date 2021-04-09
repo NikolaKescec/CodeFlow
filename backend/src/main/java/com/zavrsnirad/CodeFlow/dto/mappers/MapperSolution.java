@@ -18,7 +18,7 @@ public class MapperSolution {
                 solution.getAverageGrade(),
                 loggedInUserGrade != null ? MapperGrade.SolutionGradeToJson(loggedInUserGrade) : null,
                 MapperLanguage.LanguageToJson(solution.getLanguage()),
-                MapperUser.UserToJson(solution.getAuthor())
+                solution.getAuthor().getUsername()
         );
     }
 

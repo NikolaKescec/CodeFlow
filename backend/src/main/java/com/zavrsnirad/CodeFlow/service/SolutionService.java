@@ -8,4 +8,5 @@ public interface SolutionService {
 
     List<Solution> findSolutionsFromTask(Long id);
 
+    Solution findSolutionById(Long id);
 }

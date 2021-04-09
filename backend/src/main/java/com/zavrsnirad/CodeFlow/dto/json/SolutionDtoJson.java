@@ -12,10 +12,10 @@ public class SolutionDtoJson {
 
     private LanguageDtoJson language;
 
-    private UserDtoJson author;
+    private String author;
 
 
-    public SolutionDtoJson(Long solutionId, String code, Double averageGrade, GradeDtoJson loggedInUserGrade, LanguageDtoJson language, UserDtoJson author) {
+    public SolutionDtoJson(Long solutionId, String code, Double averageGrade, GradeDtoJson loggedInUserGrade, LanguageDtoJson language, String author) {
         this.solutionId = solutionId;
         this.code = code;
         this.averageGrade = averageGrade;
@@ -64,11 +64,11 @@ public class SolutionDtoJson {
         this.language = language;
     }
 
-    public UserDtoJson getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(UserDtoJson author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 }

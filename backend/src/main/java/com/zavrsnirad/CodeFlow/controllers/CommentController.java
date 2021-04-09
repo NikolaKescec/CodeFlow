@@ -9,6 +9,7 @@ import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
 import com.zavrsnirad.CodeFlow.dto.req.CommentDtoReq;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
+import com.zavrsnirad.CodeFlow.service.SolutionCommentService;
 import com.zavrsnirad.CodeFlow.service.TaskCommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,6 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/task-comments")
 public class CommentController {
 
     @Autowired
@@ -28,7 +28,10 @@ public class CommentController {
     @Autowired
     private TaskCommentService taskCommentService;
 
-    @GetMapping("/{id}")
+     @Autowired
+     private SolutionCommentService solutionCommentService;
+
+    @GetMapping("/task-comments/{id}")
     public ResponseEntity<?> getTaskComments(@PathVariable("id") Long id, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
 
@@ -36,7 +39,7 @@ public class CommentController {
         return ResponseEntity.status(HttpStatus.OK).body(comments);
     }
 
-    @PostMapping("/create/{taskId}")
+    @PostMapping("/task-comments/create/{taskId}")
     public ResponseEntity<?> createCommentByTaskId(@PathVariable("taskId") Long taskId, @RequestBody CommentDtoReq commentDtoReq, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
 
@@ -44,11 +47,35 @@ public class CommentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newComment);
     }
 
-    @GetMapping("/delete/{commentId}")
+    @GetMapping("/task-comments/delete/{commentId}")
     public ResponseEntity<?> deleteCommentById(@PathVariable("commentId") Long commentId, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
 
         taskCommentService.deleteComment(commentId, programmer);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping("/solution-comments/{id}")
+    public ResponseEntity<?> getSolutionComments(@PathVariable("id") Long id, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        List<CommentDtoJson> comments = MapperList.getList(solutionCommentService.findSolutionComments(id), MapperComment::SolutionCommentToJson);
+        return ResponseEntity.status(HttpStatus.OK).body(comments);
+    }
+
+    @PostMapping("/solution-comments/create/{taskId}")
+    public ResponseEntity<?> createCommentBySolutionId(@PathVariable("taskId") Long taskId, @RequestBody CommentDtoReq commentDtoReq, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        CommentDtoJson newComment = MapperComment.SolutionCommentToJson(solutionCommentService.createCommentForSolution(taskId, commentDtoReq, programmer));
+        return ResponseEntity.status(HttpStatus.CREATED).body(newComment);
+    }
+
+    @GetMapping("/solution-comments/delete/{commentId}")
+    public ResponseEntity<?> deleteSolutionCommentById(@PathVariable("commentId") Long commentId, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        solutionCommentService.deleteComment(commentId, programmer);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 }
