@@ -7,7 +7,7 @@ import {
   TiArrowUnsorted,
 } from "react-icons/ti";
 import { Link } from "react-router-dom";
-import Grade from "../Grade";
+import Grade from "../Grade/Grade";
 
 const SolutionTable = ({ task, solutions, loggedInUser }) => {
   const [tableSolutions, setTableSolutions] = useState([...solutions]);
@@ -63,7 +63,7 @@ const SolutionTable = ({ task, solutions, loggedInUser }) => {
         break;
       case 2:
         sortFunction = function (a, b) {
-          let result = a.author.username.localeCompare(b.author.username);
+          let result = a.author.localeCompare(b.author);
           result = result * (sortColumn.asc ? -1 : 1);
           return result;
         };
@@ -149,10 +149,10 @@ const SolutionTable = ({ task, solutions, loggedInUser }) => {
                 )}
               </td>
               <td>
-                {task.author === solution.author.username ? (
-                  <span>{solution.author.username} (AUTHOR)</span>
+                {task.author === solution.author ? (
+                  <span>{solution.author} (AUTHOR)</span>
                 ) : (
-                  solution.author.username
+                  solution.author
                 )}
               </td>
               <td>{solution.language.language}</td>

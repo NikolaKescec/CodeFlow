@@ -6,7 +6,7 @@ import {
   AiOutlineSolution,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import Grade from "../Grade";
+import Grade from "../Grade/Grade";
 
 const TaskSnippet = ({ task, loggedInUser }) => {
   debugger;

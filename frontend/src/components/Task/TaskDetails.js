@@ -5,7 +5,7 @@ import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosInstance from "../../utils/axiosInstance";
-import Grade from "../Grade";
+import Grade from "../Grade/Grade";
 import SolutionTable from "../Solution/SolutionTable";
 import Spinner from "../Spinner";
 

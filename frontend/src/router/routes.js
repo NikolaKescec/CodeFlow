@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Profile from "../pages/Profile";
 import CreateTask from "../pages/CreateTask";
 import Task from "../pages/Task";
+import Solution from "../pages/Solution";
 
 const routes = [
   {
@@ -48,6 +49,13 @@ const routes = [
     exact: true,
     component: Task,
     title: "Inspect task",
+    authenticated: true,
+  },
+  {
+    path: "/task/solution/:id",
+    exact: true,
+    component: Solution,
+    title: "Inspect solution",
     authenticated: true,
   },
   {
