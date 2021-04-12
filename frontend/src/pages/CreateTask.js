@@ -45,11 +45,10 @@ const ValidationSchema = Yup.object().shape({
 });
 
 const CreateTask = () => {
-  const [auth, authDispatch, checking] = useAuth();
+  const [auth, authDispatch, history] = useAuth();
   const [availableLanguages, setAvailableLanguages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [creatingTask, setCreatingTask] = useState(true);
-  const history = useHistory();
 
   const notify = (message) => {
     debugger;

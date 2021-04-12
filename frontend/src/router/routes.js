@@ -7,6 +7,7 @@ import Profile from "../pages/Profile";
 import CreateTask from "../pages/CreateTask";
 import Task from "../pages/Task";
 import Solution from "../pages/Solution";
+import CreateSolution from "../pages/CreateSolution";
 
 const routes = [
   {
@@ -56,6 +57,13 @@ const routes = [
     exact: true,
     component: Solution,
     title: "Inspect solution",
+    authenticated: true,
+  },
+  {
+    path: "/task/create-solution/:id",
+    exact: true,
+    component: CreateSolution,
+    title: "Create solution for task",
     authenticated: true,
   },
   {

@@ -6,7 +6,7 @@ import { AuthContext } from "../authentication/context/AuthProvider";
 import Layout from "../components/Layout";
 
 const Renderer = (route) => {
-  const { auth, dispatch } = useContext(AuthContext);
+  const { auth, authDispatch } = useContext(AuthContext);
 
   debugger;
 

@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card, Col, Container, Dropdown, Row } from "react-bootstrap";
 import { useHistory } from "react-router";
 import axiosInstance from "../../utils/axiosInstance";
 import Grade from "../Grade/Grade";
 import Spinner from "../Spinner";
-import CodeMirror from "@uiw/react-codemirror";
 import "codemirror/addon/comment/comment";
 import "codemirror/addon/edit/matchbrackets";
 import "codemirror/keymap/sublime";
 import "codemirror/theme/monokai.css";
+import useAuth from "../../authentication/hook/useAuth";
+import CodeMirror from "@uiw/react-codemirror";
 
-const SolutionDetails = ({ id, authDispatch, loggedInUser }) => {
+const SolutionDetails = ({ id }) => {
+  const [auth, authDispatch, history] = useAuth();
   const [solution, setSolution] = useState();
   const [loading, setLoading] = useState(true);
-  const history = useHistory();
 
   useEffect(() => {
     axiosInstance(authDispatch, history)
@@ -39,13 +40,34 @@ const SolutionDetails = ({ id, authDispatch, loggedInUser }) => {
         className="mb-2 mt-1 border border-rich-black text-baby-powder"
       >
         <Card.Header>
-          Solution by:
-          <span className=" text-baby-powder p-1 mr-1">
-            <strong>{solution.author}</strong>
-          </span>
-          <p>
-            Written in: <strong>{solution.language.language}</strong>
-          </p>
+          <Row>
+            <Col md={11}>
+              Solution by:
+              <span className=" text-baby-powder p-1 mr-1">
+                <strong>{solution.author}</strong>
+              </span>
+              <p>
+                Written in: <strong>{solution.language.language}</strong>
+              </p>
+            </Col>
+            <Col>
+              {auth.data.username === solution.author && (
+                <Dropdown className="d-inline">
+                  <Dropdown.Toggle
+                    variant="charcoal"
+                    className="text-wine btn-sm border border-rich-black"
+                    id="dropdown-basic"
+                    split={true}
+                  ></Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">Delete</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              )}
+            </Col>
+          </Row>
         </Card.Header>
         <Card.Body>
           <CodeMirror
@@ -67,7 +89,7 @@ const SolutionDetails = ({ id, authDispatch, loggedInUser }) => {
               <Grade grade={solution.averageGrade}></Grade>
             )}
           </div>
-          {solution.author !== loggedInUser.username && (
+          {solution.author !== auth.data.username && (
             <p>
               {solution.loggedInUserGrade ? (
                 <>
@@ -80,7 +102,7 @@ const SolutionDetails = ({ id, authDispatch, loggedInUser }) => {
               ) : (
                 <>
                   <span>You havent graded yet. </span>
-                  <Button variant="rich-black">Grade task</Button>
+                  <Button variant="rich-black">Grade solution</Button>
                 </>
               )}
             </p>

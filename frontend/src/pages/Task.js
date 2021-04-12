@@ -8,11 +8,8 @@ import { useParams } from "react-router-dom";
 const Task = () => {
   debugger;
   let { id } = useParams();
-  const [auth, authDispatch, checking] = useAuth();
+  const [auth, authDispatch, history] = useAuth();
 
-  if (checking) {
-    return <Spinner></Spinner>;
-  }
   return (
     <TwoComponentPageLayout
       main={

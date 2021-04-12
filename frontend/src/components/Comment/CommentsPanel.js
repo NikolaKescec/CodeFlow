@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import { toast } from "react-toastify";
+import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
 import Spinner from "../Spinner";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 
-const CommentsPanel = ({ commentsSource, id, authDispatch, loggedInUser }) => {
+const CommentsPanel = ({ commentsSource, id }) => {
   const [comments, setComments] = useState();
   const [loading, setLoading] = useState(true);
-  const history = useHistory();
+  const [auth, authDispatch, history] = useAuth();
 
   const notify = (message) => {
     debugger;
@@ -52,7 +53,7 @@ const CommentsPanel = ({ commentsSource, id, authDispatch, loggedInUser }) => {
           return (
             <Comment
               comment={comment}
-              loggedInUser
+              loggedInUser={auth.data}
               key={comment.commentId + "-" + comment.commenter.username}
             ></Comment>
           );

@@ -9,11 +9,8 @@ import axiosInstance from "../utils/axiosInstance";
 
 const Solution = () => {
   let { id } = useParams();
-  const [auth, authDispatch, checking] = useAuth();
+  const [auth, authDispatch, history] = useAuth();
 
-  if (checking) {
-    return <Spinner></Spinner>;
-  }
   return (
     <TwoComponentPageLayout
       main={

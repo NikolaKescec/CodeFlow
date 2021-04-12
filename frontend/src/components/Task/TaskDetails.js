@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card, Container, Dropdown } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import { useHistory, useParams } from "react-router";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosInstance from "../../utils/axiosInstance";
 import Grade from "../Grade/Grade";
 import SolutionTable from "../Solution/SolutionTable";
 import Spinner from "../Spinner";
+import useAuth from "../../authentication/hook/useAuth";
 
-const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
+const TaskDetails = ({ id }) => {
   const [task, setTask] = useState();
   const [loading, setLoading] = useState(true);
-  const history = useHistory();
+  const [auth, authDispatch, history] = useAuth();
   const [solutions, setSolutions] = useState();
 
   const getTaskAndSolutions = async () => {
@@ -46,10 +48,29 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
         className="mb-2 mt-1 border border-rich-black text-baby-powder"
       >
         <Card.Header>
-          Task created by:
-          <span className=" text-baby-powder p-1 mr-1">
-            <strong>{task.author}</strong>
-          </span>
+          <Container fluid className="p-0">
+            <span>
+              Task created by:
+              <span className=" text-baby-powder p-1 mr-1">
+                <strong>{task.author}</strong>
+              </span>
+            </span>
+            {auth.data.username === task.author && (
+              <Dropdown className="d-inline float-right">
+                <Dropdown.Toggle
+                  variant="charcoal"
+                  className="text-wine btn-sm border border-rich-black"
+                  id="dropdown-basic"
+                  split={true}
+                ></Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Delete</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            )}
+          </Container>
         </Card.Header>
         <Card.Body>
           <div>
@@ -87,7 +108,7 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
               <Grade grade={task.averageGrade}></Grade>
             )}{" "}
           </div>
-          {task.author !== loggedInUser.username && (
+          {task.author !== auth.data.username && (
             <p>
               {task.loggedInUserGrade ? (
                 <>
@@ -113,20 +134,30 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
         </Card.Body>
         <Card.Footer className="d-flex">
           {task.loggedInUserSolution ? (
-            <Button variant="rich-black">Inspect my solution</Button>
+            <Link to={"solution/" + task.loggedInUserSolution}>
+              <Button variant="rich-black">Inspect my solution</Button>
+            </Link>
           ) : (
-            <Button variant="rich-black">Add solution</Button>
+            <Link to={"create-solution/" + task.taskId}>
+              <Button variant="rich-black">Add solution</Button>
+            </Link>
           )}
         </Card.Footer>
       </Card>
-      {task.authorSolution && (
+      {task.authorSolution && task.author !== auth.data.username && (
         <Card
           bg={"charcoal"}
           className="mb-2 mt-1 border border-rich-black text-baby-powder"
         >
           <Card.Body className="text-center">
             Check out task author's{" "}
-            <Link to={"solution/" + task.authorSolution}>solution</Link>.
+            <Link
+              to={"solution/" + task.authorSolution}
+              className="text-rich-black"
+            >
+              solution
+            </Link>
+            .
           </Card.Body>
         </Card>
       )}
@@ -134,7 +165,7 @@ const TaskDetails = ({ id, authDispatch, loggedInUser }) => {
         <SolutionTable
           solutions={solutions}
           changeSolutions={setSolutions}
-          loggedInUser={loggedInUser}
+          loggedInUser={auth.data}
           task={task}
         ></SolutionTable>
       )}

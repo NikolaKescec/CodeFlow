@@ -6,6 +6,7 @@ import axiosInstance from "../../utils/axiosInstance";
 import { AuthContext } from "../../authentication/context/AuthProvider";
 import { useContext } from "react";
 import { useHistory } from "react-router";
+import useAuth from "../../authentication/hook/useAuth";
 
 const validation = Yup.object().shape({
   authorId: Yup.number().required("Author id is required!"),
@@ -16,8 +17,7 @@ const validation = Yup.object().shape({
 });
 
 const CommentForm = ({ id, commentsSource, addComment }) => {
-  const { auth, authDispatch } = useContext(AuthContext);
-  const history = useHistory();
+  const [auth, authDispatch, history] = useAuth();
 
   debugger;
   return (
@@ -30,7 +30,6 @@ const CommentForm = ({ id, commentsSource, addComment }) => {
         }}
         validationSchema={validation}
         onSubmit={async (values) => {
-          debugger;
           try {
             let res = await axiosInstance(authDispatch, history).post(
               commentsSource + "create/" + id,

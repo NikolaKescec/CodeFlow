@@ -9,8 +9,7 @@ import Feed from "../components/Task/Feed";
 import FeedButton from "../components/Task/FeedButton";
 
 const Profile = () => {
-  const [auth, authDispatch, checking] = useAuth();
-  const history = useHistory();
+  const [auth, authDispatch, history] = useAuth();
   const [text, setText] = useState(auth.data.username);
 
   const changeText = (newText) => {
