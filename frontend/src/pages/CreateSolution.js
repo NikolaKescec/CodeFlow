@@ -103,6 +103,7 @@ const CreateSolution = () => {
   const [theme, setTheme] = useState("darcula");
 
   const [languageId, setLanguageId] = useState();
+  const [changedLanguage, setChangedLanguage] = useState(false);
   const [code, setCode] = useState("");
   let codeMirrorCode = code.repeat(1);
 
@@ -118,7 +119,7 @@ const CreateSolution = () => {
 
   const changeCode = (instance, change) => {
     debugger;
-    setCode(instance.getValue().repeat(1));
+    if (!changedLanguage) setCode(instance.getValue().repeat(1));
   };
 
   const changeTheme = (e) => {
@@ -137,6 +138,7 @@ const CreateSolution = () => {
       return element.languageId == e.target.value;
     });
     setLanguageId(wantedLanguage[0].languageId);
+    setChangedLanguage(true);
     setCode(wantedLanguage[0].imports + "" + wantedLanguage[0].main);
   };
 
@@ -160,6 +162,10 @@ const CreateSolution = () => {
   useEffect(() => {
     getTask();
   }, []);
+
+  useEffect(() => {
+    setChangedLanguage(false);
+  }, [languageId]);
 
   if (loading) return <Spinner></Spinner>;
 
@@ -239,7 +245,7 @@ const CreateSolution = () => {
             <Card.Body className="p-0">
               <CodeMirror
                 value={codeMirrorCode}
-                onChange={changeCode}
+                onChanges={changeCode}
                 options={{
                   mode: "javascript",
                   theme: theme,
