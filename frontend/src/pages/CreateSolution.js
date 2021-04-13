@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import { useHistory, useParams } from "react-router";
@@ -7,71 +7,220 @@ import Grade from "../components/Grade/Grade";
 import Spinner from "../components/Spinner";
 import axiosInstance from "../utils/axiosInstance";
 import themes from "../app/codethemes/codethemes";
-import CodeMirror from "@uiw/react-codemirror";
+import AceEditor from "react-ace";
 
-import "codemirror/theme/3024-day.css";
-import "codemirror/theme/3024-night.css";
-import "codemirror/theme/abcdef.css";
-import "codemirror/theme/ambiance-mobile.css";
-import "codemirror/theme/ambiance.css";
-import "codemirror/theme/ayu-dark.css";
-import "codemirror/theme/ayu-mirage.css";
-import "codemirror/theme/base16-dark.css";
-import "codemirror/theme/base16-light.css";
-import "codemirror/theme/bespin.css";
-import "codemirror/theme/blackboard.css";
-import "codemirror/theme/cobalt.css";
-import "codemirror/theme/colorforth.css";
-import "codemirror/theme/darcula.css";
-import "codemirror/theme/dracula.css";
-import "codemirror/theme/duotone-dark.css";
-import "codemirror/theme/duotone-light.css";
-import "codemirror/theme/eclipse.css";
-import "codemirror/theme/elegant.css";
-import "codemirror/theme/erlang-dark.css";
-import "codemirror/theme/gruvbox-dark.css";
-import "codemirror/theme/hopscotch.css";
-import "codemirror/theme/icecoder.css";
-import "codemirror/theme/idea.css";
-import "codemirror/theme/isotope.css";
-import "codemirror/theme/lesser-dark.css";
-import "codemirror/theme/liquibyte.css";
-import "codemirror/theme/lucario.css";
-import "codemirror/theme/material-darker.css";
-import "codemirror/theme/material-ocean.css";
-import "codemirror/theme/material-palenight.css";
-import "codemirror/theme/material.css";
-import "codemirror/theme/mbo.css";
-import "codemirror/theme/mdn-like.css";
-import "codemirror/theme/midnight.css";
-import "codemirror/theme/monokai.css";
-import "codemirror/theme/moxer.css";
-import "codemirror/theme/neat.css";
-import "codemirror/theme/neo.css";
-import "codemirror/theme/night.css";
-import "codemirror/theme/nord.css";
-import "codemirror/theme/oceanic-next.css";
-import "codemirror/theme/panda-syntax.css";
-import "codemirror/theme/paraiso-dark.css";
-import "codemirror/theme/paraiso-light.css";
-import "codemirror/theme/pastel-on-dark.css";
-import "codemirror/theme/railscasts.css";
-import "codemirror/theme/rubyblue.css";
-import "codemirror/theme/seti.css";
-import "codemirror/theme/shadowfox.css";
-import "codemirror/theme/solarized.css";
-import "codemirror/theme/ssms.css";
-import "codemirror/theme/the-matrix.css";
-import "codemirror/theme/tomorrow-night-bright.css";
-import "codemirror/theme/tomorrow-night-eighties.css";
-import "codemirror/theme/ttcn.css";
-import "codemirror/theme/twilight.css";
-import "codemirror/theme/vibrant-ink.css";
-import "codemirror/theme/xq-dark.css";
-import "codemirror/theme/xq-light.css";
-import "codemirror/theme/yeti.css";
-import "codemirror/theme/yonce.css";
-import "codemirror/theme/zenburn.css";
+import "ace-builds/src-noconflict/mode-abap";
+import "ace-builds/src-noconflict/mode-abc";
+import "ace-builds/src-noconflict/mode-actionscript";
+import "ace-builds/src-noconflict/mode-ada";
+import "ace-builds/src-noconflict/mode-alda";
+import "ace-builds/src-noconflict/mode-apache_conf";
+import "ace-builds/src-noconflict/mode-apex";
+import "ace-builds/src-noconflict/mode-applescript";
+import "ace-builds/src-noconflict/mode-aql";
+import "ace-builds/src-noconflict/mode-asciidoc";
+import "ace-builds/src-noconflict/mode-asl";
+import "ace-builds/src-noconflict/mode-assembly_x86";
+import "ace-builds/src-noconflict/mode-autohotkey";
+import "ace-builds/src-noconflict/mode-batchfile";
+import "ace-builds/src-noconflict/mode-c9search";
+import "ace-builds/src-noconflict/mode-c_cpp";
+import "ace-builds/src-noconflict/mode-cirru";
+import "ace-builds/src-noconflict/mode-clojure";
+import "ace-builds/src-noconflict/mode-cobol";
+import "ace-builds/src-noconflict/mode-coffee";
+import "ace-builds/src-noconflict/mode-coldfusion";
+import "ace-builds/src-noconflict/mode-crystal";
+import "ace-builds/src-noconflict/mode-csharp";
+import "ace-builds/src-noconflict/mode-csound_document";
+import "ace-builds/src-noconflict/mode-csound_orchestra";
+import "ace-builds/src-noconflict/mode-csound_score";
+import "ace-builds/src-noconflict/mode-csp";
+import "ace-builds/src-noconflict/mode-css";
+import "ace-builds/src-noconflict/mode-curly";
+import "ace-builds/src-noconflict/mode-d";
+import "ace-builds/src-noconflict/mode-dart";
+import "ace-builds/src-noconflict/mode-diff";
+import "ace-builds/src-noconflict/mode-django";
+import "ace-builds/src-noconflict/mode-dockerfile";
+import "ace-builds/src-noconflict/mode-dot";
+import "ace-builds/src-noconflict/mode-drools";
+import "ace-builds/src-noconflict/mode-edifact";
+import "ace-builds/src-noconflict/mode-eiffel";
+import "ace-builds/src-noconflict/mode-ejs";
+import "ace-builds/src-noconflict/mode-elixir";
+import "ace-builds/src-noconflict/mode-elm";
+import "ace-builds/src-noconflict/mode-erlang";
+import "ace-builds/src-noconflict/mode-forth";
+import "ace-builds/src-noconflict/mode-fortran";
+import "ace-builds/src-noconflict/mode-fsharp";
+import "ace-builds/src-noconflict/mode-fsl";
+import "ace-builds/src-noconflict/mode-ftl";
+import "ace-builds/src-noconflict/mode-gcode";
+import "ace-builds/src-noconflict/mode-gherkin";
+import "ace-builds/src-noconflict/mode-gitignore";
+import "ace-builds/src-noconflict/mode-glsl";
+import "ace-builds/src-noconflict/mode-gobstones";
+import "ace-builds/src-noconflict/mode-golang";
+import "ace-builds/src-noconflict/mode-graphqlschema";
+import "ace-builds/src-noconflict/mode-groovy";
+import "ace-builds/src-noconflict/mode-haml";
+import "ace-builds/src-noconflict/mode-handlebars";
+import "ace-builds/src-noconflict/mode-haskell";
+import "ace-builds/src-noconflict/mode-haskell_cabal";
+import "ace-builds/src-noconflict/mode-haxe";
+import "ace-builds/src-noconflict/mode-hjson";
+import "ace-builds/src-noconflict/mode-html";
+import "ace-builds/src-noconflict/mode-html_elixir";
+import "ace-builds/src-noconflict/mode-html_ruby";
+import "ace-builds/src-noconflict/mode-ini";
+import "ace-builds/src-noconflict/mode-io";
+import "ace-builds/src-noconflict/mode-jack";
+import "ace-builds/src-noconflict/mode-jade";
+import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/mode-json";
+import "ace-builds/src-noconflict/mode-json5";
+import "ace-builds/src-noconflict/mode-jsoniq";
+import "ace-builds/src-noconflict/mode-jsp";
+import "ace-builds/src-noconflict/mode-jssm";
+import "ace-builds/src-noconflict/mode-jsx";
+import "ace-builds/src-noconflict/mode-julia";
+import "ace-builds/src-noconflict/mode-kotlin";
+import "ace-builds/src-noconflict/mode-latex";
+import "ace-builds/src-noconflict/mode-less";
+import "ace-builds/src-noconflict/mode-liquid";
+import "ace-builds/src-noconflict/mode-lisp";
+import "ace-builds/src-noconflict/mode-livescript";
+import "ace-builds/src-noconflict/mode-logiql";
+import "ace-builds/src-noconflict/mode-logtalk";
+import "ace-builds/src-noconflict/mode-lsl";
+import "ace-builds/src-noconflict/mode-lua";
+import "ace-builds/src-noconflict/mode-luapage";
+import "ace-builds/src-noconflict/mode-lucene";
+import "ace-builds/src-noconflict/mode-makefile";
+import "ace-builds/src-noconflict/mode-markdown";
+import "ace-builds/src-noconflict/mode-mask";
+import "ace-builds/src-noconflict/mode-matlab";
+import "ace-builds/src-noconflict/mode-maze";
+import "ace-builds/src-noconflict/mode-mediawiki";
+import "ace-builds/src-noconflict/mode-mel";
+import "ace-builds/src-noconflict/mode-mixal";
+import "ace-builds/src-noconflict/mode-mushcode";
+import "ace-builds/src-noconflict/mode-mysql";
+import "ace-builds/src-noconflict/mode-nginx";
+import "ace-builds/src-noconflict/mode-nim";
+import "ace-builds/src-noconflict/mode-nix";
+import "ace-builds/src-noconflict/mode-nsis";
+import "ace-builds/src-noconflict/mode-nunjucks";
+import "ace-builds/src-noconflict/mode-objectivec";
+import "ace-builds/src-noconflict/mode-ocaml";
+import "ace-builds/src-noconflict/mode-pascal";
+import "ace-builds/src-noconflict/mode-perl";
+import "ace-builds/src-noconflict/mode-perl6";
+import "ace-builds/src-noconflict/mode-pgsql";
+import "ace-builds/src-noconflict/mode-php";
+import "ace-builds/src-noconflict/mode-php_laravel_blade";
+import "ace-builds/src-noconflict/mode-pig";
+import "ace-builds/src-noconflict/mode-plain_text";
+import "ace-builds/src-noconflict/mode-powershell";
+import "ace-builds/src-noconflict/mode-praat";
+import "ace-builds/src-noconflict/mode-prisma";
+import "ace-builds/src-noconflict/mode-prolog";
+import "ace-builds/src-noconflict/mode-properties";
+import "ace-builds/src-noconflict/mode-protobuf";
+import "ace-builds/src-noconflict/mode-puppet";
+import "ace-builds/src-noconflict/mode-python";
+import "ace-builds/src-noconflict/mode-qml";
+import "ace-builds/src-noconflict/mode-r";
+import "ace-builds/src-noconflict/mode-razor";
+import "ace-builds/src-noconflict/mode-rdoc";
+import "ace-builds/src-noconflict/mode-red";
+import "ace-builds/src-noconflict/mode-redshift";
+import "ace-builds/src-noconflict/mode-rhtml";
+import "ace-builds/src-noconflict/mode-rst";
+import "ace-builds/src-noconflict/mode-ruby";
+import "ace-builds/src-noconflict/mode-rust";
+import "ace-builds/src-noconflict/mode-sass";
+import "ace-builds/src-noconflict/mode-scad";
+import "ace-builds/src-noconflict/mode-scala";
+import "ace-builds/src-noconflict/mode-scheme";
+import "ace-builds/src-noconflict/mode-scss";
+import "ace-builds/src-noconflict/mode-sh";
+import "ace-builds/src-noconflict/mode-sjs";
+import "ace-builds/src-noconflict/mode-slim";
+import "ace-builds/src-noconflict/mode-smarty";
+import "ace-builds/src-noconflict/mode-snippets";
+import "ace-builds/src-noconflict/mode-soy_template";
+import "ace-builds/src-noconflict/mode-space";
+import "ace-builds/src-noconflict/mode-sparql";
+import "ace-builds/src-noconflict/mode-sql";
+import "ace-builds/src-noconflict/mode-sqlserver";
+import "ace-builds/src-noconflict/mode-stylus";
+import "ace-builds/src-noconflict/mode-svg";
+import "ace-builds/src-noconflict/mode-swift";
+import "ace-builds/src-noconflict/mode-tcl";
+import "ace-builds/src-noconflict/mode-terraform";
+import "ace-builds/src-noconflict/mode-tex";
+import "ace-builds/src-noconflict/mode-text";
+import "ace-builds/src-noconflict/mode-textile";
+import "ace-builds/src-noconflict/mode-toml";
+import "ace-builds/src-noconflict/mode-tsx";
+import "ace-builds/src-noconflict/mode-turtle";
+import "ace-builds/src-noconflict/mode-twig";
+import "ace-builds/src-noconflict/mode-typescript";
+import "ace-builds/src-noconflict/mode-vala";
+import "ace-builds/src-noconflict/mode-vbscript";
+import "ace-builds/src-noconflict/mode-velocity";
+import "ace-builds/src-noconflict/mode-verilog";
+import "ace-builds/src-noconflict/mode-vhdl";
+import "ace-builds/src-noconflict/mode-visualforce";
+import "ace-builds/src-noconflict/mode-wollok";
+import "ace-builds/src-noconflict/mode-xml";
+import "ace-builds/src-noconflict/mode-xquery";
+import "ace-builds/src-noconflict/mode-yaml";
+import "ace-builds/src-noconflict/mode-zeek";
+import "ace-builds/src-noconflict/theme-ambiance";
+import "ace-builds/src-noconflict/theme-chaos";
+import "ace-builds/src-noconflict/theme-chrome";
+import "ace-builds/src-noconflict/theme-clouds";
+import "ace-builds/src-noconflict/theme-clouds_midnight";
+import "ace-builds/src-noconflict/theme-cobalt";
+import "ace-builds/src-noconflict/theme-crimson_editor";
+import "ace-builds/src-noconflict/theme-dawn";
+import "ace-builds/src-noconflict/theme-dracula";
+import "ace-builds/src-noconflict/theme-dreamweaver";
+import "ace-builds/src-noconflict/theme-eclipse";
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/theme-gob";
+import "ace-builds/src-noconflict/theme-gruvbox";
+import "ace-builds/src-noconflict/theme-idle_fingers";
+import "ace-builds/src-noconflict/theme-iplastic";
+import "ace-builds/src-noconflict/theme-katzenmilch";
+import "ace-builds/src-noconflict/theme-kr_theme";
+import "ace-builds/src-noconflict/theme-kuroir";
+import "ace-builds/src-noconflict/theme-merbivore";
+import "ace-builds/src-noconflict/theme-merbivore_soft";
+import "ace-builds/src-noconflict/theme-mono_industrial";
+import "ace-builds/src-noconflict/theme-monokai";
+import "ace-builds/src-noconflict/theme-nord_dark";
+import "ace-builds/src-noconflict/theme-pastel_on_dark";
+import "ace-builds/src-noconflict/theme-solarized_dark";
+import "ace-builds/src-noconflict/theme-solarized_light";
+import "ace-builds/src-noconflict/theme-sqlserver";
+import "ace-builds/src-noconflict/theme-terminal";
+import "ace-builds/src-noconflict/theme-textmate";
+import "ace-builds/src-noconflict/theme-tomorrow";
+import "ace-builds/src-noconflict/theme-tomorrow_night";
+import "ace-builds/src-noconflict/theme-tomorrow_night_blue";
+import "ace-builds/src-noconflict/theme-tomorrow_night_bright";
+import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
+import "ace-builds/src-noconflict/theme-twilight";
+import "ace-builds/src-noconflict/theme-vibrant_ink";
+import "ace-builds/src-noconflict/theme-xcode";
+import "ace-builds/src-noconflict/worker-javascript";
+import "ace-builds/src-min-noconflict/ext-language_tools";
+
 import {
   FormControl,
   InputLabel,
@@ -79,7 +228,6 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
-import ReactCodemirror from "@uiw/react-codemirror";
 
 const useStyles = makeStyles({
   select: {
@@ -100,12 +248,11 @@ const CreateSolution = () => {
   const [loading, setLoading] = useState(true);
 
   const classes = useStyles();
-  const [theme, setTheme] = useState("darcula");
+  const [theme, setTheme] = useState("solarized_dark");
+  const [mode, setMode] = useState("java");
 
   const [languageId, setLanguageId] = useState();
-  const [changedLanguage, setChangedLanguage] = useState(false);
   const [code, setCode] = useState("");
-  let codeMirrorCode = code.repeat(1);
 
   debugger;
 
@@ -117,12 +264,13 @@ const CreateSolution = () => {
     console.log(code);
   };
 
-  const changeCode = (instance, change) => {
+  const changeCode = (newValue) => {
     debugger;
-    if (!changedLanguage) setCode(instance.getValue().repeat(1));
+    setCode(newValue);
   };
 
   const changeTheme = (e) => {
+    debugger;
     setTheme(e.target.value);
   };
 
@@ -138,7 +286,14 @@ const CreateSolution = () => {
       return element.languageId == e.target.value;
     });
     setLanguageId(wantedLanguage[0].languageId);
-    setChangedLanguage(true);
+    if (
+      wantedLanguage[0].language.toLowerCase() === "c" ||
+      wantedLanguage[0].language.toLowerCase() === "cpp"
+    ) {
+      setMode("c_cpp");
+    } else {
+      setMode(wantedLanguage[0].language.toLowerCase());
+    }
     setCode(wantedLanguage[0].imports + "" + wantedLanguage[0].main);
   };
 
@@ -149,6 +304,14 @@ const CreateSolution = () => {
       );
       setTask(resTask.data);
       setLanguageId(resTask.data.writtenIn[0].languageId);
+      if (
+        resTask.data.writtenIn[0].language.toLowerCase() === "c" ||
+        resTask.data.writtenIn[0].language.toLowerCase() === "cpp"
+      ) {
+        setMode("c_cpp");
+      } else {
+        setMode(resTask.data.writtenIn[0].language.toLowerCase());
+      }
       setCode(
         resTask.data.writtenIn[0].imports + "" + resTask.data.writtenIn[0].main
       );
@@ -162,10 +325,6 @@ const CreateSolution = () => {
   useEffect(() => {
     getTask();
   }, []);
-
-  useEffect(() => {
-    setChangedLanguage(false);
-  }, [languageId]);
 
   if (loading) return <Spinner></Spinner>;
 
@@ -243,21 +402,31 @@ const CreateSolution = () => {
         <Col md={6} className="p-0">
           <Card className="h-100" bg={"charcoal"}>
             <Card.Body className="p-0">
-              <CodeMirror
-                value={codeMirrorCode}
-                onChanges={changeCode}
-                options={{
-                  mode: "javascript",
-                  theme: theme,
-                  keyMap: "sublime",
+              <AceEditor
+                width={"100%"}
+                height={"100%"}
+                mode={mode}
+                theme={theme}
+                onChange={changeCode}
+                name="ACE_EDITOR_DIV"
+                value={code}
+                showPrintMargin={true}
+                showGutter={true}
+                highlightActiveLine={true}
+                setOptions={{
+                  enableBasicAutocompletion: true,
+                  enableLiveAutocompletion: false,
+                  enableSnippets: false,
+                  showLineNumbers: true,
+                  tabSize: 2,
                 }}
-              ></CodeMirror>
+              ></AceEditor>
             </Card.Body>
             <Card.Footer>
               <FormControl>
                 <Select
                   value={theme}
-                  onChange={changeCode}
+                  onChange={changeTheme}
                   MenuProps={{ classes: { paper: classes.select } }}
                 >
                   {themes.map((thema) => {
