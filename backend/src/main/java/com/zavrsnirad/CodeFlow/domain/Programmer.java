@@ -34,7 +34,7 @@ public class Programmer extends TimeAndUser{
     @Min(0)
     private Integer solutionPoints;
 
-    @OneToMany(mappedBy = "programmer")
+    @OneToMany(mappedBy = "programmer", cascade = CascadeType.REMOVE)
     private List<Follower> followers;
 
     @ManyToMany

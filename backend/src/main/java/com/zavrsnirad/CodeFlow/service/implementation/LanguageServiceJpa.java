@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class LanguageServiceJpa implements LanguageService{
@@ -23,8 +24,8 @@ public class LanguageServiceJpa implements LanguageService{
     @Override
     public Language findById(Long id) {
         try {
-            return languageRepository.getOne(id);
-        } catch (EntityNotFoundException entityNotFoundException) {
+            return languageRepository.findById(id).get();
+        } catch (NoSuchElementException entityNotFoundException) {
             throw new IllegalArgumentException("Language for ID: " + id + " not found!");
         }
     }

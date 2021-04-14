@@ -14,5 +14,7 @@ public interface TaskCommentService {
 
     TaskComment createCommentForTask(Long id, CommentDtoReq commentDtoReq, Programmer programmer);
 
+    TaskComment updateTaskComment(Long id, CommentDtoReq commentDtoReq, Programmer programmer);
+
     void deleteComment(Long commentId, Programmer programmer);
 }

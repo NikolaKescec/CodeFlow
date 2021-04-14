@@ -47,7 +47,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 || httpServletRequest.getRequestURI().equals("/user/register") )) {
             try {
                 if(cookies != null) {
-                    jwt = CookieUtils.extractAccessTokenFromCookies(cookies);
+                    jwt = CookieUtils.extractFieldFromCookie(cookies, "Access-token");
                     if(jwt != null)
                         username = jwtUtil.extractUsername(jwt);
                 }

@@ -15,7 +15,7 @@ public class Task extends TimeAndUser{
     @Column(name="task_id")
     private Long taskId;
 
-    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "author_id", referencedColumnName = "programmer_id")
     private Programmer owner;
 
@@ -35,7 +35,7 @@ public class Task extends TimeAndUser{
     @Formula("(SELECT AVG(G.GRADE) FROM TASK_GRADE G WHERE G.task_id = task_id)")
     private Double averageGrade;
 
-    @OneToMany(mappedBy = "task")
+    @OneToMany(mappedBy = "task", cascade = CascadeType.REMOVE)
     private List<TestCase> testCases;
 
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "task")
@@ -164,6 +164,8 @@ public class Task extends TimeAndUser{
     }
 
     public void removeSolution(Solution solution) {
+        if(solution.getAuthor().getProgrammerId().equals(this.owner.getProgrammerId()))
+            setAuthorSolution(null);
         this.solutions.remove(solution);
     }
 

@@ -8,6 +8,7 @@ import com.zavrsnirad.CodeFlow.service.RefreshTokenService;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import com.zavrsnirad.CodeFlow.util.CookieUtils;
 import com.zavrsnirad.CodeFlow.util.JwtUtil;
+import io.jsonwebtoken.JwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,8 +35,8 @@ public class AuthController {
     @Autowired
     private ProgrammerService programmerService;
 
-    @Autowired
-    private RefreshTokenService refreshTokenService;
+    /*@Autowired
+    private RefreshTokenService refreshTokenService;*/
 
     @Autowired
     private JwtUtil jwtTokenUtil;
@@ -49,18 +50,19 @@ public class AuthController {
         }
 
         final Programmer programmer = programmerService.findByUsername(authRequest.getUsername());
-        final String jwt = jwtTokenUtil.generateToken(programmer);
+        final String jwt = jwtTokenUtil.generateToken(programmer, 120);
 
         RefreshToken newRefreshToken;
 
         // TODO: check and add token
-        RefreshToken oldRefreshToken = refreshTokenService.retrieveRefreshToken(programmer);
+        /*RefreshToken oldRefreshToken = refreshTokenService.retrieveRefreshToken(programmer);
         if(oldRefreshToken == null)
             newRefreshToken = refreshTokenService.addRefreshToken(programmer);
         else
-            newRefreshToken = refreshTokenService.changeRefreshToken(programmer);
+            newRefreshToken = refreshTokenService.changeRefreshToken(programmer);*/
+        final String refreshToken = jwtTokenUtil.generateToken(programmer, 3600*24*1000);
 
-        setCookies(newRefreshToken.getRefreshToken(), jwt, response, 120, 3600*24*1000);
+        setCookies(refreshToken, jwt, response, 120, 3600*24*1000);
 
         return ResponseEntity.ok(MapperUser.UserToJson(programmer));
     }
@@ -78,23 +80,23 @@ public class AuthController {
             if(cookies == null)
                 throw new IllegalArgumentException();
 
-            UUID refreshToken = CookieUtils.extractRefreshTokenFromCookies(cookies);
+            String refreshToken = CookieUtils.extractFieldFromCookie(cookies, "Refresh-token");
 
             if(refreshToken == null)
                 throw new IllegalArgumentException();
 
-            Programmer programmer = refreshTokenService.retrieveUser(refreshToken);
+            String username = jwtTokenUtil.extractUsername(refreshToken);
+            Programmer programmer = programmerService.findByUsername(username);
 
-            // create new refresh token and set it in the database
-            RefreshToken newRefreshToken = refreshTokenService.changeRefreshToken(programmer);
-
+            // create new refresh token
+            String newJwt = jwtTokenUtil.generateToken(programmer, 120);
             // save the refresh token in a new cookie and make a new jwt
-            String newJwt = jwtTokenUtil.generateToken(programmer);
+            String newRefreshToken = jwtTokenUtil.generateToken(programmer, 3600*24);
 
-            setCookies(newRefreshToken.getRefreshToken(), newJwt, response, 120, 3600*24*1000);
+            setCookies(newRefreshToken, newJwt, response, 120, 3600*24);
 
             return ResponseEntity.ok().build();
-        } catch (IllegalArgumentException | NoSuchAlgorithmException ex) {
+        } catch (IllegalArgumentException | NoSuchAlgorithmException | JwtException ex) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("\"message\": \"" +"Invalid refresh token." + "\"");
         }
     }
@@ -105,8 +107,8 @@ public class AuthController {
         return ResponseEntity.ok().build();
     }
 
-    private Cookie setRefreshCookie(UUID refreshToken, int expiration) {
-        Cookie cookie = new Cookie("Refresh-token", refreshToken == null ? "" : refreshToken.toString());
+    private Cookie setRefreshCookie(String refreshToken, int expiration) {
+        Cookie cookie = new Cookie("Refresh-token", refreshToken == null ? "" : refreshToken);
         cookie.setHttpOnly(true);
         cookie.setMaxAge(expiration);
         cookie.setPath("/refresh");
@@ -120,7 +122,7 @@ public class AuthController {
         return cookie;
     }
 
-    private void setCookies(UUID refreshToken, String jwt, HttpServletResponse response, int jwtExpiration, int refreshExpiration) {
+    private void setCookies(String refreshToken, String jwt, HttpServletResponse response, int jwtExpiration, int refreshExpiration) {
         Cookie refreshTokenCookie = setRefreshCookie(refreshToken, refreshExpiration);
         Cookie jwtCookie = setJwtCookie(jwt, jwtExpiration);
         response.addCookie(refreshTokenCookie);

@@ -6,21 +6,12 @@ import java.util.UUID;
 public class CookieUtils {
 
 
-    public static UUID extractRefreshTokenFromCookies (Cookie[] cookies) {
+    public static String extractFieldFromCookie (Cookie[] cookies, String field) {
         for(Cookie cookie : cookies) {
-            if(cookie.getName().equals("Refresh-token"))
-                return UUID.fromString(cookie.getValue());
-        }
-        return null;
-    }
-
-    public static String extractAccessTokenFromCookies (Cookie[] cookies) {
-        for(Cookie cookie : cookies) {
-            if(cookie.getName().equals("Access-token"))
+            if(cookie.getName().equals(field))
                 return cookie.getValue();
         }
         return null;
     }
-
 
 }

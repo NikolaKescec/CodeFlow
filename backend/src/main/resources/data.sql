@@ -796,3 +796,89 @@ INSERT INTO
     )
 VALUES
     (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 5, 4, 4, 2);
+
+/* TEST CASES */
+INSERT INTO
+    test_case (
+        ts_created,
+        ts_modified,
+        task_id,
+        input_data,
+        output_data
+    )
+VALUES
+    (
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP,
+        5,
+        '22|31',
+        '22 31'
+    );
+
+INSERT INTO
+    test_case (
+        ts_created,
+        ts_modified,
+        task_id,
+        input_data,
+        output_data
+    )
+VALUES
+    (
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP,
+        5,
+        '33|123|31',
+        '33 123 31'
+    );
+
+INSERT INTO
+    test_case (
+        ts_created,
+        ts_modified,
+        task_id,
+        input_data,
+        output_data
+    )
+VALUES
+    (
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP,
+        3,
+        'none',
+        '1 2 3 4 5 6 7 8 9 10'
+    );
+
+INSERT INTO
+    test_case (
+        ts_created,
+        ts_modified,
+        task_id,
+        input_data,
+        output_data
+    )
+VALUES
+    (
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP,
+        1,
+        '3 4',
+        '7'
+    );
+
+INSERT INTO
+    test_case (
+        ts_created,
+        ts_modified,
+        task_id,
+        input_data,
+        output_data
+    )
+VALUES
+    (
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP,
+        1,
+        '22 21',
+        '43'
+    );

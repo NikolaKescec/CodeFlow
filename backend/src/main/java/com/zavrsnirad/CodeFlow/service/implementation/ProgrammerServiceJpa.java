@@ -60,10 +60,10 @@ public class ProgrammerServiceJpa implements ProgrammerService {
         String salt = BCrypt.gensalt(12);
         String hashed = BCrypt.hashpw(user.getPassword(), salt);
         newProgrammer.setPassword(hashed);
+        newProgrammer.setUserCreated(newProgrammer.getUsername());
 
         // saving user
         newProgrammer = programmerRepository.save(newProgrammer);
-
         return newProgrammer;
     }
 

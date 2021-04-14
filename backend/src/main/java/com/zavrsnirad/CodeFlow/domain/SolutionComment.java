@@ -16,11 +16,11 @@ public class SolutionComment extends TimeAndUser{
     @Column(nullable = false)
     private String comment;
 
-    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "commenter_id", referencedColumnName = "programmer_id")
     private Programmer commenter;
 
-    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @ManyToOne(optional = false)
     @JoinColumn(name="solution_id", referencedColumnName = "solution_id")
     private Solution solution;
 

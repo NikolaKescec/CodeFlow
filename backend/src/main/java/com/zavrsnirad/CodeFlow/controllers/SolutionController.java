@@ -6,15 +6,13 @@ import com.zavrsnirad.CodeFlow.dto.json.SolutionDtoJson;
 import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperSolution;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
+import com.zavrsnirad.CodeFlow.dto.req.SolutionDtoReq;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import com.zavrsnirad.CodeFlow.service.SolutionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
@@ -29,10 +27,18 @@ public class SolutionController {
     private SolutionService solutionService;
 
     @GetMapping("/detail/{id}")
-    public ResponseEntity<?> getTaskById(@PathVariable("id") Long id, Principal principal) {
+    public ResponseEntity<?> getSolutionById(@PathVariable("id") Long id, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
 
         SolutionDtoJson response = MapperSolution.SolutionToJson(solutionService.findSolutionById(id), programmer);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @PostMapping("/create/{taskId}")
+    public ResponseEntity<?> createSolutionForTaskId(@PathVariable("taskId") Long taskId, @RequestBody SolutionDtoReq solutionDtoReq, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        SolutionDtoJson response = MapperSolution.SolutionToJson(solutionService.addSolution(taskId, solutionDtoReq, programmer), programmer);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

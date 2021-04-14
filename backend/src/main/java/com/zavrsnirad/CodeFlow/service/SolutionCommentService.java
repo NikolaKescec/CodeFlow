@@ -15,6 +15,8 @@ public interface SolutionCommentService {
 
     SolutionComment createCommentForSolution(Long id, CommentDtoReq commentDtoReq, Programmer programmer);
 
+    SolutionComment updateSolutionComment(Long id, CommentDtoReq commentDtoReq, Programmer programmer);
+
     void deleteComment(Long commentId, Programmer programmer);
 
 }

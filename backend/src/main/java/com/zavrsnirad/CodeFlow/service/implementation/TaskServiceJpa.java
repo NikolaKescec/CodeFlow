@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
@@ -67,6 +68,7 @@ public class TaskServiceJpa implements TaskService {
             TestCase testCase = new TestCase(testCaseDtoReq.getInput(), testCaseDtoReq.getOutput());
             newTask.addTestCase(testCase);
         }
+        newTask.setUserCreated(author.getUsername());
 
         return taskRepository.save(newTask);
     }
@@ -74,8 +76,8 @@ public class TaskServiceJpa implements TaskService {
     @Override
     public Task taskByTaskId(Long id) {
         try {
-            return taskRepository.getOne(id);
-        } catch (EntityNotFoundException e) {
+            return taskRepository.findById(id).get();
+        } catch (NoSuchElementException e) {
             throw new IllegalArgumentException("No such task with given id: " + id);
         }
     }

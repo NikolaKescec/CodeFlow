@@ -27,16 +27,16 @@ public class JwtUtil {
 
     private Key key;
 
-    public String generateToken(Programmer programmer) throws NoSuchAlgorithmException {
+    public String generateToken(Programmer programmer, long duration) throws NoSuchAlgorithmException {
         Map<String, Object> claims = new HashMap<>();
         claims.put("name", programmer.getUsername());
-        return createToken(claims, programmer.getProgrammerId().toString());
+        return createToken(claims, programmer.getProgrammerId().toString(), duration);
     }
 
-    private String createToken(Map<String, Object> claims, String subject) throws NoSuchAlgorithmException {
+    private String createToken(Map<String, Object> claims, String subject, long duration) throws NoSuchAlgorithmException {
         key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
         return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000*120)) //2 minutes long token
+                .setExpiration(new Date(System.currentTimeMillis() + duration* 1000L)) //2 minutes long token
                 .signWith(key).compact();
     }
 
@@ -48,6 +48,7 @@ public class JwtUtil {
     private Claims extractAllClaims(String token) {
         Claims claim = null;
         try {
+            key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
             claim = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
         } catch (Exception m) {
             throw new JwtException("Authorization malformed!");

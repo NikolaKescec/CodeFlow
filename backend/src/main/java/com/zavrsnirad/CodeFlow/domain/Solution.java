@@ -21,7 +21,7 @@ public class Solution extends TimeAndUser{
     @JoinColumn(name = "language_id", referencedColumnName = "language_id")
     private Language language;
 
-    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "author_id", referencedColumnName = "programmer_id")
     private Programmer author;
 
@@ -31,7 +31,7 @@ public class Solution extends TimeAndUser{
     @Formula("(SELECT AVG(G.GRADE) FROM SOLUTION_GRADE G WHERE G.solution_id = solution_id)")
     private Double averageGrade;
 
-    @OneToMany(mappedBy = "solution")
+    @OneToMany(mappedBy = "solution", cascade = CascadeType.REMOVE)
     private List<SolutionGrade> grades;
 
     @ManyToOne
@@ -41,10 +41,11 @@ public class Solution extends TimeAndUser{
     public Solution() {
     }
 
-    public Solution(String code, Language language, Programmer author) {
+    public Solution(String code, Language language, Programmer author, Task task) {
         this.code = code;
         this.language = language;
         this.author = author;
+        this.task = task;
     }
 
     public List<SolutionGrade> getGrades() {

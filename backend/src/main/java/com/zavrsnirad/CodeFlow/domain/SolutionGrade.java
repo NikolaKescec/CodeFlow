@@ -21,11 +21,11 @@ public class SolutionGrade extends TimeAndUser{
     @Max(5)
     private Integer grade;
 
-    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "grader_id", referencedColumnName = "programmer_id")
     private Programmer grader;
 
-    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @ManyToOne(optional = false)
     @JoinColumn(name="solution_id", referencedColumnName = "solution_id")
     private Solution solution;
 

@@ -55,6 +55,14 @@ public class CommentController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
+    @PostMapping("/task-comments/update/{commentId}")
+    public ResponseEntity<?> updateTaskCommentById(@PathVariable("commentId") Long taskCommentId, @RequestBody CommentDtoReq commentDtoReq, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        CommentDtoJson updatedComment = MapperComment.TaskCommentToJson(taskCommentService.updateTaskComment(taskCommentId, commentDtoReq, programmer));
+        return ResponseEntity.status(HttpStatus.CREATED).body(updatedComment);
+    }
+
     @GetMapping("/solution-comments/{id}")
     public ResponseEntity<?> getSolutionComments(@PathVariable("id") Long id, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
@@ -78,4 +86,14 @@ public class CommentController {
         solutionCommentService.deleteComment(commentId, programmer);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+
+    @PostMapping("/solution-comments/update/{commentId}")
+    public ResponseEntity<?> updateSolutionCommentById(@PathVariable("commentId") Long solutionCommentId, @RequestBody CommentDtoReq commentDtoReq, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        CommentDtoJson updatedComment = MapperComment.SolutionCommentToJson(solutionCommentService.updateSolutionComment(solutionCommentId, commentDtoReq, programmer));
+        return ResponseEntity.status(HttpStatus.CREATED).body(updatedComment);
+    }
+
 }

@@ -3,7 +3,7 @@ package com.zavrsnirad.CodeFlow.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "TEST_CASE")
 public class TestCase extends TimeAndUser{
 
     @Id
@@ -11,12 +11,14 @@ public class TestCase extends TimeAndUser{
     @Column(name = "test_case_id")
     private Long testCaseId;
 
-    @ManyToOne(cascade = CascadeType.REMOVE,optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "task_id", referencedColumnName = "task_id")
     private Task task;
 
+    @Column(name = "input_data")
     private String input;
 
+    @Column(name = "output_data", nullable = false)
     private String output;
 
     public TestCase() {

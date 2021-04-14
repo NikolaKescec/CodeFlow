@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class SolutionCommentServiceJpa implements SolutionCommentService {
@@ -31,8 +34,8 @@ public class SolutionCommentServiceJpa implements SolutionCommentService {
     @Override
     public SolutionComment getSolutionComment (Long id) {
         try {
-            return solutionCommentRepository.getOne(id);
-        } catch (EntityNotFoundException e) {
+            return solutionCommentRepository.findById(id).get();
+        } catch (NoSuchElementException e) {
             throw new IllegalArgumentException("No such task comment!");
         }
     }
@@ -45,9 +48,24 @@ public class SolutionCommentServiceJpa implements SolutionCommentService {
 
         Solution solution = solutionService.findSolutionById(id);
         SolutionComment solutionComment = new SolutionComment(comment.getCommentText(), programmer, solution);
+        solutionComment.setUserCreated(programmer.getUsername());
 
         solutionComment = solutionCommentRepository.save(solutionComment);
         return solutionComment;
+    }
+
+    @Override
+    public SolutionComment updateSolutionComment(Long id, CommentDtoReq commentDtoReq, Programmer programmer) {
+        if(!id.equals(commentDtoReq.getCommentBaseId())) {
+            throw new IllegalArgumentException("The id's are not correct! Only owner can update it's comment!");
+        }
+
+        SolutionComment oldComment = getSolutionComment(id);
+        oldComment.setComment(commentDtoReq.getCommentText());
+        oldComment.setModified(new Timestamp(new Date().getTime()));
+
+        oldComment = solutionCommentRepository.save(oldComment);
+        return oldComment;
     }
 
     @Override
