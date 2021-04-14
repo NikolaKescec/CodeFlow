@@ -16,7 +16,14 @@ const validation = Yup.object().shape({
   ),
 });
 
-const CommentForm = ({ id, commentsSource, addComment }) => {
+const CommentForm = ({
+  id,
+  text,
+  commentsSource,
+  action,
+  method,
+  buttonText,
+}) => {
   const [auth, authDispatch, history] = useAuth();
 
   debugger;
@@ -26,16 +33,16 @@ const CommentForm = ({ id, commentsSource, addComment }) => {
         initialValues={{
           authorId: auth.data.id,
           commentBaseId: id,
-          commentText: "",
+          commentText: text,
         }}
         validationSchema={validation}
         onSubmit={async (values) => {
           try {
             let res = await axiosInstance(authDispatch, history).post(
-              commentsSource + "create/" + id,
+              commentsSource + action + id,
               values
             );
-            addComment(res.data);
+            method(res.data);
             values.commentText = "";
           } catch (e) {
             alert(e.message);
@@ -60,7 +67,7 @@ const CommentForm = ({ id, commentsSource, addComment }) => {
               helperText={touched.commentText && errors.commentText}
             ></TextField>
             <Button type="submit" variant="rich-black" block>
-              Comment
+              {buttonText}
             </Button>
           </Form>
         )}

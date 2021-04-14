@@ -42,7 +42,7 @@ const TaskSnippet = ({ task, loggedInUser }) => {
 
         <div className="ml-auto">
           <span>
-            {task.loggedInUserSolution && loggedInUser !== task.author && (
+            {task.loggedInUserSolution && (
               <AiFillCheckCircle className="ml-auto mr-2"></AiFillCheckCircle>
             )}
           </span>

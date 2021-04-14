@@ -13,14 +13,7 @@ const CommentsPanel = ({ commentsSource, id }) => {
   const [loading, setLoading] = useState(true);
   const [auth, authDispatch, history] = useAuth();
 
-  const notify = (message) => {
-    debugger;
-    toast.error(message, {
-      autoClose: 8000,
-      position: toast.POSITION.TOP_RIGHT,
-      className: "bg-wine",
-    });
-  };
+  debugger;
 
   useEffect(() => {
     axiosInstance(authDispatch, history)
@@ -30,12 +23,30 @@ const CommentsPanel = ({ commentsSource, id }) => {
         setLoading(false);
       })
       .catch((err) => {
-        notify(err.message);
+        alert(err.message);
       });
   }, []);
 
   const addComment = (newComment) => {
     setComments([...comments, newComment]);
+  };
+
+  const setNewComment = (newComment) => {
+    let copy = [...comments];
+    for (let i = 0; i < comments.length; i++) {
+      if (copy[i].commentId === newComment.commentId) {
+        copy[i] = newComment;
+        break;
+      }
+    }
+    setComments([...copy]);
+  };
+
+  const removeComment = (commentId) => {
+    let filtered = comments.filter((comment) => {
+      return comment.commentId !== commentId;
+    });
+    setComments([...filtered]);
   };
 
   console.log(comments);
@@ -54,6 +65,10 @@ const CommentsPanel = ({ commentsSource, id }) => {
             <Comment
               comment={comment}
               loggedInUser={auth.data}
+              id={id}
+              setNewComment={setNewComment}
+              removeComment={removeComment}
+              commentSource={commentsSource}
               key={comment.commentId + "-" + comment.commenter.username}
             ></Comment>
           );
@@ -61,9 +76,12 @@ const CommentsPanel = ({ commentsSource, id }) => {
       </Container>
       <Container fluid className="p-0">
         <CommentForm
-          addComment={addComment}
+          method={addComment}
+          text={""}
+          action={"create/"}
           id={id}
           commentsSource={commentsSource}
+          buttonText={"Comment"}
         ></CommentForm>
       </Container>
     </Container>
