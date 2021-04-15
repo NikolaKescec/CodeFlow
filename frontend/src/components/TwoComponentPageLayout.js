@@ -7,7 +7,7 @@ const TwoComponentPageLayout = ({ main, secondary }) => {
         <Col
           xs={12}
           md={9}
-          className="home-pattern p-0 border-lg border-right border-rich-black"
+          className="bg-wine-darker p-0 border-lg border-right border-rich-black"
         >
           {main}
         </Col>

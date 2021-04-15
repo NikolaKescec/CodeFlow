@@ -55,7 +55,9 @@ const ScoreBoard = ({ text }) => {
                       : user.solutionPoints}
                   </th>
                   <th>
-                    <Button variant="wine">Follow</Button>
+                    <Button variant="wine" className="border border-rich-black">
+                      Follow
+                    </Button>
                   </th>
                 </tr>
               );

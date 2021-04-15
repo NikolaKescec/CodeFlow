@@ -5,6 +5,7 @@ import Grade from "../Grade/Grade";
 import Spinner from "../Spinner";
 import useAuth from "../../authentication/hook/useAuth";
 import Editor from "../Editor/Editor";
+import { Link } from "react-router-dom";
 
 const SolutionDetails = ({ id }) => {
   const [auth, authDispatch, history] = useAuth();
@@ -47,10 +48,10 @@ const SolutionDetails = ({ id }) => {
             </Col>
             <Col>
               {auth.data.username === solution.author && (
-                <Dropdown className="d-inline">
+                <Dropdown className="d-inline float-right">
                   <Dropdown.Toggle
                     variant="charcoal"
-                    className="bg-charcoal text-baby-powder btn-sm border border-wine"
+                    className="bg-charcoal text-baby-powder btn-sm border border-rich-black"
                     id="dropdown-basic"
                     split={true}
                   ></Dropdown.Toggle>
@@ -103,6 +104,13 @@ const SolutionDetails = ({ id }) => {
               )}
             </p>
           )}
+          <hr></hr>
+          <Link
+            to={"/task/" + solution.solvedTaskId}
+            className="d-inline float-right"
+          >
+            <Button variant="rich-black">Return to task</Button>
+          </Link>
         </Card.Footer>
       </Card>
     </Container>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Collapse, Container, Row } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router";
 import useAuth from "../authentication/hook/useAuth";
@@ -42,6 +42,7 @@ const CreateSolution = () => {
   const [languageId, setLanguageId] = useState();
   const [code, setCode] = useState("");
 
+  const [open, setOpen] = useState(false);
   debugger;
 
   const submitSolution = () => {
@@ -74,12 +75,6 @@ const CreateSolution = () => {
   };
 
   const changeLanguage = (e) => {
-    if (
-      !window.confirm(
-        "Changing the language will result in discarding of any written code. Do you wish to proceed?"
-      )
-    )
-      return;
     debugger;
     let wantedLanguage = task.writtenIn.filter((element) => {
       return element.languageId == e.target.value;
@@ -93,7 +88,12 @@ const CreateSolution = () => {
     } else {
       setMode(wantedLanguage[0].language.toLowerCase());
     }
-    setCode(wantedLanguage[0].imports + "" + wantedLanguage[0].main);
+    if (
+      window.confirm(
+        "Do you wish to replace your code with this language preset?"
+      )
+    )
+      setCode(wantedLanguage[0].imports + "" + wantedLanguage[0].main);
   };
 
   const getTask = async () => {
@@ -128,7 +128,7 @@ const CreateSolution = () => {
   if (loading) return <Spinner></Spinner>;
 
   return (
-    <Container fluid className="h-100">
+    <Container fluid className="h-100 bg-charcoal">
       <Row className="h-100">
         <Col md={6}>
           <Card
@@ -182,19 +182,31 @@ const CreateSolution = () => {
                 )}
               </div>
               <hr className="bg-wine"></hr>
-              <div>
-                {task.testCases[0] && (
-                  <>
-                    <p>First test input and output: </p>
-                    <p className="highlight">
-                      Input: {task.testCases[0].input}
-                    </p>
-                    <p className="highlight">
-                      Output: {task.testCases[0].output}
-                    </p>{" "}
-                  </>
-                )}
+              <div className="text-center highlight">
+                <Button
+                  onClick={() => setOpen(!open)}
+                  aria-controls="test"
+                  aria-expanded={open}
+                  variant={"rich-black"}
+                  block
+                >
+                  See tests
+                </Button>
               </div>
+              <Collapse in={open}>
+                <div id="test">
+                  {task.testCases.map((testCase) => {
+                    return (
+                      <>
+                        <hr></hr>
+                        <p>Input and output: </p>
+                        <p className="highlight">Input: {testCase.input}</p>
+                        <p className="highlight">Output: {testCase.output}</p>
+                      </>
+                    );
+                  })}
+                </div>
+              </Collapse>
             </Card.Body>
           </Card>
         </Col>

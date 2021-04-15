@@ -59,7 +59,7 @@ const TaskDetails = ({ id }) => {
               <Dropdown className="d-inline float-right">
                 <Dropdown.Toggle
                   variant="charcoal"
-                  className="bg-charcoal text-baby-powder btn-sm border border-wine"
+                  className="bg-charcoal text-baby-powder btn-sm border border-rich-black"
                   id="dropdown-basic"
                   split={true}
                 ></Dropdown.Toggle>

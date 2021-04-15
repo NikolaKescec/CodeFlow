@@ -41,7 +41,7 @@ const Home = () => {
         <Col
           xs={12}
           md={9}
-          className="home-pattern p-0 border-lg border-right border-rich-black"
+          className="bg-wine-darker p-0 border-lg border-right border-rich-black"
         >
           <Container
             fluid
@@ -72,7 +72,7 @@ const Home = () => {
             <Feed text={taskFeed} loggedInUser={auth.data.username}></Feed>
           </div>
         </Col>
-        <Col xs={0} md={3} className="d-none d-md-inline p-0 home-pattern">
+        <Col xs={0} md={3} className="d-none d-md-inline p-0 bg-wine-darker">
           <Container
             fluid
             className="d-flex m-0 p-0 justify-content-between text-center"

@@ -27,9 +27,7 @@ const FeedButton = ({ name, link, selectFunction, activeElement, middle }) => {
       className={"feed-button flex-fill " + setClass() + " " + isMiddle()}
       onClick={() => selectFunction(link)}
     >
-      {isActive() && <HiOutlineSelector></HiOutlineSelector>}
       {name.toUpperCase()}
-      {isActive() && <HiOutlineSelector></HiOutlineSelector>}
     </div>
   );
 };

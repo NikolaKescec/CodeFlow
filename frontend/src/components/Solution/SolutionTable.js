@@ -18,9 +18,7 @@ const SolutionTable = ({ task, solutions, loggedInUser }) => {
     if (sortColumn === undefined || sortColumn.column !== column)
       return (
         <>
-          <TiArrowUnsorted></TiArrowUnsorted>
           <span>{name}</span>
-          <TiArrowUnsorted></TiArrowUnsorted>
         </>
       );
 
