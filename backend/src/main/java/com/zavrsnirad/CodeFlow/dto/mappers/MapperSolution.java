@@ -14,6 +14,7 @@ public class MapperSolution {
 
         return new SolutionDtoJson(
                 solution.getSolutionId(),
+                solution.getTask().getTaskId(),
                 solution.getCode(),
                 solution.getAverageGrade(),
                 loggedInUserGrade != null ? MapperGrade.SolutionGradeToJson(loggedInUserGrade) : null,

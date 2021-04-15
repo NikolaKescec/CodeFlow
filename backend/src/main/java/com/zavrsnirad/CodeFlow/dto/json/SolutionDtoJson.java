@@ -4,6 +4,8 @@ public class SolutionDtoJson {
 
     private Long solutionId;
 
+    private Long solvedTaskId;
+
     private String code;
 
     private Double averageGrade;
@@ -15,13 +17,22 @@ public class SolutionDtoJson {
     private String author;
 
 
-    public SolutionDtoJson(Long solutionId, String code, Double averageGrade, GradeDtoJson loggedInUserGrade, LanguageDtoJson language, String author) {
+    public SolutionDtoJson(Long solutionId, Long solvedTaskId, String code, Double averageGrade, GradeDtoJson loggedInUserGrade, LanguageDtoJson language, String author) {
         this.solutionId = solutionId;
+        this.solvedTaskId = solvedTaskId;
         this.code = code;
         this.averageGrade = averageGrade;
         this.loggedInUserGrade = loggedInUserGrade;
         this.language = language;
         this.author = author;
+    }
+
+    public Long getSolvedTaskId() {
+        return solvedTaskId;
+    }
+
+    public void setSolvedTaskId(Long solvedTaskId) {
+        this.solvedTaskId = solvedTaskId;
     }
 
     public Double getAverageGrade() {
