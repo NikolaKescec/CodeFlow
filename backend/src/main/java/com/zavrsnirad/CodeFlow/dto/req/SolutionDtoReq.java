@@ -5,10 +5,10 @@ import javax.validation.constraints.NotNull;
 
 public class SolutionDtoReq {
 
-    @NotEmpty
+    @NotEmpty(message = "Solution has to have code!")
     private String code;
 
-    @NotNull
+    @NotNull(message = "Language id can not be null!")
     private Long languageId;
 
     public SolutionDtoReq(@NotEmpty String code, @NotNull Long languageId) {

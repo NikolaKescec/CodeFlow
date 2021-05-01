@@ -47,7 +47,7 @@ public class CommentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newComment);
     }
 
-    @GetMapping("/task-comments/delete/{commentId}")
+    @DeleteMapping("/task-comments/delete/{commentId}")
     public ResponseEntity<?> deleteCommentById(@PathVariable("commentId") Long commentId, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
 
@@ -55,7 +55,7 @@ public class CommentController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @PostMapping("/task-comments/update/{commentId}")
+    @PutMapping("/task-comments/update/{commentId}")
     public ResponseEntity<?> updateTaskCommentById(@PathVariable("commentId") Long taskCommentId, @RequestBody CommentDtoReq commentDtoReq, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
 
@@ -79,7 +79,7 @@ public class CommentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(newComment);
     }
 
-    @GetMapping("/solution-comments/delete/{commentId}")
+    @DeleteMapping("/solution-comments/delete/{commentId}")
     public ResponseEntity<?> deleteSolutionCommentById(@PathVariable("commentId") Long commentId, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
 
@@ -88,7 +88,7 @@ public class CommentController {
     }
 
 
-    @PostMapping("/solution-comments/update/{commentId}")
+    @PutMapping("/solution-comments/update/{commentId}")
     public ResponseEntity<?> updateSolutionCommentById(@PathVariable("commentId") Long solutionCommentId, @RequestBody CommentDtoReq commentDtoReq, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
 

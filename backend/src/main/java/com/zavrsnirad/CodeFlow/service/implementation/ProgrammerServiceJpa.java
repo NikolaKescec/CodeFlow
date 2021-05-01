@@ -2,6 +2,7 @@ package com.zavrsnirad.CodeFlow.service.implementation;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
+import com.zavrsnirad.CodeFlow.dto.req.UserUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.repository.ProgrammerRepository;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,10 +76,25 @@ public class ProgrammerServiceJpa implements ProgrammerService {
         programmerRepository.delete(programmer);
     }
 
-    // TODO
     @Override
-    public Programmer updateProgrammer(Programmer updatedProgrammer) {
-        return null;
+    public void updateProgrammer(UserUpdateDtoReq userUpdateDtoReq, Programmer programmer) {
+        if(!BCrypt.checkpw(userUpdateDtoReq.getPassword(), programmer.getPassword())){
+            throw new IllegalArgumentException("Password is incorrect!");
+        }
+
+        programmer.setUsername(userUpdateDtoReq.getUsername());
+
+        if(userUpdateDtoReq.getNewPassword() != null && userUpdateDtoReq.getNewPassword().length() < 8) {
+            throw new IllegalArgumentException("New password can not be shorter than 8 characters!");
+        }
+
+        if(userUpdateDtoReq.getNewPassword() != null) {
+            String newSalt = BCrypt.gensalt(12);
+            String newHashed = BCrypt.hashpw(userUpdateDtoReq.getPassword(), newSalt);
+            programmer.setPassword(newHashed);
+        }
+
+        programmerRepository.save(programmer);
     }
 
 }

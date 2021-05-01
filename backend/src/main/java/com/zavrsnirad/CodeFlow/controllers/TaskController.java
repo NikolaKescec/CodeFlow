@@ -72,7 +72,7 @@ public class TaskController {
     @GetMapping("/solved/{username}")
     public ResponseEntity<?> getSolvedTasksByUsername(@PathVariable("username") String username, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
-        if(!programmer.getUsername().equals(username) || !programmer.getRole().equals("ADMIN"))
+        if(!programmer.getUsername().equals(username) && !programmer.getRole().equals("ADMIN"))
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 
         List<TaskDtoJson> response = MapperList.getList(taskService.taskSolvedByUser(username), task -> MapperTask.TaskToJson(task, programmer));

@@ -1,20 +1,23 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
+import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.dto.json.UserDtoJson;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperUser;
 import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
+import com.zavrsnirad.CodeFlow.dto.req.UserUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/programmer")
 public class UserController {
 
     @Autowired
@@ -47,6 +50,13 @@ public class UserController {
     @GetMapping("/top/solvers")
     public ResponseEntity<?> topSolvers() {
         return ResponseEntity.status(HttpStatus.OK).body(MapperList.getList(programmerService.getProgrammersSolvers(), MapperUser::UserToJson));
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> updateUser(@RequestBody UserUpdateDtoReq userUpdateDtoReq, Principal principal){
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        programmerService.updateProgrammer(userUpdateDtoReq, programmer);
+        return ResponseEntity.status(HttpStatus.OK).body(MapperUser.UserToJson(programmer));
     }
 
 }

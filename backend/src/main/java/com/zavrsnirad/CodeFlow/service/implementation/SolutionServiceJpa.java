@@ -5,6 +5,7 @@ import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.domain.Solution;
 import com.zavrsnirad.CodeFlow.domain.Task;
 import com.zavrsnirad.CodeFlow.dto.req.SolutionDtoReq;
+import com.zavrsnirad.CodeFlow.dto.req.SolutionUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.repository.SolutionRepository;
 import com.zavrsnirad.CodeFlow.repository.TaskRepository;
 import com.zavrsnirad.CodeFlow.service.LanguageService;
@@ -64,5 +65,28 @@ public class SolutionServiceJpa implements SolutionService {
             task.setAuthorSolution(solution);
         taskRepository.save(task);
         return solution;
+    }
+
+    @Override
+    public Solution updateSolution(Long solutionId, SolutionUpdateDtoReq solutionUpdateDtoReq, Programmer programmer) {
+        if(!solutionId.equals(solutionUpdateDtoReq.getSolutionId()))
+            throw new IllegalArgumentException("Solution ID's do not match!");
+        Solution solution = findSolutionById(solutionId);
+        if(!solution.getAuthor().getProgrammerId().equals(programmer.getProgrammerId())){
+            throw new IllegalArgumentException("Only author of this solution can update this solution!");
+        }
+        solution.setCode(solutionUpdateDtoReq.getCode());
+        Language language = languageService.findById(solutionUpdateDtoReq.getLanguageId());
+        solution.setLanguage(language);
+        return solutionRepository.save(solution);
+    }
+
+    @Override
+    public void deleteSolution(Long solutionId, Programmer programmer) {
+        Solution solution = findSolutionById(solutionId);
+        if(!solution.getAuthor().getProgrammerId().equals(programmer.getProgrammerId()) && !programmer.getRole().equals("ADMIN")){
+            throw new IllegalArgumentException("Unauthorized action.");
+        }
+        solutionRepository.delete(solution);
     }
 }

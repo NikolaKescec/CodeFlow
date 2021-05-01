@@ -7,6 +7,7 @@ import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperSolution;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
 import com.zavrsnirad.CodeFlow.dto.req.SolutionDtoReq;
+import com.zavrsnirad.CodeFlow.dto.req.SolutionUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import com.zavrsnirad.CodeFlow.service.SolutionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,22 @@ public class SolutionController {
 
         SolutionDtoJson response = MapperSolution.SolutionToJson(solutionService.addSolution(taskId, solutionDtoReq, programmer), programmer);
         return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @PutMapping("/update/{solutionId}")
+    public ResponseEntity<?> updateSolutionForSolutionId(@PathVariable("solutionId") Long solutionId, @RequestBody SolutionUpdateDtoReq solutionUpdateDtoReq, Principal principal){
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        SolutionDtoJson response = MapperSolution.SolutionToJson(solutionService.updateSolution(solutionId, solutionUpdateDtoReq, programmer), programmer);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @DeleteMapping("/delete/{solutionId}")
+    public ResponseEntity<?> deleteSolutionForSolutionId(@PathVariable("solutionId") Long solutionId, Principal principal){
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        solutionService.deleteSolution(solutionId, programmer);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 }
