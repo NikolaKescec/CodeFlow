@@ -10,7 +10,7 @@ const register = ({ username, email, password }, history) => (authDispatch) => {
 
   axios
     .post(
-      "/user/register",
+      "/programmer/register",
       {
         username,
         email,

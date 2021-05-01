@@ -12,6 +12,14 @@ const SolutionDetails = ({ id }) => {
   const [solution, setSolution] = useState();
   const [loading, setLoading] = useState(true);
 
+  const deleteSolution = () => {
+    axiosInstance(authDispatch, history)
+      .delete("/solution/delete/" + solution.solutionId)
+      .then((res) => {
+        history.push("/task/" + solution.solvedTaskId);
+      });
+  };
+
   useEffect(() => {
     axiosInstance(authDispatch, history)
       .get("solution/detail/" + id)
@@ -57,8 +65,15 @@ const SolutionDetails = ({ id }) => {
                   ></Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Edit</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Delete</Dropdown.Item>
+                    <Dropdown.Item
+                      as={Link}
+                      to={`/task/${solution.solvedTaskId}/update-solution/${solution.solutionId}`}
+                    >
+                      Edit
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={deleteSolution}>
+                      Delete
+                    </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               )}

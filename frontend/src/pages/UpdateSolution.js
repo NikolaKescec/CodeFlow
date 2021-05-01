@@ -29,8 +29,9 @@ const useStyles = makeStyles({
   },
 });
 
-const CreateSolution = () => {
+const UpdateSolution = () => {
   const [auth, authDispatch, history] = useAuth();
+  const { solutionId } = useParams();
   const { taskId } = useParams();
 
   const [task, setTask] = useState();
@@ -45,15 +46,16 @@ const CreateSolution = () => {
 
   debugger;
 
-  const submitSolution = () => {
+  const updateSolution = () => {
     if (!code) {
-      alert("You cannot submit empty solution!");
+      alert("You cannot update empty solution!");
       return;
     }
     axiosInstance(authDispatch, history)
-      .post("solution/create/" + taskId, {
+      .put("solution/update/" + solutionId, {
         code: code,
         languageId: languageId,
+        solutionId: solutionId,
       })
       .then((res) => {
         debugger;
@@ -97,23 +99,32 @@ const CreateSolution = () => {
   };
 
   const getTask = async () => {
+    let resTask = await axiosInstance(authDispatch, history).get(
+      "task/detail/" + taskId
+    );
+    setTask(resTask.data);
+  };
+
+  const getSolution = async () => {
+    let resSolution = await axiosInstance(authDispatch, history).get(
+      "solution/detail/" + solutionId
+    );
+    setCode(resSolution.data.code);
+    setLanguageId(resSolution.data.language.languageId);
+    if (
+      resSolution.data.language.language.toLowerCase() === "c" ||
+      resSolution.data.language.language.toLowerCase() === "cpp"
+    ) {
+      setMode("c_cpp");
+    } else {
+      setMode(resSolution.data.language.language.toLowerCase());
+    }
+  };
+
+  const getTaskAndSolution = async () => {
     try {
-      let resTask = await axiosInstance(authDispatch, history).get(
-        "task/detail/" + taskId
-      );
-      setTask(resTask.data);
-      setLanguageId(resTask.data.writtenIn[0].languageId);
-      if (
-        resTask.data.writtenIn[0].language.toLowerCase() === "c" ||
-        resTask.data.writtenIn[0].language.toLowerCase() === "cpp"
-      ) {
-        setMode("c_cpp");
-      } else {
-        setMode(resTask.data.writtenIn[0].language.toLowerCase());
-      }
-      setCode(
-        resTask.data.writtenIn[0].imports + "" + resTask.data.writtenIn[0].main
-      );
+      await getTask();
+      await getSolution();
       setLoading(false);
     } catch (e) {
       debugger;
@@ -122,7 +133,7 @@ const CreateSolution = () => {
   };
 
   useEffect(() => {
-    getTask();
+    getTaskAndSolution();
   }, []);
 
   if (loading) return <Spinner></Spinner>;
@@ -179,8 +190,8 @@ const CreateSolution = () => {
                 </Select>
               </FormControl>
               <FormControl className="float-right">
-                <Button onClick={submitSolution} variant="rich-black">
-                  Save solution
+                <Button onClick={updateSolution} variant="rich-black">
+                  Update solution
                 </Button>
               </FormControl>
             </Card.Footer>
@@ -191,4 +202,4 @@ const CreateSolution = () => {
   );
 };
 
-export default CreateSolution;
+export default UpdateSolution;

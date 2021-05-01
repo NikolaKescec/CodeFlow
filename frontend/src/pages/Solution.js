@@ -8,14 +8,14 @@ import TwoComponentPageLayout from "../components/TwoComponentPageLayout";
 import axiosInstance from "../utils/axiosInstance";
 
 const Solution = () => {
-  let { id } = useParams();
+  let { solutionId } = useParams();
   const [auth, authDispatch, history] = useAuth();
 
   return (
     <TwoComponentPageLayout
       main={
         <SolutionDetails
-          id={id}
+          id={solutionId}
           authDispatch={authDispatch}
           loggedInUser={auth.data}
         ></SolutionDetails>
@@ -25,7 +25,7 @@ const Solution = () => {
           loggedInUser={auth.data}
           authDispatch={authDispatch}
           commentsSource={"solution-comments/"}
-          id={id}
+          id={solutionId}
         ></CommentsPanel>
       }
     ></TwoComponentPageLayout>

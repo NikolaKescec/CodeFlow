@@ -3,9 +3,6 @@ import { Form, Formik } from "formik";
 import { Button, Container } from "react-bootstrap";
 import * as Yup from "yup";
 import axiosInstance from "../../utils/axiosInstance";
-import { AuthContext } from "../../authentication/context/AuthProvider";
-import { useContext } from "react";
-import { useHistory } from "react-router";
 import useAuth from "../../authentication/hook/useAuth";
 
 const validation = Yup.object().shape({
@@ -38,10 +35,18 @@ const CommentForm = ({
         validationSchema={validation}
         onSubmit={async (values) => {
           try {
-            let res = await axiosInstance(authDispatch, history).post(
-              commentsSource + action + id,
-              values
-            );
+            let res;
+            if (action === "update/") {
+              res = await axiosInstance(authDispatch, history).put(
+                commentsSource + action + id,
+                values
+              );
+            } else if (action === "create/") {
+              res = await axiosInstance(authDispatch, history).post(
+                commentsSource + action + id,
+                values
+              );
+            }
             method(res.data);
             values.commentText = "";
           } catch (e) {

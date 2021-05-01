@@ -174,7 +174,9 @@ const SolutionTable = ({ task, solutions, loggedInUser }) => {
                     </Button>
                   </Link>
                 ) : (
-                  <Link to={"solution/" + solution.solutionId}>
+                  <Link
+                    to={`/task/${solution.solvedTaskId}/solution/${solution.solutionId}`}
+                  >
                     <Button variant="rich-black" block>
                       Inspect
                     </Button>

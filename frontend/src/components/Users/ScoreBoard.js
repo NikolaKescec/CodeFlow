@@ -5,24 +5,26 @@ import { useEffect, useState } from "react";
 import { Button, Container, Spinner, Table } from "react-bootstrap";
 
 const ScoreBoard = ({ text }) => {
-  const [users, setUsers] = useState([]);
+  const [programmers, setProgrammers] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getUsers = async () => {
+  const getProgrammers = async () => {
     try {
       debugger;
-      let res = await axiosInstance().get(`/user/top/${text.toLowerCase()}`);
-      setUsers([...res.data]);
+      let res = await axiosInstance().get(
+        `/programmer/top/${text.toLowerCase()}`
+      );
+      setProgrammers([...res.data]);
       setLoading(false);
     } catch (e) {
       alert("Unable to fetch!");
-      setUsers([]);
+      setProgrammers([]);
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    getUsers();
+    getProgrammers();
   }, [text]);
 
   return (
@@ -44,15 +46,15 @@ const ScoreBoard = ({ text }) => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => {
+            {programmers.map((programmer, index) => {
               return (
-                <tr key={user.id}>
+                <tr key={programmer.id}>
                   <th className="align-middle">{index + 1}</th>
-                  <th className="align-middle">{user.username}</th>
+                  <th className="align-middle">{programmer.username}</th>
                   <th className="align-middle">
                     {text.toLowerCase() === "taskers"
-                      ? user.taskPoints
-                      : user.solutionPoints}
+                      ? programmer.taskPoints
+                      : programmer.solutionPoints}
                   </th>
                   <th>
                     <Button variant="wine" className="border border-rich-black">

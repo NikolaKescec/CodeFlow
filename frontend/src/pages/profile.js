@@ -20,11 +20,13 @@ const Profile = () => {
     <Container className="text-white h-100 mt-3">
       <Row>
         <Col md={3} className="bg-dark border-rich-black rounded p-2 sm-mt-2">
-          <p>User name: {auth.data.username}</p>
+          <p>Programmer name: {auth.data.username}</p>
           <hr className="bg-wine"></hr>
-          <Button variant="wine" className="w-100">
-            Edit your profile
-          </Button>
+          <Link to="edit-profile">
+            <Button variant="wine" className="w-100">
+              Edit your profile
+            </Button>
+          </Link>
         </Col>
         <Col md={6}>
           <div className="d-flex flex-column bg-dark border-rich-black rounded p-2 h-100 justify-content-center sm-mt-2">
@@ -68,7 +70,7 @@ const Profile = () => {
         </Col>
       </Row>
       <Container fluid className="mt-3">
-        <h2 className="text-white">Your tasks</h2>
+        <h2 className="text-white">Selected tasks</h2>
         <Feed text={text} loggedInUser={auth.data.username}></Feed>
       </Container>
     </Container>

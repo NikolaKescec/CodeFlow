@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Container, Dropdown } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
-import { useHistory, useParams } from "react-router";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosInstance from "../../utils/axiosInstance";
@@ -120,7 +118,7 @@ const TaskDetails = ({ id }) => {
                 </>
               ) : (
                 <>
-                  <span>You havent graded yet. </span>
+                  <span>You haven't graded yet. </span>
                   <Button
                     variant="rich-black"
                     disabled={task.loggedInUserSolution !== undefined}
@@ -134,11 +132,13 @@ const TaskDetails = ({ id }) => {
         </Card.Body>
         <Card.Footer className="d-flex">
           {task.loggedInUserSolution ? (
-            <Link to={"solution/" + task.loggedInUserSolution}>
+            <Link
+              to={`/task/${task.taskId}/solution/` + task.loggedInUserSolution}
+            >
               <Button variant="rich-black">Inspect my solution</Button>
             </Link>
           ) : (
-            <Link to={"create-solution/" + task.taskId}>
+            <Link to={`/task/${task.taskId}/create-solution`}>
               <Button variant="rich-black">Add solution</Button>
             </Link>
           )}
@@ -152,7 +152,7 @@ const TaskDetails = ({ id }) => {
           <Card.Body className="text-center">
             Check out task author's{" "}
             <Link
-              to={"solution/" + task.authorSolution}
+              to={`/task/${task.taskId}/solution/` + task.authorSolution}
               className="text-rich-black"
             >
               solution

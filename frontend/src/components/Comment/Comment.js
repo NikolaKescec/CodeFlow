@@ -23,7 +23,7 @@ const Comment = ({
   const deleteComment = () => {
     if (window.confirm("Do you want to delete your comment?"))
       axiosInstance(authDispatch, history)
-        .get(commentSource + "delete/" + comment.commentId)
+        .delete(commentSource + "delete/" + comment.commentId)
         .then((res) => {
           debugger;
           removeComment(comment.commentId);

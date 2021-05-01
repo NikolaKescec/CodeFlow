@@ -7,14 +7,14 @@ import { useParams } from "react-router-dom";
 
 const Task = () => {
   debugger;
-  let { id } = useParams();
+  let { taskId } = useParams();
   const [auth, authDispatch, history] = useAuth();
 
   return (
     <TwoComponentPageLayout
       main={
         <TaskDetails
-          id={id}
+          id={taskId}
           authDispatch={authDispatch}
           loggedInUser={auth.data}
         ></TaskDetails>
@@ -24,7 +24,7 @@ const Task = () => {
           loggedInUser={auth.data}
           authDispatch={authDispatch}
           commentsSource={"task-comments/"}
-          id={id}
+          id={taskId}
         ></CommentsPanel>
       }
     ></TwoComponentPageLayout>

@@ -8,6 +8,8 @@ import CreateTask from "../pages/CreateTask";
 import Task from "../pages/Task";
 import Solution from "../pages/Solution";
 import CreateSolution from "../pages/CreateSolution";
+import UpdateSolution from "../pages/UpdateSolution";
+import EditProfile from "../pages/EditProfile";
 
 const routes = [
   {
@@ -39,6 +41,13 @@ const routes = [
     authenticated: true,
   },
   {
+    path: "/edit-profile",
+    exact: true,
+    component: EditProfile,
+    title: "Edit profile",
+    authenticated: true,
+  },
+  {
     path: "/create-task",
     exact: true,
     component: CreateTask,
@@ -46,24 +55,31 @@ const routes = [
     authenticated: true,
   },
   {
-    path: "/task/:id",
+    path: "/task/:taskId",
     exact: true,
     component: Task,
     title: "Inspect task",
     authenticated: true,
   },
   {
-    path: "/task/solution/:id",
+    path: "/task/:taskId/solution/:solutionId",
     exact: true,
     component: Solution,
     title: "Inspect solution",
     authenticated: true,
   },
   {
-    path: "/task/create-solution/:id",
+    path: "/task/:taskId/create-solution",
     exact: true,
     component: CreateSolution,
     title: "Create solution for task",
+    authenticated: true,
+  },
+  {
+    path: "/task/:taskId/update-solution/:solutionId",
+    exact: true,
+    component: UpdateSolution,
+    title: "Update solution for task",
     authenticated: true,
   },
   {
