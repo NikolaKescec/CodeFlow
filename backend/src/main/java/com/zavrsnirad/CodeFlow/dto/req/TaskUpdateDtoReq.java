@@ -19,4 +19,5 @@ public class TaskUpdateDtoReq extends TaskDtoReq{
     public void setTaskId(Long taskId) {
         this.taskId = taskId;
     }
+
 }

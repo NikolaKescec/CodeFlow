@@ -1,6 +1,7 @@
 package com.zavrsnirad.CodeFlow.service.implementation;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
+import com.zavrsnirad.CodeFlow.domain.TimeAndUser;
 import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
 import com.zavrsnirad.CodeFlow.dto.req.UserUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.repository.ProgrammerRepository;
@@ -56,6 +57,8 @@ public class ProgrammerServiceJpa implements ProgrammerService {
 
         // User cretion
         Programmer newProgrammer = new Programmer(user.getUsername(), user.getEmail(), "USER");
+        newProgrammer.setSolutionPoints(0);
+        newProgrammer.setTaskPoints(0);
 
         // Ekripcija lozinke.
         String salt = BCrypt.gensalt(12);
@@ -94,6 +97,7 @@ public class ProgrammerServiceJpa implements ProgrammerService {
             programmer.setPassword(newHashed);
         }
 
+        TimeAndUser.updateModified(programmer, programmer);
         programmerRepository.save(programmer);
     }
 

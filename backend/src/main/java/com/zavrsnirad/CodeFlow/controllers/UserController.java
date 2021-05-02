@@ -7,11 +7,15 @@ import com.zavrsnirad.CodeFlow.dto.mappers.MapperUser;
 import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
 import com.zavrsnirad.CodeFlow.dto.req.UserUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
+import com.zavrsnirad.CodeFlow.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,6 +23,9 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/programmer")
 public class UserController {
+
+    @Autowired
+    private JwtUtil jwtTokenUtil;
 
     @Autowired
     private ProgrammerService programmerService;
@@ -53,10 +60,20 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateUser(@RequestBody UserUpdateDtoReq userUpdateDtoReq, Principal principal){
+    public ResponseEntity<?> updateUser(@RequestBody UserUpdateDtoReq userUpdateDtoReq, Principal principal, HttpServletResponse response) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
         programmerService.updateProgrammer(userUpdateDtoReq, programmer);
+        try {
+            // create new refresh token
+            String newJwt = jwtTokenUtil.generateToken(programmer, 120);
+            // save the refresh token in a new cookie and make a new jwt
+            String newRefreshToken = jwtTokenUtil.generateToken(programmer, 3600*24);
+            AuthController.setCookies(newRefreshToken, newJwt, response, 120, 3600*24);
+        } catch ( NoSuchAlgorithmException ex) {
+            throw new IllegalArgumentException("Invalid jwt token regeneration!");
+        }
         return ResponseEntity.status(HttpStatus.OK).body(MapperUser.UserToJson(programmer));
     }
+
 
 }

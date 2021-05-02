@@ -17,7 +17,7 @@ public class Solution extends TimeAndUser{
     @Column(nullable = false, length = 4096)
     private String code;
 
-    @ManyToOne(optional = false, cascade = CascadeType.REFRESH)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "language_id", referencedColumnName = "language_id")
     private Language language;
 
@@ -25,7 +25,7 @@ public class Solution extends TimeAndUser{
     @JoinColumn(name = "author_id", referencedColumnName = "programmer_id")
     private Programmer author;
 
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "solution")
+    @OneToMany(mappedBy = "solution", cascade = CascadeType.REMOVE)
     private List<SolutionComment> comments;
 
     @Formula("(SELECT AVG(G.GRADE) FROM SOLUTION_GRADE G WHERE G.solution_id = solution_id)")

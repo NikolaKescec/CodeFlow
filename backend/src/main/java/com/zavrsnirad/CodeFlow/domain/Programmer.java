@@ -34,8 +34,11 @@ public class Programmer extends TimeAndUser{
     @Min(0)
     private Integer solutionPoints;
 
-    @OneToMany(mappedBy = "programmer", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "programmer", cascade = {CascadeType.REMOVE}, orphanRemoval = true)
     private List<Follower> followers;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
+    private List<Task> tasks;
 
     @ManyToMany
     private Set<ProgrammerCategory> programmerCategories;
@@ -135,6 +138,14 @@ public class Programmer extends TimeAndUser{
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override

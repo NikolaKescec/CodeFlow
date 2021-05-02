@@ -3,6 +3,7 @@ package com.zavrsnirad.CodeFlow.dto.req;
 import com.sun.istack.NotNull;
 
 public class TestCaseDtoReq {
+    private Long testCaseId;
 
     @NotNull
     private String input;
@@ -10,9 +11,18 @@ public class TestCaseDtoReq {
     @NotNull
     private String output;
 
-    public TestCaseDtoReq(@NotNull String input, @NotNull String output) {
+    public TestCaseDtoReq(Long testCaseId, String input, String output) {
+        this.testCaseId = testCaseId;
         this.input = input;
         this.output = output;
+    }
+
+    public Long getTestCaseId() {
+        return testCaseId;
+    }
+
+    public void setTestCaseId(Long testCaseId) {
+        this.testCaseId = testCaseId;
     }
 
     public String getInput() {

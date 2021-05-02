@@ -66,4 +66,9 @@ public class TimeAndUser {
     public void setUserModified(String userModified) {
         this.userModified = userModified;
     }
+
+    public static void updateModified(TimeAndUser timeAndUser, Programmer programmer) {
+        timeAndUser.setUserModified(programmer.getUsername());
+        timeAndUser.setModified(new Timestamp(new Date().getTime()));
+    }
 }

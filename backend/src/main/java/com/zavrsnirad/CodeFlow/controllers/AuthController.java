@@ -107,7 +107,7 @@ public class AuthController {
         return ResponseEntity.ok().build();
     }
 
-    private Cookie setRefreshCookie(String refreshToken, int expiration) {
+    protected static Cookie setRefreshCookie(String refreshToken, int expiration) {
         Cookie cookie = new Cookie("Refresh-token", refreshToken == null ? "" : refreshToken);
         cookie.setHttpOnly(true);
         cookie.setMaxAge(expiration);
@@ -115,14 +115,14 @@ public class AuthController {
         return cookie;
     }
 
-    private Cookie setJwtCookie(String jwt, int expiration) {
+    protected static Cookie setJwtCookie(String jwt, int expiration) {
         Cookie cookie = new Cookie("Access-token", jwt == null ? "" : jwt);
         cookie.setHttpOnly(true);
         cookie.setMaxAge(expiration);
         return cookie;
     }
 
-    private void setCookies(String refreshToken, String jwt, HttpServletResponse response, int jwtExpiration, int refreshExpiration) {
+    protected static void setCookies(String refreshToken, String jwt, HttpServletResponse response, int jwtExpiration, int refreshExpiration) {
         Cookie refreshTokenCookie = setRefreshCookie(refreshToken, refreshExpiration);
         Cookie jwtCookie = setJwtCookie(jwt, jwtExpiration);
         response.addCookie(refreshTokenCookie);

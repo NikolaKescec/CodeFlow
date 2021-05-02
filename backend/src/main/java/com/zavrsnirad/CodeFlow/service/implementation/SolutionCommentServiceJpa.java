@@ -62,8 +62,8 @@ public class SolutionCommentServiceJpa implements SolutionCommentService {
 
         SolutionComment oldComment = getSolutionComment(id);
         oldComment.setComment(commentDtoReq.getCommentText());
-        oldComment.setModified(new Timestamp(new Date().getTime()));
 
+        TimeAndUser.updateModified(oldComment, programmer);
         oldComment = solutionCommentRepository.save(oldComment);
         return oldComment;
     }

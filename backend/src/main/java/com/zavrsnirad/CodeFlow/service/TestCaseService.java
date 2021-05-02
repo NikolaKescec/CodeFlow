@@ -7,4 +7,6 @@ public interface TestCaseService {
 
     TestCase addTestCase(TestCaseDtoReq testCaseDtoReq);
 
+    TestCase findById(Long testCaseId);
+
 }

@@ -1,9 +1,6 @@
 package com.zavrsnirad.CodeFlow.service.implementation;
 
-import com.zavrsnirad.CodeFlow.domain.Language;
-import com.zavrsnirad.CodeFlow.domain.Programmer;
-import com.zavrsnirad.CodeFlow.domain.Solution;
-import com.zavrsnirad.CodeFlow.domain.Task;
+import com.zavrsnirad.CodeFlow.domain.*;
 import com.zavrsnirad.CodeFlow.dto.req.SolutionDtoReq;
 import com.zavrsnirad.CodeFlow.dto.req.SolutionUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.repository.SolutionRepository;
@@ -59,6 +56,7 @@ public class SolutionServiceJpa implements SolutionService {
             throw new IllegalArgumentException("You can only write one solution per task!");
 
         Solution solution = new Solution(solutionDtoReq.getCode(), language, programmer, task);
+        solution.setUserCreated(programmer.getUsername());
         solution = solutionRepository.save(solution);
 
         if(task.getOwner().getProgrammerId().equals(programmer.getProgrammerId()))
@@ -78,6 +76,8 @@ public class SolutionServiceJpa implements SolutionService {
         solution.setCode(solutionUpdateDtoReq.getCode());
         Language language = languageService.findById(solutionUpdateDtoReq.getLanguageId());
         solution.setLanguage(language);
+
+        TimeAndUser.updateModified(solution, programmer);
         return solutionRepository.save(solution);
     }
 
@@ -86,6 +86,10 @@ public class SolutionServiceJpa implements SolutionService {
         Solution solution = findSolutionById(solutionId);
         if(!solution.getAuthor().getProgrammerId().equals(programmer.getProgrammerId()) && !programmer.getRole().equals("ADMIN")){
             throw new IllegalArgumentException("Unauthorized action.");
+        }
+        if(solution.getTask().getAuthorSolution() != null && solution.getTask().getAuthorSolution().getAuthor().getProgrammerId().equals(programmer.getProgrammerId())){
+            solution.getTask().setAuthorSolution(null);
+            taskRepository.save(solution.getTask());
         }
         solutionRepository.delete(solution);
     }

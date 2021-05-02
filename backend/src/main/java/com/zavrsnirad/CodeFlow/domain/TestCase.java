@@ -29,6 +29,14 @@ public class TestCase extends TimeAndUser{
         this.output = output;
     }
 
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
     public Long getTestCaseId() {
         return testCaseId;
     }

@@ -11,11 +11,11 @@ public class Follower extends TimeAndUser {
     @Column(name = "follower_id")
     private Long followerId;
 
-    @ManyToOne(cascade = CascadeType.REMOVE, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "programmer", referencedColumnName = "programmer_id")
     private Programmer programmer;
 
-    @ManyToOne(cascade = CascadeType.REMOVE, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "follower", referencedColumnName = "programmer_id")
     private Programmer follower;
 

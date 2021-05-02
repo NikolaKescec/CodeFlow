@@ -9,6 +9,7 @@ import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperSolution;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
 import com.zavrsnirad.CodeFlow.dto.req.TaskDtoReq;
+import com.zavrsnirad.CodeFlow.dto.req.TaskUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.service.SolutionService;
 import com.zavrsnirad.CodeFlow.service.TaskCommentService;
 import com.zavrsnirad.CodeFlow.service.TaskService;
@@ -87,6 +88,21 @@ public class TaskController {
 
         TaskDtoJson createdTask = MapperTask.TaskToJson(taskService.addTask(task, programmer), programmer);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTask);
+    }
+
+    @PutMapping("/update-task/{taskId}")
+    public ResponseEntity<?> updateTask(@PathVariable("taskId") Long taskId, @RequestBody TaskUpdateDtoReq task, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+
+        TaskDtoJson updatedTask = MapperTask.TaskToJson(taskService.updateTask(taskId, task, programmer), programmer);
+        return ResponseEntity.status(HttpStatus.CREATED).body(updatedTask);
+    }
+
+    @DeleteMapping("/delete-task/{taskId}")
+    public ResponseEntity<?> deleteTask(@PathVariable("taskId") Long taskId, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        taskService.removeTask(taskId, programmer);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
 }

@@ -22,7 +22,7 @@ public class Task extends TimeAndUser{
     @Column(name = "task_text", nullable = false)
     private String taskText;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(orphanRemoval = true, optional = true)
     @JoinColumn(name="author_solution_id", referencedColumnName = "solution_id")
     private Solution authorSolution;
 
@@ -35,16 +35,16 @@ public class Task extends TimeAndUser{
     @Formula("(SELECT AVG(G.GRADE) FROM TASK_GRADE G WHERE G.task_id = task_id)")
     private Double averageGrade;
 
-    @OneToMany(mappedBy = "task", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "task", cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}, orphanRemoval = true)
     private List<TestCase> testCases;
 
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "task")
+    @OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "task",orphanRemoval = true)
     private List<Solution> solutions;
 
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "task")
+    @OneToMany(cascade = {CascadeType.REMOVE}, mappedBy = "task", orphanRemoval = true)
     private List<TaskComment> comments;
 
-    @OneToMany(mappedBy = "task")
+    @OneToMany(mappedBy = "task", cascade = {CascadeType.REMOVE}, orphanRemoval = true)
     private List<TaskGrade> grades;
 
     @ManyToMany

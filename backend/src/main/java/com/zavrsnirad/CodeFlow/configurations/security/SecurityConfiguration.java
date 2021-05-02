@@ -41,7 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/deauthenticate").permitAll()
                 .antMatchers("/refresh").permitAll()
-                .antMatchers("/user/register").permitAll()
+                .antMatchers("/programmer/register").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationPoint)

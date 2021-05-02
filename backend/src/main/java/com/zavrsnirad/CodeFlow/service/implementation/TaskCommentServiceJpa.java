@@ -3,6 +3,7 @@ package com.zavrsnirad.CodeFlow.service.implementation;
 import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.domain.Task;
 import com.zavrsnirad.CodeFlow.domain.TaskComment;
+import com.zavrsnirad.CodeFlow.domain.TimeAndUser;
 import com.zavrsnirad.CodeFlow.dto.req.CommentDtoReq;
 import com.zavrsnirad.CodeFlow.repository.TaskCommentRepository;
 import com.zavrsnirad.CodeFlow.service.TaskCommentService;
@@ -61,8 +62,8 @@ public class TaskCommentServiceJpa implements TaskCommentService {
 
         TaskComment oldComment = getTaskComment(id);
         oldComment.setComment(commentDtoReq.getCommentText());
-        oldComment.setModified(new Timestamp(new Date().getTime()));
 
+        TimeAndUser.updateModified(oldComment, programmer);
         oldComment = taskCommentRepository.save(oldComment);
         return oldComment;
     }
