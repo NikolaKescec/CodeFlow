@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import useAuth from "../authentication/hook/useAuth";
-import CommentsPanel from "../components/Comment/CommentsPanel";
-import SolutionDetails from "../components/Solution/SolutionDetails";
-import Spinner from "../components/Spinner";
-import TwoComponentPageLayout from "../components/TwoComponentPageLayout";
-import axiosInstance from "../utils/axiosInstance";
+import useAuth from "../../authentication/hook/useAuth";
+import CommentsPanel from "../../components/Comment/CommentsPanel";
+import SolutionDetails from "../../components/Solution/SolutionDetails";
+import Spinner from "../../components/Spinner";
+import TwoComponentPageLayout from "../../components/TwoComponentPageLayout";
+import axiosInstance from "../../utils/axiosInstance";
 
 const Solution = () => {
   let { solutionId } = useParams();

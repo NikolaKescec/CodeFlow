@@ -15,6 +15,17 @@ const TaskDetails = ({ id }) => {
   const [auth, authDispatch, history] = useAuth();
   const [solutions, setSolutions] = useState();
 
+  const deleteTask = () => {
+    axiosInstance(authDispatch, history)
+      .delete("/task/delete-task/" + task.taskId)
+      .then((res) => {
+        history.push("/home");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+  };
+
   const getTaskAndSolutions = async () => {
     try {
       let resTask = await axiosInstance(authDispatch, history).get(
@@ -63,8 +74,13 @@ const TaskDetails = ({ id }) => {
                 ></Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item>Edit</Dropdown.Item>
-                  <Dropdown.Item>Delete</Dropdown.Item>
+                  <Dropdown.Item
+                    as={Link}
+                    to={"/task/update-task/" + task.taskId}
+                  >
+                    Edit
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={deleteTask}>Delete</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             )}

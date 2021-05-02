@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import logout from "../authentication/actions/logout";
+import logout from "../../authentication/actions/logout";
 import { Link, useHistory } from "react-router-dom";
-import axiosInstance from "../utils/axiosInstance";
-import useAuth from "../authentication/hook/useAuth";
-import useApp from "../app/hook/useApp";
-import Feed from "../components/Task/Feed";
-import FeedButton from "../components/Task/FeedButton";
+import axiosInstance from "../../utils/axiosInstance";
+import useAuth from "../../authentication/hook/useAuth";
+import useApp from "../../app/hook/useApp";
+import Feed from "../../components/Task/Feed";
+import FeedButton from "../../components/Task/FeedButton";
 
 const Profile = () => {
   const [auth, authDispatch, history] = useAuth();

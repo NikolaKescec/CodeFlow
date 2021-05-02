@@ -21,7 +21,7 @@ const register = ({ username, email, password }, history) => (authDispatch) => {
     .then((res) => {
       authDispatch({
         type: authActions.REGISTER_SUCCESS,
-        payload: res.data,
+        payload: undefined,
       });
       history.push("/");
     })

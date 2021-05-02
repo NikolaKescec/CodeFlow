@@ -3,13 +3,14 @@ import Register from "../pages/Register";
 import Welcome from "../pages/Welcome";
 import Error from "../pages/Error";
 import Home from "../pages/Home";
-import Profile from "../pages/Profile";
-import CreateTask from "../pages/CreateTask";
-import Task from "../pages/Task";
-import Solution from "../pages/Solution";
-import CreateSolution from "../pages/CreateSolution";
-import UpdateSolution from "../pages/UpdateSolution";
-import EditProfile from "../pages/EditProfile";
+import Profile from "../pages/ProfilePages/Profile";
+import CreateTask from "../pages/TaskPages/CreateTask";
+import Task from "../pages/TaskPages/Task";
+import Solution from "../pages/SolutionPages/Solution";
+import CreateSolution from "../pages/SolutionPages/CreateSolution";
+import UpdateSolution from "../pages/SolutionPages/UpdateSolution";
+import EditProfile from "../pages/ProfilePages/EditProfile";
+import UpdateTask from "../pages/TaskPages/UpdateTask";
 
 const routes = [
   {
@@ -59,6 +60,13 @@ const routes = [
     exact: true,
     component: Task,
     title: "Inspect task",
+    authenticated: true,
+  },
+  {
+    path: "/task/update-task/:taskId",
+    exact: true,
+    component: UpdateTask,
+    title: "Update task",
     authenticated: true,
   },
   {

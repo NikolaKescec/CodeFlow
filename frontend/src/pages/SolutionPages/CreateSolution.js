@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Button, Card, Col, Collapse, Container, Row } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router";
-import useAuth from "../authentication/hook/useAuth";
-import Grade from "../components/Grade/Grade";
-import Spinner from "../components/Spinner";
-import axiosInstance from "../utils/axiosInstance";
-import themes from "../app/codethemes/codethemes";
+import useAuth from "../../authentication/hook/useAuth";
+import Grade from "../../components/Grade/Grade";
+import Spinner from "../../components/Spinner";
+import axiosInstance from "../../utils/axiosInstance";
+import themes from "../../app/codethemes/codethemes";
+import Editor from "../../components/Editor/Editor";
+import SolutionTaskPreview from "../../components/Solution/SolutionTaskPreview";
 
 import {
   FormControl,
@@ -15,8 +17,6 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
-import Editor from "../components/Editor/Editor";
-import SolutionTaskPreview from "../components/Solution/SolutionTaskPreview";
 
 const useStyles = makeStyles({
   select: {

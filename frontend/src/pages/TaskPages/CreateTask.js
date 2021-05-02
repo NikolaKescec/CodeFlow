@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Prompt, Redirect, useHistory } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
-import useAuth from "../authentication/hook/useAuth";
-import axiosInstance from "../utils/axiosInstance";
+import useAuth from "../../authentication/hook/useAuth";
+import axiosInstance from "../../utils/axiosInstance";
 import * as Yup from "yup";
 
-import Spinner from "../components/Spinner";
+import Spinner from "../../components/Spinner";
 
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -41,7 +41,10 @@ const ValidationSchema = Yup.object().shape({
         output: Yup.string().required("Output is required!"),
       })
     )
-    .min(1, "At least one tast case should be added!"),
+    .min(
+      1,
+      "At least one tast case should be added and input and output can not be empty!"
+    ),
 });
 
 const CreateTask = () => {

@@ -11,9 +11,9 @@ import {
   Row,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import authActions from "../authentication/actions/authActions";
-import useAuth from "../authentication/hook/useAuth";
-import axiosInstance from "../utils/axiosInstance";
+import authActions from "../../authentication/actions/authActions";
+import useAuth from "../../authentication/hook/useAuth";
+import axiosInstance from "../../utils/axiosInstance";
 
 const validate = (values) => {
   debugger;
@@ -41,6 +41,13 @@ const validate = (values) => {
 const EditProfile = () => {
   const [auth, authDispatch, history] = useAuth();
 
+  const returnToProfile = () => {
+    authDispatch({
+      type: authActions.REMOVE_ERROR,
+    });
+    history.push("/profile");
+  };
+
   const formik = useFormik({
     initialValues: {
       userId: auth.data.id,
@@ -51,6 +58,9 @@ const EditProfile = () => {
     },
     validate,
     onSubmit: (values) => {
+      authDispatch({
+        type: authActions.REMOVE_ERROR,
+      });
       axiosInstance(authDispatch, history)
         .put("/programmer/update", values)
         .then((res) => {
@@ -196,9 +206,9 @@ const EditProfile = () => {
               <Button type="submit" variant="red-violet mr-2">
                 Update
               </Button>
-              <Link to="/profile">
-                <Button variant="red-violet">Return</Button>
-              </Link>
+              <Button variant="red-violet" onClick={returnToProfile}>
+                Return
+              </Button>
             </Form.Group>
           </Form>
         </Col>
