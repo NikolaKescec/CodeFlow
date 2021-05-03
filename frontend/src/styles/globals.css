@@ -96,3 +96,21 @@ input, select, textarea {
     overflow-y: auto;
   }
 }
+
+#notification-dropdown {
+  color: white;
+}
+
+#notification-dropdown:hover {
+  color: #40434e;
+  transition-duration: 0.1s;
+}
+
+#navigation-dropdown {
+  color: white;
+}
+
+#navigation-dropdown:hover {
+  color: #40434e;
+  transition-duration: 0.1s;
+}

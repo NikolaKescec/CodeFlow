@@ -8,6 +8,7 @@ const authActions = {
   LOGOUT: "LOGOUT",
   REMOVE_ERROR: "REMOVE_ERROR",
   REMOVE_MESSAGE: "REMOVE_MESSAGE",
+  MODIFY_PROGRAMMER: "MODIFY_PROGRAMMER",
 };
 
 export default authActions;

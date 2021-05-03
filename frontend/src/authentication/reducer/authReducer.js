@@ -11,6 +11,7 @@ const authReducer = (state, { type, payload }) => {
         error: false,
         loading: true,
       };
+    case authActions.MODIFY_PROGRAMMER:
     case authActions.LOGIN_SUCCESS:
     case authActions.REGISTER_SUCCESS:
       return {
