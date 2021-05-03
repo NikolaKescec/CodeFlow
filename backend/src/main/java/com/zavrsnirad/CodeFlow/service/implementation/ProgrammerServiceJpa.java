@@ -1,16 +1,21 @@
 package com.zavrsnirad.CodeFlow.service.implementation;
 
+import com.zavrsnirad.CodeFlow.domain.Follower;
+import com.zavrsnirad.CodeFlow.domain.Notification;
 import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.domain.TimeAndUser;
 import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
 import com.zavrsnirad.CodeFlow.dto.req.UserUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.repository.ProgrammerRepository;
+import com.zavrsnirad.CodeFlow.service.FollowerService;
+import com.zavrsnirad.CodeFlow.service.NotificationService;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class ProgrammerServiceJpa implements ProgrammerService {
@@ -18,12 +23,27 @@ public class ProgrammerServiceJpa implements ProgrammerService {
     @Autowired
     private ProgrammerRepository programmerRepository;
 
+    @Autowired
+    private NotificationService notificationService;
+
+     @Autowired
+     private FollowerService followerService;
+
     @Override
     public Programmer findByUsername(String username) {
         Programmer programmer = programmerRepository.findByUsername(username);
         if(programmer == null)
             throw new IllegalArgumentException("This username does not exist!");
         return programmer;
+    }
+
+    @Override
+    public Programmer findById(Long id) {
+        try {
+            return programmerRepository.findById(id).get();
+        } catch (NoSuchElementException ex) {
+            throw new IllegalArgumentException("No such programmer!");
+        }
     }
 
     @Override
@@ -99,6 +119,80 @@ public class ProgrammerServiceJpa implements ProgrammerService {
 
         TimeAndUser.updateModified(programmer, programmer);
         programmerRepository.save(programmer);
+    }
+
+    @Override
+    public void followUser(Long programmerToFollowId, Programmer programmer) {
+        if(programmerToFollowId.equals(programmer.getProgrammerId()))
+            throw new IllegalArgumentException("User can not follow himself!");
+
+        Programmer toFollowProgrammer = findById(programmerToFollowId);
+
+        try{
+            Follower testFollower = followerService.findByFollowedAndFollower(programmerToFollowId, programmer.getProgrammerId());
+            throw new IllegalArgumentException("You can not follow same programmer twice!");
+        }catch(IllegalArgumentException ignored){}
+
+        Follower follower = new Follower(toFollowProgrammer, programmer, true);
+        Notification notification = new Notification(programmer.getUsername() + " wants to follow you.", "followership", toFollowProgrammer, programmer);
+
+        follower.setUserCreated(programmer.getUsername());
+        notification.setUserCreated(programmer.getUserCreated());
+
+        notification = notificationService.saveNotification(notification);
+        follower = followerService.saveFollower(follower);
+        toFollowProgrammer.addFollower(follower);
+        toFollowProgrammer.addNofitication(notification);
+
+        programmerRepository.save(toFollowProgrammer);
+    }
+
+    @Override
+    public void acceptFollowerShip(Long notificationId, Long followerProgrammerId, Programmer programmer) {
+        Notification notification = notificationService.findById(notificationId);
+
+        if(!notification.getNotified().getProgrammerId().equals(programmer.getProgrammerId()))
+            throw new IllegalArgumentException("Only notified programmer can accept followership!");
+        Follower follower = followerService.findByFollowedAndFollower(programmer.getProgrammerId(), followerProgrammerId);
+
+        if(!follower.isPending()){
+            throw new IllegalArgumentException("Followership has already been decided!");
+        }
+
+        follower.setPending(false);
+
+        notificationService.removeNotification(notificationId);
+
+        Notification newNotification = new Notification( programmer.getUsername() + " accepted your follow request!", "info", follower.getFollower(), programmer);
+        Programmer notifiedFollower = follower.getFollower();
+
+        newNotification = notificationService.saveNotification(newNotification);
+        notifiedFollower.addNofitication(newNotification);
+
+        TimeAndUser.updateModified(follower, programmer);
+        followerService.saveFollower(follower);
+        programmerRepository.save(notifiedFollower);
+    }
+
+    @Override
+    public void denyFollower(Long notificationId, Long followerProgrammerId, Programmer programmer) {
+        Notification notification = notificationService.findById(notificationId);
+
+        if(!notification.getNotified().getProgrammerId().equals(programmer.getProgrammerId()))
+            throw new IllegalArgumentException("Only notified programmer can deny followership!");
+        Follower follower = followerService.findByFollowedAndFollower( programmer.getProgrammerId(), followerProgrammerId);
+
+        if(!follower.isPending()){
+            throw new IllegalArgumentException("Followership has already been decided!");
+        }
+
+        followerService.deleteFollower(follower.getFollowerId());
+        notificationService.removeNotification(notificationId);
+    }
+
+    @Override
+    public void unfollowUser(Long followershipToUnfollowId) {
+        followerService.deleteFollower(followershipToUnfollowId);
     }
 
 }

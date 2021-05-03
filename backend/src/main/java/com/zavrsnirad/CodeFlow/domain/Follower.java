@@ -3,7 +3,7 @@ package com.zavrsnirad.CodeFlow.domain;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "FOLLOWERSHIP")
 public class Follower extends TimeAndUser {
 
     @Id

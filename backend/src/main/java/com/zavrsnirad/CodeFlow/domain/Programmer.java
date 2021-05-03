@@ -2,6 +2,7 @@ package com.zavrsnirad.CodeFlow.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -34,11 +35,17 @@ public class Programmer extends TimeAndUser{
     @Min(0)
     private Integer solutionPoints;
 
-    @OneToMany(mappedBy = "programmer", cascade = {CascadeType.REMOVE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "programmer", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     private List<Follower> followers;
+
+    @OneToMany(mappedBy = "follower", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
+    private List<Follower> followedProgrammers;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
     private List<Task> tasks;
+
+    @OneToMany(mappedBy = "notified", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
+    private List<Notification> notifications;
 
     @ManyToMany
     private Set<ProgrammerCategory> programmerCategories;
@@ -146,6 +153,46 @@ public class Programmer extends TimeAndUser{
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
+
+    public void addFollower(Follower follower) {
+        if(this.followers == null)
+            followers = new ArrayList<>();
+        followers.add(follower);
+    }
+
+    public void removeFollower(Follower follower) {
+        if(this.followers == null)
+            followers = new ArrayList<>();
+        followers.remove(follower);
+    }
+
+    public void addNofitication(Notification notification) {
+        if(this.notifications == null)
+            notifications = new ArrayList<>();
+        notifications.add(notification);
+    }
+
+    public void removeNotification(Notification notification) {
+        if(this.notifications == null)
+            notifications = new ArrayList<>();
+        notifications.remove(notification);
+    }
+
+    public List<Follower> getFollowedProgrammers() {
+        return followedProgrammers;
+    }
+
+    public void setFollowedProgrammers(List<Follower> followedProgrammers) {
+        this.followedProgrammers = followedProgrammers;
     }
 
     @Override

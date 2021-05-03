@@ -10,6 +10,8 @@ public interface ProgrammerService {
 
     Programmer findByUsername(String username);
 
+    Programmer findById(Long id);
+
     List<Programmer> getProgrammersTaskers();
 
     List<Programmer> getProgrammersSolvers();
@@ -21,5 +23,13 @@ public interface ProgrammerService {
     void removeProgrammer(String username);
 
     void updateProgrammer(UserUpdateDtoReq userUpdateDtoReq, Programmer programmer);
+
+    void followUser(Long toFollowId, Programmer programmer);
+
+    void acceptFollowerShip(Long notificationId, Long followerId, Programmer programmer);
+
+    void denyFollower(Long notificationId, Long followerId, Programmer programmer);
+
+    void unfollowUser(Long followershipToUnfollowId);
 
 }

@@ -2,6 +2,7 @@ package com.zavrsnirad.CodeFlow.controllers;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.dto.json.UserDtoJson;
+import com.zavrsnirad.CodeFlow.dto.mappers.MapperFollower;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperUser;
 import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
@@ -75,5 +76,40 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(MapperUser.UserToJson(programmer));
     }
 
+    @GetMapping("/follow/{userId}")
+    public ResponseEntity<?> followUser(@PathVariable("userId") Long toFollowId, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        programmerService.followUser(toFollowId, programmer);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping("/accept-followership/{notificationId}/{followerProgrammer}")
+    public ResponseEntity<?> acceptFollowership(@PathVariable("notificationId") Long notificationId, @PathVariable("followerProgrammer") String followerProgrammer, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        Programmer follower = programmerService.findByUsername(followerProgrammer);
+        programmerService.acceptFollowerShip(notificationId, follower.getProgrammerId(), programmer);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping("/deny-followership/{notificationId}/{followerProgrammer}")
+    public ResponseEntity<?> denyFollowership(@PathVariable("notificationId") Long notificationId, @PathVariable("followerProgrammer") String followerProgrammer, Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        Programmer follower = programmerService.findByUsername(followerProgrammer);
+        programmerService.denyFollower(notificationId, follower.getProgrammerId(), programmer);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @DeleteMapping("/unfollow/{followerShipId}")
+    public ResponseEntity<?> unfollowUser(@PathVariable("followerShipId") Long followershipToUnfollowId, Principal principal) {
+        programmerService.unfollowUser(followershipToUnfollowId);
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @GetMapping("/followed")
+    public ResponseEntity<?> getFollowed(Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        return ResponseEntity.ok(MapperList.getList(programmer.getFollowedProgrammers(), MapperFollower::FollowerToJson));
+    }
 
 }
