@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import useAuth from "../authentication/hook/useAuth";
-import {
-  Button,
-  ButtonGroup,
-  Col,
-  Container,
-  Row,
-  Spinner,
-} from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { AuthContext } from "../authentication/context/AuthProvider";
 import logout from "../authentication/actions/logout";
 import { Link, useHistory } from "react-router-dom";

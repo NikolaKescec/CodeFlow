@@ -16,6 +16,7 @@ import {
   FormLabel,
   TextField,
 } from "@material-ui/core";
+import authActions from "../../authentication/actions/authActions";
 
 const ValidationSchema = Yup.object().shape({
   author: Yup.number().required("Author id is required."),
@@ -82,7 +83,10 @@ const UpdateTask = () => {
       setOldWrittenIn([...oldWrittenIn]);
       setLoading(false);
     } catch (err) {
-      alert(err);
+      authDispatch({
+        type: authActions.ERROR,
+        payload: err.response ? err.response.data : "COULD NOT CONNECT",
+      });
     }
   };
 

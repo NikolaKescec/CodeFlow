@@ -14,8 +14,12 @@ const Notification = ({ notification, removeNotification }) => {
         `/programmer/accept-followership/${notification.notificationId}/${notification.notificatorUsername}`
       );
       removeNotification(notification.notificationId);
-    } catch (ex) {
-      alert(ex);
+    } catch (err) {
+      debugger;
+      authDispatch({
+        type: authActions.ERROR,
+        payload: err.response ? err.response.data : "COULD NOT CONNECT",
+      });
     }
   };
 
@@ -25,8 +29,12 @@ const Notification = ({ notification, removeNotification }) => {
         `/programmer/deny-followership/${notification.notificationId}/${notification.notificatorUsername}`
       );
       removeNotification(notification.notificationId);
-    } catch (ex) {
-      alert(ex);
+    } catch (err) {
+      removeNotification(notification.notificationId);
+      authDispatch({
+        type: authActions.ERROR,
+        payload: err.response ? err.response.data : "COULD NOT CONNECT",
+      });
     }
   };
 
@@ -37,8 +45,11 @@ const Notification = ({ notification, removeNotification }) => {
         `/notification/remove-notification/${notification.notificationId}`
       );
       removeNotification(notification.notificationId);
-    } catch (ex) {
-      alert(ex);
+    } catch (err) {
+      authDispatch({
+        type: authActions.ERROR,
+        payload: err.response ? err.response.data : "COULD NOT CONNECT",
+      });
     }
   };
 

@@ -1,51 +1,52 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import useFollower from "../../app/hook/useFollower";
 import authActions from "../../authentication/actions/authActions";
 import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
 
-const FollowButton = ({ programmerName, programmerId, followed }) => {
+const FollowButton = ({ programmerName, programmerId }) => {
   const [auth, authDispatch, history] = useAuth();
-  const [following, setFollowing] = useState();
-  const [pending, setPending] = useState();
-  const [followershipId, setFollowershipId] = useState();
-
-  useEffect(() => {
-    for (let i = 0; i < followed.length; i++) {
-      if (followed[i].programmer === programmerName) {
-        if (!followed[i].pending) setFollowing(true);
-        else setPending(true);
-        setFollowershipId(followed[i].followerId);
-        break;
-      }
-    }
-  }, []);
+  const [followership, setFollowership, loading] = useFollower(programmerName);
 
   const follow = async () => {
     try {
       debugger;
-      await axiosInstance(authDispatch, history).get(
+      let resFollow = await axiosInstance(authDispatch, history).get(
         "/programmer/follow/" + programmerId
       );
-      setPending(true);
+      setFollowership(resFollow.data);
     } catch (err) {
-      alert(err.message);
+      authDispatch({
+        type: authActions.ERROR,
+        payload: err.response ? err.response.data : "COULD NOT CONNECT",
+      });
     }
   };
 
   const unfollow = async () => {
     try {
       await axiosInstance(authDispatch, history).delete(
-        "/programmer/unfollow/" + followershipId
+        "/programmer/unfollow/" + followership.followerId
       );
-      setFollowing(false);
-      setPending(false);
+      setFollowership({});
     } catch (err) {
-      alert(err.message);
+      authDispatch({
+        type: authActions.ERROR,
+        payload: err.response ? err.response.data : "COULD NOT CONNECT",
+      });
     }
   };
 
-  if (following) {
+  if (loading) {
+    return (
+      <Button variant="wine" block className="border border-rich-black">
+        ...
+      </Button>
+    );
+  }
+
+  if (followership.following && !followership.pending) {
     return (
       <Button
         onClick={() => {
@@ -53,12 +54,13 @@ const FollowButton = ({ programmerName, programmerId, followed }) => {
         }}
         variant="wine"
         className="border border-rich-black"
+        block
       >
         Unfollow
       </Button>
     );
   }
-  if (pending) {
+  if (followership.pending) {
     return (
       <Button
         onClick={() => {
@@ -66,6 +68,7 @@ const FollowButton = ({ programmerName, programmerId, followed }) => {
         }}
         variant="wine"
         className="border border-rich-black"
+        block
       >
         Pending
       </Button>
@@ -78,6 +81,7 @@ const FollowButton = ({ programmerName, programmerId, followed }) => {
       }}
       variant="wine"
       className="border border-rich-black"
+      block
     >
       Follow
     </Button>

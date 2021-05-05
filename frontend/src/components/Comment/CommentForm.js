@@ -4,6 +4,7 @@ import { Button, Container } from "react-bootstrap";
 import * as Yup from "yup";
 import axiosInstance from "../../utils/axiosInstance";
 import useAuth from "../../authentication/hook/useAuth";
+import authActions from "../../authentication/actions/authActions";
 
 const validation = Yup.object().shape({
   authorId: Yup.number().required("Author id is required!"),
@@ -49,8 +50,11 @@ const CommentForm = ({
             }
             method(res.data);
             values.commentText = "";
-          } catch (e) {
-            alert(e.message);
+          } catch (err) {
+            authDispatch({
+              type: authActions.ERROR,
+              payload: err.response ? err.response.data : "COULD NOT CONNECT",
+            });
           }
         }}
       >

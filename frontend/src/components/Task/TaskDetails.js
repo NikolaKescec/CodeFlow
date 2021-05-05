@@ -8,6 +8,9 @@ import Grade from "../Grade/Grade";
 import SolutionTable from "../Solution/SolutionTable";
 import Spinner from "../Spinner";
 import useAuth from "../../authentication/hook/useAuth";
+import authActions from "../../authentication/actions/authActions";
+import LinkToUser from "../Users/LinkToUser";
+import UserGrade from "../Grade/UserGrade";
 
 const TaskDetails = ({ id }) => {
   const [task, setTask] = useState();
@@ -22,7 +25,10 @@ const TaskDetails = ({ id }) => {
         history.push("/home");
       })
       .catch((err) => {
-        alert(err.message);
+        authDispatch({
+          type: authActions.ERROR,
+          payload: err.response ? err.response.data : "COULD NOT CONNECT",
+        });
       });
   };
 
@@ -61,7 +67,7 @@ const TaskDetails = ({ id }) => {
             <span>
               Task created by:
               <span className=" text-baby-powder p-1 mr-1">
-                <strong>{task.author}</strong>
+                <LinkToUser name={task.author}></LinkToUser>
               </span>
             </span>
             {auth.data.username === task.author && (
@@ -113,37 +119,33 @@ const TaskDetails = ({ id }) => {
               );
             })}
           </div>
-          <hr className="bg-wine"></hr>
-          <div className="mb-2">
-            <strong>Average grade:</strong>{" "}
+          <span className="mb-2 d-flex">
             {task.averageGrade === null ? (
               <Grade grade={0}></Grade>
             ) : (
               <Grade grade={task.averageGrade}></Grade>
             )}{" "}
-          </div>
+          </span>
+          <hr className="bg-wine"></hr>
           {task.author !== auth.data.username && (
-            <p>
-              {task.loggedInUserGrade ? (
-                <>
-                  <strong>Your grade: </strong>
-                  <Grade grade={task.loggedInUserGrade}></Grade>
-                  <Button variant="rich-black" className="ml-1">
-                    Edit grade
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <span>You haven't graded yet. </span>
-                  <Button
-                    variant="rich-black"
-                    disabled={task.loggedInUserSolution !== undefined}
-                  >
-                    Grade task
-                  </Button>
-                </>
+            <div>
+              {!task.loggedInUserSolution && (
+                <span>
+                  You haven't solved this task yet. Grading is available after
+                  solving.
+                </span>
               )}
-            </p>
+              {task.loggedInUserSolution && (
+                <UserGrade
+                  userGrade={
+                    task.loggedInUserGrade ? task.loggedInUserGrade.grade : 0
+                  }
+                  id={task.taskId}
+                  destination={"task"}
+                  changeObject={setTask}
+                ></UserGrade>
+              )}
+            </div>
           )}
         </Card.Body>
         <Card.Footer className="d-flex">

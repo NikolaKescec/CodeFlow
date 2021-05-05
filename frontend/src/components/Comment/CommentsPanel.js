@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import { toast } from "react-toastify";
+import authActions from "../../authentication/actions/authActions";
 import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
 import Spinner from "../Spinner";
@@ -23,7 +24,10 @@ const CommentsPanel = ({ commentsSource, id }) => {
         setLoading(false);
       })
       .catch((err) => {
-        alert(err.message);
+        authDispatch({
+          type: authActions.ERROR,
+          payload: err.response ? err.response.data : "COULD NOT CONNECT",
+        });
       });
   }, []);
 

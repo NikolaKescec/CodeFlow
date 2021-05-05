@@ -1,25 +1,26 @@
+import { Box, withStyles } from "@material-ui/core";
 import { nanoid } from "nanoid";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
+import Rating from "@material-ui/lab/Rating";
+
+const StyledRating = withStyles({
+  iconFilled: {
+    color: "#f7f7ff",
+  },
+  iconHover: {
+    color: "#ff3d47",
+  },
+})(Rating);
 
 const Grade = ({ grade }) => {
-  const stars = [];
-
-  debugger;
-
-  for (let counter = 0; counter < grade; counter++) {
-    stars.push(<BsStarFill key={nanoid(10)}></BsStarFill>);
-  }
-
-  if (!Number.isInteger(grade)) {
-    grade = Math.round(grade + 1);
-    stars.push(<BsStarHalf key={nanoid(10)}></BsStarHalf>);
-  }
-
-  for (let remaining = grade; remaining < 5; remaining++) {
-    stars.push(<BsStar key={nanoid(10)}></BsStar>);
-  }
-
-  return stars;
+  return (
+    <StyledRating
+      name="readOnlyGrade"
+      value={grade}
+      emptyIcon={<BsStar />}
+      readOnly
+    ></StyledRating>
+  );
 };
 
 export default Grade;

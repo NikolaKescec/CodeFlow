@@ -86,15 +86,6 @@ const Login = () => {
                 <p>{auth.error.message}</p>
               </Alert>
             )}
-            {auth.message && (
-              <Alert
-                variant="danger"
-                onClose={() => authDispatch({ type: "REMOVE_MESSAGE" })}
-                dismissible
-              >
-                <p>{auth.message}</p>
-              </Alert>
-            )}
             <Form onSubmit={formik.handleSubmit} className=" p-2  ">
               <Form.Group>
                 <TextField

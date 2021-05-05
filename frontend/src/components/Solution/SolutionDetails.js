@@ -6,6 +6,7 @@ import Spinner from "../Spinner";
 import useAuth from "../../authentication/hook/useAuth";
 import Editor from "../Editor/Editor";
 import { Link } from "react-router-dom";
+import UserGrade from "../Grade/UserGrade";
 
 const SolutionDetails = ({ id }) => {
   const [auth, authDispatch, history] = useAuth();
@@ -93,7 +94,7 @@ const SolutionDetails = ({ id }) => {
           ></Editor>
         </Card.Body>
         <Card.Footer>
-          <div className="mb-2">
+          <div className="mb-2 d-flex">
             <strong>Average grade:</strong>
             {solution.averageGrade === null ? (
               <Grade grade={0}></Grade>
@@ -102,23 +103,21 @@ const SolutionDetails = ({ id }) => {
             )}
           </div>
           {solution.author !== auth.data.username && (
-            <p>
-              {solution.loggedInUserGrade ? (
-                <>
-                  <strong>Your grade: </strong>
-                  <Grade grade={solution.loggedInUserGrade}></Grade>
-                  <Button variant="rich-black" className="ml-1">
-                    Edit grade
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <span>You havent graded yet. </span>
-                  <Button variant="rich-black">Grade solution</Button>
-                </>
-              )}
-            </p>
+            <div className="d-flex">
+              <strong>Your grade: </strong>
+              <UserGrade
+                userGrade={
+                  solution.loggedInUserGrade
+                    ? solution.loggedInUserGrade.grade
+                    : 0
+                }
+                id={solution.solutionId}
+                changeObject={setSolution}
+                destination={"solution"}
+              ></UserGrade>
+            </div>
           )}
+
           <hr></hr>
           <Link
             to={"/task/" + solution.solvedTaskId}

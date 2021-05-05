@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import {
+  Alert,
   Button,
   Container,
   Dropdown,
@@ -25,7 +26,7 @@ import Notification from "./Notification/Notification";
 const TopBar = ({ path }) => {
   const history = useHistory();
   const { auth, authDispatch } = useContext(AuthContext);
-  const [notifications, setNotifications] = useState();
+  const [notifications, setNotifications] = useState([]);
   const [selected, setSelected] = useState(false);
 
   const getNotifications = async () => {
@@ -40,6 +41,7 @@ const TopBar = ({ path }) => {
     let filtered = notifications.filter((notification) => {
       return notification.notificationId !== notificationId;
     });
+    if (notifications.length === 0) setSelected(false);
     setNotifications([...filtered]);
   };
 
@@ -81,15 +83,37 @@ const TopBar = ({ path }) => {
         />
         <span className="font-weight-bold"> CodeFlow</span>
       </Navbar.Brand>
+      <span>
+        {auth.data && (
+          <Alert
+            variant="danger"
+            show={auth.error !== undefined}
+            onClose={() => authDispatch({ type: "REMOVE_ERROR" })}
+            dismissible
+          >
+            {auth.error && (
+              <p>
+                {auth.error.message ? auth.error.message : "An error occurred!"}
+              </p>
+            )}
+          </Alert>
+        )}
+      </span>
       {auth.data && (
         <>
           <NavDropdown
-            title={<RiNotification2Fill></RiNotification2Fill>}
+            title={
+              <>
+                <RiNotification2Fill></RiNotification2Fill>{" "}
+                {notifications.length}
+              </>
+            }
             id="notification-dropdown"
             className="rounded-pill border border-rich-black bg-wine ml-auto mr-2"
             onToggle={handleNotificationDropdown}
             show={selected}
             alignRight
+            disabled={notifications.length === 0}
           >
             {notifications &&
               notifications.map((notification, index) => {

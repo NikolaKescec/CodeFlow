@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Card, Container, Dropdown } from "react-bootstrap";
+import { Button, Card, Container, Dropdown } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
+import { Link } from "react-router-dom";
+import authActions from "../../authentication/actions/authActions";
 import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
+import LinkToUser from "../Users/LinkToUser";
 import CommentForm from "./CommentForm";
 
 const Comment = ({
@@ -29,7 +32,10 @@ const Comment = ({
           removeComment(comment.commentId);
         })
         .catch((err) => {
-          alert("An error has ocurred!");
+          authDispatch({
+            type: authActions.ERROR,
+            payload: err.response ? err.response.data : "COULD NOT CONNECT",
+          });
         });
   };
   return (
@@ -40,7 +46,7 @@ const Comment = ({
       <Card.Header>
         <Container fluid className="p-0">
           <span>
-            <strong>{comment.commenter.username}</strong>
+            <LinkToUser name={comment.commenter.username}></LinkToUser>
           </span>
           {loggedInUser.username === comment.commenter.username && (
             <Dropdown className="d-inline float-right">

@@ -17,6 +17,7 @@ import {
   MenuItem,
   Select,
 } from "@material-ui/core";
+import authActions from "../../authentication/actions/authActions";
 
 const useStyles = makeStyles({
   select: {
@@ -47,7 +48,10 @@ const CreateSolution = () => {
 
   const submitSolution = () => {
     if (!code) {
-      alert("You cannot submit empty solution!");
+      authDispatch({
+        type: authActions.ERROR,
+        payload: "You can not submit and empty solution!",
+      });
       return;
     }
     axiosInstance(authDispatch, history)
@@ -60,7 +64,10 @@ const CreateSolution = () => {
         history.push(`/task/${taskId}/solution/` + res.data.solutionId);
       })
       .catch((err) => {
-        alert(err.message);
+        authDispatch({
+          type: authActions.ERROR,
+          payload: err.response ? err.response.data : "COULD NOT CONNECT",
+        });
       });
   };
 
@@ -115,9 +122,12 @@ const CreateSolution = () => {
         resTask.data.writtenIn[0].imports + "" + resTask.data.writtenIn[0].main
       );
       setLoading(false);
-    } catch (e) {
+    } catch (err) {
       debugger;
-      alert(e.message);
+      authDispatch({
+        type: authActions.ERROR,
+        payload: err.response ? err.response.data : "COULD NOT CONNECT",
+      });
     }
   };
 

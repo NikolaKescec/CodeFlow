@@ -2,36 +2,38 @@ import "../../styles/feed.css";
 import "../../styles/scoreboard.css";
 import axiosInstance from "../../utils/axiosInstance";
 import { useEffect, useState } from "react";
-import { Button, Container, Spinner, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import useAuth from "../../authentication/hook/useAuth";
 import FollowButton from "../FollowButton/FollowButton";
+import authActions from "../../authentication/actions/authActions";
+import Spinner from "../Spinner";
+import LinkToUser from "./LinkToUser";
 
 const ScoreBoard = ({ text }) => {
   const [auth, authDispatch, history] = useAuth();
   const [programmers, setProgrammers] = useState([]);
-  const [followed, setFollowed] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getProgrammersAndFollowed = async () => {
+  const getProgrammers = async () => {
     try {
       debugger;
       let resProgrammers = await axiosInstance().get(
         `/programmer/top/${text.toLowerCase()}`
       );
       setProgrammers([...resProgrammers.data]);
-
-      let resFollowed = await axiosInstance().get(`/programmer/followed`);
-      setFollowed([...resFollowed.data]);
       setLoading(false);
-    } catch (e) {
-      alert("Unable to fetch!");
+    } catch (err) {
       setProgrammers([]);
       setLoading(false);
+      authDispatch({
+        type: authActions.ERROR,
+        payload: err.response ? err.response.data : "COULD NOT CONNECT",
+      });
     }
   };
 
   useEffect(() => {
-    getProgrammersAndFollowed();
+    getProgrammers();
   }, [text]);
 
   return (
@@ -57,7 +59,10 @@ const ScoreBoard = ({ text }) => {
               return (
                 <tr key={programmer.id}>
                   <th className="align-middle">{index + 1}</th>
-                  <th className="align-middle">{programmer.username}</th>
+                  <th className="align-middle">
+                    {" "}
+                    <LinkToUser name={programmer.username}></LinkToUser>
+                  </th>
                   <th className="align-middle">
                     {text.toLowerCase() === "taskers"
                       ? programmer.taskPoints
@@ -66,9 +71,8 @@ const ScoreBoard = ({ text }) => {
                   <th>
                     {auth.data.id !== programmer.id && (
                       <FollowButton
-                        programmerName={programmer.username}
                         programmerId={programmer.id}
-                        followed={followed}
+                        programmerName={programmer.username}
                       ></FollowButton>
                     )}
                   </th>

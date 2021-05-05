@@ -11,6 +11,7 @@ import CreateSolution from "../pages/SolutionPages/CreateSolution";
 import UpdateSolution from "../pages/SolutionPages/UpdateSolution";
 import EditProfile from "../pages/ProfilePages/EditProfile";
 import UpdateTask from "../pages/TaskPages/UpdateTask";
+import Programmer from "../pages/ProgrammerPages/Programmer";
 
 const routes = [
   {
@@ -88,6 +89,13 @@ const routes = [
     exact: true,
     component: UpdateSolution,
     title: "Update solution for task",
+    authenticated: true,
+  },
+  {
+    path: "/programmer/:username",
+    exact: true,
+    component: Programmer,
+    title: "Programmer",
     authenticated: true,
   },
   {
