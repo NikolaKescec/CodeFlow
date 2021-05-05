@@ -8,8 +8,7 @@ public class MapperFollower {
     public static FollowerDtoJson FollowerToJson(Follower follower) {
         return new FollowerDtoJson(
                 follower.getFollowerId(),
-                follower.getProgrammer().getUsername(),
-                follower.getFollower().getUsername(),
+                true,
                 follower.isPending()
         );
     }

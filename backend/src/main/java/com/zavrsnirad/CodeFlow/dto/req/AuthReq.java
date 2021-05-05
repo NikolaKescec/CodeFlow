@@ -1,14 +1,18 @@
 package com.zavrsnirad.CodeFlow.dto.req;
 
+import javax.validation.constraints.Size;
+
 public class AuthReq {
 
     private String username;
+
+    @Size(min = 8, message = "Password has to be long at least 8 characters!")
     private String password;
 
     public AuthReq() {
     }
 
-    public AuthReq(String username, String password) {
+    public AuthReq(String username, @Size(min = 8, message = "Password has to be long at least 8 characters!") String password) {
         this.username = username;
         this.password = password;
     }
@@ -28,5 +32,4 @@ public class AuthReq {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

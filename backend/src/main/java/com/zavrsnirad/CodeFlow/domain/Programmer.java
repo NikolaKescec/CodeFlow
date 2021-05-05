@@ -1,7 +1,10 @@
 package com.zavrsnirad.CodeFlow.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +25,7 @@ public class Programmer extends TimeAndUser{
     private String email;
 
     @Column(nullable = false)
+    @Size(min = 8, message = "Password has to be longer or equal to 8 characters!")
     private String password;
 
     @Column(nullable = false)

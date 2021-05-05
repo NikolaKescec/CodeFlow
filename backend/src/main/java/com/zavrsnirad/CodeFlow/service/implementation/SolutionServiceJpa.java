@@ -7,6 +7,7 @@ import com.zavrsnirad.CodeFlow.repository.SolutionRepository;
 import com.zavrsnirad.CodeFlow.repository.TaskRepository;
 import com.zavrsnirad.CodeFlow.service.LanguageService;
 import com.zavrsnirad.CodeFlow.service.SolutionService;
+import com.zavrsnirad.CodeFlow.service.TaskGradeService;
 import com.zavrsnirad.CodeFlow.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,9 @@ public class SolutionServiceJpa implements SolutionService {
 
     @Autowired
     private TaskRepository taskRepository;
+
+    @Autowired
+    private TaskGradeService taskGradeService;
 
     @Override
     public List<Solution> findSolutionsFromTask(Long id) {
@@ -91,6 +95,12 @@ public class SolutionServiceJpa implements SolutionService {
             solution.getTask().setAuthorSolution(null);
             taskRepository.save(solution.getTask());
         }
+
+        // DELETE GRADE FOR TASK IF IT EXISTS
+        try{
+            taskGradeService.deleteGradeForTask(solution.getTask().getTaskId(), programmer);
+        } catch (IllegalArgumentException ignored){}
+
         solutionRepository.delete(solution);
     }
 }

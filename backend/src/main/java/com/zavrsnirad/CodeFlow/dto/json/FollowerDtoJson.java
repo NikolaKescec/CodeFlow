@@ -8,16 +8,13 @@ public class FollowerDtoJson {
 
     private Long followerId;
 
-    private String programmer;
-
-    private String follower;
+    private boolean following;
 
     private boolean pending;
 
-    public FollowerDtoJson(Long followerId, String programmer, String follower, boolean pending) {
+    public FollowerDtoJson(Long followerId, boolean following, boolean pending) {
         this.followerId = followerId;
-        this.programmer = programmer;
-        this.follower = follower;
+        this.following = following;
         this.pending = pending;
     }
 
@@ -29,20 +26,12 @@ public class FollowerDtoJson {
         this.followerId = followerId;
     }
 
-    public String getProgrammer() {
-        return programmer;
+    public boolean isFollowing() {
+        return following;
     }
 
-    public void setProgrammer(String programmer) {
-        this.programmer = programmer;
-    }
-
-    public String getFollower() {
-        return follower;
-    }
-
-    public void setFollower(String follower) {
-        this.follower = follower;
+    public void setFollowing(boolean following) {
+        this.following = following;
     }
 
     public boolean isPending() {

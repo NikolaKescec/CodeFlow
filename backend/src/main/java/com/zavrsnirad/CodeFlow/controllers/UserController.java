@@ -1,6 +1,8 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
+import com.zavrsnirad.CodeFlow.domain.Follower;
 import com.zavrsnirad.CodeFlow.domain.Programmer;
+import com.zavrsnirad.CodeFlow.dto.json.FollowerDtoJson;
 import com.zavrsnirad.CodeFlow.dto.json.UserDtoJson;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperFollower;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
@@ -79,8 +81,8 @@ public class UserController {
     @GetMapping("/follow/{userId}")
     public ResponseEntity<?> followUser(@PathVariable("userId") Long toFollowId, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
-        programmerService.followUser(toFollowId, programmer);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        Follower followership = programmerService.followUser(toFollowId, programmer);
+        return ResponseEntity.status(HttpStatus.OK).body(MapperFollower.FollowerToJson(followership));
     }
 
     @GetMapping("/accept-followership/{notificationId}/{followerProgrammer}")
@@ -102,14 +104,15 @@ public class UserController {
     @DeleteMapping("/unfollow/{followerShipId}")
     public ResponseEntity<?> unfollowUser(@PathVariable("followerShipId") Long followershipToUnfollowId, Principal principal) {
         programmerService.unfollowUser(followershipToUnfollowId);
-        Programmer programmer = programmerService.findByUsername(principal.getName());
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping("/followed")
-    public ResponseEntity<?> getFollowed(Principal principal) {
+    @GetMapping("/following/{programmerName}")
+    public ResponseEntity<?> getFollowedByName(@PathVariable("programmerName") String name, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
-        return ResponseEntity.ok(MapperList.getList(programmer.getFollowedProgrammers(), MapperFollower::FollowerToJson));
+        Programmer inspectedProgrammer = programmerService.findByUsername(name);
+        Follower follower = programmerService.followingUser(inspectedProgrammer.getProgrammerId(), programmer);
+        return ResponseEntity.ok(follower == null ? new FollowerDtoJson(null, false, false) : MapperFollower.FollowerToJson(follower));
     }
 
 }

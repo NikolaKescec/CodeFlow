@@ -92,6 +92,15 @@ public class ProgrammerServiceJpa implements ProgrammerService {
     }
 
     @Override
+    public Follower followingUser(Long followedId, Programmer programmer) {
+        try{
+            return followerService.findByFollowedAndFollower(followedId, programmer.getProgrammerId());
+        } catch (IllegalArgumentException ex) {
+            return null;
+        }
+    }
+
+    @Override
     public void removeProgrammer(String username) {
         Programmer programmer = programmerRepository.findByUsername(username);
         if(programmer == null)
@@ -122,7 +131,7 @@ public class ProgrammerServiceJpa implements ProgrammerService {
     }
 
     @Override
-    public void followUser(Long programmerToFollowId, Programmer programmer) {
+    public Follower followUser(Long programmerToFollowId, Programmer programmer) {
         if(programmerToFollowId.equals(programmer.getProgrammerId()))
             throw new IllegalArgumentException("User can not follow himself!");
 
@@ -145,6 +154,7 @@ public class ProgrammerServiceJpa implements ProgrammerService {
         toFollowProgrammer.addNofitication(notification);
 
         programmerRepository.save(toFollowProgrammer);
+        return follower;
     }
 
     @Override
@@ -153,15 +163,20 @@ public class ProgrammerServiceJpa implements ProgrammerService {
 
         if(!notification.getNotified().getProgrammerId().equals(programmer.getProgrammerId()))
             throw new IllegalArgumentException("Only notified programmer can accept followership!");
-        Follower follower = followerService.findByFollowedAndFollower(programmer.getProgrammerId(), followerProgrammerId);
+        notificationService.removeNotification(notificationId);
+
+        Follower follower;
+        try{
+            follower = followerService.findByFollowedAndFollower(programmer.getProgrammerId(), followerProgrammerId);
+        } catch(IllegalArgumentException ex) {
+            return;
+        }
 
         if(!follower.isPending()){
             throw new IllegalArgumentException("Followership has already been decided!");
         }
 
         follower.setPending(false);
-
-        notificationService.removeNotification(notificationId);
 
         Notification newNotification = new Notification( programmer.getUsername() + " accepted your follow request!", "info", follower.getFollower(), programmer);
         Programmer notifiedFollower = follower.getFollower();
@@ -180,14 +195,20 @@ public class ProgrammerServiceJpa implements ProgrammerService {
 
         if(!notification.getNotified().getProgrammerId().equals(programmer.getProgrammerId()))
             throw new IllegalArgumentException("Only notified programmer can deny followership!");
-        Follower follower = followerService.findByFollowedAndFollower( programmer.getProgrammerId(), followerProgrammerId);
+        notificationService.removeNotification(notificationId);
+
+        Follower follower;
+        try{
+            follower = followerService.findByFollowedAndFollower(programmer.getProgrammerId(), followerProgrammerId);
+        } catch(IllegalArgumentException ex) {
+            return;
+        }
 
         if(!follower.isPending()){
             throw new IllegalArgumentException("Followership has already been decided!");
         }
 
         followerService.deleteFollower(follower.getFollowerId());
-        notificationService.removeNotification(notificationId);
     }
 
     @Override

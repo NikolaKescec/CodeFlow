@@ -1,5 +1,6 @@
 package com.zavrsnirad.CodeFlow.service;
 
+import com.zavrsnirad.CodeFlow.domain.Follower;
 import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.dto.req.UserDtoReq;
 import com.zavrsnirad.CodeFlow.dto.req.UserUpdateDtoReq;
@@ -20,11 +21,13 @@ public interface ProgrammerService {
 
     Programmer addProgrammer(UserDtoReq user);
 
+    Follower followingUser(Long programmerId, Programmer programmer);
+
     void removeProgrammer(String username);
 
     void updateProgrammer(UserUpdateDtoReq userUpdateDtoReq, Programmer programmer);
 
-    void followUser(Long toFollowId, Programmer programmer);
+    Follower followUser(Long toFollowId, Programmer programmer);
 
     void acceptFollowerShip(Long notificationId, Long followerId, Programmer programmer);
 

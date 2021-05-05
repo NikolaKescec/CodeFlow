@@ -181,6 +181,12 @@ public class Task extends TimeAndUser{
         testCases.add(testCase);
     }
 
+    public void addTaskGrade(TaskGrade taskGrade) {
+        if(this.grades == null)
+            grades = new ArrayList<>();
+        grades.add(taskGrade);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
