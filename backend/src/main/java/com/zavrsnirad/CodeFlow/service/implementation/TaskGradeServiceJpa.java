@@ -3,6 +3,7 @@ package com.zavrsnirad.CodeFlow.service.implementation;
 import com.zavrsnirad.CodeFlow.domain.*;
 import com.zavrsnirad.CodeFlow.repository.TaskGradeRepository;
 import com.zavrsnirad.CodeFlow.repository.TaskRepository;
+import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import com.zavrsnirad.CodeFlow.service.TaskGradeService;
 import com.zavrsnirad.CodeFlow.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class TaskGradeServiceJpa implements TaskGradeService {
 
     @Autowired
     private TaskGradeRepository taskGradeRepository;
+
+    @Autowired
+    private ProgrammerService programmerService;
 
     @Override
     public TaskGrade gradeTask(Long taskId, int grade, Programmer programmer) {
@@ -48,8 +52,13 @@ public class TaskGradeServiceJpa implements TaskGradeService {
             taskGrade.setGrader(programmer);
             taskGrade.setUserCreated(programmer.getUsername());
             task.addTaskGrade(taskGrade);
-
+            programmerService.addTaskPoints(grade, task.getOwner());
         } else {
+            if(grade < taskGrade.getGrade()){
+                programmerService.removeTaskPoints(taskGrade.getGrade() - grade, taskGrade.getTask().getOwner());
+            } else if(grade > taskGrade.getGrade()) {
+                programmerService.addTaskPoints(grade - taskGrade.getGrade(), taskGrade.getTask().getOwner());
+            }
             TimeAndUser.updateModified(taskGrade, programmer);
         }
         taskGrade.setGrade(grade);
@@ -72,6 +81,7 @@ public class TaskGradeServiceJpa implements TaskGradeService {
             throw new IllegalArgumentException("Only programmer that graded this task can delete this grade!");
         }
 
+        programmerService.removeTaskPoints(grade.getGrade(), task.getOwner());
         taskGradeRepository.delete(grade);
 
         return grade;

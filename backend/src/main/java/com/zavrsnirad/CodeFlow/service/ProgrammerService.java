@@ -35,4 +35,12 @@ public interface ProgrammerService {
 
     void unfollowUser(Long followershipToUnfollowId);
 
+    void addTaskPoints(int points, Programmer programmer);
+
+    void removeTaskPoints(int points, Programmer programmer);
+
+    void addSolutionPoints(int points, Programmer programmer);
+
+    void removeSolutionPoints(int points, Programmer programmer);
+
 }

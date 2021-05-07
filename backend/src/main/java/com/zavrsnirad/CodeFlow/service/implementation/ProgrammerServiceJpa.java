@@ -75,6 +75,10 @@ public class ProgrammerServiceJpa implements ProgrammerService {
         if(byEmail)
             throw new IllegalArgumentException("Email already taken.");
 
+        if(user.getPassword().length() < 8){
+            throw new IllegalArgumentException("Password length can not be shorter than 8 characters!");
+        }
+
         // User cretion
         Programmer newProgrammer = new Programmer(user.getUsername(), user.getEmail(), "USER");
         newProgrammer.setSolutionPoints(0);
@@ -214,6 +218,30 @@ public class ProgrammerServiceJpa implements ProgrammerService {
     @Override
     public void unfollowUser(Long followershipToUnfollowId) {
         followerService.deleteFollower(followershipToUnfollowId);
+    }
+
+    @Override
+    public void addTaskPoints(int points, Programmer programmer) {
+        programmer.setTaskPoints(programmer.getTaskPoints() + points);
+        programmerRepository.save(programmer);
+    }
+
+    @Override
+    public void removeTaskPoints(int points, Programmer programmer) {
+        programmer.setTaskPoints(Math.max(programmer.getTaskPoints() - points, 0));
+        programmerRepository.save(programmer);
+    }
+
+    @Override
+    public void addSolutionPoints(int points, Programmer programmer) {
+        programmer.setSolutionPoints(programmer.getSolutionPoints() + points);
+        programmerRepository.save(programmer);
+    }
+
+    @Override
+    public void removeSolutionPoints(int points, Programmer programmer) {
+        programmer.setSolutionPoints(Math.max(programmer.getSolutionPoints() - points, 0));
+        programmerRepository.save(programmer);
     }
 
 }

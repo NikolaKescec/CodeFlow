@@ -3,6 +3,7 @@ package com.zavrsnirad.CodeFlow.service.implementation;
 import com.zavrsnirad.CodeFlow.domain.*;
 import com.zavrsnirad.CodeFlow.repository.SolutionGradeRepository;
 import com.zavrsnirad.CodeFlow.repository.TaskGradeRepository;
+import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import com.zavrsnirad.CodeFlow.service.SolutionGradeService;
 import com.zavrsnirad.CodeFlow.service.SolutionService;
 import com.zavrsnirad.CodeFlow.service.TaskService;
@@ -19,6 +20,9 @@ public class SolutionGradeServiceJpa implements SolutionGradeService {
 
     @Autowired
     private SolutionGradeRepository solutionGradeRepository;
+
+    @Autowired
+    private ProgrammerService programmerService;
 
     @Override
     public SolutionGrade gradeSolution(Long solutionId, int grade, Programmer programmer) {
@@ -37,7 +41,13 @@ public class SolutionGradeServiceJpa implements SolutionGradeService {
             solutionGrade.setSolution(solution);
             solutionGrade.setGrader(programmer);
             solutionGrade.setUserCreated(programmer.getUsername());
+            programmerService.addSolutionPoints(grade, solution.getAuthor());
         } else {
+            if(grade < solutionGrade.getGrade()){
+                programmerService.removeSolutionPoints(solutionGrade.getGrade() - grade, solutionGrade.getSolution().getAuthor());
+            } else if(grade > solutionGrade.getGrade()) {
+                programmerService.addSolutionPoints(grade - solutionGrade.getGrade(), solutionGrade.getSolution().getAuthor());
+            }
             TimeAndUser.updateModified(solutionGrade, programmer);
         }
         solutionGrade.setGrade(grade);
@@ -55,7 +65,7 @@ public class SolutionGradeServiceJpa implements SolutionGradeService {
         if(!solutionGrade.getGrader().getProgrammerId().equals(programmer.getProgrammerId())){
             throw new IllegalArgumentException("Only programmer that graded this task can delete this grade!");
         }
-
+        programmerService.removeSolutionPoints(solutionGrade.getGrade(), solutionGrade.getSolution().getAuthor());
         solutionGradeRepository.delete(solutionGrade);
         return solutionGrade;
     }

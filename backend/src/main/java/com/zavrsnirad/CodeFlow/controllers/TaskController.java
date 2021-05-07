@@ -46,6 +46,20 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+    @GetMapping("/following")
+    public ResponseEntity<?> getFollowedTasks(Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        List<TaskDtoJson> response = MapperList.getList(taskService.tasksFromFollowed(programmer), task -> MapperTask.TaskToJson(task, programmer));
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
+    @GetMapping("/best")
+    public ResponseEntity<?> getBestTasks(Principal principal) {
+        Programmer programmer = programmerService.findByUsername(principal.getName());
+        List<TaskDtoJson> response = MapperList.getList(taskService.bestEver(), task -> MapperTask.TaskToJson(task, programmer));
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
     @GetMapping("/{username}")
     public ResponseEntity<?> getTasksByUsername(@PathVariable("username") String username, Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());

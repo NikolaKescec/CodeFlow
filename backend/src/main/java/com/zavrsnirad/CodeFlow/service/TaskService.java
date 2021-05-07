@@ -16,7 +16,7 @@ public interface TaskService {
 
     List<Task> bestEver();
 
-    List<Task> taskFromFollowedPeople(UUID userId);
+    List<Task> tasksFromFollowed(Programmer programmer);
 
     List<Task> listAllTasks();
 

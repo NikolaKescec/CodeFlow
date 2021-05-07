@@ -41,12 +41,12 @@ public class TaskServiceJpa implements TaskService {
 
     @Override
     public List<Task> bestEver() {
-        return null;
+        return taskRepository.bestTasks();
     }
 
     @Override
-    public List<Task> taskFromFollowedPeople(UUID userId) {
-        return null;
+    public List<Task> tasksFromFollowed(Programmer programmer) {
+        return taskRepository.tasksFromFollowed(programmer.getProgrammerId());
     }
 
     @Override
