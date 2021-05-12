@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Col, Collapse, Container, Row } from "react-bootstrap";
+import {
+  Accordion,
+  Button,
+  Card,
+  Col,
+  Collapse,
+  Container,
+  Row,
+} from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router";
 import useAuth from "../../authentication/hook/useAuth";
@@ -18,6 +26,9 @@ import {
   Select,
 } from "@material-ui/core";
 import authActions from "../../authentication/actions/authActions";
+import EvaluateButton from "../../components/Solution/EvaluateButton";
+import { Link } from "react-router-dom";
+import TaskAndConsoleView from "../../components/Solution/TaskAndConsoleView";
 
 const useStyles = makeStyles({
   select: {
@@ -42,7 +53,10 @@ const CreateSolution = () => {
   const [mode, setMode] = useState("java");
 
   const [languageId, setLanguageId] = useState();
+  const [judgeId, setJudgeId] = useState();
   const [code, setCode] = useState("");
+
+  const [report, setReport] = useState(["Nothing to report."]);
 
   debugger;
 
@@ -101,6 +115,7 @@ const CreateSolution = () => {
       )
     )
       setCode(wantedLanguage[0].imports + "" + wantedLanguage[0].main);
+    setJudgeId(wantedLanguage[0].judgeId);
   };
 
   const getTask = async () => {
@@ -121,6 +136,7 @@ const CreateSolution = () => {
       setCode(
         resTask.data.writtenIn[0].imports + "" + resTask.data.writtenIn[0].main
       );
+      setJudgeId(resTask.data.writtenIn[0].judgeId);
       setLoading(false);
     } catch (err) {
       debugger;
@@ -141,7 +157,7 @@ const CreateSolution = () => {
     <Container fluid className="h-100 bg-charcoal">
       <Row className="h-100">
         <Col md={6}>
-          <SolutionTaskPreview task={task}></SolutionTaskPreview>
+          <TaskAndConsoleView report={report} task={task}></TaskAndConsoleView>
         </Col>
         <Col md={6} className="p-0">
           <Card className="h-100" bg={"charcoal"}>
@@ -189,9 +205,14 @@ const CreateSolution = () => {
                 </Select>
               </FormControl>
               <FormControl className="float-right">
-                <Button onClick={submitSolution} variant="rich-black">
-                  Save solution
-                </Button>
+                <EvaluateButton
+                  judgeId={judgeId}
+                  code={code}
+                  updateReport={setReport}
+                  testCases={task.testCases}
+                  submitSolution={submitSolution}
+                  buttonText={"Save solution"}
+                ></EvaluateButton>
               </FormControl>
             </Card.Footer>
           </Card>

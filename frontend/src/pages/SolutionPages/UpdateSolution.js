@@ -18,6 +18,8 @@ import {
   Select,
 } from "@material-ui/core";
 import authActions from "../../authentication/actions/authActions";
+import TaskAndConsoleView from "../../components/Solution/TaskAndConsoleView";
+import EvaluateButton from "../../components/Solution/EvaluateButton";
 
 const useStyles = makeStyles({
   select: {
@@ -43,7 +45,10 @@ const UpdateSolution = () => {
   const [mode, setMode] = useState("java");
 
   const [languageId, setLanguageId] = useState();
+  const [judgeId, setJudgeId] = useState();
   const [code, setCode] = useState("");
+
+  const [report, setReport] = useState(["Nothing to report."]);
 
   debugger;
 
@@ -103,6 +108,7 @@ const UpdateSolution = () => {
       )
     )
       setCode(wantedLanguage[0].imports + "" + wantedLanguage[0].main);
+    setJudgeId(wantedLanguage[0].judgeId);
   };
 
   const getTask = async () => {
@@ -118,6 +124,7 @@ const UpdateSolution = () => {
     );
     setCode(resSolution.data.code);
     setLanguageId(resSolution.data.language.languageId);
+    setJudgeId(resSolution.data.language.judgeId);
     if (
       resSolution.data.language.language.toLowerCase() === "c" ||
       resSolution.data.language.language.toLowerCase() === "cpp"
@@ -152,7 +159,7 @@ const UpdateSolution = () => {
     <Container fluid className="h-100 bg-charcoal">
       <Row className="h-100">
         <Col md={6}>
-          <SolutionTaskPreview task={task}></SolutionTaskPreview>
+          <TaskAndConsoleView report={report} task={task}></TaskAndConsoleView>
         </Col>
         <Col md={6} className="p-0">
           <Card className="h-100" bg={"charcoal"}>
@@ -200,9 +207,14 @@ const UpdateSolution = () => {
                 </Select>
               </FormControl>
               <FormControl className="float-right">
-                <Button onClick={updateSolution} variant="rich-black">
-                  Update solution
-                </Button>
+                <EvaluateButton
+                  judgeId={judgeId}
+                  code={code}
+                  updateReport={setReport}
+                  testCases={task.testCases}
+                  submitSolution={updateSolution}
+                  buttonText={"Save solution"}
+                ></EvaluateButton>
               </FormControl>
             </Card.Footer>
           </Card>
