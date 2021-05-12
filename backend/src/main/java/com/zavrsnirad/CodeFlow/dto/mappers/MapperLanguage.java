@@ -10,7 +10,8 @@ public class MapperLanguage {
                 language.getLanguageId(),
                 language.getLanguage(),
                 language.getImports(),
-                language.getMain()
+                language.getMain(),
+                language.getJudgeId()
         );
     }
 

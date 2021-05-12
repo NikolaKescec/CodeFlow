@@ -6,7 +6,8 @@ INSERT INTO
         language_id,
         language,
         imports,
-        main
+        main,
+        judge_id
     )
 VALUES
     (
@@ -16,12 +17,10 @@ VALUES
         'Java',
         '',
         'public class Main {
-            private static --RETURN-TYPE-- solution(--INPUT-ARGUMENTS--){}
-            
-            static void main(String[] args){
-                //Write solution here...
+            public static void main(String[] args){
             }
-        }'
+        }',
+        62
     );
 
 INSERT INTO
@@ -31,7 +30,8 @@ INSERT INTO
         language_id,
         language,
         imports,
-        main
+        main,
+        judge_id
     )
 VALUES
     (
@@ -39,12 +39,12 @@ VALUES
         CURRENT_TIMESTAMP,
         2,
         'C',
-        '#include <stdio.h>',
-        '--RETURN-TYPE-- solution(--INPUT-ARGUMENTS--){}
-        int main() { 
-            //Write your solution here...
+        '#include <stdio.h>
+        ',
+        'int main() {
             return 0;
-        }'
+        }',
+        50
     );
 
 INSERT INTO
@@ -54,7 +54,8 @@ INSERT INTO
         language_id,
         language,
         imports,
-        main
+        main,
+        judge_id
     )
 VALUES
     (
@@ -63,7 +64,8 @@ VALUES
         3,
         'Python',
         '',
-        '--SOLUTION-HERE--'
+        '--SOLUTION-HERE--',
+        71
     );
 
 INSERT INTO
@@ -73,7 +75,8 @@ INSERT INTO
         language_id,
         language,
         imports,
-        main
+        main,
+        judge_id
     )
 VALUES
     (
@@ -82,7 +85,8 @@ VALUES
         4,
         'Javascript',
         '',
-        '--SOLUTION-HERE--'
+        '--SOLUTION-HERE--',
+        63
     );
 
 /* PROGRAMMERS */
@@ -641,7 +645,7 @@ VALUES
         '#include <stdio.h>\n
         int main() { 
             int n1, n2;
-            scanf("%d %d", & number1, & number2);
+            scanf("%d %d", & n1, & n2);
             printf("%d", n1+n2);
             return 0;
         }',
@@ -649,6 +653,36 @@ VALUES
         1,
         1
     );
+
+    INSERT INTO
+            solution (
+                ts_created,
+                ts_modified,
+                solution_id,
+                code,
+                language_id,
+                author_id,
+                task_id
+            )
+        VALUES
+            (
+                CURRENT_TIMESTAMP,
+                CURRENT_TIMESTAMP,
+                4,
+                'const readline = require("readline").createInterface({
+                   input: process.stdin,
+                   output: process.stdout
+                 });
+
+                 readline.on("line", input => {
+                     const array = input.split("|");
+                     process.stdout.write(array.join(" "));
+                     readline.close();
+                 })',
+                4,
+                4,
+                5
+            );
 
 UPDATE
     task

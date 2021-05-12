@@ -12,11 +12,23 @@ public class LanguageDtoJson {
 
     private String main;
 
-    public LanguageDtoJson(Long languageId, String language, String imports, String main) {
+    private Long judgeId;
+
+
+    public LanguageDtoJson(Long languageId, String language, String imports, String main, Long judgeId) {
         this.languageId = languageId;
         this.language = language;
         this.imports = imports;
         this.main = main;
+        this.judgeId = judgeId;
+    }
+
+    public Long getJudgeId() {
+        return judgeId;
+    }
+
+    public void setJudgeId(Long judgeId) {
+        this.judgeId = judgeId;
     }
 
     public Long getLanguageId() {

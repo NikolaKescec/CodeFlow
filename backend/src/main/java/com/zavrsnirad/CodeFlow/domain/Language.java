@@ -20,13 +20,26 @@ public class Language extends TimeAndUser{
     @Column(nullable = false)
     private String main;
 
+    @Column(nullable = false, name = "judge_id")
+    private Long judgeId;
+
     public Language() {
     }
 
-    public Language(String language, String imports, String main) {
+    public Language(Long languageId, String language, String imports, String main, Long judgeId) {
+        this.languageId = languageId;
         this.language = language;
         this.imports = imports;
         this.main = main;
+        this.judgeId = judgeId;
+    }
+
+    public Long getJudgeId() {
+        return judgeId;
+    }
+
+    public void setJudgeId(Long judgeId) {
+        this.judgeId = judgeId;
     }
 
     public Long getLanguageId() {
