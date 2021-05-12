@@ -154,10 +154,19 @@ const CreateSolution = () => {
   if (loading) return <Spinner></Spinner>;
 
   return (
-    <Container fluid className="h-100 bg-charcoal">
+    <Container fluid className="h-100 bg-charcoal d-flex column p-0">
       <Row className="h-100">
-        <Col md={6}>
-          <TaskAndConsoleView report={report} task={task}></TaskAndConsoleView>
+        <Col md={6} className="d-flex column">
+          <div
+            className="flex-grow-1"
+            style={{ height: "500px", overflow: "auto" }}
+          >
+            {" "}
+            <TaskAndConsoleView
+              report={report}
+              task={task}
+            ></TaskAndConsoleView>
+          </div>
         </Col>
         <Col md={6} className="p-0">
           <Card className="h-100" bg={"charcoal"}>

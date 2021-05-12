@@ -6,10 +6,12 @@ const Layout = ({ children, path }) => {
   return (
     <Container
       fluid
-      className="d-flex justify-content-between column full-height pattern p-0"
+      className="d-flex justify-content-between column pattern p-0 full-height"
     >
       <TopBar path={path} />
-      {children}
+      <Container fluid className="flex-grow-1">
+        {children}
+      </Container>
       <Footer />
     </Container>
   );

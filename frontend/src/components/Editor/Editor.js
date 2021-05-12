@@ -208,7 +208,6 @@ import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/theme-twilight";
 import "ace-builds/src-noconflict/theme-vibrant_ink";
 import "ace-builds/src-noconflict/theme-xcode";
-import "ace-builds/src-noconflict/worker-javascript";
 import "ace-builds/src-noconflict/ext-language_tools";
 
 const Editor = ({ mode, theme, changeCode, code, view }) => {

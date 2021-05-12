@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Card, Collapse, Container } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import Grade from "../Grade/Grade";
+import LinkToUser from "../Users/LinkToUser";
 
 const SolutionTaskPreview = ({ task }) => {
   const [open, setOpen] = useState(false);
@@ -15,9 +16,7 @@ const SolutionTaskPreview = ({ task }) => {
         <Container fluid className="p-0">
           <span>
             Task created by:
-            <span className=" text-baby-powder p-1 mr-1">
-              <strong>{task.author}</strong>
-            </span>
+            <LinkToUser className="ml-2" name={task.author}></LinkToUser>
           </span>
         </Container>
       </Card.Header>
@@ -73,12 +72,12 @@ const SolutionTaskPreview = ({ task }) => {
           <div id="test">
             {task.testCases.map((testCase) => {
               return (
-                <>
+                <div key={testCase.testCaseId}>
                   <hr></hr>
                   <p>Input and output: </p>
                   <p className="highlight">Input: {testCase.input}</p>
                   <p className="highlight">Output: {testCase.output}</p>
-                </>
+                </div>
               );
             })}
           </div>

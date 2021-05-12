@@ -29,16 +29,16 @@ const Home = () => {
   };
 
   return (
-    <Container fluid className="flex-grow-1">
-      <Row className="h-100">
+    <>
+      <Row className="d-flex h-100">
         <Col
           xs={12}
           md={9}
-          className="bg-wine-darker p-0 border-lg border-right border-rich-black"
+          className="bg-wine-darker p-0 border-lg border-right border-rich-black flex-grow-1 d-flex column"
         >
           <Container
             fluid
-            className="d-flex m-0 p-0 justify-content-between text-center"
+            className="d-flex m-0 p-0 justify-content-between text-center border-bottom border-rich-black"
           >
             <FeedButton
               name={"fresh"}
@@ -60,8 +60,10 @@ const Home = () => {
               activeElement={taskFeed}
             ></FeedButton>
           </Container>
-          <hr className="bg-rich-black p-0 mt-1 mb-0"></hr>
-          <div className="scrollable-feed">
+          <div
+            className="flex-grow-1"
+            style={{ height: "500px", overflow: "auto" }}
+          >
             <Feed text={taskFeed} loggedInUser={auth.data.username}></Feed>
           </div>
         </Col>
@@ -86,7 +88,7 @@ const Home = () => {
           <ScoreBoard text={userFeed}></ScoreBoard>
         </Col>
       </Row>
-    </Container>
+    </>
   );
 };
 

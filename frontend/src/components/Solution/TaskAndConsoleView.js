@@ -36,8 +36,12 @@ const TaskAndConsoleView = ({ report, task }) => {
       <Collapse in={openReport}>
         <div id="reports">
           <div className="bg-rich-black mt-1 text-white rounded p-2">
-            {report.map((line) => {
-              return <div>> {line}</div>;
+            {report.map((line, index) => {
+              return (
+                <div key={line + index + 1}>
+                  {">"} {line}
+                </div>
+              );
             })}
           </div>{" "}
         </div>

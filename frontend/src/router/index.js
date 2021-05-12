@@ -13,16 +13,11 @@ import { Container } from "react-bootstrap";
 const CodeFlowRouter = () => {
   return (
     <Router>
-      <Container
-        fluid
-        className="d-flex justify-content-between column full-height pattern p-0"
-      >
-        <Switch>
-          {routes.map((route, index) => (
-            <Renderer {...route} key={index} />
-          ))}
-        </Switch>
-      </Container>
+      <Switch>
+        {routes.map((route, index) => (
+          <Renderer {...route} key={index} />
+        ))}
+      </Switch>
     </Router>
   );
 };

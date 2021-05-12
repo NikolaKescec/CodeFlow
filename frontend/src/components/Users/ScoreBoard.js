@@ -37,11 +37,12 @@ const ScoreBoard = ({ text }) => {
   }, [text]);
 
   return (
-    <Container className="scrollable-feed p-2">
+    <Container className="p-2">
       {loading && <Spinner></Spinner>}
       {!loading && (
         <Table
           striped
+          responsive={true}
           size="sm"
           variant="charcoal"
           className="bg-charcoal text-baby-powder rounded"

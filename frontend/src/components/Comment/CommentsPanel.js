@@ -60,10 +60,13 @@ const CommentsPanel = ({ commentsSource, id }) => {
   return (
     <Container
       fluid
-      className="d-flex h-100 justify-content-between p-0"
-      style={{ flexDirection: "column" }}
+      className="d-flex h-100 justify-content-between p-0 column"
     >
-      <Container fluid className="scrollable-panel">
+      <Container
+        fluid
+        className="flex-grow-1"
+        style={{ height: "500px", overflow: "auto" }}
+      >
         {comments.map((comment) => {
           return (
             <Comment
