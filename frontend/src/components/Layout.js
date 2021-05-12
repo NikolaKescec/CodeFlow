@@ -9,7 +9,10 @@ const Layout = ({ children, path }) => {
       className="d-flex justify-content-between column pattern p-0 full-height"
     >
       <TopBar path={path} />
-      <Container fluid className="flex-grow-1">
+      <Container
+        fluid
+        className="flex-grow-1 d-flex column justify-content-between"
+      >
         {children}
       </Container>
       <Footer />
