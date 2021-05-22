@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Jumbotron } from "react-bootstrap";
 import TaskSnippet from "./TaskSnippet";
 
 import "../../styles/spinner.css";
 import "../../styles/feed.css";
 import axiosInstance from "../../utils/axiosInstance";
 import useAuth from "../../authentication/hook/useAuth";
+import Spinner from "../Spinner";
 
 const Feed = ({ text, loggedInUser }) => {
   const [auth, authDispatch, history] = useAuth();
@@ -27,19 +28,30 @@ const Feed = ({ text, loggedInUser }) => {
     getTasks();
   }, [text]);
 
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
+
+  if (!loading && tasks.length === 0)
+    return (
+      <Container fluid>
+        <Jumbotron className="bg-dark text-center text-white mt-2">
+          Seems there are no tasks to show here!
+        </Jumbotron>
+      </Container>
+    );
+
   return (
     <Container fluid>
-      {loading && <div className="loader">Loading...</div>}
-      {!loading &&
-        tasks.map((task) => {
-          return (
-            <TaskSnippet
-              key={task.taskId}
-              task={task}
-              loggedInUser={loggedInUser}
-            ></TaskSnippet>
-          );
-        })}
+      {tasks.map((task) => {
+        return (
+          <TaskSnippet
+            key={task.taskId}
+            task={task}
+            loggedInUser={loggedInUser}
+          ></TaskSnippet>
+        );
+      })}
     </Container>
   );
 };

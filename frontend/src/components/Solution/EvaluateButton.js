@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import useTextCoding from "../../app/hook/useTextCoding";
 import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
 
@@ -15,6 +16,7 @@ const EvaluateButton = ({
   const [evaluated, setEvaluated] = useState(false);
   const [evaluating, setEvaluating] = useState(false);
   const [report, setReport] = useState([]);
+  const [encode, decode] = useTextCoding();
 
   const evaluate = async () => {
     setEvaluating(true);
@@ -24,38 +26,48 @@ const EvaluateButton = ({
     try {
       for (let i = 0; i < testCases.length; i++) {
         let res = await axiosInstance(authDispatch, history).post(
-          "submissions/?wait=true",
+          "/submissions/?wait=true&base64_encoded=true",
           {
-            source_code: code,
+            source_code: encode(code),
             language_id: judgeId,
-            stdin: testCases[i].input,
-            expected_output: testCases[i].output,
+            stdin: encode(testCases[i].input),
+            expected_output: encode(testCases[i].output),
           },
-          { baseURL: "http://localhost:2358/", withCredentials: false }
+          {
+            baseURL: process.env.REACT_APP_JUDGE0_SERVER_URL,
+            withCredentials: false,
+          }
         );
         if (res.data.stderr) {
-          throw res.data.stderr;
+          throw decode(res.data.stderr);
         }
         if (res.data.status) {
-          if (res.data.status.description === "Wrong Answer") {
-            numbersOfFailed++;
-            evaluatedTests.push(
-              "TEST FAILED: \n" +
-                "EXPECTED: " +
-                testCases[i].output +
-                "\nGIVEN OUTPUT: " +
-                res.data.stdout +
-                "\n"
-            );
-          } else if (res.data.status.description === "Accepted") {
-            evaluatedTests.push(
-              "TEST PASSED: \n" +
-                "EXPECTED: " +
-                testCases[i].output +
-                "\nGIVEN OUTPUT: " +
-                res.data.stdout +
-                "\n"
-            );
+          switch (res.data.status.description) {
+            case "Wrong Answer":
+              numbersOfFailed++;
+              evaluatedTests.push(
+                "TEST FAILED: \n" +
+                  "EXPECTED: " +
+                  testCases[i].output +
+                  "\nGIVEN OUTPUT: " +
+                  decode(res.data.stdout) +
+                  "\n"
+              );
+              break;
+            case "Accepted":
+              evaluatedTests.push(
+                "TEST PASSED: \n" +
+                  "EXPECTED: " +
+                  testCases[i].output +
+                  "\nGIVEN OUTPUT: " +
+                  decode(res.data.stdout) +
+                  "\n"
+              );
+              break;
+            case "Compilation Error":
+              throw decode(res.data.compile_output);
+            default:
+              throw "Compilation error! Please recheck your code!";
           }
         } else {
           throw "Compilation error! Please recheck your code!";

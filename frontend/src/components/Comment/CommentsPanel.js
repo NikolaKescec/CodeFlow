@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Jumbotron } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import { toast } from "react-toastify";
 import authActions from "../../authentication/actions/authActions";
@@ -10,7 +10,7 @@ import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 
 const CommentsPanel = ({ commentsSource, id }) => {
-  const [comments, setComments] = useState();
+  const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [auth, authDispatch, history] = useAuth();
 
@@ -67,6 +67,11 @@ const CommentsPanel = ({ commentsSource, id }) => {
         className="flex-grow-1"
         style={{ height: "500px", overflow: "auto" }}
       >
+        {comments.length === 0 && (
+          <Jumbotron className="text-white mt-2 text-center bg-dark">
+            It seems there are no comments here yet!{" "}
+          </Jumbotron>
+        )}
         {comments.map((comment) => {
           return (
             <Comment
