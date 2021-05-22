@@ -649,7 +649,7 @@ VALUES
             printf("%d", n1+n2);
             return 0;
         }',
-        4,
+        2,
         1,
         1
     );
