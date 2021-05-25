@@ -11,7 +11,7 @@ public class SolutionDtoReq {
     @NotNull(message = "Language id can not be null!")
     private Long languageId;
 
-    public SolutionDtoReq(@NotEmpty String code, @NotNull Long languageId) {
+    public SolutionDtoReq(String code, Long languageId) {
         this.code = code;
         this.languageId = languageId;
     }

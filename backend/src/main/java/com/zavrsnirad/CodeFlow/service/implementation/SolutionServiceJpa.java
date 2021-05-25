@@ -9,6 +9,7 @@ import com.zavrsnirad.CodeFlow.service.LanguageService;
 import com.zavrsnirad.CodeFlow.service.SolutionService;
 import com.zavrsnirad.CodeFlow.service.TaskGradeService;
 import com.zavrsnirad.CodeFlow.service.TaskService;
+import com.zavrsnirad.CodeFlow.util.WebClientJugde0Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +17,9 @@ import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+
 @Service
 public class SolutionServiceJpa implements SolutionService {
-
     @Autowired
     private SolutionRepository solutionRepository;
 
@@ -33,6 +34,9 @@ public class SolutionServiceJpa implements SolutionService {
 
     @Autowired
     private TaskGradeService taskGradeService;
+
+    @Autowired
+    private WebClientJugde0Util webClientJugde0Util;
 
     @Override
     public List<Solution> findSolutionsFromTask(Long id) {
@@ -59,6 +63,8 @@ public class SolutionServiceJpa implements SolutionService {
         if(task.getSolutions().stream().anyMatch((solution -> solution.getAuthor().getProgrammerId().equals(programmer.getProgrammerId()))))
             throw new IllegalArgumentException("You can only write one solution per task!");
 
+        if(!webClientJugde0Util.validSolution(task.getTestCases(), solutionDtoReq, language.getJudgeId())) throw new IllegalArgumentException("Invalid solution!");
+
         Solution solution = new Solution(solutionDtoReq.getCode(), language, programmer, task);
         solution.setUserCreated(programmer.getUsername());
         solution = solutionRepository.save(solution);
@@ -80,6 +86,8 @@ public class SolutionServiceJpa implements SolutionService {
         solution.setCode(solutionUpdateDtoReq.getCode());
         Language language = languageService.findById(solutionUpdateDtoReq.getLanguageId());
         solution.setLanguage(language);
+
+        if(!webClientJugde0Util.validSolution(solution.getTask().getTestCases(), solutionUpdateDtoReq, language.getJudgeId())) throw new IllegalArgumentException("Invalid solution!");
 
         TimeAndUser.updateModified(solution, programmer);
         return solutionRepository.save(solution);
