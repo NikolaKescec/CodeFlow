@@ -1,5 +1,4 @@
 import "../../styles/feed.css";
-import { HiOutlineSelector } from "react-icons/hi";
 
 const FeedButton = ({ name, link, selectFunction, activeElement, middle }) => {
   const isActive = () => {

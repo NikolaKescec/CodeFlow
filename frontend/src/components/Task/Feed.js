@@ -43,10 +43,10 @@ const Feed = ({ text, loggedInUser }) => {
 
   return (
     <Container fluid>
-      {tasks.map((task) => {
+      {tasks.map((task, index) => {
         return (
           <TaskSnippet
-            key={task.taskId}
+            key={task.taskId + task.author + index}
             task={task}
             loggedInUser={loggedInUser}
           ></TaskSnippet>

@@ -22,6 +22,7 @@ const UserGrade = ({ userGrade = 0, id, changeObject, destination }) => {
   const [grade, setGrade] = useState(userGrade);
 
   const rate = async (value) => {
+    if (value === null) return;
     let res = await axiosInstance(authDispatch, history).get(
       "/grade/" + destination + "/" + id + "/" + value
     );

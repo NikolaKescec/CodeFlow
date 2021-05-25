@@ -34,6 +34,13 @@ const EvaluateButton = ({
             expected_output: encode(testCases[i].output),
           },
           {
+            headers: {
+              "content-type": "application/json",
+              "x-rapidapi-key":
+                "eac21ae196msh68d010c8e50cd62p1e0ba0jsn77678c6d4101",
+              "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
+              useQueryString: true,
+            },
             baseURL: process.env.REACT_APP_JUDGE0_SERVER_URL,
             withCredentials: false,
           }

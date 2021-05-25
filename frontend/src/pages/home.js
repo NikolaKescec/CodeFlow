@@ -16,7 +16,7 @@ const Home = () => {
   debugger;
   const [auth, authDispatch, history] = useAuth();
   const [userFeed, setUserFeed] = useState("Taskers");
-  const [taskFeed, setTaskFeed] = useState("fresh");
+  const [taskFeed, setTaskFeed] = useState("recommended");
 
   const changeFunctionTasks = (text) => {
     console.log(text);
@@ -41,8 +41,8 @@ const Home = () => {
             className="d-flex m-0 p-0 justify-content-between text-center border-bottom border-rich-black"
           >
             <FeedButton
-              name={"fresh"}
-              link={"fresh"}
+              name={"recommended"}
+              link={"recommended"}
               selectFunction={changeFunctionTasks}
               activeElement={taskFeed}
             ></FeedButton>
@@ -54,8 +54,8 @@ const Home = () => {
               middle={true}
             ></FeedButton>
             <FeedButton
-              name={"best"}
-              link={"best"}
+              name={"fresh"}
+              link={"fresh"}
               selectFunction={changeFunctionTasks}
               activeElement={taskFeed}
             ></FeedButton>

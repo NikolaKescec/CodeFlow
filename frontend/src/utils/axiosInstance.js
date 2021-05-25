@@ -43,7 +43,10 @@ const axiosInstance = (dispatch = null, history = null) => {
           window.location = "/";
         }
       } else {
-        return Promise.reject(error);
+        dispatch({
+          type: authActions.ERROR,
+          payload: error.response ? error.response.data : "COULD NOT CONNECT",
+        });
       }
     }
   );
