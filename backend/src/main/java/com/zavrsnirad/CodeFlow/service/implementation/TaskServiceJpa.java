@@ -5,16 +5,13 @@ import com.zavrsnirad.CodeFlow.dto.req.TaskDtoReq;
 import com.zavrsnirad.CodeFlow.dto.req.TaskUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.dto.req.TestCaseDtoReq;
 import com.zavrsnirad.CodeFlow.repository.TaskRepository;
-import com.zavrsnirad.CodeFlow.repository.TestCaseRepository;
 import com.zavrsnirad.CodeFlow.service.LanguageService;
 import com.zavrsnirad.CodeFlow.service.TaskService;
 import com.zavrsnirad.CodeFlow.service.TestCaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.*;
 
 @Service
@@ -40,8 +37,8 @@ public class TaskServiceJpa implements TaskService {
     }
 
     @Override
-    public List<Task> bestEver() {
-        return taskRepository.bestTasks();
+    public List<Task> recommendedTasks(Programmer programmer) {
+        return taskRepository.recommendedTasks(programmer.getProgrammerId());
     }
 
     @Override

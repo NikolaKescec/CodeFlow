@@ -40,7 +40,7 @@ public class TaskController {
     private ProgrammerService programmerService;
 
     @GetMapping("/fresh")
-    public ResponseEntity<?> getTasks(Principal principal) {
+    public ResponseEntity<?> getFreshTasks(Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
         List<TaskDtoJson> response = MapperList.getList(taskService.listAllTasks(), task -> MapperTask.TaskToJson(task, programmer));
         return ResponseEntity.status(HttpStatus.OK).body(response);
@@ -53,10 +53,10 @@ public class TaskController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @GetMapping("/best")
-    public ResponseEntity<?> getBestTasks(Principal principal) {
+    @GetMapping("/recommended")
+    public ResponseEntity<?> getRecommendedTasks(Principal principal) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
-        List<TaskDtoJson> response = MapperList.getList(taskService.bestEver(), task -> MapperTask.TaskToJson(task, programmer));
+        List<TaskDtoJson> response = MapperList.getList(taskService.recommendedTasks(programmer), task -> MapperTask.TaskToJson(task, programmer));
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 

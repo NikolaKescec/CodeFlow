@@ -14,7 +14,7 @@ public interface TaskService {
 
     List<Task> taskSolvedByUser(String username);
 
-    List<Task> bestEver();
+    List<Task> recommendedTasks(Programmer programmer);
 
     List<Task> tasksFromFollowed(Programmer programmer);
 
