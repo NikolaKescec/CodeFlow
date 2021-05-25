@@ -9,6 +9,7 @@ import axiosInstance from "../../utils/axiosInstance";
 import themes from "../../app/codethemes/codethemes";
 import Editor from "../../components/Editor/Editor";
 import SolutionTaskPreview from "../../components/Solution/SolutionTaskPreview";
+import LoadingOverlay from "react-loading-overlay";
 
 import {
   FormControl,
@@ -39,6 +40,7 @@ const UpdateSolution = () => {
 
   const [task, setTask] = useState();
   const [loading, setLoading] = useState(true);
+  const [updating, setUpdating] = useState(false);
 
   const classes = useStyles();
   const [theme, setTheme] = useState("vibrant_ink");
@@ -60,6 +62,7 @@ const UpdateSolution = () => {
       });
       return;
     }
+    setUpdating(true);
     axiosInstance(authDispatch, history)
       .put("solution/update/" + solutionId, {
         code: code,
@@ -71,6 +74,7 @@ const UpdateSolution = () => {
         history.push(`/task/${taskId}/solution/` + res.data.solutionId);
       })
       .catch((err) => {
+        setUpdating(false);
         authDispatch({
           type: authActions.ERROR,
           payload: err.response ? err.response.data : "COULD NOT CONNECT",
@@ -177,8 +181,9 @@ const UpdateSolution = () => {
                 changeCode={changeCode}
                 theme={theme}
                 code={code}
-                view={false}
+                view={updating}
                 mode={mode}
+                purpose={"creation"}
               ></Editor>
             </Card.Body>
             <Card.Footer>
@@ -222,7 +227,10 @@ const UpdateSolution = () => {
                   updateReport={setReport}
                   testCases={task.testCases}
                   submitSolution={updateSolution}
-                  buttonText={"Save solution"}
+                  buttonText={"Update solution"}
+                  modifiedButtonText={"Updating..."}
+                  modify={updating}
+                  setModify={setUpdating}
                 ></EvaluateButton>
               </FormControl>
             </Card.Footer>

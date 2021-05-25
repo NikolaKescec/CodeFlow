@@ -210,8 +210,8 @@ import "ace-builds/src-noconflict/theme-vibrant_ink";
 import "ace-builds/src-noconflict/theme-xcode";
 import "ace-builds/src-noconflict/ext-language_tools";
 
-const Editor = ({ mode, theme, changeCode, code, view }) => {
-  if (view) {
+const Editor = ({ mode, theme, changeCode, code, view, purpose }) => {
+  if (purpose === "view") {
     return (
       <AceEditor
         value={code}
@@ -219,8 +219,8 @@ const Editor = ({ mode, theme, changeCode, code, view }) => {
         mode={mode}
         theme="vibrant_ink"
         name="ACE_EDITOR_DIV"
-        readOnly={true}
-        highlightActiveLine={true}
+        readOnly={view}
+        highlightActiveLine={false}
         showPrintMargin={false}
         setOptions={{
           showLineNumbers: true,
@@ -239,6 +239,7 @@ const Editor = ({ mode, theme, changeCode, code, view }) => {
       onChange={changeCode}
       name="ACE_EDITOR_DIV"
       value={code}
+      readOnly={view}
       showPrintMargin={false}
       showGutter={true}
       highlightActiveLine={true}

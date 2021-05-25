@@ -47,6 +47,7 @@ const CreateSolution = () => {
 
   const [task, setTask] = useState();
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
   const classes = useStyles();
   const [theme, setTheme] = useState("vibrant_ink");
@@ -68,6 +69,7 @@ const CreateSolution = () => {
       });
       return;
     }
+    setSaving(true);
     axiosInstance(authDispatch, history)
       .post("solution/create/" + taskId, {
         code: code,
@@ -78,6 +80,7 @@ const CreateSolution = () => {
         history.push(`/task/${taskId}/solution/` + res.data.solutionId);
       })
       .catch((err) => {
+        setSaving(false);
         authDispatch({
           type: authActions.ERROR,
           payload: err.response ? err.response.data : "COULD NOT CONNECT",
@@ -172,11 +175,13 @@ const CreateSolution = () => {
           <Card className="h-100" bg={"charcoal"}>
             <Card.Body className="p-0">
               <Editor
+                className="h-100"
                 changeCode={changeCode}
                 theme={theme}
                 code={code}
-                view={false}
+                view={saving}
                 mode={mode}
+                purpose={"creation"}
               ></Editor>
             </Card.Body>
             <Card.Footer>
@@ -221,6 +226,9 @@ const CreateSolution = () => {
                   testCases={task.testCases}
                   submitSolution={submitSolution}
                   buttonText={"Save solution"}
+                  modifiedButtonText={"Saving..."}
+                  modify={saving}
+                  setModify={setSaving}
                 ></EvaluateButton>
               </FormControl>
             </Card.Footer>

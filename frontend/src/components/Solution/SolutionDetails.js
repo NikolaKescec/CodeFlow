@@ -91,6 +91,7 @@ const SolutionDetails = ({ id }) => {
                 ? "c_cpp"
                 : solution.language.language.toLowerCase()
             }
+            purpose={"view"}
           ></Editor>
         </Card.Body>
         <Card.Footer>

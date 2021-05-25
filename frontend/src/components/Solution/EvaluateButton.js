@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Spinner } from "react-bootstrap";
 import useTextCoding from "../../app/hook/useTextCoding";
 import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
@@ -11,6 +11,9 @@ const EvaluateButton = ({
   updateReport,
   submitSolution,
   buttonText,
+  modifiedButtonText,
+  modify,
+  setModify,
 }) => {
   const [auth, authDispatch, history] = useAuth();
   const [evaluated, setEvaluated] = useState(false);
@@ -20,6 +23,7 @@ const EvaluateButton = ({
 
   const evaluate = async () => {
     setEvaluating(true);
+    setModify(true);
     let evaluatedTests = [];
     let passed = false;
     let numbersOfFailed = 0;
@@ -36,9 +40,8 @@ const EvaluateButton = ({
           {
             headers: {
               "content-type": "application/json",
-              "x-rapidapi-key":
-                "eac21ae196msh68d010c8e50cd62p1e0ba0jsn77678c6d4101",
-              "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
+              "x-rapidapi-key": process.env.REACT_APP_JUDGE0_API_KEY,
+              "x-rapidapi-host": process.env.REACT_APP_JUDGE0_HOST,
               useQueryString: true,
             },
             baseURL: process.env.REACT_APP_JUDGE0_SERVER_URL,
@@ -83,6 +86,7 @@ const EvaluateButton = ({
     } catch (err) {
       updateReport([...report, err]);
       setEvaluating(false);
+      setModify(false);
       return;
     }
     updateReport([...report, ...evaluatedTests]);
@@ -91,6 +95,7 @@ const EvaluateButton = ({
       setEvaluated(true);
     }
     setEvaluating(false);
+    setModify(false);
   };
 
   useEffect(() => {
@@ -100,8 +105,16 @@ const EvaluateButton = ({
   if (evaluating) {
     return (
       <>
-        <Button variant="danger" disabled>
-          Evaluating...
+        <Button variant="danger" disabled className="d-flex align-items-center">
+          Evaluating
+          <Spinner
+            as="span"
+            animation="border"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+            className="ml-1"
+          />
         </Button>
       </>
     );
@@ -112,6 +125,24 @@ const EvaluateButton = ({
       <>
         <Button variant="danger" onClick={evaluate}>
           Evaluate
+        </Button>
+      </>
+    );
+  }
+
+  if (modify) {
+    return (
+      <>
+        <Button variant="danger" disabled className="d-flex align-items-center">
+          {modifiedButtonText}
+          <Spinner
+            as="span"
+            animation="grow"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+            className="ml-1"
+          />
         </Button>
       </>
     );
