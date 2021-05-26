@@ -84,7 +84,9 @@ const EvaluateButton = ({
         }
       }
     } catch (err) {
-      updateReport([...report, err]);
+      if (err) {
+        updateReport([...report, err]);
+      }
       setEvaluating(false);
       setModify(false);
       return;

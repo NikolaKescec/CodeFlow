@@ -41,7 +41,7 @@ const TopBar = ({ path }) => {
     let filtered = notifications.filter((notification) => {
       return notification.notificationId !== notificationId;
     });
-    if (notifications.length === 0) setSelected(false);
+    if (filtered.length === 0) setSelected(false);
     setNotifications([...filtered]);
   };
 
@@ -115,7 +115,7 @@ const TopBar = ({ path }) => {
             alignRight
             disabled={notifications.length === 0}
           >
-            {notifications &&
+            {notifications.length !== 0 &&
               notifications.map((notification, index) => {
                 return (
                   <div
