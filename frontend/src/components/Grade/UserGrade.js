@@ -1,9 +1,9 @@
 import { withStyles } from "@material-ui/core";
-import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import Rating from "@material-ui/lab/Rating";
 import { useState } from "react";
-import useAuth from "../../authentication/hook/useAuth";
 import { Button } from "react-bootstrap";
+import { BsStar } from "react-icons/bs";
+import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
 
 const StyledRating = withStyles({
@@ -16,8 +16,6 @@ const StyledRating = withStyles({
 })(Rating);
 
 const UserGrade = ({ userGrade = 0, id, changeObject, destination }) => {
-  console.log(userGrade);
-
   const [auth, authDispatch, history] = useAuth();
   const [grade, setGrade] = useState(userGrade);
 
@@ -26,11 +24,9 @@ const UserGrade = ({ userGrade = 0, id, changeObject, destination }) => {
     let res = await axiosInstance(authDispatch, history).get(
       "/grade/" + destination + "/" + id + "/" + value
     );
-    console.log(res);
     let resObject = await axiosInstance(authDispatch, history).get(
       "/" + destination + "/detail/" + id
     );
-    console.log(resObject);
     setGrade(value);
     changeObject(resObject.data);
   };
@@ -42,7 +38,6 @@ const UserGrade = ({ userGrade = 0, id, changeObject, destination }) => {
     let resObject = await axiosInstance(authDispatch, history).get(
       "/" + destination + "/detail/" + id
     );
-    console.log(resObject);
     setGrade(0);
     changeObject(resObject.data);
   };

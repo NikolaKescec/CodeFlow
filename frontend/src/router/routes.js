@@ -1,17 +1,17 @@
 // pages
-import Register from "../pages/Register";
-import Welcome from "../pages/Welcome";
 import Error from "../pages/Error";
 import Home from "../pages/Home";
+import EditProfile from "../pages/ProfilePages/EditProfile";
 import Profile from "../pages/ProfilePages/Profile";
+import Programmer from "../pages/ProgrammerPages/Programmer";
+import Register from "../pages/Register";
+import CreateSolution from "../pages/SolutionPages/CreateSolution";
+import Solution from "../pages/SolutionPages/Solution";
+import UpdateSolution from "../pages/SolutionPages/UpdateSolution";
 import CreateTask from "../pages/TaskPages/CreateTask";
 import Task from "../pages/TaskPages/Task";
-import Solution from "../pages/SolutionPages/Solution";
-import CreateSolution from "../pages/SolutionPages/CreateSolution";
-import UpdateSolution from "../pages/SolutionPages/UpdateSolution";
-import EditProfile from "../pages/ProfilePages/EditProfile";
 import UpdateTask from "../pages/TaskPages/UpdateTask";
-import Programmer from "../pages/ProgrammerPages/Programmer";
+import Welcome from "../pages/Welcome";
 
 const routes = [
   {

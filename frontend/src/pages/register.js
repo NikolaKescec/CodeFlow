@@ -1,15 +1,13 @@
 import { TextField } from "@material-ui/core";
 import { useFormik } from "formik";
+import { useContext, useEffect } from "react";
 import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import register from "../authentication/actions/register";
 import { AuthContext } from "../authentication/context/AuthProvider";
 import "../styles/register.css";
-import { useContext, useEffect } from "react";
-import register from "../authentication/actions/register";
-import { useHistory } from "react-router-dom";
 
 const validate = (values) => {
-  debugger;
   const errors = {};
 
   if (!values.username) {

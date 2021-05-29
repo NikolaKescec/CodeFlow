@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import {
-  TiArrowSortedDown,
-  TiArrowSortedUp,
-  TiArrowUnsorted,
-} from "react-icons/ti";
+import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import Grade from "../Grade/Grade";
 
@@ -14,7 +10,6 @@ const SolutionTable = ({ task, solutions, loggedInUser }) => {
   let [sortColumn, setSortColumn] = useState();
 
   const columnName = (column, name) => {
-    debugger;
     if (sortColumn === undefined || sortColumn.column !== column)
       return (
         <>
@@ -38,8 +33,6 @@ const SolutionTable = ({ task, solutions, loggedInUser }) => {
   };
 
   const sortSolutions = (column) => {
-    debugger;
-
     if (sortColumn === undefined) {
       sortColumn = { column, asc: true };
     }

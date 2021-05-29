@@ -1,5 +1,5 @@
-import authActions from "./authActions";
 import axios from "axios";
+import authActions from "./authActions";
 
 // konvencije radi, dispatch se predaje kao drugi poziv funkcije (poput middlewarea)
 
@@ -9,7 +9,6 @@ const login =
     authDispatch({
       type: authActions.LOGIN_LOADING,
     });
-    console.log(process.env.REACT_APP_BACKEND_SERVER_URL);
     axios
       .post(
         "/authenticate",

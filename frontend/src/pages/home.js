@@ -1,30 +1,21 @@
-import { useEffect, useState } from "react";
-import useAuth from "../authentication/hook/useAuth";
+import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { AuthContext } from "../authentication/context/AuthProvider";
-import logout from "../authentication/actions/logout";
-import { Link, useHistory } from "react-router-dom";
-import axiosInstance from "../utils/axiosInstance";
-import useApp from "../app/hook/useApp";
-import ScoreBoard from "../components/Users/ScoreBoard";
+import useAuth from "../authentication/hook/useAuth";
 import Feed from "../components/Task/Feed";
 import FeedButton from "../components/Task/FeedButton";
-
+import ScoreBoard from "../components/Users/ScoreBoard";
 import "../styles/home.css";
 
 const Home = () => {
-  debugger;
   const [auth, authDispatch, history] = useAuth();
   const [userFeed, setUserFeed] = useState("Taskers");
   const [taskFeed, setTaskFeed] = useState("recommended");
 
   const changeFunctionTasks = (text) => {
-    console.log(text);
     setTaskFeed(text);
   };
 
   const changeFunctionUsers = (text) => {
-    console.log(text);
     setUserFeed(text);
   };
 

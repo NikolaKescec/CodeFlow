@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Modal, Spinner } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import useTextCoding from "../../app/hook/useTextCoding";
 import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
@@ -42,6 +42,9 @@ const EvaluateButton = ({
               "content-type": "application/json",
               "x-rapidapi-key": process.env.REACT_APP_JUDGE0_API_KEY,
               "x-rapidapi-host": process.env.REACT_APP_JUDGE0_HOST,
+              "Access-Control-Allow-Headers":
+                "content-type, useQueryString, x-rapidapi-host, x-rapidapi-key",
+              "Access-Control-Allow-Origin": "*",
               useQueryString: true,
             },
             baseURL: process.env.REACT_APP_JUDGE0_SERVER_URL,

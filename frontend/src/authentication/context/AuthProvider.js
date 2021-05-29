@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 import authReducer from "../reducer/authReducer";
 import authState from "../state";
 
@@ -7,7 +7,6 @@ export const AuthContext = createContext({});
 //destrukturiranje djece ovog komponenta
 export const AuthProvider = ({ children }) => {
   const [auth, dispatch] = useReducer(authReducer, authState, () => {
-    debugger;
     const auth =
       localStorage.auth !== undefined
         ? JSON.parse(localStorage.auth)
@@ -17,7 +16,6 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.auth = JSON.stringify(auth);
-    console.log(auth);
   }, [auth]);
 
   return (

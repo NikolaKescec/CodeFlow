@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Button, Card, Container, Dropdown } from "react-bootstrap";
+import { Card, Container, Dropdown } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
-import { Link } from "react-router-dom";
 import authActions from "../../authentication/actions/authActions";
 import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
@@ -19,7 +18,6 @@ const Comment = ({
   const [auth, authDispatch, history] = useAuth();
 
   const updateComment = (updatedComment) => {
-    debugger;
     setNewComment(updatedComment);
     setEdit(false);
   };
@@ -28,7 +26,6 @@ const Comment = ({
       axiosInstance(authDispatch, history)
         .delete(commentSource + "delete/" + comment.commentId)
         .then((res) => {
-          debugger;
           removeComment(comment.commentId);
         })
         .catch((err) => {

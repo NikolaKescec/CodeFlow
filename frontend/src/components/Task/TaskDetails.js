@@ -3,14 +3,14 @@ import { Button, Card, Container, Dropdown } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import authActions from "../../authentication/actions/authActions";
+import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
 import Grade from "../Grade/Grade";
+import UserGrade from "../Grade/UserGrade";
 import SolutionTable from "../Solution/SolutionTable";
 import Spinner from "../Spinner";
-import useAuth from "../../authentication/hook/useAuth";
-import authActions from "../../authentication/actions/authActions";
 import LinkToUser from "../Users/LinkToUser";
-import UserGrade from "../Grade/UserGrade";
 
 const TaskDetails = ({ id }) => {
   const [task, setTask] = useState();
@@ -47,8 +47,6 @@ const TaskDetails = ({ id }) => {
       toast(e.message);
     }
   };
-
-  console.log(solutions);
 
   useEffect(() => {
     getTaskAndSolutions();

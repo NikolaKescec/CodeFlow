@@ -2,9 +2,7 @@ import axios from "axios";
 import authActions from "../authentication/actions/authActions";
 
 const axiosInstance = (dispatch = null, history = null) => {
-  debugger;
   const backend_url = process.env.REACT_APP_BACKEND_SERVER_URL;
-  console.log("BACKEND_URL: " + backend_url);
 
   const axiosInstance = axios.create({
     baseURL: backend_url,
@@ -17,8 +15,7 @@ const axiosInstance = (dispatch = null, history = null) => {
     },
     async function (error) {
       const originalRequest = error.config;
-      debugger;
-      console.log(error);
+
       if (error.response === undefined) {
         dispatch({ type: authActions.LOGOUT });
         history.push("/");
@@ -31,7 +28,6 @@ const axiosInstance = (dispatch = null, history = null) => {
       if (error.response.status === 401) {
         console.log(error);
       } else if (error.response.status === 403) {
-        debugger;
         await axiosInstance.get("/deauthenticate");
         if (dispatch) {
           dispatch({ type: authActions.LOGOUT });

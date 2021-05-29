@@ -1,7 +1,6 @@
-import { Box, withStyles } from "@material-ui/core";
-import { nanoid } from "nanoid";
-import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
+import { withStyles } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
+import { BsStar } from "react-icons/bs";
 
 const StyledRating = withStyles({
   iconFilled: {

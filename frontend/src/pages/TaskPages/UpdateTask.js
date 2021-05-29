@@ -1,22 +1,15 @@
-import { Form, Formik, FieldArray, getIn, Field } from "formik";
+import { TextField } from "@material-ui/core";
+import { Field, FieldArray, Form, Formik, getIn } from "formik";
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Prompt, Redirect, useHistory, useParams } from "react-router";
+import { Prompt, useParams } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
-import useAuth from "../../authentication/hook/useAuth";
-import axiosInstance from "../../utils/axiosInstance";
-import * as Yup from "yup";
-
-import Spinner from "../../components/Spinner";
-
 import "react-toastify/dist/ReactToastify.css";
-import {
-  FormControl,
-  FormGroup,
-  FormLabel,
-  TextField,
-} from "@material-ui/core";
+import * as Yup from "yup";
 import authActions from "../../authentication/actions/authActions";
+import useAuth from "../../authentication/hook/useAuth";
+import Spinner from "../../components/Spinner";
+import axiosInstance from "../../utils/axiosInstance";
 
 const ValidationSchema = Yup.object().shape({
   author: Yup.number().required("Author id is required."),
@@ -58,7 +51,6 @@ const UpdateTask = () => {
   const { taskId } = useParams();
 
   const notify = (message) => {
-    debugger;
     toast.error(message, {
       autoClose: 8000,
       position: toast.POSITION.TOP_RIGHT,
@@ -68,7 +60,6 @@ const UpdateTask = () => {
 
   const getTaskAndAvailableLanguages = async () => {
     try {
-      debugger;
       let task = await axiosInstance(authDispatch, history).get(
         "task/detail/" + taskId
       );

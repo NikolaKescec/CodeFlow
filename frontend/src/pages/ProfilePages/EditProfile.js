@@ -16,7 +16,6 @@ import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
 
 const validate = (values) => {
-  debugger;
   const errors = {};
 
   if (!values.username) {

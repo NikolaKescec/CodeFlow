@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Container, Jumbotron } from "react-bootstrap";
-import { useHistory, useParams } from "react-router";
-import { toast } from "react-toastify";
 import authActions from "../../authentication/actions/authActions";
 import useAuth from "../../authentication/hook/useAuth";
 import axiosInstance from "../../utils/axiosInstance";
@@ -13,8 +11,6 @@ const CommentsPanel = ({ commentsSource, id }) => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [auth, authDispatch, history] = useAuth();
-
-  debugger;
 
   useEffect(() => {
     axiosInstance(authDispatch, history)
@@ -52,8 +48,6 @@ const CommentsPanel = ({ commentsSource, id }) => {
     });
     setComments([...filtered]);
   };
-
-  console.log(comments);
 
   if (loading) return <Spinner></Spinner>;
 

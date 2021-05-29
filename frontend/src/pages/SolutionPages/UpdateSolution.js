@@ -1,26 +1,15 @@
+import { FormControl, makeStyles, MenuItem, Select } from "@material-ui/core";
 import { useEffect, useState } from "react";
-import { Button, Card, Col, Collapse, Container, Row } from "react-bootstrap";
-import ReactMarkdown from "react-markdown";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
+import themes from "../../app/codethemes/codethemes";
+import authActions from "../../authentication/actions/authActions";
 import useAuth from "../../authentication/hook/useAuth";
-import Grade from "../../components/Grade/Grade";
+import Editor from "../../components/Editor/Editor";
+import EvaluateButton from "../../components/Solution/EvaluateButton";
+import TaskAndConsoleView from "../../components/Solution/TaskAndConsoleView";
 import Spinner from "../../components/Spinner";
 import axiosInstance from "../../utils/axiosInstance";
-import themes from "../../app/codethemes/codethemes";
-import Editor from "../../components/Editor/Editor";
-import SolutionTaskPreview from "../../components/Solution/SolutionTaskPreview";
-import LoadingOverlay from "react-loading-overlay";
-
-import {
-  FormControl,
-  InputLabel,
-  makeStyles,
-  MenuItem,
-  Select,
-} from "@material-ui/core";
-import authActions from "../../authentication/actions/authActions";
-import TaskAndConsoleView from "../../components/Solution/TaskAndConsoleView";
-import EvaluateButton from "../../components/Solution/EvaluateButton";
 
 const useStyles = makeStyles({
   select: {
@@ -52,8 +41,6 @@ const UpdateSolution = () => {
 
   const [report, setReport] = useState(["Nothing to report."]);
 
-  debugger;
-
   const updateSolution = () => {
     if (!code) {
       authDispatch({
@@ -70,7 +57,6 @@ const UpdateSolution = () => {
         solutionId: solutionId,
       })
       .then((res) => {
-        debugger;
         history.push(`/task/${taskId}/solution/` + res.data.solutionId);
       })
       .catch((err) => {
@@ -83,17 +69,14 @@ const UpdateSolution = () => {
   };
 
   const changeCode = (newValue) => {
-    debugger;
     setCode(newValue);
   };
 
   const changeTheme = (e) => {
-    debugger;
     setTheme(e.target.value);
   };
 
   const changeLanguage = (e) => {
-    debugger;
     let wantedLanguage = task.writtenIn.filter((element) => {
       return element.languageId == e.target.value;
     });
@@ -145,7 +128,6 @@ const UpdateSolution = () => {
       await getSolution();
       setLoading(false);
     } catch (err) {
-      debugger;
       authDispatch({
         type: authActions.ERROR,
         payload: err.response ? err.response.data : "COULD NOT CONNECT",

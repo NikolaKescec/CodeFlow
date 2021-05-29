@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
-import logout from "../../authentication/actions/logout";
-import { Link, Redirect, useHistory, useParams } from "react-router-dom";
-import axiosInstance from "../../utils/axiosInstance";
-import useAuth from "../../authentication/hook/useAuth";
-import Feed from "../../components/Task/Feed";
-import FeedButton from "../../components/Task/FeedButton";
-import FollowButton from "../../components/FollowButton/FollowButton";
+import { Col, Container, Row } from "react-bootstrap";
+import { Redirect, useParams } from "react-router-dom";
 import authActions from "../../authentication/actions/authActions";
+import useAuth from "../../authentication/hook/useAuth";
+import FollowButton from "../../components/FollowButton/FollowButton";
 import Spinner from "../../components/Spinner";
+import Feed from "../../components/Task/Feed";
+import axiosInstance from "../../utils/axiosInstance";
 
 const Programmer = () => {
   const [auth, authDispatch, history] = useAuth();
@@ -52,12 +50,12 @@ const Programmer = () => {
           <hr className="bg-wine"></hr>
           <p>
             Total task points:
-            <strong className="text-red-violet">{auth.data.taskPoints}</strong>
+            <strong className="text-red-violet">{programmer.taskPoints}</strong>
           </p>
           <p>
             Total solution points:
             <strong className="text-red-violet">
-              {auth.data.solutionPoints}
+              {programmer.solutionPoints}
             </strong>
           </p>
           <FollowButton

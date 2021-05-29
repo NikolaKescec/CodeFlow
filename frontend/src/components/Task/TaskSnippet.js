@@ -1,17 +1,10 @@
 import { Button, Card } from "react-bootstrap";
-import {
-  AiFillCheckCircle,
-  AiOutlineCheckCircle,
-  AiOutlineCode,
-  AiOutlineSolution,
-} from "react-icons/ai";
+import { AiFillCheckCircle, AiOutlineCheckCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Grade from "../Grade/Grade";
 import LinkToUser from "../Users/LinkToUser";
 
 const TaskSnippet = ({ task, loggedInUser }) => {
-  debugger;
-
   const inspectUser = () => {
     if (task.author === loggedInUser) return <span>INSPECT</span>;
     if (task.loggedInUserSolution) return <span>SOLVED</span>;

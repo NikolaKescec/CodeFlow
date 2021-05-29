@@ -1,25 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import {
-  Alert,
-  Button,
-  Container,
-  Dropdown,
-  DropdownButton,
-  NavDropdown,
-  NavItem,
-  NavLink,
-} from "react-bootstrap";
-import { Nav, Navbar } from "react-bootstrap";
+import { Alert, Container, Navbar, NavDropdown } from "react-bootstrap";
+import { RiNotification2Fill } from "react-icons/ri";
 import { useHistory } from "react-router";
-import { AuthContext } from "../authentication/context/AuthProvider";
-import useApp from "../app/hook/useApp";
-import appActions from "../app/actions/appActions";
+import { Link } from "react-router-dom";
 import logo from "../assets/processor.png";
 import profile from "../assets/profile.png";
 import logout from "../authentication/actions/logout";
-import { Link } from "react-router-dom";
-import { RiNotification2Fill } from "react-icons/ri";
-import axios from "axios";
+import { AuthContext } from "../authentication/context/AuthProvider";
 import axiosInstance from "../utils/axiosInstance";
 import Notification from "./Notification/Notification";
 
@@ -37,7 +24,6 @@ const TopBar = ({ path }) => {
   };
 
   const removeNotification = (notificationId) => {
-    debugger;
     let filtered = notifications.filter((notification) => {
       return notification.notificationId !== notificationId;
     });
@@ -58,8 +44,6 @@ const TopBar = ({ path }) => {
       getNotifications();
     }
   }, [path]);
-
-  debugger;
 
   return (
     <Navbar

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button, Card, Col, Container, Dropdown, Row } from "react-bootstrap";
-import axiosInstance from "../../utils/axiosInstance";
-import Grade from "../Grade/Grade";
-import Spinner from "../Spinner";
-import useAuth from "../../authentication/hook/useAuth";
-import Editor from "../Editor/Editor";
 import { Link } from "react-router-dom";
+import useAuth from "../../authentication/hook/useAuth";
+import axiosInstance from "../../utils/axiosInstance";
+import Editor from "../Editor/Editor";
+import Grade from "../Grade/Grade";
 import UserGrade from "../Grade/UserGrade";
+import Spinner from "../Spinner";
 
 const SolutionDetails = ({ id }) => {
   const [auth, authDispatch, history] = useAuth();
@@ -25,13 +25,10 @@ const SolutionDetails = ({ id }) => {
     axiosInstance(authDispatch, history)
       .get("solution/detail/" + id)
       .then((res) => {
-        console.log(res.data);
         setSolution(res.data);
         setLoading(false);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   if (loading) {

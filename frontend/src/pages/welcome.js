@@ -1,14 +1,12 @@
-import { Button, Col, Container, Row, Form, Alert } from "react-bootstrap";
-import { useFormik } from "formik";
 import { TextField } from "@material-ui/core";
-import { Link, Redirect, useHistory } from "react-router-dom";
-import { AuthContext } from "../authentication/context/AuthProvider";
+import { useFormik } from "formik";
 import { useContext, useEffect } from "react";
-
-import login from "../authentication/actions/login";
-
-import "../styles/login.css";
+import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import useApp from "../app/hook/useApp";
+import login from "../authentication/actions/login";
+import { AuthContext } from "../authentication/context/AuthProvider";
+import "../styles/login.css";
 
 const validate = (values) => {
   const errors = {};
@@ -32,8 +30,6 @@ const Login = () => {
   const [app, navigation] = useApp("/");
   const history = useHistory();
 
-  debugger;
-
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -46,7 +42,6 @@ const Login = () => {
   });
 
   useEffect(() => {
-    debugger;
     if (auth.data) {
       navigation.changePage("/home");
       history.push("/home");

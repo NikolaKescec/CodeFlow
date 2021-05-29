@@ -1,10 +1,8 @@
-import authActions from "./authActions";
 import axiosInstance from "../../utils/axiosInstance";
+import authActions from "./authActions";
 
 const logout = (history) => (authDispatch) => {
   //CHANGE TO HTTP COOKIE REMOVE
-
-  debugger;
 
   localStorage.removeItem("auth");
 
@@ -15,7 +13,12 @@ const logout = (history) => (authDispatch) => {
   axiosInstance(authDispatch, history)
     .get("/deauthenticate")
     .then((res) => history.push("/"))
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      authDispatch({
+        type: authActions.ERROR,
+        payload: err.response ? err.response.data : "COULD NOT CONNECT",
+      });
+    });
 };
 
 export default logout;

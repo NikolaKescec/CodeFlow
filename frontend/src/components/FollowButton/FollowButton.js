@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import useFollower from "../../app/hook/useFollower";
 import authActions from "../../authentication/actions/authActions";
@@ -11,7 +10,6 @@ const FollowButton = ({ programmerName, programmerId }) => {
 
   const follow = async () => {
     try {
-      debugger;
       let resFollow = await axiosInstance(authDispatch, history).get(
         "/programmer/follow/" + programmerId
       );

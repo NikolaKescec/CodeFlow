@@ -2,9 +2,9 @@ import { TextField } from "@material-ui/core";
 import { Form, Formik } from "formik";
 import { Button, Container } from "react-bootstrap";
 import * as Yup from "yup";
-import axiosInstance from "../../utils/axiosInstance";
-import useAuth from "../../authentication/hook/useAuth";
 import authActions from "../../authentication/actions/authActions";
+import useAuth from "../../authentication/hook/useAuth";
+import axiosInstance from "../../utils/axiosInstance";
 
 const validation = Yup.object().shape({
   authorId: Yup.number().required("Author id is required!"),
@@ -24,7 +24,6 @@ const CommentForm = ({
 }) => {
   const [auth, authDispatch, history] = useAuth();
 
-  debugger;
   return (
     <Container fluid className="p-0 border-top border-rich-black">
       <Formik

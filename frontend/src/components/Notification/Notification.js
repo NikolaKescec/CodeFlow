@@ -9,13 +9,11 @@ const Notification = ({ notification, removeNotification }) => {
 
   const acceptFollow = async () => {
     try {
-      debugger;
       let res = await axiosInstance(authDispatch, history).get(
         `/programmer/accept-followership/${notification.notificationId}/${notification.notificatorUsername}`
       );
       removeNotification(notification.notificationId);
     } catch (err) {
-      debugger;
       authDispatch({
         type: authActions.ERROR,
         payload: err.response ? err.response.data : "COULD NOT CONNECT",
@@ -40,7 +38,6 @@ const Notification = ({ notification, removeNotification }) => {
 
   const deleteNotification = async () => {
     try {
-      debugger;
       let res = await axiosInstance(authDispatch, history).delete(
         `/notification/remove-notification/${notification.notificationId}`
       );

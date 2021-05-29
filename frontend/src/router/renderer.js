@@ -1,14 +1,10 @@
-import { useContext, useEffect } from "react";
-import { Route, Redirect } from "react-router-dom";
-import useApp from "../app/hook/useApp";
-import { isLoggedIn } from "../authentication/auth";
+import { useContext } from "react";
+import { Redirect, Route } from "react-router-dom";
 import { AuthContext } from "../authentication/context/AuthProvider";
 import Layout from "../components/Layout";
 
 const Renderer = (route) => {
   const { auth, authDispatch } = useContext(AuthContext);
-
-  debugger;
 
   document.title = route.title || "CodeFlow";
   if (route.authenticated && !auth.data) {

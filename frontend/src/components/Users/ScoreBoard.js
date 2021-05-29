@@ -1,11 +1,11 @@
+import { useEffect, useState } from "react";
+import { Container, Table } from "react-bootstrap";
+import authActions from "../../authentication/actions/authActions";
+import useAuth from "../../authentication/hook/useAuth";
 import "../../styles/feed.css";
 import "../../styles/scoreboard.css";
 import axiosInstance from "../../utils/axiosInstance";
-import { useEffect, useState } from "react";
-import { Button, Container, Table } from "react-bootstrap";
-import useAuth from "../../authentication/hook/useAuth";
 import FollowButton from "../FollowButton/FollowButton";
-import authActions from "../../authentication/actions/authActions";
 import Spinner from "../Spinner";
 import LinkToUser from "./LinkToUser";
 
@@ -16,7 +16,6 @@ const ScoreBoard = ({ text }) => {
 
   const getProgrammers = async () => {
     try {
-      debugger;
       let resProgrammers = await axiosInstance().get(
         `/programmer/top/${text.toLowerCase()}`
       );

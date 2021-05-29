@@ -6,7 +6,6 @@ export const AppContext = createContext({});
 
 export const AppProvider = ({ children }) => {
   const [app, dispatch] = useReducer(appReducer, context, () => {
-    debugger;
     const context = {
       page: window.location.pathname,
     };

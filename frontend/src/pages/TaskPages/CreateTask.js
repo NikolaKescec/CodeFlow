@@ -1,21 +1,14 @@
-import { Form, Formik, FieldArray, getIn, Field } from "formik";
+import { TextField } from "@material-ui/core";
+import { Field, FieldArray, Form, Formik, getIn } from "formik";
 import { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { Prompt, Redirect, useHistory } from "react-router";
+import { Prompt } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
-import useAuth from "../../authentication/hook/useAuth";
-import axiosInstance from "../../utils/axiosInstance";
-import * as Yup from "yup";
-
-import Spinner from "../../components/Spinner";
-
 import "react-toastify/dist/ReactToastify.css";
-import {
-  FormControl,
-  FormGroup,
-  FormLabel,
-  TextField,
-} from "@material-ui/core";
+import * as Yup from "yup";
+import useAuth from "../../authentication/hook/useAuth";
+import Spinner from "../../components/Spinner";
+import axiosInstance from "../../utils/axiosInstance";
 
 const ValidationSchema = Yup.object().shape({
   author: Yup.number().required("Author id is required."),
@@ -54,7 +47,6 @@ const CreateTask = () => {
   const [creatingTask, setCreatingTask] = useState(true);
 
   const notify = (message) => {
-    debugger;
     toast.error(message, {
       autoClose: 8000,
       position: toast.POSITION.TOP_RIGHT,
@@ -66,12 +58,10 @@ const CreateTask = () => {
     axiosInstance(authDispatch, history)
       .get("language")
       .then((res) => {
-        debugger;
         setAvailableLanguages(res.data);
         setLoading(false);
       })
       .catch((err) => {
-        debugger;
         notify("An error occurred: " + err.message);
       });
   }, []);
