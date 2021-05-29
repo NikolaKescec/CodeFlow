@@ -2,15 +2,11 @@ package com.zavrsnirad.CodeFlow.service.implementation;
 
 import com.zavrsnirad.CodeFlow.domain.*;
 import com.zavrsnirad.CodeFlow.repository.SolutionGradeRepository;
-import com.zavrsnirad.CodeFlow.repository.TaskGradeRepository;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import com.zavrsnirad.CodeFlow.service.SolutionGradeService;
 import com.zavrsnirad.CodeFlow.service.SolutionService;
-import com.zavrsnirad.CodeFlow.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class SolutionGradeServiceJpa implements SolutionGradeService {

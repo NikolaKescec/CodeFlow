@@ -3,7 +3,6 @@ package com.zavrsnirad.CodeFlow.controllers;
 import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperNotification;
-import com.zavrsnirad.CodeFlow.dto.mappers.MapperUser;
 import com.zavrsnirad.CodeFlow.service.NotificationService;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import org.springframework.beans.factory.annotation.Autowired;

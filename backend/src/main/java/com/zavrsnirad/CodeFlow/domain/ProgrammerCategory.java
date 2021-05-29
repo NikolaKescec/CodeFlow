@@ -1,7 +1,6 @@
 package com.zavrsnirad.CodeFlow.domain;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.Objects;
 
 @Entity(name = "programmer_category")

@@ -1,9 +1,5 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-import com.zavrsnirad.CodeFlow.domain.Follower;
-
-import java.util.List;
-
 public class UserDtoJson {
 
     private Long id;

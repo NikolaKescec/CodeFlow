@@ -5,7 +5,6 @@ import com.zavrsnirad.CodeFlow.domain.RefreshToken;
 import com.zavrsnirad.CodeFlow.repository.RefreshTokenRepository;
 import com.zavrsnirad.CodeFlow.service.RefreshTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 

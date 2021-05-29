@@ -1,8 +1,6 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
 import com.zavrsnirad.CodeFlow.domain.*;
-import com.zavrsnirad.CodeFlow.dto.mappers.MapperSolution;
-import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
 import com.zavrsnirad.CodeFlow.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

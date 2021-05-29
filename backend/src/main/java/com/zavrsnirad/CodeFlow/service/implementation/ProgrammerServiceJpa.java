@@ -113,7 +113,7 @@ public class ProgrammerServiceJpa implements ProgrammerService {
     }
 
     @Override
-    public void updateProgrammer(UserUpdateDtoReq userUpdateDtoReq, Programmer programmer) {
+    public Programmer updateProgrammer(UserUpdateDtoReq userUpdateDtoReq, Programmer programmer) {
         if(!BCrypt.checkpw(userUpdateDtoReq.getPassword(), programmer.getPassword())){
             throw new IllegalArgumentException("Password is incorrect!");
         }
@@ -126,12 +126,12 @@ public class ProgrammerServiceJpa implements ProgrammerService {
 
         if(userUpdateDtoReq.getNewPassword() != null) {
             String newSalt = BCrypt.gensalt(12);
-            String newHashed = BCrypt.hashpw(userUpdateDtoReq.getPassword(), newSalt);
+            String newHashed = BCrypt.hashpw(userUpdateDtoReq.getNewPassword(), newSalt);
             programmer.setPassword(newHashed);
         }
 
         TimeAndUser.updateModified(programmer, programmer);
-        programmerRepository.save(programmer);
+        return programmerRepository.save(programmer);
     }
 
     @Override

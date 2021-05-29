@@ -1,12 +1,9 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
-import com.zavrsnirad.CodeFlow.domain.TaskComment;
 import com.zavrsnirad.CodeFlow.dto.json.CommentDtoJson;
-import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperComment;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
-import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
 import com.zavrsnirad.CodeFlow.dto.req.CommentDtoReq;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import com.zavrsnirad.CodeFlow.service.SolutionCommentService;

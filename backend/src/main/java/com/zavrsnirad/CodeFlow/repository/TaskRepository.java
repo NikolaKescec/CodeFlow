@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
@@ -30,7 +29,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
             "FROM Task t " +
             "INNER JOIN t.owner as owner " +
             "LEFT OUTER JOIN owner.followers as followers " +
-            "WHERE (followers.follower.programmerId = :programmerId OR t.averageGrade >= 3) " +
+            "WHERE ((followers.follower.programmerId = :programmerId AND followers.pending = false) OR t.averageGrade >= 3) " +
             "AND t.owner.programmerId != :programmerId " +
             "ORDER BY t.modified DESC")
     List<Task> recommendedTasks(@Param("programmerId") Long programmerId);
@@ -39,7 +38,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
             "FROM Task t " +
             "INNER JOIN t.owner as owner " +
             "INNER JOIN owner.followers as followers " +
-            "WHERE followers.follower.programmerId = :programmerId " +
+            "WHERE followers.follower.programmerId = :programmerId AND followers.pending = false " +
             "ORDER BY t.modified DESC")
     List<Task> tasksFromFollowed(@Param("programmerId") Long programmerId);
 }

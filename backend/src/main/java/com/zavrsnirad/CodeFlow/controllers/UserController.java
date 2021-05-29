@@ -16,7 +16,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.security.NoSuchAlgorithmException;
 import java.security.Principal;
@@ -65,7 +64,7 @@ public class UserController {
     @PutMapping("/update")
     public ResponseEntity<?> updateUser(@RequestBody UserUpdateDtoReq userUpdateDtoReq, Principal principal, HttpServletResponse response) {
         Programmer programmer = programmerService.findByUsername(principal.getName());
-        programmerService.updateProgrammer(userUpdateDtoReq, programmer);
+        programmer = programmerService.updateProgrammer(userUpdateDtoReq, programmer);
         try {
             // create new refresh token
             String newJwt = jwtTokenUtil.generateToken(programmer, 120);

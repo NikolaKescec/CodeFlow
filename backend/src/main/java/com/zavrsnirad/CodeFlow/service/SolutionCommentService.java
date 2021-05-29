@@ -2,7 +2,6 @@ package com.zavrsnirad.CodeFlow.service;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.domain.SolutionComment;
-import com.zavrsnirad.CodeFlow.domain.TaskComment;
 import com.zavrsnirad.CodeFlow.dto.req.CommentDtoReq;
 
 import java.util.List;

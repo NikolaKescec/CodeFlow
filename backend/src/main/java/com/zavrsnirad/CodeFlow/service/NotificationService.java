@@ -1,7 +1,6 @@
 package com.zavrsnirad.CodeFlow.service;
 
 import com.zavrsnirad.CodeFlow.domain.Notification;
-import com.zavrsnirad.CodeFlow.domain.Programmer;
 
 public interface NotificationService {
 

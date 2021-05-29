@@ -1,10 +1,8 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
-import com.zavrsnirad.CodeFlow.dto.json.CommentDtoJson;
 import com.zavrsnirad.CodeFlow.dto.json.SolutionDtoJson;
 import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
-import com.zavrsnirad.CodeFlow.dto.mappers.MapperComment;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperList;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperSolution;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
@@ -14,7 +12,6 @@ import com.zavrsnirad.CodeFlow.service.SolutionService;
 import com.zavrsnirad.CodeFlow.service.TaskCommentService;
 import com.zavrsnirad.CodeFlow.service.TaskService;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
-import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

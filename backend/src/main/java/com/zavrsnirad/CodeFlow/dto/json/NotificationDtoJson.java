@@ -1,9 +1,5 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-import com.zavrsnirad.CodeFlow.domain.Programmer;
-
-import javax.persistence.*;
-
 public class NotificationDtoJson {
 
 

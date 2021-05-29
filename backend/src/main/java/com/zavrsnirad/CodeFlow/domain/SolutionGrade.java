@@ -1,7 +1,5 @@
 package com.zavrsnirad.CodeFlow.domain;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

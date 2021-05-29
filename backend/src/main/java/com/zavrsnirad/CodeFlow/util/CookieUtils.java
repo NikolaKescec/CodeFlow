@@ -1,7 +1,6 @@
 package com.zavrsnirad.CodeFlow.util;
 
 import javax.servlet.http.Cookie;
-import java.util.UUID;
 
 public class CookieUtils {
 

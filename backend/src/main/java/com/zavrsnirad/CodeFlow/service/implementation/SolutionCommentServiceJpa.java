@@ -3,17 +3,11 @@ package com.zavrsnirad.CodeFlow.service.implementation;
 import com.zavrsnirad.CodeFlow.domain.*;
 import com.zavrsnirad.CodeFlow.dto.req.CommentDtoReq;
 import com.zavrsnirad.CodeFlow.repository.SolutionCommentRepository;
-import com.zavrsnirad.CodeFlow.repository.TaskCommentRepository;
 import com.zavrsnirad.CodeFlow.service.SolutionCommentService;
 import com.zavrsnirad.CodeFlow.service.SolutionService;
-import com.zavrsnirad.CodeFlow.service.TaskCommentService;
-import com.zavrsnirad.CodeFlow.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 

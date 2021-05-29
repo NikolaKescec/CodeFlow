@@ -25,7 +25,7 @@ public interface ProgrammerService {
 
     void removeProgrammer(String username);
 
-    void updateProgrammer(UserUpdateDtoReq userUpdateDtoReq, Programmer programmer);
+    Programmer updateProgrammer(UserUpdateDtoReq userUpdateDtoReq, Programmer programmer);
 
     Follower followUser(Long toFollowId, Programmer programmer);
 

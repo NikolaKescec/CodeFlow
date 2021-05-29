@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.BodyInserter;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -19,15 +17,6 @@ import java.util.Map;
 @PropertySource("classpath:application.properties")
 @Service
 public class WebClientJugde0Util {
-
-/*    @Value("${judge0.url}")
-    private String url;
-
-    @Value("${judge0.key}")
-    private String key;
-
-    @Value("${judge0.host}")
-    private String host;*/
 
     private WebClient webClient;
 

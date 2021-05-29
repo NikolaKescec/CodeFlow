@@ -5,8 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.UUID;
-
 public interface TaskGradeRepository extends JpaRepository<TaskGrade, Long> {
 
     @Query("SELECT tg FROM TASK_GRADE tg WHERE tg.grader.programmerId = :graderId AND tg.task.taskId = :taskId")

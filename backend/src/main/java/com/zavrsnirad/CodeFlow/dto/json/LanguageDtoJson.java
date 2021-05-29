@@ -1,7 +1,5 @@
 package com.zavrsnirad.CodeFlow.dto.json;
 
-import javax.persistence.Column;
-
 public class LanguageDtoJson {
 
     private Long languageId;

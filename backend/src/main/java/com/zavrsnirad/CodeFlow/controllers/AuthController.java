@@ -4,7 +4,6 @@ import com.zavrsnirad.CodeFlow.domain.Programmer;
 import com.zavrsnirad.CodeFlow.domain.RefreshToken;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperUser;
 import com.zavrsnirad.CodeFlow.dto.req.AuthReq;
-import com.zavrsnirad.CodeFlow.service.RefreshTokenService;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
 import com.zavrsnirad.CodeFlow.util.CookieUtils;
 import com.zavrsnirad.CodeFlow.util.JwtUtil;
@@ -24,7 +23,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.NoSuchAlgorithmException;
-import java.util.UUID;
 
 @RestController
 public class AuthController {
@@ -34,9 +32,6 @@ public class AuthController {
 
     @Autowired
     private ProgrammerService programmerService;
-
-    /*@Autowired
-    private RefreshTokenService refreshTokenService;*/
 
     @Autowired
     private JwtUtil jwtTokenUtil;
@@ -119,6 +114,7 @@ public class AuthController {
         Cookie cookie = new Cookie("Access-token", jwt == null ? "" : jwt);
         cookie.setHttpOnly(true);
         cookie.setMaxAge(expiration);
+        cookie.setPath("/");
         return cookie;
     }
 

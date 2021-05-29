@@ -1,7 +1,6 @@
 package com.zavrsnirad.CodeFlow.repository;
 
 import com.zavrsnirad.CodeFlow.domain.SolutionComment;
-import com.zavrsnirad.CodeFlow.domain.TaskComment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

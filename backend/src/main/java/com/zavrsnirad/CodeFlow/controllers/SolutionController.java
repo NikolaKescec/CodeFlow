@@ -1,11 +1,8 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
-import com.zavrsnirad.CodeFlow.domain.Solution;
 import com.zavrsnirad.CodeFlow.dto.json.SolutionDtoJson;
-import com.zavrsnirad.CodeFlow.dto.json.TaskDtoJson;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperSolution;
-import com.zavrsnirad.CodeFlow.dto.mappers.MapperTask;
 import com.zavrsnirad.CodeFlow.dto.req.SolutionDtoReq;
 import com.zavrsnirad.CodeFlow.dto.req.SolutionUpdateDtoReq;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;

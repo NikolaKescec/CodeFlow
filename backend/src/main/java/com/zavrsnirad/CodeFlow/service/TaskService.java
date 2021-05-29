@@ -6,7 +6,6 @@ import com.zavrsnirad.CodeFlow.dto.req.TaskDtoReq;
 import com.zavrsnirad.CodeFlow.dto.req.TaskUpdateDtoReq;
 
 import java.util.List;
-import java.util.UUID;
 
 public interface TaskService {
 
