@@ -9,7 +9,9 @@ import com.zavrsnirad.CodeFlow.util.CookieUtils;
 import com.zavrsnirad.CodeFlow.util.JwtUtil;
 import io.jsonwebtoken.JwtException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -102,27 +104,31 @@ public class AuthController {
         return ResponseEntity.ok().build();
     }
 
-    protected static Cookie setRefreshCookie(String refreshToken, int expiration) {
-        Cookie cookie = new Cookie("Refresh-token", refreshToken == null ? "" : refreshToken);
-        cookie.setHttpOnly(true);
-        cookie.setMaxAge(expiration);
-        cookie.setPath("/refresh; SameSite=None;");
-        return cookie;
+    protected static ResponseCookie setRefreshCookie(String refreshToken, int expiration) {
+        return ResponseCookie.from("Refresh-token", refreshToken == null ? "" : refreshToken)
+                .secure(true)
+                .httpOnly(true)
+                .path("/refresh")
+                .maxAge(expiration)
+                .sameSite("None")
+                .build();
     }
 
-    protected static Cookie setJwtCookie(String jwt, int expiration) {
-        Cookie cookie = new Cookie("Access-token", jwt == null ? "" : jwt);
-        cookie.setHttpOnly(true);
-        cookie.setMaxAge(expiration);
-        cookie.setPath("/; SameSite=None;");
-        return cookie;
+    protected static ResponseCookie setJwtCookie(String jwt, int expiration) {
+        return ResponseCookie.from("Access-token", jwt == null ? "" : jwt)
+                .secure(true)
+                .httpOnly(true)
+                .path("/")
+                .maxAge(expiration)
+                .sameSite("None")
+                .build();
     }
 
     protected static void setCookies(String refreshToken, String jwt, HttpServletResponse response, int jwtExpiration, int refreshExpiration) {
-        Cookie refreshTokenCookie = setRefreshCookie(refreshToken, refreshExpiration);
-        Cookie jwtCookie = setJwtCookie(jwt, jwtExpiration);
-        response.addCookie(refreshTokenCookie);
-        response.addCookie(jwtCookie);
+        ResponseCookie refreshTokenCookie = setRefreshCookie(refreshToken, refreshExpiration);
+        ResponseCookie jwtCookie = setJwtCookie(jwt, jwtExpiration);
+        response.addHeader(HttpHeaders.SET_COOKIE, jwtCookie.toString());
+        response.addHeader(HttpHeaders.SET_COOKIE, refreshTokenCookie.toString());
     }
 
 }
