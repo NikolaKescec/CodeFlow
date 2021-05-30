@@ -1,0 +1,10 @@
+\babel@toc {croatian}{}
+\contentsline {chapter}{\numberline {1}Uvod}{1}%
+\contentsline {chapter}{\numberline {2}Postojeća programska rješenja te uvođenje socijalnih elemenata}{2}%
+\contentsline {chapter}{\numberline {3}Korisnički zahtjevi}{3}%
+\contentsline {chapter}{\numberline {4}Korištene tehnologije}{4}%
+\contentsline {chapter}{\numberline {5}Pomoćne tehnologije}{5}%
+\contentsline {chapter}{\numberline {6}Arhitektura rješenja}{6}%
+\contentsline {chapter}{\numberline {7}Budući razvitak}{7}%
+\contentsline {chapter}{\numberline {8}Zaključak}{8}%
+\contentsline {chapter}{Literatura}{9}%

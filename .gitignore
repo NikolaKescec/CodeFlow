@@ -56,3 +56,6 @@ npm-debug.log*
 /backend/build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+
+##LATEX##
+/documentation/*.pdf
