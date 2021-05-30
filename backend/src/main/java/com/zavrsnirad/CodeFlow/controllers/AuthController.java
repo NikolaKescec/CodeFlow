@@ -106,7 +106,7 @@ public class AuthController {
         Cookie cookie = new Cookie("Refresh-token", refreshToken == null ? "" : refreshToken);
         cookie.setHttpOnly(true);
         cookie.setMaxAge(expiration);
-        cookie.setPath("/refresh");
+        cookie.setPath("/refresh; SameSite=None;");
         return cookie;
     }
 
@@ -114,7 +114,7 @@ public class AuthController {
         Cookie cookie = new Cookie("Access-token", jwt == null ? "" : jwt);
         cookie.setHttpOnly(true);
         cookie.setMaxAge(expiration);
-        cookie.setPath("/");
+        cookie.setPath("/; SameSite=None;");
         return cookie;
     }
 
