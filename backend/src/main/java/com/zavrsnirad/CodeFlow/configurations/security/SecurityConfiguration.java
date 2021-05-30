@@ -3,6 +3,7 @@ package com.zavrsnirad.CodeFlow.configurations.security;
 import com.zavrsnirad.CodeFlow.configurations.security.authpoint.JwtAuthenticationPoint;
 import com.zavrsnirad.CodeFlow.configurations.security.filter.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -30,6 +31,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtAuthenticationPoint jwtAuthenticationPoint;
 
+    @Value("${frontend.link}")
+    private String url;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService);
@@ -38,6 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
+                .antMatchers("/").permitAll()
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/deauthenticate").permitAll()
                 .antMatchers("/refresh").permitAll()
@@ -55,7 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowCredentials(true).allowedOrigins("http://localhost:3000", "https://code-flow-zr-frontend.herokuapp.com").allowedMethods("GET", "PUT", "POST", "DELETE");
+                registry.addMapping("/**").allowCredentials(true).allowedOrigins(url).allowedMethods("GET", "PUT", "POST", "DELETE");
             }
         };
     }
