@@ -80,13 +80,20 @@ public class ProgrammerServiceJpa implements ProgrammerService {
         }
 
         // User cretion
-        Programmer newProgrammer = new Programmer(user.getUsername(), user.getEmail(), "USER");
+        String username = user.getUsername().trim();
+        if(username.isEmpty()) throw new IllegalArgumentException("Username can not be empty!");
+        String email = user.getEmail().trim();
+        if(email.isEmpty()) throw new IllegalArgumentException("Email can not be empty!");
+
+        Programmer newProgrammer = new Programmer(username, email, "USER");
         newProgrammer.setSolutionPoints(0);
         newProgrammer.setTaskPoints(0);
 
         // Ekripcija lozinke.
+        String password = user.getPassword().trim();
+        if(password.isEmpty()) throw new IllegalArgumentException("Password can not be empty!");
         String salt = BCrypt.gensalt(12);
-        String hashed = BCrypt.hashpw(user.getPassword(), salt);
+        String hashed = BCrypt.hashpw(password, salt);
         newProgrammer.setPassword(hashed);
         newProgrammer.setUserCreated(newProgrammer.getUsername());
 
@@ -118,15 +125,19 @@ public class ProgrammerServiceJpa implements ProgrammerService {
             throw new IllegalArgumentException("Password is incorrect!");
         }
 
-        programmer.setUsername(userUpdateDtoReq.getUsername());
+        String username = userUpdateDtoReq.getUsername().trim();
+        if(username.isEmpty()) throw new IllegalArgumentException("Username can not be empty!");
+        programmer.setUsername(username);
 
         if(userUpdateDtoReq.getNewPassword() != null && userUpdateDtoReq.getNewPassword().length() < 8) {
             throw new IllegalArgumentException("New password can not be shorter than 8 characters!");
         }
 
         if(userUpdateDtoReq.getNewPassword() != null) {
+            String password = userUpdateDtoReq.getNewPassword().trim();
+            if(password.isEmpty()) throw new IllegalArgumentException("Password can not be empty!");
             String newSalt = BCrypt.gensalt(12);
-            String newHashed = BCrypt.hashpw(userUpdateDtoReq.getNewPassword(), newSalt);
+            String newHashed = BCrypt.hashpw(password, newSalt);
             programmer.setPassword(newHashed);
         }
 
