@@ -1,10 +1,13 @@
 \babel@toc {croatian}{}
 \contentsline {chapter}{\numberline {1}Uvod}{1}%
-\contentsline {chapter}{\numberline {2}Postojeća programska rješenja te uvođenje socijalnih elemenata}{2}%
-\contentsline {chapter}{\numberline {3}Korisnički zahtjevi}{3}%
-\contentsline {chapter}{\numberline {4}Korištene tehnologije}{4}%
-\contentsline {chapter}{\numberline {5}Pomoćne tehnologije}{5}%
-\contentsline {chapter}{\numberline {6}Arhitektura rješenja}{6}%
-\contentsline {chapter}{\numberline {7}Budući razvitak}{7}%
-\contentsline {chapter}{\numberline {8}Zaključak}{8}%
-\contentsline {chapter}{Literatura}{9}%
+\contentsline {chapter}{\numberline {2}Korisnički zahtjevi}{2}%
+\contentsline {section}{\numberline {2.1}Zahtjevi neregistriranog korisnika}{2}%
+\contentsline {section}{\numberline {2.2}Zahtjevi registriranog korisnika}{3}%
+\contentsline {chapter}{\numberline {3}Postojeća programska rješenja te uvođenje socijalnih elemenata}{6}%
+\contentsline {chapter}{\numberline {4}Korištene tehnologije}{7}%
+\contentsline {chapter}{\numberline {5}Pomoćne tehnologije}{8}%
+\contentsline {chapter}{\numberline {6}Arhitektura rješenja}{9}%
+\contentsline {chapter}{\numberline {7}Prikaz rješenja}{10}%
+\contentsline {chapter}{\numberline {8}Budući razvitak}{11}%
+\contentsline {chapter}{\numberline {9}Zaključak}{12}%
+\contentsline {chapter}{Literatura}{13}%
