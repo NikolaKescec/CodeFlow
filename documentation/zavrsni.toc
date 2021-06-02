@@ -1,13 +1,20 @@
 \babel@toc {croatian}{}
 \contentsline {chapter}{\numberline {1}Uvod}{1}%
-\contentsline {chapter}{\numberline {2}Korisnički zahtjevi}{2}%
-\contentsline {section}{\numberline {2.1}Zahtjevi neregistriranog korisnika}{2}%
-\contentsline {section}{\numberline {2.2}Zahtjevi registriranog korisnika}{3}%
-\contentsline {chapter}{\numberline {3}Postojeća programska rješenja te uvođenje socijalnih elemenata}{6}%
-\contentsline {chapter}{\numberline {4}Korištene tehnologije}{7}%
-\contentsline {chapter}{\numberline {5}Pomoćne tehnologije}{8}%
-\contentsline {chapter}{\numberline {6}Arhitektura rješenja}{9}%
-\contentsline {chapter}{\numberline {7}Prikaz rješenja}{10}%
-\contentsline {chapter}{\numberline {8}Budući razvitak}{11}%
-\contentsline {chapter}{\numberline {9}Zaključak}{12}%
-\contentsline {chapter}{Literatura}{13}%
+\contentsline {chapter}{\numberline {2}Korisnički zahtjevi}{3}%
+\contentsline {section}{\numberline {2.1}Funkcionalni zahtjevi}{3}%
+\contentsline {subsection}{\numberline {2.1.1}Zahtjevi neregistriranog korisnika}{3}%
+\contentsline {subsection}{\numberline {2.1.2}Zahtjevi registriranog korisnika}{4}%
+\contentsline {section}{\numberline {2.2}Nefunkcionalni zahtjevi}{6}%
+\contentsline {chapter}{\numberline {3}Postojeća programska rješenja te uvođenje socijalnih elemenata}{7}%
+\contentsline {section}{\numberline {3.1}Leetcode}{7}%
+\contentsline {section}{\numberline {3.2}Edgar}{8}%
+\contentsline {section}{\numberline {3.3}Codewars}{8}%
+\contentsline {section}{\numberline {3.4}HackerRank}{9}%
+\contentsline {section}{\numberline {3.5}Zajedničke funkcionalnosti}{9}%
+\contentsline {chapter}{\numberline {4}Korištene tehnologije}{11}%
+\contentsline {section}{\numberline {4.1}Pomoćne tehnologije}{11}%
+\contentsline {chapter}{\numberline {5}Arhitektura rješenja}{12}%
+\contentsline {chapter}{\numberline {6}Prikaz rješenja}{13}%
+\contentsline {chapter}{\numberline {7}Budući razvitak}{14}%
+\contentsline {chapter}{\numberline {8}Zaključak}{15}%
+\contentsline {chapter}{Literatura}{16}%
