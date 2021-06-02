@@ -8,13 +8,16 @@
 \contentsline {chapter}{\numberline {3}Postojeća programska rješenja te uvođenje socijalnih elemenata}{7}%
 \contentsline {section}{\numberline {3.1}Leetcode}{7}%
 \contentsline {section}{\numberline {3.2}Edgar}{8}%
-\contentsline {section}{\numberline {3.3}Codewars}{8}%
+\contentsline {section}{\numberline {3.3}Codewars}{9}%
 \contentsline {section}{\numberline {3.4}HackerRank}{9}%
-\contentsline {section}{\numberline {3.5}Zajedničke funkcionalnosti}{9}%
-\contentsline {chapter}{\numberline {4}Korištene tehnologije}{11}%
-\contentsline {section}{\numberline {4.1}Pomoćne tehnologije}{11}%
-\contentsline {chapter}{\numberline {5}Arhitektura rješenja}{12}%
-\contentsline {chapter}{\numberline {6}Prikaz rješenja}{13}%
-\contentsline {chapter}{\numberline {7}Budući razvitak}{14}%
-\contentsline {chapter}{\numberline {8}Zaključak}{15}%
-\contentsline {chapter}{Literatura}{16}%
+\contentsline {section}{\numberline {3.5}Zajedničke funkcionalnosti}{10}%
+\contentsline {chapter}{\numberline {4}Korištene tehnologije}{12}%
+\contentsline {section}{\numberline {4.1}Tehnologije prezentacijskog sloja}{12}%
+\contentsline {section}{\numberline {4.2}Tehnologije poslovnog sloja}{12}%
+\contentsline {section}{\numberline {4.3}Tehnologije podatkovnog sloja}{12}%
+\contentsline {section}{\numberline {4.4}Pomoćne tehnologije}{12}%
+\contentsline {chapter}{\numberline {5}Arhitektura rješenja}{13}%
+\contentsline {chapter}{\numberline {6}Prikaz rješenja}{14}%
+\contentsline {chapter}{\numberline {7}Budući razvitak}{15}%
+\contentsline {chapter}{\numberline {8}Zaključak}{16}%
+\contentsline {chapter}{Literatura}{17}%
