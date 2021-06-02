@@ -150,13 +150,63 @@ Moderne internetske tehnologije prilagođene su razvoju sustava koji se pridrža
 \end{itemize}
 
 	\section{Tehnologije prezentacijskog sloja}
+	Korištene tehnologije prezentacijskog sloja pisane su JavaScript programskim jezikom jer on je jedini programski jezik kojeg internetski preglednici podržavaju. Također, razvoj JavaScript aplikacija izvan internetskog preglednika ne bi bio moguć bez Node.js platforme koja omogućuje izvršavanje JavaScript aplikacija izvan korisničkog preglednika. Node.js unutar sebe sadržava i upravitelja paketima, NPM (Node Package Manager) koji pruža mogućnost korištenja velikog broja različitih dodataka i biblioteka pisanih jezikom JavaScript.
+		\subsection{React i React Router}
+		React je biblioteka kojoj je svrha izrada korisničkih sučelja \engl{user interface}. Otvorenog je koda te ga razvijaju i održavaju različite tvrtke (od kojih je najbitnija Facebook jer ona ga je zapravo i začela) i različiti individualni programeri. Prva verzija Reacta na tržište je izašla 2013. godine, a od tada njegova popularnost kontinuirano raste. Reactov fokus jest razvoj dinamičnih i lagano skalabilnih korisničkih sučelja. Skalabilnost \engl{scalability} termin je koji definira mogućnost povećavanja obujma sustava neovisno o podržanim funkcionalnostima. React skalabilnost omogućuje komponentno usmjerenim razvojem, što znači da svaka razvijana funkcionalnost enkapsulira unutar sebe svu logiku, izgled i podatke koji su potrebni za njezin rad. Isto tako, kompozicija komponenti podržana je, stoga je pomoću različitih kombinacija komponenata razvijanje složenih korisničkih sučelja jasno i strukturirano. React biblioteka spomenute komponente koristi za izgradnju konkretnog modela objekta dokumenta \engl{Document Object Model} koji kasnije biva prikazivan korisniku, a kako korisnička interakcija ne bi bila spora, React interno održava posebnu strukturu podataka, virtualni model objekta dokumenta, koja pamti stanje komponenata. Ako se ikoja komponenta promijeni, React samo promijenjenu komponentu ažurira unutar stvarnog modela objekta dokumenta. Tim pristupom održava responzivnost korisničkog sučelja.\\
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{pictures/prikazi/React.png}
+			\caption{Primjer jednostavnije kompozicije komponenata unutar Reacta}
+			\label{fig:react}
+		\end{figure}
+		React Router dodatak je React biblioteci koja služi za usmjeravanje između različitih dostupnih  stranica razvijenih pomoću React komponenata.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{pictures/prikazi/ReactRouter.png}
+			\caption{Primjer korištenja React Routera.}
+			\label{fig:react-router}
+		\end{figure}
 	
+		\subsection{Bootstrap}
+		Bootstrap je radni okvir otvorenog koda namijenjen dizajnu i prilagođavanju responzivnih internetskih s mnoštvom definiranih komponenata, izgleda i predložaka. Temeljen je na CSS stilskom jeziku te, uz pomoć JavaScript programskog jezika osigurava jednakost izgleda neovisno o platformi. Održava ga tvrtka Twitter te mnogi individualni programeri. Bootstrap, osim što omogućava dizajn stranice podržava i lagano raspoređivanje elemenata stranice korištenjem ugrađenih svojstava CSS-a. Boostrap se koristi pomoću ugrađenih klasa, a postoje i određeni prilagodni radni okviri koji Bootstrap omogućavaju u drugim radnim okvirima ili bibliotekama (dobar primjer je React Bootstrap za React).
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{pictures/prikazi/Bootstrap.png}
+			\caption{Primjer korištenja React-Bootstrapa i Bootstrap klasa unutar Reacta.}
+			\label{fig:bootstrap}
+		\end{figure}
+		
+		\subsection{Material-UI}
+		Material-UI u osnovi je radni okvir otvorenog koda namjere identične onoj koju Bootstrap ima, ali specijaliziran za React biblioteku. Material-UI omogućava korištenje gotovih modernih komponenata. Također podržava i potpunu prilagodbu komponenata koje nudi za uporabu. Material-UI komponente koriste se identično kao i bilo koje druge React komponente.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{pictures/prikazi/MaterialUI.png}
+			\caption{Primjer korištenja Material-UI komponenata unutar Reacta.}
+			\label{fig:materialUI}
+		\end{figure}
+		
+		\subsection{Ace-Editor}
+		Ace-Editor uređivač je programskog koda namijenjen za lagano integriranje unutar internetske stranice ili JavaScript aplikacije. Otvorena je koda te podržava sve funkcionalnosti koje uobičajan uređivač teksta podržava. Budući da je prvotno namijenjen pisanju programskog koda, podržava mnoštvo različitih jezika. Ima mogućnosti naglašavanje sintakse odabranog podržanog programskog jezika, a također implementira rudimentarno nadopunjavanje programskog koda. Uz sve napomenute mogućnosti, sadržava različite teme izgleda te se one mogu mijenjati tijekom korištenja uređivača.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{pictures/prikazi/AceEditor.png}
+			\caption{Primjer korištenja Ace-Editor React komponente.}
+			\label{fig:ace}
+		\end{figure}
+		
 	\section{Tehnologije poslovnog sloja}
+	Korištene tehnologije poslovnog sloja temeljene su na programskom jeziku Javi. Uz Javu korišten je i Maven, alat za upravljanje projektom koji nudi mogućnosti upravljanja Java ovisnostima \engl{denedencies}. Java ovisnosti već su napisani Java paketi koji proširuju funkcionalnost Jave.
+		\subsection{Spring Boot}
+	
+		\subsection{Hibernate}
+
 
 	\section{Tehnologije podatkovnog sloja}
+		\subsection{Postgresql}
 	
 	\section{Pomoćne tehnologije}
-
+		\subsection{Axios}
+		\subsection{Git}
 
 \chapter{Arhitektura rješenja}
 Već postojeća rješenja, njihove značajke te uvođenje socijalnih elemenata
