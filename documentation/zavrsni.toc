@@ -9,24 +9,27 @@
 \contentsline {section}{\numberline {3.1}Leetcode}{7}%
 \contentsline {section}{\numberline {3.2}Edgar}{8}%
 \contentsline {section}{\numberline {3.3}Codewars}{9}%
-\contentsline {section}{\numberline {3.4}HackerRank}{9}%
-\contentsline {section}{\numberline {3.5}Zajedničke funkcionalnosti}{10}%
-\contentsline {chapter}{\numberline {4}Korištene tehnologije}{12}%
-\contentsline {section}{\numberline {4.1}Tehnologije prezentacijskog sloja}{12}%
-\contentsline {subsection}{\numberline {4.1.1}React i React Router}{12}%
-\contentsline {subsection}{\numberline {4.1.2}Bootstrap}{14}%
-\contentsline {subsection}{\numberline {4.1.3}Material-UI}{15}%
-\contentsline {subsection}{\numberline {4.1.4}Ace-Editor}{15}%
-\contentsline {section}{\numberline {4.2}Tehnologije poslovnog sloja}{16}%
-\contentsline {subsection}{\numberline {4.2.1}Spring Boot}{16}%
-\contentsline {subsection}{\numberline {4.2.2}Hibernate}{16}%
-\contentsline {section}{\numberline {4.3}Tehnologije podatkovnog sloja}{16}%
-\contentsline {subsection}{\numberline {4.3.1}Postgresql}{16}%
-\contentsline {section}{\numberline {4.4}Pomoćne tehnologije}{16}%
-\contentsline {subsection}{\numberline {4.4.1}Axios}{16}%
-\contentsline {subsection}{\numberline {4.4.2}Git}{16}%
-\contentsline {chapter}{\numberline {5}Arhitektura rješenja}{17}%
-\contentsline {chapter}{\numberline {6}Prikaz rješenja}{18}%
-\contentsline {chapter}{\numberline {7}Budući razvitak}{19}%
-\contentsline {chapter}{\numberline {8}Zaključak}{20}%
-\contentsline {chapter}{Literatura}{21}%
+\contentsline {section}{\numberline {3.4}HackerRank}{10}%
+\contentsline {section}{\numberline {3.5}Zajedničke funkcionalnosti i dodatak socijalnih}{11}%
+\contentsline {chapter}{\numberline {4}Korištene tehnologije}{13}%
+\contentsline {section}{\numberline {4.1}Tehnologije prezentacijskog sloja}{13}%
+\contentsline {subsection}{\numberline {4.1.1}React i React Router}{13}%
+\contentsline {subsection}{\numberline {4.1.2}Bootstrap}{15}%
+\contentsline {subsection}{\numberline {4.1.3}Material-UI}{16}%
+\contentsline {subsection}{\numberline {4.1.4}Ace}{16}%
+\contentsline {section}{\numberline {4.2}Tehnologije poslovnog sloja}{17}%
+\contentsline {subsection}{\numberline {4.2.1}Spring, Spring Boot i povezane tehnologije}{17}%
+\contentsline {subsubsection}{Spring Security}{18}%
+\contentsline {subsubsection}{Spring Data JPA}{19}%
+\contentsline {subsubsection}{Spring Boot}{19}%
+\contentsline {subsection}{\numberline {4.2.2}Hibernate}{20}%
+\contentsline {section}{\numberline {4.3}Tehnologije podatkovnog sloja}{20}%
+\contentsline {subsection}{\numberline {4.3.1}PostgreSql}{20}%
+\contentsline {section}{\numberline {4.4}Pomoćne tehnologije}{20}%
+\contentsline {subsection}{\numberline {4.4.1}Axios}{20}%
+\contentsline {subsection}{\numberline {4.4.2}Git}{21}%
+\contentsline {chapter}{\numberline {5}Arhitektura rješenja}{22}%
+\contentsline {chapter}{\numberline {6}Prikaz rješenja}{23}%
+\contentsline {chapter}{\numberline {7}Budući razvitak}{24}%
+\contentsline {chapter}{\numberline {8}Zaključak}{25}%
+\contentsline {chapter}{Literatura}{26}%
