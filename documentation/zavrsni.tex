@@ -536,7 +536,7 @@
 			
 	 		\subsubsection{Implementacija poslovnog sloja}
 	 		Poslovni sloj Codeflow aplikacije sastoji se od internetskog poslužitelja pisanog Java programskim jezikom uz pomoć Spring radnog okvira. Analogno prezentacijskom sloju, podijeljen je na interne slojeve radi kvalitetnije strutkure. Slojevi po redu su: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{servisni sloj} i \textbf{podatkovni sloj}. Semantički gledano, skup slojeva bez sigurnosnog sloja podliježe raspodjeli koju predlaže Spring radni okvir.\\
-	 		Unutar \textbf{sigurnosnog sloja} dodan je poseban \textit{JwtFilter} koji služi za provjeru JWT kolačića spomenutih unutar implementacije prezentacijskog sloja. U slučaju neispravnog JWT kolačića unutar zahtjeva koji pristupa zastićenom resursu, zahtjev biva odbijen te niti ne pristiže na usmjeravateljski sloj.
+	 		Unutar \textbf{sigurnosnog sloja} dodan je poseban \textit{JwtFilter} koji služi za provjeru JWT kolačića spomenutih unutar implementacije prezentacijskog sloja. U slučaju neispravnog JWT kolačića unutar zahtjeva koji pristupa zastićenom resursu, zahtjev biva odbijen te niti ne pristiže na usmjeravateljski sloj. JWT kolačić je neispr
 			
 			\subsubsection{Implementacija podatkovnog sloja}
 	
