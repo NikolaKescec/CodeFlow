@@ -29,7 +29,24 @@
 \contentsline {subsection}{\numberline {4.4.1}Axios}{20}%
 \contentsline {subsection}{\numberline {4.4.2}Git}{21}%
 \contentsline {chapter}{\numberline {5}Arhitektura rješenja}{22}%
-\contentsline {chapter}{\numberline {6}Prikaz rješenja}{23}%
-\contentsline {chapter}{\numberline {7}Budući razvitak}{24}%
-\contentsline {chapter}{\numberline {8}Zaključak}{25}%
-\contentsline {chapter}{Literatura}{26}%
+\contentsline {section}{\numberline {5.1}Domena rješenja}{22}%
+\contentsline {subsubsection}{Programmer (programmer)}{23}%
+\contentsline {subsubsection}{Task (task)}{24}%
+\contentsline {subsubsection}{Solution (solution)}{24}%
+\contentsline {subsubsection}{Notification (notification)}{25}%
+\contentsline {subsubsection}{Language (language)}{25}%
+\contentsline {subsubsection}{Test case (test\_case)}{26}%
+\contentsline {subsubsection}{Written in (written\_in)}{26}%
+\contentsline {subsubsection}{Solution grading (solution\_grading)}{26}%
+\contentsline {subsubsection}{Task grading (task\_grading)}{27}%
+\contentsline {subsubsection}{Solution comment (solution\_comment)}{27}%
+\contentsline {subsubsection}{Task comment (task\_comment)}{28}%
+\contentsline {subsubsection}{Follower (follower)}{28}%
+\contentsline {section}{\numberline {5.2}Implementacija rješenja}{29}%
+\contentsline {subsubsection}{Implementacija prezentacijskog sloja}{30}%
+\contentsline {subsubsection}{Implementacija poslovnog sloja}{30}%
+\contentsline {subsubsection}{Implementacija podatkovnog sloja}{30}%
+\contentsline {chapter}{\numberline {6}Primjer karakteristične korisničke uporabe}{31}%
+\contentsline {chapter}{\numberline {7}Budući razvitak}{32}%
+\contentsline {chapter}{\numberline {8}Zaključak}{33}%
+\contentsline {chapter}{Literatura}{34}%

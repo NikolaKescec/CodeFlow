@@ -1,6 +1,8 @@
 \documentclass[times, utf8, zavrsni]{fer}
 \usepackage{booktabs}
+\usepackage{tabu}
 \usepackage{float}
+
 
 \begin{document}
 	
@@ -26,9 +28,10 @@
 	\chapter{Uvod}
 	Sveprisutnost računalnih sustava tijekom početka drugog tisućljeća uveliko je doprinijela većem porastu zanimacije populacije prema svemu što je povezano s računalima.  Naravno, to podrazumijeva i čin \textbf{programiranja}. Programiranje možemo opisati kao čin dizajniranja i razvoja izvršnog računalnog programa čija je svrha uspješno postizanje specifičnog računskog rezultata ili odrada specifičnog zadatka.\\
 	Iako su već početkom tisućljeća računalni sustavi bili poprilično sveprisutni, neusporedivo je koliko je njihova zastupljenost u svakodnevnom ljudskom životu porasla. Porastom njihove zastupljenosti porasla je potražnja za računalnom sklopovskom podrškom \engl{hardware}, a s njom i potreba za kvalitetnom programskom podrškom \engl{software}. Kvalitetna programska podrška rezultat je godina učenja, razmatranja i pisanja programskog koda, a kao i svaku drugu vještinu potrebno ju je održavati. Održavanje je moguće na mnogo načina, a podosta popularan način usavršavanja i održavanja vještosti pisanja programskog koda jest rješavanje programskih zadataka. Naravno, sva rješenja programskih zadataka nisu jednako kvalitetna stoga se nerijetko rješenja rangiraju po kvaliteti sa svrhom isticanja znanja autora kvalitetnog rješenja. Natjecateljski ljudski duh proizveo je događanja na kojima se upravo takav pristup prakticira i cijeni, znana još kao i programerska natjecanja \engl{competitive programming competitions}.\\
-	Makar su takva događanja izrazito bogat izvor programerskog znanja, programiranjem zainteresirana neiskusna populacija teško da će svojevoljno ući na opisana događanja. Razlog tome je razlika u količini znanja između njih i regularnih sudionika jer dobar dio tih sudionika već je vrlo vješt. Stoga je postojanje internetskih stranica koje pružaju uvid u programiranje i rješavanje programskih zadataka dobrodošla novost. Ipak, često riječ vrlo iskusnog programera neiskusnom programeru može biti neprocjenjiva. Iz tog razloga zanimljiv je spoj socijalnih mreža \engl{social networks} i stranica koje pružaju mogućnost rješavanja programskih zadataka. Osobi koju pisanje programskog koda interesira stranica pruža ne kompetitivnu mogućnost rješavanja zadataka, a iskusnom programeru mogućnost da kroz rješavanje i objašnjavanje svojih rješenja produbi i utemelji svoja znanja. Upravo je takva kombinacija osnovnih elemenata  spomenutih stranica tema ovog završnog rada te joj je ime \textbf{Codeflow}.
+	Makar su takva događanja izrazito bogat izvor programerskog znanja, programiranjem zainteresirana neiskusna populacija teško da će svojevoljno ući na opisana događanja. Razlog tome je razlika u količini znanja između njih i regularnih sudionika jer dobar dio tih sudionika već je vrlo vješt. Stoga je postojanje internetskih stranica koje pružaju uvid u programiranje i rješavanje programskih zadataka dobrodošla novost. Ipak, često riječ vrlo iskusnog programera neiskusnom programeru može biti neprocjenjiva. Iz tog razloga zanimljiv je spoj socijalnih mreža \engl{social networks} i stranica koje pružaju mogućnost rješavanja programskih zadataka. Osobi koju pisanje programskog koda interesira stranica pruža ne kompetitivnu mogućnost rješavanja zadataka, a iskusnom programeru mogućnost da kroz rješavanje i objašnjavanje svojih rješenja produbi i utemelji svoja znanja. Upravo je takva kombinacija osnovnih elemenata spomenutih stranica tema ovog završnog rada, a joj je ime \textbf{Codeflow}.
 	
 	\chapter{Korisnički zahtjevi}
+	\label{cha:zahtjevi}
 	Internetska stranica koja kombinira elemente socijalnih mreža i elemente stranica s tematikom programskog koda treba omogućiti korisniku ispunjavanje mješavine elementarnih \textbf{funkcionalnih} i \textbf{nefunkcionalnih} zahtjeva koje stranice oba navedena tipa ispunjavaju.
 	
 		\section{Funkcionalni zahtjevi}
@@ -148,12 +151,14 @@
 	
 	
 	\chapter{Korištene tehnologije}
+	\label{cha:tehnologije}
 	Moderne internetske tehnologije prilagođene su razvoju sustava koji se pridržava troslojne arhitekture sustava. Moderna troslojna arhitektura sustava sastoji se od:
 	\begin{itemize}
 		\item korisničkog ili prezentacijskog sloja
 		\item poslovnog sloja
 		\item podatkovnog sloja
 	\end{itemize}
+	U nastavku tehnologije korištene unutar Codeflow aplikacije bit će razmotrene po slojevima kojima, u kontektstu aplikacije, pripadaju.
 	
 		\section{Tehnologije prezentacijskog sloja}
 		Korištene tehnologije prezentacijskog sloja pisane su JavaScript programskim jezikom jer on je jedini programski jezik kojeg internetski preglednici podržavaju. Nadalje, razvoj JavaScript aplikacija izvan internetskog preglednika ne bi bio moguć bez Node.js platforme koja omogućuje izvršavanje JavaScript aplikacija izvan korisničkog preglednika. Node.js unutar sebe sadržava i upravitelja paketima, NPM (Node Package Manager) koji pruža mogućnost korištenja velikog broja različitih dodataka i biblioteka pisanih jezikom JavaScript.
@@ -251,12 +256,275 @@
 				\label{fig:axios}
 			\end{figure}
 			\subsection{Git}
-			Git je sustav za upravljanje izvornim kodom distribuiranog tipa otvorena koda \engl{distributed version control}. Upravljanje izvornim kodom vrši se pohranjivanjem koda unutar Git repozitorija koji mogu biti udaljeni ili lokalni. Udaljeni repozitoriji \engl{remote} najčešće su smješteni unutar nekog oblaka \engl{cloud} na nekoj Git platformi (primjer takve platforme je GitHub). Budući da je sustav distribuiran, lokalni repozitoriji sadržavaju svu povijest programskog koda koju i udaljeni. Inicijalne promjene izvornog koda događaju se unutar lokalnog repozitorija te tek nakon što se spreme unutar lokalnog repozitorija mogu se poslati na udaljeni repozitorij.
+			Git je sustav za upravljanje izvornim kodom distribuiranog tipa otvorena koda \engl{distributed version control}. Upravljanje izvornim kodom vrši se pohranjivanjem koda unutar Git repozitorija koji mogu biti udaljeni ili lokalni. Udaljeni repozitoriji \engl{remote} najčešće su smješteni unutar nekog oblaka \engl{cloud} na nekoj Git platformi (primjer takve platforme je GitHub). Budući da je sustav distribuiran, lokalni repozitoriji sadržavaju svu povijest programskog koda koju i udaljeni. Inicijalne promjene izvornog koda događaju se unutar lokalnog repozitorija te tek nakon što se spreme unutar lokalnog repozitorija mogu se poslati na udaljeni repozitorij. Korištenje Gita osigurava strukturirano i kvalitetno praćenje te spremanje projekta.
 	
 	\chapter{Arhitektura rješenja}
-	Već postojeća rješenja, njihove značajke te uvođenje socijalnih elemenata
+		\section{Domena rješenja}
+		Domena rješenja ostvarena je definicijom relacijske baze podataka pomoću PostgreSql sustava za upravljanje bazama. Makar korišteni ORM Hibernate podržava \textit{code-first} pristup definiranja baze podataka (shema podataka se definira programskim klasama, a ne programske klase shemom podataka) ipak je odabran pristup gdje se prije same implementacije entiteta pomoću programskih klasa prvo definira shema korištene baze podataka. Iz tog je razloga shema koja opisuje domenu problema Codeflow aplikacije sa svim entitetima prikazana na slici \ref{fig:db}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{pictures/prikazi/Database.png}
+			\caption{Kompletan prikaz sheme Codeflow baze podataka.}
+			\label{fig:db}
+		\end{figure}
+		Valja napomenuti da svi entiteti dijele atribute ts\_created, ts\_modified, user\_created, user\_modified radi lakšeg praćenja stvaranja i promjena točnih zapisa unutar tablica, a jer su dijeleni neće biti dodatno spomenuti tijekom detaljnijeg opisa svakog od entiteta. Sami entiteti definirani su korisničkim zahtjevima (definirani u poglavlju \ref{cha:zahtjevi}).
+		\begin{table}[H]
+			\caption{Dijeljeni atributi}
+			\label{tbl:dij-attr}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\				
+				\tabucline[1pt]{-}
+				ts\_created & timestamp with timezone & vrijeme nastanka\\ \hline
+				ts\_modified & timestamp with timezone & vrijeme modifikacije\\ \hline
+				user\_created & varchar(50) & korisnik koji je napravio zapis\\ \hline
+				user\_created & varchar(50) & korisnik koji je zadnji modificirao zapis\\
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+		
+		
+		\subsubsection{Programmer (programmer)}
+		Entitet programer unutar baze podataka definiran je relacijom programer. Opisuje korisnika aplikacije Codeflow te kao takav centralni je entitet. Tijekom registracije korisnika stvara se te pohranjuje sve korisničke informacije. Vlastiti atributi su mu username, email, password, role, taskpoints i solutionpoints. Role atribut je dodan, ali unutar ove verzije različite korisničke uloge nisu implementirane.
+		\begin{table}[H]
+			\caption{Programmer}
+			\label{tbl:programmer}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{programmer\_id} & serial & surogatni primarni ključ\\ \hline
+				username & varchar(50) & korisnikovo korisničko ime, mora biti jedinstveno\\ \hline
+				email & varchar(100) & korisnikov e-mail, mora biti jedinstven\\ \hline
+				password & varchar(100) & \textit{hash} korisnikove lozinke\\ \hline
+				role & varchar(50) & korisnikova uloga\\ \hline
+				taskpoints & integer & bodovi koje je korisnik dobio zbog kvalitete svojih zadataka\\ \hline
+				taskpoints & integer(100) &  bodovi koje je korisnik dobio zbog kvalitete njegovih rješenja\\
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+		
+		\subsubsection{Task (task)}
+		Entitet Task unutar baze podataka definiran je relacijom task. Opisuje zadatak kojeg je korisnik napravio. Tijekom stvaranja zadatka spremaju se novi podaci unutar relacije task, ali i unutar test\_case relacije jer ti podaci su neophodni za dinamičku provjeru ispravnosti zadatka. Vlastiti atributi Task entiteta su author\_id, task\_text, author\_solution\_id, input\_format i output\_format.
+		\begin{table}[H]
+			\caption{Task}
+			\label{tbl:task}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{task\_id} & serial & surogatni primarni ključ\\ \hline
+				author\_id & integer & strani ključ autora zadatka\\ \hline
+				task\_text & text & tekst zadatka\\ \hline
+				author\_solution\_id & integer & autorovo rješenje (nije nužno)\\ \hline
+				input\_format & varchar(250) & primjer ulaza\\ \hline
+				output\_format & varchar(250) & primjer izlaza\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
 	
-	\chapter{Prikaz rješenja}
+		\subsubsection{Solution (solution)}
+		Entitet Solution unutar baze podataka definiran je relacijom solution. Opisuje rješenje  kojeg je korisnik napravio. Vlastiti atributi Solution entiteta su solution\_id, code, task\_id, author\_id, task\_text i language\_id.
+		\begin{table}[H]
+			\caption{Solution}
+			\label{tbl:solution}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{solution\_id} & serial & surogatni primarni ključ\\ \hline
+				code & text & kod rješenja\\ \hline
+				task\_id & integer & strani ključ zadatka rješenja\\ \hline
+				author\_id & integer & strani ključ autora zadatka\\ \hline
+				language\_id & integer & strani ključ jezika u kojem je rješenje pisano\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+	
+		\subsubsection{Notification (notification)}
+		Entitet Notification unutar baze podataka definiran je relacijom notification. Opisuje obavijest koja biva poslana korisniku tijekom nekog događaja unutar aplikacije. Vlastiti atributi Notification entiteta su notification\_id, notification\_text, type, notifier\_id, notificator\_id. Tipovi notifikacija praćeni su jer ovisno o tipu notifikacije način prikazivanja vijesti koja treba biti prikazana varira.
+		\begin{table}[H]
+			\caption{Notification}
+			\label{tbl:notification}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{notification\_id} & serial & surogatni primarni ključ\\ \hline
+				notification\_text & text & sadržaj notifikacije\\ \hline
+				type & varchar(100) & tip notifikacije\\ \hline
+				notifier\_id & integer & strani ključ korisnika koji je uzrokovao notifikaciju\\ \hline
+				notificator\_id & integer & strani ključ korisnika koji treba vidjeti notifikaciju\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+	
+		\subsubsection{Language (language)}
+		Entitet Language unutar baze podataka definiran je relacijom language. Opisuje jezik koji je korisniku dostupan tijekom stvaranja zadataka kao podržani jezik, a korisniku koji rješava, ako je ponuđen, mogući jezik rješenja. Vlastiti atributi Language entiteta su language\_id, language, imports, main, judgeId. Atribut judgeId koristi se tijekom interakcije aplikacije s Judge0 izvršiteljem računskog koda. 
+		\begin{table}[H]
+			\caption{Language}
+			\label{tbl:language}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{language\_id} & serial & surogatni primarni ključ\\ \hline
+				language & varchar(50) & ime programskog jezika\\ \hline
+				imports & text & dodijeljena uključenja\\ \hline
+				main & text & početni programski kod\\ \hline
+				judgeId & bigint & signalizira jedinstveni identifikator programskog jezika unutar sustava Judge0\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+	
+		\subsubsection{Test case (test\_case)}
+		Entitet Test Case unutar baze podataka definiran je relacijom test\_case. Opisuje testni slučaj koji korisnik zadaje tijekom izrade zadatka, a koji se koristi kod dinamičke provjere zadatka. Vlastiti atributi Language entiteta su test\_case\_id, task\_id, input i output. 
+		\begin{table}[H]
+			\caption{Test Case}
+			\label{tbl:testcase}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{test\_case\_id} & serial & surogatni primarni ključ\\ \hline
+				task\_id & integer & strani ključ zadatka kojem testni slučaj pripada\\ \hline
+				imports & text & dodijeljena uključenja\\ \hline
+				input & text & ulaz testnog slučaja\\ \hline
+				output & text & izlaz testnog slučaja\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+		
+		\subsubsection{Written in (written\_in)}
+		Entitet Written in unutar baze podataka definiran je relacijom written\_int. Spojna je relacija koja povezuje N:N odnos između relacija language i task. Vlastiti atributi Written in entiteta su written\_in\_id, task\_id i language\_id. 
+		\begin{table}[H]
+			\caption{Written in}
+			\label{tbl:writtenin}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{written\_in\_id} & serial & surogatni primarni ključ\\ \hline
+				task\_id & integer & strani ključ zadatka\\ \hline
+				language\_id & text & strani ključ jezika\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+		
+		\subsubsection{Solution grading (solution\_grading)}
+		Entitet Solution grading unutar baze podataka definiran je relacijom solution\_grading. Relacija predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi Solution grading entiteta su solution\_grading\_id, grade, grader\_id i solution\_id. 
+		\begin{table}[H]
+			\caption{Solution grading}
+			\label{tbl:solutiongrading}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{solution\_grading\_id} & serial & surogatni primarni ključ\\ \hline
+				grade & integer & ocjena\\ \hline
+				grader\_id & integer & strani ključ korisnika ocjenjivača\\ \hline
+				solution\_id & integer & strani ključ ocjenjenog rješenja\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+	
+		\subsubsection{Task grading (task\_grading)}
+		Entitet Task grading unutar baze podataka definiran je relacijom task\_grading. Relacija predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi Task grading entiteta su task\_grading\_id, grade, grader\_id i task\_id. 
+		\begin{table}[H]
+			\caption{Task grading}
+			\label{tbl:taskgrading}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{task\_grading\_id} & serial & surogatni primarni ključ\\ \hline
+				grade & integer & ocjena\\ \hline
+				grader\_id & integer & strani ključ korisnika ocjenjivača\\ \hline
+				task\_id & integer & strani ključ ocjenjenog zadatka\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+	
+		\subsubsection{Solution comment (solution\_comment)}
+		Entitet Solution comment unutar baze podataka definiran je relacijom solution\_comment. Relacija predstavlja komentare povezane uz jedno programsko rješenje. Vlastiti atributi Solution comment entiteta su solution\_comment\_id, comment, commenter\_id i task\_id. 
+		\begin{table}[H]
+			\caption{Solution comment}
+			\label{tbl:solutioncomment}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{solution\_comment\_id} & serial & surogatni primarni ključ\\ \hline
+				comment & text & komentar\\ \hline
+				solution\_id & integer & strani ključ komentiranog rješenja\\ \hline
+				commenter\_id & integer & strani ključ korisnika komentatora\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+	
+		\subsubsection{Task comment (task\_comment)}
+		Entitet Task comment unutar baze podataka definiran je relacijom task\_comment. Relacija predstavlja komentare povezane uz jedan programski zadatak. Vlastiti atributi Task comment entiteta su task\_comment\_id, comment, grader\_id i commenter\_id. 
+		\begin{table}[H]
+			\caption{Solution comment}
+			\label{tbl:taskcomment}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{task\_comment\_id} & serial & surogatni primarni ključ\\ \hline
+				comment & text & komentar\\ \hline
+				task\_id & integer & strani ključ komentiranog zadatka\\ \hline
+				commenter\_id & integer & strani ključ korisnika komentatora\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+	
+		\subsubsection{Follower (follower)}
+		Entitet Follower unutar baze podataka definiran je relacijom follower. Unutar ove relacije opisana su sva pratiteljstva između korisnika. Vlastiti atributi Follower entiteta su followers\_id, follower i pending. Pending atribut predstavlja provjeru prihvaćenosti pratiteljstva. Tek ako je pending atribut postavljen na \textit{false} pratiteljstvo se smatra punopravnim.
+		\begin{table}[H]
+			\caption{Follower}
+			\label{tbl:follower}
+			\centering
+			\begin{tabu} to \textwidth {XXX}
+				\tabucline[1.75pt]{-}
+				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
+				\tabucline[1pt]{-}
+				\textbf{followers\_id} & serial & surogatni primarni ključ\\ \hline
+				programmer & text & strani ključ praćenog korisnika\\ \hline
+				follower & integer & strani ključ pratitelja\\ \hline
+				pending & boolean & provjera punopravnosti pratiteljstva\\ \hline
+				\tabucline[1.75pt]{-}
+			\end{tabu}
+		\end{table}
+		
+		\section{Implementacija rješenja}
+		Implementacija Codeflow aplikacije sturkturirana je prema modernoj troslojnoj arhitekturi (spomenuta tijekom početka poglavlja \ref{cha:tehnologije}). Prezentacijski sloj (znan još pod imenom \textit{frontend}), poslovni sloj i podatkovni sloj (znani još kao i \textit{backend}) jasno su vidljivi tijekom pogleda na arhitekturu aplikacije. U narednim podpoglavljima implementacija svakog od spomenutih slojeva objašnjena je.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{pictures/prikazi/Arhitektura.png}
+			\caption{Arhitektura Codeflow aplikacije.}
+			\label{fig:arh}
+		\end{figure}
+	
+			\subsubsection{Implementacija prezentacijskog sloja}
+			
+			\subsubsection{Implementacija poslovnog sloja}
+			
+			\subsubsection{Implementacija podatkovnog sloja}
+	
+	\chapter{Primjer karakteristične korisničke uporabe}
 	Već postojeća rješenja, njihove značajke te uvođenje socijalnih elemenata
 	
 	\chapter{Budući razvitak}
