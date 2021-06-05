@@ -167,14 +167,14 @@
 			React je biblioteka kojoj je svrha izrada korisničkih sučelja \engl{user interface}. Otvorenog je koda te ga razvijaju i održavaju različite tvrtke (od kojih je najbitnija Facebook jer ona ga je zapravo i začela) i različiti individualni programeri. Prva verzija Reacta na tržište je izašla 2013. godine, a od tada njegova popularnost kontinuirano raste. Reactov fokus jest razvoj dinamičnih i lagano skalabilnih korisničkih sučelja. Skalabilnost \engl{scalability} termin je koji definira mogućnost povećavanja obujma sustava neovisno o podržanim funkcionalnostima. React skalabilnost omogućuje komponentno usmjerenim razvojem, što znači da svaka razvijana funkcionalnost enkapsulira unutar sebe svu logiku, izgled i podatke koji su potrebni za njezin rad. Isto tako, kompozicija komponenti podržana je, stoga je pomoću različitih kombinacija komponenata razvijanje složenih korisničkih sučelja jasno i strukturirano. React biblioteka spomenute komponente koristi za izgradnju konkretnog modela objekta dokumenta \engl{Document Object Model} koji kasnije biva prikazivan korisniku, a kako korisnička interakcija ne bi bila spora, React interno održava posebnu strukturu podataka, virtualni model objekta dokumenta, koja pamti stanje komponenata. Ako se ikoja komponenta promijeni, React samo promijenjenu komponentu ažurira unutar stvarnog modela objekta dokumenta. Tim pristupom održava responzivnost korisničkog sučelja.\\
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=\linewidth]{pictures/prikazi/React.png}
+				\includegraphics[scale=0.75]{pictures/prikazi/React.png}
 				\caption{Primjer jednostavnije kompozicije komponenata unutar Reacta}
 				\label{fig:react}
 			\end{figure}
 			React Router dodatak je React biblioteci koja služi za usmjeravanje između različitih dostupnih  stranica razvijenih pomoću React komponenata.
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=\linewidth]{pictures/prikazi/ReactRouter.png}
+				\includegraphics[scale=0.75]{pictures/prikazi/ReactRouter.png}
 				\caption{Primjer korištenja React Routera.}
 				\label{fig:react-router}
 			\end{figure}
@@ -192,7 +192,7 @@
 			Material-UI u osnovi je radni okvir otvorenog koda namjere identične onoj koju Bootstrap ima, ali specijaliziran za React biblioteku. Material-UI omogućava korištenje gotovih modernih komponenata. Također podržava i potpunu prilagodbu komponenata koje nudi za uporabu. Material-UI komponente koriste se identično kao i bilo koje druge React komponente.
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=\linewidth]{pictures/prikazi/MaterialUI.png}
+				\includegraphics[scale=0.75]{pictures/prikazi/MaterialUI.png}
 				\caption{Primjer korištenja Material-UI komponenata unutar Reacta.}
 				\label{fig:materialUI}
 			\end{figure}
@@ -201,7 +201,7 @@
 			Ace je uređivač programskog koda namijenjen za lagano integriranje unutar internetske stranice ili JavaScript aplikacije. Otvorena je koda te podržava sve funkcionalnosti koje uobičajen uređivač teksta podržava. Budući da je prvotno namijenjen pisanju programskog koda, podržava mnoštvo različitih jezika. Ima mogućnosti naglašavanje sintakse odabranog podržanog programskog jezika, a također implementira rudimentarno nadopunjavanje programskog koda. Uz sve napomenute mogućnosti, sadržava različite teme izgleda te se one mogu mijenjati tijekom korištenja uređivača.
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=\linewidth]{pictures/prikazi/AceEditor.png}
+				\includegraphics[scale=0.75]{pictures/prikazi/AceEditor.png}
 				\caption{Primjer korištenja Ace-Editor React komponente.}
 				\label{fig:ace}
 			\end{figure}
@@ -251,15 +251,18 @@
 			Axios je lagan HTTP klijent pisan u Javascriptu. Podržava asinkrono slanje zahtjeva, funkcionalnost presretanja i modificiranje zahtjeva i odgovora. 
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=\linewidth]{pictures/prikazi/Axios.png}
+				\includegraphics[scale=0.65]{pictures/prikazi/Axios.png}
 				\caption{Primjer slanja POST zahtjeva pomoću Axiosa.}
 				\label{fig:axios}
 			\end{figure}
+			\subsection{Judge0}
+			Judge0 izvršitelj je programskoga koda otvorena koda kojeg Codeflow aplikacija koristi za provjeravanje rješenja pisanih za korisničke programske zadatke. Skalabilne je arhitekture te podržava preko 60 programskih jezika. Uz podršku prevođenja i izvođenja jedno datotečnih rješenja, Judge0 podržava i prevođenje te izvođenje programskih rješenja sastojanih od više datoteka. Podržava konfigurabilnost korištenih prevoditelja, postavljanje argumenata komandne linije te još mnogo drugih funkcionalnosti.
 			\subsection{Git}
 			Git je sustav za upravljanje izvornim kodom distribuiranog tipa otvorena koda \engl{distributed version control}. Upravljanje izvornim kodom vrši se pohranjivanjem koda unutar Git repozitorija koji mogu biti udaljeni ili lokalni. Udaljeni repozitoriji \engl{remote} najčešće su smješteni unutar nekog oblaka \engl{cloud} na nekoj Git platformi (primjer takve platforme je GitHub). Budući da je sustav distribuiran, lokalni repozitoriji sadržavaju svu povijest programskog koda koju i udaljeni. Inicijalne promjene izvornog koda događaju se unutar lokalnog repozitorija te tek nakon što se spreme unutar lokalnog repozitorija mogu se poslati na udaljeni repozitorij. Korištenje Gita osigurava strukturirano i kvalitetno praćenje te spremanje projekta.
 	
 	\chapter{Arhitektura rješenja}
 		\section{Domena rješenja}
+		\label{sec:domenarjesenja}
 		Domena rješenja ostvarena je definicijom relacijske baze podataka pomoću PostgreSql sustava za upravljanje bazama. Makar korišteni ORM Hibernate podržava \textit{code-first} pristup definiranja baze podataka (shema podataka se definira programskim klasama, a ne programske klase shemom podataka) ipak je odabran pristup gdje se prije same implementacije entiteta pomoću programskih klasa prvo definira shema korištene baze podataka. Iz tog je razloga shema koja opisuje domenu problema Codeflow aplikacije sa svim entitetima prikazana na slici \ref{fig:db}.
 		\begin{figure}[H]
 			\centering
@@ -267,7 +270,7 @@
 			\caption{Kompletan prikaz sheme Codeflow baze podataka.}
 			\label{fig:db}
 		\end{figure}
-		Valja napomenuti da svi entiteti dijele atribute ts\_created, ts\_modified, user\_created, user\_modified radi lakšeg praćenja stvaranja i promjena točnih zapisa unutar tablica, a jer su dijeleni neće biti dodatno spomenuti tijekom detaljnijeg opisa svakog od entiteta. Sami entiteti oblikovani su prema korisničkim zahtjevima (definirani u poglavlju \ref{cha:zahtjevi}).
+		Valja napomenuti da svi entiteti dijele atribute ts\_created, ts\_modified, user\_created, user\_modified radi lakšeg praćenja stvaranja i promjena točnih zapisa unutar tablica, a jer su dijeljeni neće biti dodatno spomenuti tijekom detaljnijeg opisa svakog od entiteta. Sami entiteti oblikovani su prema korisničkim zahtjevima (definirani u poglavlju \ref{cha:zahtjevi}).
 		\begin{table}[H]
 			\caption{Dijeljeni atributi}
 			\label{tbl:dij-attr}
@@ -284,9 +287,7 @@
 			\end{tabu}
 		\end{table}
 		
-		
-		\subsubsection{Programmer (programmer)}
-		Entitet programer unutar baze podataka definiran je relacijom programer. Opisuje korisnika aplikacije Codeflow te kao takav centralni je entitet. Tijekom registracije korisnika stvara se te pohranjuje sve korisničke informacije. Vlastiti atributi su mu username, email, password, role, taskpoints i solutionpoints. Role atribut je dodan, ali unutar ove verzije različite korisničke uloge nisu implementirane.
+		Entitet \textbf{programer} unutar baze podataka definiran je relacijom programer. Opisuje korisnika aplikacije Codeflow te kao takav centralni je entitet. Tijekom registracije korisnika stvara se te pohranjuje sve korisničke informacije. Vlastiti atributi su mu username, email, password, role, taskpoints i solutionpoints. Role atribut je dodan, ali unutar ove verzije različite korisničke uloge nisu implementirane.
 		\begin{table}[H]
 			\caption{Programmer}
 			\label{tbl:programmer}
@@ -306,8 +307,7 @@
 			\end{tabu}
 		\end{table}
 		
-		\subsubsection{Task (task)}
-		Entitet Task unutar baze podataka definiran je relacijom task. Opisuje zadatak kojeg je korisnik napravio. Tijekom stvaranja zadatka spremaju se novi podaci unutar relacije task, ali i unutar test\_case relacije jer ti podaci su neophodni za dinamičku provjeru ispravnosti zadatka. Vlastiti atributi Task entiteta su author\_id, task\_text, author\_solution\_id, input\_format i output\_format.
+		Entitet \textbf{task} unutar baze podataka definiran je relacijom task. Opisuje zadatak kojeg je korisnik napravio. Tijekom stvaranja zadatka spremaju se novi podaci unutar relacije task, ali i unutar test\_case relacije jer ti podaci su neophodni za dinamičku provjeru ispravnosti zadatka. Vlastiti atributi Task entiteta su author\_id, task\_text, author\_solution\_id, input\_format i output\_format.
 		\begin{table}[H]
 			\caption{Task}
 			\label{tbl:task}
@@ -326,8 +326,8 @@
 			\end{tabu}
 		\end{table}
 	
-		\subsubsection{Solution (solution)}
-		Entitet Solution unutar baze podataka definiran je relacijom solution. Opisuje rješenje  kojeg je korisnik napravio. Vlastiti atributi Solution entiteta su solution\_id, code, task\_id, author\_id, task\_text i language\_id.
+
+		Entitet \textbf{solution} unutar baze podataka definiran je relacijom solution. Opisuje rješenje  kojeg je korisnik napravio. Vlastiti atributi Solution entiteta su solution\_id, code, task\_id, author\_id, task\_text i language\_id.
 		\begin{table}[H]
 			\caption{Solution}
 			\label{tbl:solution}
@@ -345,8 +345,7 @@
 			\end{tabu}
 		\end{table}
 	
-		\subsubsection{Notification (notification)}
-		Entitet Notification unutar baze podataka definiran je relacijom notification. Opisuje obavijest koja biva poslana korisniku tijekom nekog događaja unutar aplikacije. Vlastiti atributi Notification entiteta su notification\_id, notification\_text, type, notifier\_id, notificator\_id. Tipovi notifikacija praćeni su jer ovisno o tipu notifikacije način prikazivanja vijesti koja treba biti prikazana varira.
+		Entitet \textbf{notification} unutar baze podataka definiran je relacijom notification. Opisuje obavijest koja biva poslana korisniku tijekom nekog događaja unutar aplikacije. Vlastiti atributi Notification entiteta su notification\_id, notification\_text, type, notifier\_id, notificator\_id. Tipovi notifikacija praćeni su jer ovisno o tipu notifikacije način prikazivanja vijesti koja treba biti prikazana varira.
 		\begin{table}[H]
 			\caption{Notification}
 			\label{tbl:notification}
@@ -364,8 +363,7 @@
 			\end{tabu}
 		\end{table}
 	
-		\subsubsection{Language (language)}
-		Entitet Language unutar baze podataka definiran je relacijom language. Opisuje jezik koji je korisniku dostupan tijekom stvaranja zadataka kao podržani jezik, a korisniku koji rješava, ako je ponuđen, mogući jezik rješenja. Vlastiti atributi Language entiteta su language\_id, language, imports, main, judgeId. Atribut judgeId koristi se tijekom interakcije aplikacije s Judge0 izvršiteljem računskog koda. 
+		Entitet \textbf{language} unutar baze podataka definiran je relacijom language. Opisuje jezik koji je korisniku dostupan tijekom stvaranja zadataka kao podržani jezik, a korisniku koji rješava, ako je ponuđen, mogući jezik rješenja. Vlastiti atributi Language entiteta su language\_id, language, imports, main, judgeId. Atribut judgeId koristi se tijekom interakcije aplikacije s Judge0 izvršiteljem računskog koda. 
 		\begin{table}[H]
 			\caption{Language}
 			\label{tbl:language}
@@ -383,8 +381,7 @@
 			\end{tabu}
 		\end{table}
 	
-		\subsubsection{Test case (test\_case)}
-		Entitet Test Case unutar baze podataka definiran je relacijom test\_case. Opisuje testni slučaj koji korisnik zadaje tijekom izrade zadatka, a koji se koristi kod dinamičke provjere zadatka. Vlastiti atributi Language entiteta su test\_case\_id, task\_id, input i output. 
+		Entitet \textbf{test case} unutar baze podataka definiran je relacijom test\_case. Opisuje testni slučaj koji korisnik zadaje tijekom izrade zadatka, a koji se koristi kod dinamičke provjere zadatka. Vlastiti atributi Language entiteta su test\_case\_id, task\_id, input i output. 
 		\begin{table}[H]
 			\caption{Test Case}
 			\label{tbl:testcase}
@@ -402,8 +399,7 @@
 			\end{tabu}
 		\end{table}
 		
-		\subsubsection{Written in (written\_in)}
-		Entitet Written in unutar baze podataka definiran je relacijom written\_int. Spojna je relacija koja povezuje N:N odnos između relacija language i task. Vlastiti atributi Written in entiteta su written\_in\_id, task\_id i language\_id. 
+		Entitet \textbf{written in} unutar baze podataka definiran je relacijom written\_int. On j spojna relacija koja povezuje N:N odnos između relacija language i task. Vlastiti atributi Written in entiteta su written\_in\_id, task\_id i language\_id. 
 		\begin{table}[H]
 			\caption{Written in}
 			\label{tbl:writtenin}
@@ -419,8 +415,7 @@
 			\end{tabu}
 		\end{table}
 		
-		\subsubsection{Solution grading (solution\_grading)}
-		Entitet Solution grading unutar baze podataka definiran je relacijom solution\_grading. Relacija predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi Solution grading entiteta su solution\_grading\_id, grade, grader\_id i solution\_id. 
+		Entitet \textbf{solution grading} unutar baze podataka definiran je relacijom solution\_grading. Relacija predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi Solution grading entiteta su solution\_grading\_id, grade, grader\_id i solution\_id. 
 		\begin{table}[H]
 			\caption{Solution grading}
 			\label{tbl:solutiongrading}
@@ -437,8 +432,7 @@
 			\end{tabu}
 		\end{table}
 	
-		\subsubsection{Task grading (task\_grading)}
-		Entitet Task grading unutar baze podataka definiran je relacijom task\_grading. Relacija predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi Task grading entiteta su task\_grading\_id, grade, grader\_id i task\_id. 
+		Entitet \textbf{task grading} unutar baze podataka definiran je relacijom task\_grading. Relacija predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi Task grading entiteta su task\_grading\_id, grade, grader\_id i task\_id. 
 		\begin{table}[H]
 			\caption{Task grading}
 			\label{tbl:taskgrading}
@@ -455,8 +449,7 @@
 			\end{tabu}
 		\end{table}
 	
-		\subsubsection{Solution comment (solution\_comment)}
-		Entitet Solution comment unutar baze podataka definiran je relacijom solution\_comment. Relacija predstavlja komentare povezane uz jedno programsko rješenje. Vlastiti atributi Solution comment entiteta su solution\_comment\_id, comment, commenter\_id i task\_id. 
+		Entitet \textbf{solution comment} unutar baze podataka definiran je relacijom solution\_comment. Relacija predstavlja komentare povezane uz jedno programsko rješenje. Vlastiti atributi Solution comment entiteta su solution\_comment\_id, comment, commenter\_id i task\_id. 
 		\begin{table}[H]
 			\caption{Solution comment}
 			\label{tbl:solutioncomment}
@@ -473,8 +466,7 @@
 			\end{tabu}
 		\end{table}
 	
-		\subsubsection{Task comment (task\_comment)}
-		Entitet Task comment unutar baze podataka definiran je relacijom task\_comment. Relacija predstavlja komentare povezane uz jedan programski zadatak. Vlastiti atributi Task comment entiteta su task\_comment\_id, comment, grader\_id i commenter\_id. 
+		Entitet \textbf{task comment} unutar baze podataka definiran je relacijom task\_comment. Relacija predstavlja komentare povezane uz jedan programski zadatak. Vlastiti atributi Task comment entiteta su task\_comment\_id, comment, grader\_id i commenter\_id. 
 		\begin{table}[H]
 			\caption{Solution comment}
 			\label{tbl:taskcomment}
@@ -491,8 +483,7 @@
 			\end{tabu}
 		\end{table}
 	
-		\subsubsection{Follower (follower)}
-		Entitet Follower unutar baze podataka definiran je relacijom follower. Unutar ove relacije opisana su sva pratiteljstva između korisnika. Vlastiti atributi Follower entiteta su followers\_id, follower i pending. Pending atribut predstavlja provjeru prihvaćenosti pratiteljstva. Tek ako je pending atribut postavljen na \textit{false} pratiteljstvo se smatra punopravnim.
+		Entitet \textbf{follower} unutar baze podataka definiran je relacijom follower. Unutar ove relacije opisana su sva pratiteljstva između korisnika. Vlastiti atributi Follower entiteta su followers\_id, follower i pending. Pending atribut predstavlja provjeru prihvaćenosti pratiteljstva. Tek ako je pending atribut postavljen na \textit{false} pratiteljstvo se smatra punopravnim.
 		\begin{table}[H]
 			\caption{Follower}
 			\label{tbl:follower}
@@ -525,7 +516,7 @@
 			i dio s potpisom koji je kriptirani sažetak prva dva dijela. Prvi kolačić šalje se uz svaki prijavljeni korisnički zahtjev, a drugi kolačić koristi se za obnovu prvog kolačića jer vremensko trajanje prvog kolačića vrlo je kratko (dvije minute). Odbijenost korisničkog zahtjeva zbog vremenskog isteka prvog kolačića ispravlja se pomoću \textit{Axios Response Interceptor} funkcionalnosti koja šalje novi zahtjev za obnovu kolačića s drugim kolačićem. U slučaju odbijenosti produljenja JWT kolačića korisnik se odjavljuje dok u slučaju produljenja originalan odbijen zahtjev biva opet poslan. Provjera ispravnosti slanih kolačića obrađuje se unutar poslovnog sloja. Kombinacija korištenja JWT kolačića i provjera podataka spremljenih unutar lokalnog spremnika internetskog preglednika tijekom korisničke promjene stranica unutar usmjeravateljskog sloja osiguravaju ispravno raspoznavanje prijavljenih korisnika i neprijavljenih korisnika.
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=\linewidth]{pictures/prikazi/AxiosInterceptor.png}
+				\includegraphics[scale=0.65]{pictures/prikazi/AxiosInterceptor.png}
 				\caption{Primjer korištenja Axios Interceptor funkcionalnosti.}
 				\label{fig:axiosinterceptor}
 			\end{figure}
@@ -535,11 +526,36 @@
 			U konačnici, \textbf{podatkovni sloj} koristi Axios biblioteku za slanje zahtjeva te React Reducer funkcionalnost Reacta za strukturirano spremanje i upravljanje podacima unutar React aplikacije.
 			
 	 		\subsubsection{Implementacija poslovnog sloja}
-	 		Poslovni sloj Codeflow aplikacije sastoji se od internetskog poslužitelja pisanog Java programskim jezikom uz pomoć Spring radnog okvira. Analogno prezentacijskom sloju, podijeljen je na interne slojeve radi kvalitetnije strutkure. Slojevi po redu su: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{servisni sloj} i \textbf{podatkovni sloj}. Semantički gledano, skup slojeva bez sigurnosnog sloja podliježe raspodjeli koju predlaže Spring radni okvir.\\
-	 		Unutar \textbf{sigurnosnog sloja} dodan je poseban \textit{JwtFilter} koji služi za provjeru JWT kolačića spomenutih unutar implementacije prezentacijskog sloja. U slučaju neispravnog JWT kolačića unutar zahtjeva koji pristupa zastićenom resursu, zahtjev biva odbijen te niti ne pristiže na usmjeravateljski sloj. JWT kolačić je neispr
+	 		Poslovni sloj Codeflow aplikacije sastoji se od internetskog poslužitelja pisanog Java programskim jezikom uz pomoć Spring radnog okvira. Arhitekturalni stil internetskog poslužitelja prilagođen je REST \engl{representational state transfer} stilu, koji nalaže da internetski poslužitelj, neovisno o prethodnim zahtjevima, vraća samo zahtijevane podatke prilagođene JSON \engl{Javascript Object Notation}) formatu. REST također propisuje metode za pristup i modifikaciju podataka te adrese za pristup podataka. Internetski preglednik, analogno prezentacijskom sloju, podijeljen je na interne slojeve radi kvalitetnije strutkure. Slojevi po redu su: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{servisni sloj} i \textbf{podatkovni sloj}. Semantički gledano, navedeni slojevi (izuzev sigurnosnog sloja) podliježu raspodjeli koju predlaže Spring radni okvir.\\
+	 		Unutar \textbf{sigurnosnog sloja} dodan je poseban \textit{JwtFilter} koji služi za provjeru JWT kolačića spomenutih unutar implementacije prezentacijskog sloja. U slučaju neispravnog JWT kolačića unutar zahtjeva koji pristupa zaštićenom resursu, zahtjev biva odbijen i ne prosljeđiva se na usmjeravateljski sloj. JWT kolačić neispravan je ako je vremenski istekao ili ako se nanovo izračunati kriptografski sažetak, koji se računa  iz prva dva dijela tokena, ne podudara sa starim kriptografskim sažetkom zapisanim unutar dobivenog tokena. \textit{JwtFilter} ignorira zahtjeve za prijavu, registraciju i obnovu tokena, a uspješna prijava i obnova tokena generira nov par JWT kolačića pomoću \textbf{jjwt} maven ovisnosti. Ista maven ovisnost koristi se i za provjeru tokena.
+	 		\begin{figure}[H]
+	 			\centering
+	 			\includegraphics[width=\linewidth]{pictures/prikazi/JwtFilter.png}
+	 			\caption{Programski kod JwtFiltera.}
+	 			\label{fig:jwtfilter}
+	 		\end{figure}
+ 		
+	 		Pošto zahtjev uspješno prođe sigurnosni sloj, stiže na \textbf{usmjeravateljski sloj} sastojan od specijalnih REST Spring kontrolera koji Spring radnom okviru nalažu da vrijednost prilagodi JSON formatu i pospremi unutar tijela HTTP odgovora. Usmjeravateljski sloj sadržava kontroler za svaki od glavnih entiteta spomenutih unutar domene rješenja (\ref{sec:domenarjesenja}) te dodatni kontroler posvećen sigurnosti aplikacije. Kontroleri ne provode poslovnu logiku te pozivaju servisni sloj za daljnju obradu podataka. 
+	 		\begin{figure}[H]
+	 			\centering
+	 			\includegraphics[scale=0.75]{pictures/prikazi/Controllers.png}
+	 			\caption{Prikaz svih REST kontrolera usmjeravateljskog sloja.}
+	 			\label{fig:controllers}
+	 		\end{figure}
+ 		
+	 		\textbf{Servisni sloj} sadržava servise unutar kojih se provodi poslovna logika diktirana korisničkim zahtjevima.
+	 		\begin{figure}[H]
+	 			\centering
+	 			\includegraphics[scale=0.75]{pictures/prikazi/Services.png}
+	 			\caption{Prikaz svih servisa servisnog sloja.}
+	 			\label{fig:services}
+	 		\end{figure}
+ 		
+	 		\textbf{Podatkovni sloj} sastoji se od programskih klasa (znane još kao i model) koje opisuju entitete baze podataka te JPA repozitorijska \engl{repositories} sučelja. Repozitorijska sučelja interno unutar svojih implementacija provode prevođenje programskih naredbi u SQL naredbe te redaka dobivenih SQL upitima u objekte definiranih prigodnim modelom. Podatkovni sloj jedini je sloj koji šalje zahtjeve bazi podataka.
 			
 			\subsubsection{Implementacija podatkovnog sloja}
-	
+			Podatkovni sloj sastoji se od PostgreSql sustava za upravljanje bazama podataka. Poslužuje tražene podatke i modificira specificirane podatke. Jaz između podatkovnog sloja i poslovnog sloja povezuje spomenuti Hibernate ORM.
+			
 	\chapter{Primjer karakteristične korisničke uporabe}
 	Već postojeća rješenja, njihove značajke te uvođenje socijalnih elemenata
 	
@@ -561,6 +577,9 @@
 	\nocite{axios2021}
 	\nocite{git2021}
 	\nocite{postgresql2021}
+	\nocite{jjwt2021}
+	\nocite{jwt2021}
+	\nocite{judge02021}
 	\bibliography{literatura}
 	\bibliographystyle{fer}
 	

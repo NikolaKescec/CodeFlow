@@ -27,24 +27,13 @@
 \contentsline {subsection}{\numberline {4.3.1}PostgreSql}{20}%
 \contentsline {section}{\numberline {4.4}Pomoćne tehnologije}{20}%
 \contentsline {subsection}{\numberline {4.4.1}Axios}{20}%
-\contentsline {subsection}{\numberline {4.4.2}Git}{21}%
+\contentsline {subsection}{\numberline {4.4.2}Judge0}{21}%
+\contentsline {subsection}{\numberline {4.4.3}Git}{21}%
 \contentsline {chapter}{\numberline {5}Arhitektura rješenja}{22}%
 \contentsline {section}{\numberline {5.1}Domena rješenja}{22}%
-\contentsline {subsubsection}{Programmer (programmer)}{23}%
-\contentsline {subsubsection}{Task (task)}{24}%
-\contentsline {subsubsection}{Solution (solution)}{24}%
-\contentsline {subsubsection}{Notification (notification)}{25}%
-\contentsline {subsubsection}{Language (language)}{25}%
-\contentsline {subsubsection}{Test case (test\_case)}{26}%
-\contentsline {subsubsection}{Written in (written\_in)}{26}%
-\contentsline {subsubsection}{Solution grading (solution\_grading)}{26}%
-\contentsline {subsubsection}{Task grading (task\_grading)}{27}%
-\contentsline {subsubsection}{Solution comment (solution\_comment)}{27}%
-\contentsline {subsubsection}{Task comment (task\_comment)}{28}%
-\contentsline {subsubsection}{Follower (follower)}{28}%
-\contentsline {section}{\numberline {5.2}Implementacija rješenja}{29}%
+\contentsline {section}{\numberline {5.2}Implementacija rješenja}{28}%
 \contentsline {subsubsection}{Implementacija prezentacijskog sloja}{29}%
-\contentsline {subsubsection}{Implementacija poslovnog sloja}{32}%
+\contentsline {subsubsection}{Implementacija poslovnog sloja}{30}%
 \contentsline {subsubsection}{Implementacija podatkovnog sloja}{32}%
 \contentsline {chapter}{\numberline {6}Primjer karakteristične korisničke uporabe}{33}%
 \contentsline {chapter}{\numberline {7}Budući razvitak}{34}%
