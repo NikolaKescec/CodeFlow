@@ -267,7 +267,7 @@
 			\caption{Kompletan prikaz sheme Codeflow baze podataka.}
 			\label{fig:db}
 		\end{figure}
-		Valja napomenuti da svi entiteti dijele atribute ts\_created, ts\_modified, user\_created, user\_modified radi lakšeg praćenja stvaranja i promjena točnih zapisa unutar tablica, a jer su dijeleni neće biti dodatno spomenuti tijekom detaljnijeg opisa svakog od entiteta. Sami entiteti definirani su korisničkim zahtjevima (definirani u poglavlju \ref{cha:zahtjevi}).
+		Valja napomenuti da svi entiteti dijele atribute ts\_created, ts\_modified, user\_created, user\_modified radi lakšeg praćenja stvaranja i promjena točnih zapisa unutar tablica, a jer su dijeleni neće biti dodatno spomenuti tijekom detaljnijeg opisa svakog od entiteta. Sami entiteti oblikovani su prema korisničkim zahtjevima (definirani u poglavlju \ref{cha:zahtjevi}).
 		\begin{table}[H]
 			\caption{Dijeljeni atributi}
 			\label{tbl:dij-attr}
@@ -510,17 +510,33 @@
 		\end{table}
 		
 		\section{Implementacija rješenja}
-		Implementacija Codeflow aplikacije sturkturirana je prema modernoj troslojnoj arhitekturi (spomenuta tijekom početka poglavlja \ref{cha:tehnologije}). Prezentacijski sloj (znan još pod imenom \textit{frontend}), poslovni sloj i podatkovni sloj (znani još kao i \textit{backend}) jasno su vidljivi tijekom pogleda na arhitekturu aplikacije. U narednim podpoglavljima implementacija svakog od spomenutih slojeva objašnjena je.
+		Implementacija Codeflow aplikacije sturkturirana je prema modernoj troslojnoj arhitekturi (spomenuta tijekom početka poglavlja \ref{cha:tehnologije}). Prezentacijski sloj (znan još pod imenom \textit{frontend}), poslovni sloj i podatkovni sloj (znani još kao i \textit{backend}) jasno su vidljivi tijekom pogleda na arhitekturu aplikacije.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/prikazi/Arhitektura.png}
-			\caption{Arhitektura Codeflow aplikacije.}
+			\caption{Arhitektura Codeflow aplikacije s naglašenim bitnijim tehnologijama svakog sloja.}
 			\label{fig:arh}
 		\end{figure}
 	
 			\subsubsection{Implementacija prezentacijskog sloja}
+			Prezentacijski sloj definira korisničko sučelje aplikacije te je za njegovu izradu korišten React. React aplikacije sastoji se od jedanaest stranica od kojih svaka predstavlja određeni pogled definiran korisničkim zahtjevima, a same stranice koriste i dijele manje komponente. Radi strukturiranijeg razvoja, React aplikacija dodatno je podijeljena je u četiri interna sloja: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{sloj logike aplikacije} i \textbf{podatkovni sloj}.\\
+			Korisnički zahtjevi razlikuju prijavljene i neprijavljene korisnike pa tako korisničko sučelje razlikuje i definira akcije dopuštene prijavljenim i neprijavljenim korisnicima. Tijekom uporabe, neprijavljeni korisnici isprva pristupaju \textbf{sigurnosnom sloju} koji tijekom uspješne prijave od poslovnog sloja dobiva dva \textit{http-only} kolačića \engl{cookie}. Oba sadržavaju \textit{JSON Web Tokens} (skraćeno JWT) i unutar sebe opisuju osnovne korisnikove podatke. Njihovim primitkom React aplikacija sigurna je da je korisnik uspješno ovjerio svoj identitet i da smije spremiti i koristiti njegove podatke.
+		 	JSON Web Tokens podijeljeni su u tri dijela: \textit{header} dio koji opisuje tip tokena i korišteni kriptografski algoritam, \textit{payload} dio koji sadržava korisničke informacije 
+			i dio s potpisom koji je kriptirani sažetak prva dva dijela. Prvi kolačić šalje se uz svaki prijavljeni korisnički zahtjev, a drugi kolačić koristi se za obnovu prvog kolačića jer vremensko trajanje prvog kolačića vrlo je kratko (dvije minute). Odbijenost korisničkog zahtjeva zbog vremenskog isteka prvog kolačića ispravlja se pomoću \textit{Axios Response Interceptor} funkcionalnosti koja šalje novi zahtjev za obnovu kolačića s drugim kolačićem. U slučaju odbijenosti produljenja JWT kolačića korisnik se odjavljuje dok u slučaju produljenja originalan odbijen zahtjev biva opet poslan. Provjera ispravnosti slanih kolačića obrađuje se unutar poslovnog sloja. Kombinacija korištenja JWT kolačića i provjera podataka spremljenih unutar lokalnog spremnika internetskog preglednika tijekom korisničke promjene stranica unutar usmjeravateljskog sloja osiguravaju ispravno raspoznavanje prijavljenih korisnika i neprijavljenih korisnika.
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=\linewidth]{pictures/prikazi/AxiosInterceptor.png}
+				\caption{Primjer korištenja Axios Interceptor funkcionalnosti.}
+				\label{fig:axiosinterceptor}
+			\end{figure}
+		
+			\textbf{Usmjeravateljski sloj} koristi React Router tehnologiju koja (uz povratnu informaciju sigurnosnom sloju) preusmjerava korisnike na tražene stranice. \\
+			Poslovna logika aplikacije definirana korisničkim zahtjevima obrađena je unutar \textbf{sloja logike aplikacije}. Sloj logike aplikacije uvelike koristi enkapsuliranu prirodu React komponenata. Svaka komponenta interno pohranjuje svoj izgled i funkcionalnost, a one variraju od posebnih gumbiju pa sve do tablica s rješenjima. Unutar ovog sloja zahtjevi usmjereni prema Judge0 izvršitelju slani su tijekom provjere korisničkog rješenja zadatka. \\
+			U konačnici, \textbf{podatkovni sloj} koristi Axios biblioteku za slanje zahtjeva te React Reducer funkcionalnost Reacta za strukturirano spremanje i upravljanje podacima unutar React aplikacije.
 			
-			\subsubsection{Implementacija poslovnog sloja}
+	 		\subsubsection{Implementacija poslovnog sloja}
+	 		Poslovni sloj Codeflow aplikacije sastoji se od internetskog poslužitelja pisanog Java programskim jezikom uz pomoć Spring radnog okvira. Analogno prezentacijskom sloju, podijeljen je na interne slojeve radi kvalitetnije strutkure. Slojevi po redu su: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{servisni sloj} i \textbf{podatkovni sloj}. Semantički gledano, skup slojeva bez sigurnosnog sloja podliježe raspodjeli koju predlaže Spring radni okvir.\\
+	 		Unutar \textbf{sigurnosnog sloja} dodan je poseban \textit{JwtFilter} koji služi za provjeru JWT kolačića spomenutih unutar implementacije prezentacijskog sloja. U slučaju neispravnog JWT kolačića unutar zahtjeva koji pristupa zastićenom resursu, zahtjev biva odbijen te niti ne pristiže na usmjeravateljski sloj.
 			
 			\subsubsection{Implementacija podatkovnog sloja}
 	
