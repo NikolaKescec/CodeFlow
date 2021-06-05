@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/programmer")
-public class UserController {
+public class ProgrammerController {
 
     @Autowired
     private JwtUtil jwtTokenUtil;
