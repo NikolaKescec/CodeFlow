@@ -49,9 +49,6 @@ public class Programmer extends TimeAndUser{
     @OneToMany(mappedBy = "notified", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     private List<Notification> notifications;
 
-    @ManyToMany
-    private Set<ProgrammerCategory> programmerCategories;
-
     public Programmer() {
     }
 
@@ -75,14 +72,6 @@ public class Programmer extends TimeAndUser{
         this.email = email;
         this.password = password;
         this.role = role;
-    }
-
-    public Set<ProgrammerCategory> getProgrammerCategories() {
-        return programmerCategories;
-    }
-
-    public void setProgrammerCategories(Set<ProgrammerCategory> programmerCategories) {
-        this.programmerCategories = programmerCategories;
     }
 
     public Integer getTaskPoints() {

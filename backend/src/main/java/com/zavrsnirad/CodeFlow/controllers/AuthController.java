@@ -1,7 +1,6 @@
 package com.zavrsnirad.CodeFlow.controllers;
 
 import com.zavrsnirad.CodeFlow.domain.Programmer;
-import com.zavrsnirad.CodeFlow.domain.RefreshToken;
 import com.zavrsnirad.CodeFlow.dto.mappers.MapperUser;
 import com.zavrsnirad.CodeFlow.dto.req.AuthReq;
 import com.zavrsnirad.CodeFlow.service.ProgrammerService;
@@ -49,14 +48,6 @@ public class AuthController {
         final Programmer programmer = programmerService.findByUsername(authRequest.getUsername());
         final String jwt = jwtTokenUtil.generateToken(programmer, 120);
 
-        RefreshToken newRefreshToken;
-
-        // TODO: check and add token
-        /*RefreshToken oldRefreshToken = refreshTokenService.retrieveRefreshToken(programmer);
-        if(oldRefreshToken == null)
-            newRefreshToken = refreshTokenService.addRefreshToken(programmer);
-        else
-            newRefreshToken = refreshTokenService.changeRefreshToken(programmer);*/
         final String refreshToken = jwtTokenUtil.generateToken(programmer, 3600*24*1000);
 
         setCookies(refreshToken, jwt, response, 120, 3600*24*1000);
