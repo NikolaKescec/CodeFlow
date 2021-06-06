@@ -48,6 +48,6 @@
 \contentsline {section}{\numberline {6.10}Stvaranje zadatka}{38}{section.6.10}%
 \contentsline {chapter}{\numberline {7}Budući razvitak}{45}{chapter.7}%
 \contentsline {subsubsection}{Nadogradnje}{45}{section*.57}%
-\contentsline {subsubsection}{Unaprijeđenja}{45}{section*.58}%
+\contentsline {subsubsection}{Unaprjeđenja}{45}{section*.58}%
 \contentsline {chapter}{\numberline {8}Zaključak}{47}{chapter.8}%
 \contentsline {chapter}{Literatura}{48}{chapter*.59}%
