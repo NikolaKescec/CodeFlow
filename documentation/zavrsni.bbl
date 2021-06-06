@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -50,6 +50,12 @@
 \emph{{Material-UI, Getting Started}}.
 \newblock Material-UI, 10.6.2021.
 \newblock URL \url{https://material-ui.com/getting-started/installation/}.
+
+\bibitem[Moz(10.6.2021)]{websocket2021}
+\emph{{WebSocket}}.
+\newblock Mozilla, 10.6.2021.
+\newblock URL
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API}.
 
 \bibitem[Rea(10.6.2021)]{react-router2021}
 \emph{{React Router}}.

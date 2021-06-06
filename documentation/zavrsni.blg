@@ -5,44 +5,44 @@ Reallocating 'name_of_file' (item size: 1) to 11 items.
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 The style file: fer.bst
 Database file #1: literatura.bib
-You've used 15 entries,
+You've used 16 entries,
             2773 wiz_defined-function locations,
-            656 strings with 5997 characters,
-and the built_in function-call counts, 3723 in all, are:
-= -- 435
+            660 strings with 6091 characters,
+and the built_in function-call counts, 3969 in all, are:
+= -- 464
 > -- 0
 < -- 0
-+ -- 15
++ -- 16
 - -- 0
-* -- 257
-:= -- 430
-add.period$ -- 45
-call.type$ -- 15
-change.case$ -- 45
-chr.to.int$ -- 15
-cite$ -- 30
-duplicate$ -- 255
-empty$ -- 436
+* -- 274
+:= -- 458
+add.period$ -- 48
+call.type$ -- 16
+change.case$ -- 48
+chr.to.int$ -- 16
+cite$ -- 32
+duplicate$ -- 272
+empty$ -- 465
 format.name$ -- 0
-if$ -- 871
+if$ -- 929
 int.to.chr$ -- 1
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 83
+newline$ -- 88
 num.names$ -- 0
-pop$ -- 120
+pop$ -- 128
 preamble$ -- 1
-purify$ -- 45
+purify$ -- 48
 quote$ -- 0
-skip$ -- 166
+skip$ -- 177
 stack$ -- 0
-substring$ -- 60
-swap$ -- 30
+substring$ -- 64
+swap$ -- 32
 text.length$ -- 0
-text.prefix$ -- 15
+text.prefix$ -- 16
 top$ -- 0
-type$ -- 165
+type$ -- 176
 warning$ -- 0
 while$ -- 0
 width$ -- 0
-write$ -- 187
+write$ -- 199
