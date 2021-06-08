@@ -229,11 +229,11 @@
 			\end{figure}
 			
 			\subsubsection{Spring Security}
-			Spring Security je dodatak Spring radnom okviru koji transparentno omogućava autentifikaciju \engl{authentication} i autorizaciju \engl{authorization} dijelovima razvijene aplikacije (proces je prikazan na slici \ref{fig:springsec}). Autentifikacija je proces provjere identiteta korisnika, a autorizacija je provjera prava korištenja resursa kojeg korisnik traži. Spring Security te funkcionalnosti ostvaruje korištenjem lanaca filtera \engl{filter chains} od kojih svaki provjerava određene dijelove korisničkog zahtjeva.
+			Spring Security je dodatak Spring radnom okviru koji transparentno omogućava autentifikaciju \engl{authentication} (proces je prikazan na slici \ref{fig:springsec}) i autorizaciju \engl{authorization} dijelovima razvijene aplikacije . Autentifikacija je proces provjere identiteta korisnika, a autorizacija je provjera prava korištenja resursa kojeg korisnik traži. Spring Security te funkcionalnosti ostvaruje korištenjem lanaca filtera \engl{filter chains} od kojih svaki provjerava određene dijelove korisničkog zahtjeva.
 			\begin{figure}[H]
 				\centering
 				\includegraphics[width=\linewidth]{pictures/prikazi/SpringSecurity.png}
-				\caption{Prikaz procesa autentifikacije i autorizacije unutar Spring Securityja.}
+				\caption{Prikaz procesa autentifikacije unutar Spring Securityja.}
 				\label{fig:springsec}
 			\end{figure}
 			
@@ -244,13 +244,13 @@
 			Naposlijetku, Spring Boot modul je Spring radnog okvira koji smanjuje broj konfiguracija Springa potrebnih za rad. Također uključuje početne ovisnosti, poput integriranog poslužitelja.
 			\subsection{Hibernate}
 			\label{subsec:hibernate}
-			Hibernate je radni okvir koji pruža automatsko preslikavanje razreda definiranih u programskog kodu u odgovarajuće relacije relacijske baze podataka. Takav tip radnih okvira znan je još kao ORM \engl{object-relational mapping} radni okviri. Implementiranje JPA specifikacije čini ga kompatibilnim sa Spring Data JPA proširenjem (\ref{subsubsec:spingdatajpa}), a njegova se funkcija može shvatiti kao most između poslovnog sloja i podatkovnog sloja aplikacije. Funkcionalnost preslikavanja između različitih oblika podataka (programskih razreda i relacija) ostvaruje generiranjem i izvršavanjem SQL upita.
+			Hibernate je radni okvir koji pruža automatsko preslikavanje razreda definiranih u programskog kodu u odgovarajuće relacije relacijske baze podataka. Takav tip radnih okvira znan je još kao ORM \engl{object-relational mapping} radni okviri. Implementiranje JPA specifikacije čini ga kompatibilnim sa Spring Data JPA proširenjem (\ref{subsubsec:spingdatajpa}), a njegova se funkcija može shvatiti kao most između baze podataka \engl{database} i podatkovnog sloja aplikacije. Funkcionalnost preslikavanja između različitih oblika podataka (programskih razreda i relacija) ostvaruje generiranjem i izvršavanjem SQL upita.
 	
 	
 		\section{Tehnologije podatkovnog sloja}
-		Tehnologije podatkovnog sloja sastoje od sustava za upravljanja bazom podataka \engl{database} (skraćeno SUBP, engl. \textit{RDBMS}). Interakcija s tim sustavima odvija se korištenjem SQL-a \engl{Structured Query Language}.
+		Unutar podatkovnog sloja koristi se relacijska baza podataka. Interakcija s njom odvija se korištenjem SQL-a \engl{Structured Query Language}.
 			\subsection{PostgreSql}
-			PostgreSql najnapredniji je sustav za upravljanje bazom podataka otvorena koda. Dizajniran je za obradu i pohranu velike količine podataka. Popularan je i zbog toga ga podržavaju mnogi ORM radni okviri (poput Hibernatea).
+			PostgreSql je sustav za upravljanje bazom podataka otvorena koda. Dizajniran je za obradu i pohranu velike količine podataka. Popularan je i zbog toga ga podržavaju mnogi ORM radni okviri poput Hibernatea.
 			\section{Pomoćne tehnologije}
 			Tehnologije koje se same po sebi ne mogu svrstati ni u jedan od navedenih glavnih slojeva spomenute su u ovom potpoglavlju.
 			\subsection{Axios}
@@ -262,7 +262,7 @@
 				\label{fig:axios}
 			\end{figure}
 			\subsection{Judge0}
-			Judge0 izvršitelj je programskoga koda otvorena koda kojeg Codeflow aplikacija koristi za provjeravanje rješenja pisanih za korisničke programske zadatke. Skalabilne je arhitekture te podržava preko 60 programskih jezika. Uz podršku prevođenja i izvođenja jedno datotečnih rješenja, Judge0 podržava prevođenje te izvođenje programskih rješenja sastojanih od više datoteka. Podržava konfigurabilnost korištenih prevoditelja, postavljanje argumenata komandne linije te još mnogo drugih funkcionalnosti.
+			Judge0 je izvršitelj programskoga koda otvorena koda kojeg Codeflow aplikacija koristi za provjeravanje rješenja pisanih za korisničke programske zadatke. Skalabilne je arhitekture te podržava preko 60 programskih jezika. Uz podršku prevođenja i izvođenja jednodatotečnih rješenja, Judge0 podržava prevođenje te izvođenje programskih rješenja koja se sastoje od više datoteka. Omogućava konfigurirnje postavki korištenih prevoditelja, postavljanje argumenata komandne linije te još mnogo drugih funkcionalnosti.
 			\subsection{Git}
 			Git je sustav za upravljanje izvornim kodom distribuiranog tipa otvorena koda \engl{distributed version control}. Upravljanje izvornim kodom vrši se pohranjivanjem koda unutar Git repozitorija koji mogu biti udaljeni ili lokalni. Udaljeni repozitoriji \engl{remote} najčešće su smješteni unutar nekog oblaka \engl{cloud} na nekoj Git platformi (primjer takve platforme je GitHub). Budući da je sustav distribuiran, lokalni repozitoriji sadržavaju svu povijest programskog koda koju i udaljeni. Inicijalne promjene izvornog koda događaju se unutar lokalnog repozitorija te tek nakon što se spreme unutar lokalnog repozitorija mogu se poslati na udaljeni repozitorij. Korištenje Gita osigurava strukturirano i kvalitetno praćenje te spremanje projekta.
 	
@@ -293,16 +293,16 @@
 			\end{tabu}
 		\end{table}
 		
-		Entitet \textbf{programer} unutar baze podataka definiran je relacijom programer. Opisuje korisnika aplikacije Codeflow te kao takav centralni je entitet. Tijekom registracije korisnika stvara se te pohranjuje sve korisničke informacije. Vlastiti atributi su mu programmer\_id, username, email, password, role, taskpoints i solutionpoints. Role atribut je dodan, ali unutar ove verzije različite korisničke uloge nisu implementirane.
+		Entitet \textbf{programer} unutar baze podataka opisuje korisnika aplikacije Codeflow te predstavlja centralni entitet. Stvara se tijekom registracije korisnika te pohranjuje sve korisničke informacije. Vlastiti atributi su mu programmer\_id, username, email, password, role, taskpoints i solutionpoints. Role atribut je dodan, ali unutar ove verzije različite korisničke uloge nisu implementirane.
 		\begin{table}[H]
-			\caption{Programmer}
+			\caption{Entitet programmer}
 			\label{tbl:programmer}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{programmer\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{programmer\_id} & integer & surogatni primarni ključ\\ \hline
 				username & varchar(50) & korisnikovo korisničko ime, mora biti jedinstveno\\ \hline
 				email & varchar(100) & korisnikov e-mail, mora biti jedinstven\\ \hline
 				password & varchar(100) & \textit{hash} korisnikove lozinke\\ \hline
@@ -313,16 +313,16 @@
 			\end{tabu}
 		\end{table}
 		
-		Entitet \textbf{task} unutar baze podataka definiran je relacijom task. Opisuje zadatak kojeg je korisnik napravio. Tijekom stvaranja zadatka spremaju se novi podaci unutar relacije task, ali i unutar test\_case relacije jer ti podaci su neophodni za dinamičku provjeru ispravnosti zadatka. Vlastiti atributi task entiteta su task\_id, author\_id, task\_text, author\_solution\_id, input\_format i output\_format.
+		Entitet \textbf{task} unutar baze opisuje zadatak kojeg je korisnik napravio. Tijekom stvaranja zadatka spremaju se novi podaci unutar entiteta task, ali i unutar test\_case entiteta jer ti podaci su neophodni za dinamičku provjeru ispravnosti zadatka. Vlastiti atributi task entiteta su task\_id, author\_id, task\_text, author\_solution\_id, input\_format i output\_format.
 		\begin{table}[H]
-			\caption{Task}
+			\caption{Entitet task}
 			\label{tbl:task}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{task\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{task\_id} & integer & surogatni primarni ključ\\ \hline
 				author\_id & integer & strani ključ autora zadatka\\ \hline
 				task\_text & text & tekst zadatka\\ \hline
 				author\_solution\_id & integer & autorovo rješenje (nije nužno)\\ \hline
@@ -333,16 +333,16 @@
 		\end{table}
 	
 
-		Entitet \textbf{solution} unutar baze podataka definiran je relacijom solution. Opisuje rješenje  kojeg je korisnik napravio. Vlastiti atributi solution entiteta su solution\_id, code, task\_id, author\_id, task\_text i language\_id.
+		Entitet \textbf{solution} unutar baze podataka opisuje rješenje  kojeg je korisnik napravio. Vlastiti atributi solution entiteta su solution\_id, code, task\_id, author\_id, task\_text i language\_id.
 		\begin{table}[H]
-			\caption{Solution}
+			\caption{Entitet solution}
 			\label{tbl:solution}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{solution\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{solution\_id} & integer & surogatni primarni ključ\\ \hline
 				code & text & kod rješenja\\ \hline
 				task\_id & integer & strani ključ zadatka rješenja\\ \hline
 				author\_id & integer & strani ključ autora zadatka\\ \hline
@@ -351,16 +351,16 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{notification} unutar baze podataka definiran je relacijom notification. Opisuje obavijest koja biva poslana korisniku tijekom nekog događaja unutar aplikacije. Vlastiti atributi notification entiteta su notification\_id, notification\_text, type, notifier\_id, notificator\_id. Tipovi obavijesti praćeni su jer ovisno o tipu obavijesti način prikazivanja vijesti koja treba biti prikazana varira.
+		Entitet \textbf{notification} unutar baze podataka opisuje obavijest koja biva poslana korisniku tijekom nekog događaja unutar aplikacije. Vlastiti atributi notification entiteta su notification\_id, notification\_text, type, notifier\_id, notificator\_id. Prate se tipovi obavijesti jer ovisno o njima vizualno se razlikuju prikazane notifikacije.
 		\begin{table}[H]
-			\caption{Notification}
+			\caption{Entitet notification}
 			\label{tbl:notification}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{notification\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{notification\_id} & integer & surogatni primarni ključ\\ \hline
 				notification\_text & text & sadržaj obavijesti\\ \hline
 				type & varchar(100) & tip obavijesti\\ \hline
 				notifier\_id & integer & strani ključ korisnika koji je uzrokovao obavijest\\ \hline
@@ -369,68 +369,67 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{language} unutar baze podataka definiran je relacijom language. Opisuje jezik koji je korisniku dostupan tijekom stvaranja zadataka kao podržani jezik, a korisniku koji rješava, ako je ponuđen, mogući jezik rješenja. Vlastiti atributi language entiteta su language\_id, language, imports, main, judgeId. Atribut judgeId koristi se tijekom interakcije aplikacije s Judge0 izvršiteljem računskog koda. 
+		Entitet \textbf{language} unutar baze podataka opisuje jezik koji je korisniku dostupan tijekom stvaranja zadataka kao podržani jezik, a korisniku koji rješava, ako je ponuđen, mogući jezik rješenja. Vlastiti atributi language entiteta su language\_id, language, imports, main, judgeId. Atribut judgeId koristi se tijekom interakcije aplikacije s Judge0 izvršiteljem računskog koda. 
 		\begin{table}[H]
-			\caption{Language}
+			\caption{Entitet language}
 			\label{tbl:language}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{language\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{language\_id} & integer & surogatni primarni ključ\\ \hline
 				language & varchar(50) & ime programskog jezika\\ \hline
-				imports & text & dodijeljena uključenja\\ \hline
+				imports & text & uvezeni dijelovi koda\\ \hline
 				main & text & početni programski kod\\ \hline
-				judgeId & bigint & signalizira jedinstveni identifikator programskog jezika unutar sustava Judge0\\ \hline
+				judgeId & bigint & jedinstveni identifikator programskog jezika unutar sustava Judge0\\ \hline
 				\tabucline[1.75pt]{-}
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{test case} unutar baze podataka definiran je relacijom test\_case. Opisuje testni slučaj koji korisnik zadaje tijekom izrade zadatka, a koji se koristi kod dinamičke provjere zadatka. Vlastiti atributi test case entiteta su test\_case\_id, task\_id, input i output. 
+		Entitet \textbf{test\_case} unutar baze opisuje testni slučaj koji korisnik zadaje tijekom izrade zadatka, a koji se koristi kod dinamičke provjere zadatka. Vlastiti atributi test\_case entiteta su test\_case\_id, task\_id, input i output. 
 		\begin{table}[H]
-			\caption{Test Case}
+			\caption{Entitet test\_case}
 			\label{tbl:testcase}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{test\_case\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{test\_case\_id} & integer & surogatni primarni ključ\\ \hline
 				task\_id & integer & strani ključ zadatka kojem testni slučaj pripada\\ \hline
-				imports & text & dodijeljena uključenja\\ \hline
 				input & text & ulaz testnog slučaja\\ \hline
 				output & text & izlaz testnog slučaja\\ \hline
 				\tabucline[1.75pt]{-}
 			\end{tabu}
 		\end{table}
 		
-		Entitet \textbf{written in} unutar baze podataka definiran je relacijom written\_int. On j spojna relacija koja povezuje N:N odnos između relacija language i task. Vlastiti atributi written in entiteta su written\_in\_id, task\_id i language\_id. 
+		Entitet \textbf{written\_in} unutar baze podataka je spojna relacija kojom se ostvaruje NN odnos između entiteta language i task. Vlastiti atributi written\_in entiteta su written\_in\_id, task\_id i language\_id. 
 		\begin{table}[H]
-			\caption{Written in}
+			\caption{Entitet written\_in}
 			\label{tbl:writtenin}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{written\_in\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{written\_in\_id} & integer & surogatni primarni ključ\\ \hline
 				task\_id & integer & strani ključ zadatka\\ \hline
 				language\_id & integer & strani ključ jezika\\ \hline
 				\tabucline[1.75pt]{-}
 			\end{tabu}
 		\end{table}
 		
-		Entitet \textbf{solution grading} unutar baze podataka definiran je relacijom solution\_grading. Relacija predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi solution grading entiteta su solution\_grading\_id, grade, grader\_id i solution\_id. 
+		Entitet \textbf{solution\_grading} unutar baze podataka ppredstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi solution\_grading entiteta su solution\_grading\_id, grade, grader\_id i solution\_id. 
 		\begin{table}[H]
-			\caption{Solution grading}
+			\caption{Entitet solution\_grading}
 			\label{tbl:solutiongrading}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{solution\_grading\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{solution\_grading\_id} & integer & surogatni primarni ključ\\ \hline
 				grade & integer & ocjena\\ \hline
 				grader\_id & integer & strani ključ korisnika ocjenjivača\\ \hline
 				solution\_id & integer & strani ključ ocjenjenog rješenja\\ \hline
@@ -438,16 +437,16 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{task grading} unutar baze podataka definiran je relacijom task\_grading. Relacija predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi task grading entiteta su task\_grading\_id, grade, grader\_id i task\_id. 
+		Entitet \textbf{task\_grading} unutar baze podataka predstavlja ocjene povezane uz jedan programski zadatak. Vlastiti atributi task\_grading entiteta su task\_grading\_id, grade, grader\_id i task\_id. 
 		\begin{table}[H]
-			\caption{Task grading}
+			\caption{Entitet task \_rading}
 			\label{tbl:taskgrading}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{task\_grading\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{task\_grading\_id} & integer & surogatni primarni ključ\\ \hline
 				grade & integer & ocjena\\ \hline
 				grader\_id & integer & strani ključ korisnika ocjenjivača\\ \hline
 				task\_id & integer & strani ključ ocjenjenog zadatka\\ \hline
@@ -455,16 +454,16 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{solution comment} unutar baze podataka definiran je relacijom solution\_comment. Relacija predstavlja komentare povezane uz jedno programsko rješenje. Vlastiti atributi solution comment entiteta su solution\_comment\_id, comment, commenter\_id i task\_id. 
+		Entitet \textbf{solution\_comment} unutar baze podataka predstavlja komentare povezane uz jedno programsko rješenje. Vlastiti atributi solution\_comment entiteta su solution\_comment\_id, comment, commenter\_id i task\_id. 
 		\begin{table}[H]
-			\caption{Solution comment}
+			\caption{Entitet solution\_comment}
 			\label{tbl:solutioncomment}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{solution\_comment\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{solution\_comment\_id} & integer & surogatni primarni ključ\\ \hline
 				comment & text & komentar\\ \hline
 				solution\_id & integer & strani ključ komentiranog rješenja\\ \hline
 				commenter\_id & integer & strani ključ korisnika komentatora\\ \hline
@@ -472,16 +471,16 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{task comment} unutar baze podataka definiran je relacijom task\_comment. Relacija predstavlja komentare povezane uz jedan programski zadatak. Vlastiti atributi task comment entiteta su task\_comment\_id, comment, grader\_id i commenter\_id. 
+		Entitet \textbf{task\_comment} unutar baze podataka ppredstavlja komentare povezane uz jedan programski zadatak. Vlastiti atributi task\_comment entiteta su task\_comment\_id, comment, grader\_id i commenter\_id. 
 		\begin{table}[H]
-			\caption{Solution comment}
+			\caption{Entitet task\_comment}
 			\label{tbl:taskcomment}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{task\_comment\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{task\_comment\_id} & integer & surogatni primarni ključ\\ \hline
 				comment & text & komentar\\ \hline
 				task\_id & integer & strani ključ komentiranog zadatka\\ \hline
 				commenter\_id & integer & strani ključ korisnika komentatora\\ \hline
@@ -489,16 +488,16 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{follower} unutar baze podataka definiran je relacijom follower. Unutar ove relacije opisana su sva pratiteljstva između korisnika. Vlastiti atributi follower entiteta su followers\_id, follower i pending. Pending atribut predstavlja provjeru prihvaćenosti pratiteljstva. Tek ako je pending atribut postavljen na \textit{false} pratiteljstvo se smatra punopravnim.
+		Entitet \textbf{follower} unutar baze podataka opisuje pratiteljstva između korisnika. Vlastiti atributi follower entiteta su followers\_id, follower i pending. Pending atribut označava je li prihvaćeno pratiteljstvo. Tek ako je pending atribut postavljen na \textit{false} pratiteljstvo se smatra punopravnim.
 		\begin{table}[H]
-			\caption{Follower}
+			\caption{Entitet follower}
 			\label{tbl:follower}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
 				\tabucline[1.75pt]{-}
 				\textbf{Ime atributa} & \textbf{Tip} & \textbf{Opis}\\ 				
 				\tabucline[1.75pt]{-}
-				\textbf{followers\_id} & serial & surogatni primarni ključ\\ \hline
+				\textbf{followers\_id} & integer & surogatni primarni ključ\\ \hline
 				programmer & text & strani ključ praćenog korisnika\\ \hline
 				follower & integer & strani ključ pratitelja\\ \hline
 				pending & boolean & provjera punopravnosti pratiteljstva\\ \hline
@@ -507,11 +506,11 @@
 		\end{table}
 		
 		\section{Implementacija rješenja}
-		Implementacija Codeflow aplikacije strukturirana je prema modernoj troslojnoj arhitekturi (spomenuta tijekom početka poglavlja \ref{cha:tehnologije}). Prezentacijski sloj (znan još pod imenom \textit{frontend}), poslovni sloj i podatkovni sloj (znani još kao i \textit{backend}) jasno su vidljivi tijekom pogleda na arhitekturu aplikacije.
+		Implementacija Codeflow aplikacije strukturirana je prema modernoj troslojnoj arhitekturi (spomenuta tijekom početka poglavlja \ref{cha:tehnologije}). Prezentacijski sloj \engl{frontend}, poslovni sloj i podatkovni sloj  \engl{backend} istaknuti su na slici \ref{fig:arh} arhitekture aplikacije.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/prikazi/Arhitektura.png}
-			\caption{Arhitektura Codeflow aplikacije s naglašenim bitnijim tehnologijama svakog sloja.}
+			\caption{Arhitektura Codeflow aplikacije s naglašenim bitnijim tehnologijama i interakcijama svakog sloja.}
 			\label{fig:arh}
 		\end{figure}
 	
