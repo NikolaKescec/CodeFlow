@@ -28,11 +28,11 @@
 	\chapter{Uvod}
 	Sveprisutnost računalnih sustava tijekom početka dvadesetprvog stoljeća uveliko je doprinijela većem porastu zanimacije populacije prema svemu što je povezano s računalima.  Naravno, to podrazumijeva i  \textbf{programiranje}. Programiranje možemo opisati kao proces opisivanja algoritma nekim od programskih jezika.\\
 	Iako su već početkom tisućljeća računalni sustavi bili poprilično sveprisutni, neusporedivo je koliko je njihova zastupljenost u zadnjih dva desetljeća porasla. Porastom njihove zastupljenosti porasla je potražnja za računalnom sklopovskom podrškom \engl{hardware}, a s njom i potreba za kvalitetnom programskom podrškom \engl{software}. Kvalitetna programska podrška rezultat je godina učenja, razmatranja i pisanja programskog koda, a kao i svaku drugu vještinu potrebno ju je usavršavati. Usavršavanje programiranja je moguće na mnogo načina, a jedan od popularnijih načina jest rješavanje programskih zadataka. Naravno, sva rješenja programskih zadataka nisu jednako kvalitetna stoga se nerijetko rješenja rangiraju po kvaliteti sa svrhom isticanja znanja autora kvalitetnog rješenja. Događanja na kojima se upravo takav pristup prakticira i cijeni su programerska natjecanja \engl{competitive programming competitions}.\\
-	Makar su takva događanja izrazito bogat izvor programerskog znanja, neiskusne populacije zainteresirane programiranjem teško da će svojevoljno ući na opisana događanja. Razlog tome je razlika u količini znanja između njih i regularnih sudionika jer dobar dio tih sudionika već je vrlo vješt. Stoga je postojanje internetskih stranica koje pružaju uvid u programiranje i rješavanje programskih zadataka dobrodošla novost. Ipak, često riječ vrlo iskusnog programera neiskusnom programeru može biti neprocjenjiva. Iz tog razloga zanimljiv je spoj društevnih mreža \engl{social networks} i stranica koje pružaju mogućnost rješavanja programskih zadataka. Osobi koju pisanje programskog koda interesira stranica pruža nekompetitivnu mogućnost rješavanja zadataka, a iskusnom programeru mogućnost da kroz rješavanje i objašnjavanje svojih rješenja produbi i utemelji svoja znanja. Upravo je \textbf{Codeflow}, internetska aplikacija opisanih svojstava, tema ovog završnog rada.
+	Makar su takva događanja izrazito bogat izvor programerskog znanja, neiskusne populacije zainteresirane programiranjem teško da će svojevoljno ući na opisana događanja. Razlog tome je razlika u količini znanja između njih i regularnih sudionika jer dobar dio tih sudionika već je vrlo vješt. Stoga je postojanje internetskih stranica koje pružaju uvid u programiranje i rješavanje programskih zadataka dobrodošla novost. Ipak, često riječ vrlo iskusnog programera neiskusnom programeru može biti neprocjenjiva. Iz tog razloga zanimljiv je spoj društvenih mreža \engl{social networks} i stranica koje pružaju mogućnost rješavanja programskih zadataka. Osobi koju pisanje programskog koda interesira stranica pruža nekompetitivnu mogućnost rješavanja zadataka, a iskusnom programeru mogućnost da kroz rješavanje i objašnjavanje svojih rješenja produbi i utemelji svoja znanja. Upravo je \textbf{Codeflow}, internetska aplikacija opisanih svojstava, tema ovog završnog rada.
 	
 	\chapter{Korisnički zahtjevi}
 	\label{cha:zahtjevi}
-	Internetska stranica s elementima društevnih mreža koja omogućava zadavanje i rješavanje programskih zadataka omogućava korisniku ispunjavanje mješavine elementarnih \textbf{funkcionalnih} i \textbf{nefunkcionalnih} zahtjeva koje stranice oba navedena tipa ispunjavaju.
+	Internetska stranica s elementima društvenih mreža koja omogućava zadavanje i rješavanje programskih zadataka omogućava korisniku ispunjavanje mješavine elementarnih \textbf{funkcionalnih} i \textbf{nefunkcionalnih} zahtjeva koje stranice oba navedena tipa ispunjavaju.
 	
 		\section{Funkcionalni zahtjevi}
 		Funkcionalni zahtjevi podrazumijevaju usluge koje sustav mora pružati te kako će reagirati na različite ulazne poticaje. Drugim riječima, funkcionalni zahtjevi definiraju što internetska stranica može učiniti za određenog korisnika i što određeni korisnici mogu učiniti na njoj.
@@ -174,7 +174,7 @@
 		\end{figure}
 				
 			\subsection{React i React Router}
-			React je biblioteka kojoj je svrha izrada korisničkih sučelja \engl{user interface}. Otvorenog je koda te ga razvijaju i održavaju različite tvrtke (od kojih je najbitnija Facebook jer ona ga je zapravo i začela) i različiti individualni programeri. Prva verzija Reacta na tržište je izašla 2013. godine, a od tada njegova popularnost kontinuirano raste. Reactov fokus jest razvoj dinamičnih i lagano skalabilnih korisničkih sučelja. Skalabilnost \engl{scalability} termin je koji definira mogućnost uspješnog mijenjanja veličine sustava, a da promjena veličine ne utječe na implentirane funkcionalnosti. React omogućuje skalabilnost  putem komponentno usmjerenog razvoja, što znači da svaka razvijana funkcionalnost enkapsulira unutar sebe svu logiku, izgled i podatke koji su potrebni za njezin rad. Sve komponente mogu unutar sebe sadržavati druge komponente, tako ostvarujući kompoziciju \engl{composition} komponenata, a njenim korištenjem razvijanje složenih korisničkih sučelja postaje jasno i strukturirano. React biblioteka spomenute komponente koristi za izgradnju konkretnog dokumenta objektnog modela koji kasnije biva prikazivan korisniku. Kako korisnička interakcija ne bi bila spora, React interno održava posebnu strukturu podataka, virtualni dokument objekt model, koja pamti stanje komponenata. Ako se ikoja komponenta promijeni, React samo promijenjenu komponentu ažurira unutar stvarnog modela objekta dokumenta. Tim pristupom održava responzivnost korisničkog sučelja.\\
+			React je biblioteka kojoj je svrha izrada korisničkih sučelja \engl{user interface}. Otvorenog je koda te ga razvijaju i održavaju različite tvrtke (od kojih je najbitnija Facebook jer ona ga je zapravo i začela) i različiti individualni programeri. Prva verzija Reacta na tržište je izašla 2013. godine, a od tada njegova popularnost kontinuirano raste. Reactov fokus jest razvoj dinamičnih i lagano skalabilnih korisničkih sučelja. Skalabilnost \engl{scalability} termin je koji definira mogućnost uspješnog mijenjanja veličine sustava, a da promjena veličine ne utječe na implementirane funkcionalnosti. React omogućuje skalabilnost  putem komponentno usmjerenog razvoja, što znači da svaka razvijana funkcionalnost enkapsulira unutar sebe svu logiku, izgled i podatke koji su potrebni za njezin rad. Sve komponente mogu unutar sebe sadržavati druge komponente, tako ostvarujući kompoziciju \engl{composition} komponenata, a njenim korištenjem razvijanje složenih korisničkih sučelja postaje jasno i strukturirano. React biblioteka spomenute komponente koristi za izgradnju konkretnog dokumenta objektnog modela koji kasnije biva prikazivan korisniku. Kako korisnička interakcija ne bi bila spora, React interno održava posebnu strukturu podataka, virtualni dokument objekt model, koja pamti stanje komponenata. Ako se ikoja komponenta promijeni, React samo promijenjenu komponentu ažurira unutar stvarnog modela objekta dokumenta. Tim pristupom održava responzivnost korisničkog sučelja.\\
 			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.75]{pictures/prikazi/React.png}
@@ -262,7 +262,7 @@
 				\label{fig:axios}
 			\end{figure}
 			\subsection{Judge0}
-			Judge0 je izvršitelj programskoga koda otvorena koda kojeg Codeflow aplikacija koristi za provjeravanje rješenja pisanih za korisničke programske zadatke. Skalabilne je arhitekture te podržava preko 60 programskih jezika. Uz podršku prevođenja i izvođenja jednodatotečnih rješenja, Judge0 podržava prevođenje te izvođenje programskih rješenja koja se sastoje od više datoteka. Omogućava konfigurirnje postavki korištenih prevoditelja, postavljanje argumenata komandne linije te još mnogo drugih funkcionalnosti.
+			Judge0 je izvršitelj programskoga koda otvorena koda kojeg Codeflow aplikacija koristi za provjeravanje rješenja pisanih za korisničke programske zadatke. Skalabilne je arhitekture te podržava preko 60 programskih jezika. Uz podršku prevođenja i izvođenja jednodatotečnih rješenja, Judge0 podržava prevođenje te izvođenje programskih rješenja koja se sastoje od više datoteka. Omogućava konfiguriranje postavki korištenih prevoditelja, postavljanje argumenata komandne linije te još mnogo drugih funkcionalnosti.
 			\subsection{Git}
 			Git je sustav za upravljanje izvornim kodom distribuiranog tipa otvorena koda \engl{distributed version control}. Upravljanje izvornim kodom vrši se pohranjivanjem koda unutar Git repozitorija koji mogu biti udaljeni ili lokalni. Udaljeni repozitoriji \engl{remote} najčešće su smješteni unutar nekog oblaka \engl{cloud} na nekoj Git platformi (primjer takve platforme je GitHub). Budući da je sustav distribuiran, lokalni repozitoriji sadržavaju svu povijest programskog koda koju i udaljeni. Inicijalne promjene izvornog koda događaju se unutar lokalnog repozitorija te tek nakon što se spreme unutar lokalnog repozitorija mogu se poslati na udaljeni repozitorij. Korištenje Gita osigurava strukturirano i kvalitetno praćenje te spremanje projekta.
 	
@@ -293,7 +293,7 @@
 			\end{tabu}
 		\end{table}
 		
-		Entitet \textbf{programer} unutar baze podataka opisuje korisnika aplikacije Codeflow te predstavlja centralni entitet. Stvara se tijekom registracije korisnika te pohranjuje sve korisničke informacije. Vlastiti atributi su mu programmer\_id, username, email, password, role, taskpoints i solutionpoints. Role atribut je dodan, ali unutar ove verzije različite korisničke uloge nisu implementirane.
+		Entitet \textbf{programer} unutar baze podataka opisuje korisnika aplikacije Codeflow te predstavlja centralni entitet. Stvara se tijekom registracije korisnika te pohranjuje sve korisničke informacije. Vlastiti atributi programer entiteta su programmer\_id, username, email, password, role, taskpoints i solutionpoints. Role atribut je dodan, ali unutar ove verzije različite korisničke uloge nisu implementirane.
 		\begin{table}[H]
 			\caption{Entitet programmer}
 			\label{tbl:programmer}
@@ -516,9 +516,9 @@
 	
 			\subsubsection{Implementacija prezentacijskog sloja}
 			Prezentacijski sloj definira korisničko sučelje aplikacije te je za njegovu izradu korišten React. React aplikacija prezentacijskog sloja sastoji se od jedanaest stranica od kojih svaka predstavlja određeni pogled definiran korisničkim zahtjevima, a same stranice koriste i dijele manje komponente. Radi bolje strukturiranog razvoja, React aplikacija dodatno je podijeljena je u četiri interna sloja: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{sloj logike aplikacije} i \textbf{podatkovni sloj}.\\
-			Korisnički zahtjevi razlikuju prijavljene i neprijavljene korisnike pa tako korisničko sučelje razlikuje i definira akcije dopuštene prijavljenim i neprijavljenim korisnicima. Tijekom uporabe, neprijavljeni korisnici isprva pristupaju \textbf{sigurnosnom sloju} koji tijekom uspješne prijave od poslovnog sloja dobiva dva \textit{http-only} kolačića \engl{cookie}. Oba sadržavaju \textit{JSON Web Tokens} (skraćeno JWT) i unutar sebe opisuju osnovne korisnikove podatke. Njihovim primitkom React aplikacija sigurna je da je korisnik uspješno ovjerio svoj identitet i da smije spremiti i koristiti njegove podatke.
-		 	JSON Web Tokens podijeljeni su u tri dijela: \textit{header} dio koji opisuje tip tokena i korišteni kriptografski algoritam, \textit{payload} dio koji sadržava korisničke informacije 
-			i dio s potpisom koji je kriptirani sažetak prva dva dijela. Prvi kolačić šalje se uz svaki prijavljeni korisnički zahtjev, a drugi kolačić koristi se za obnovu prvog kolačića jer vremensko trajanje prvog kolačića vrlo je kratko (dvije minute). Odbijenost korisničkog zahtjeva zbog vremenskog isteka prvog kolačića ispravlja se pomoću \textit{Axios Response Interceptor} funkcionalnosti koja šalje novi zahtjev za obnovu kolačića s drugim kolačićem. U slučaju odbijenosti produljenja JWT kolačića korisnik se odjavljuje dok u slučaju produljenja originalan odbijen zahtjev biva opet poslan. Provjera ispravnosti slanih kolačića obrađuje se unutar poslovnog sloja. Kombinacija korištenja JWT kolačića i provjere spremljenih podataka unutar lokalnog spremnika internetskog preglednika tijekom korisničke promjene stranica unutar usmjeravateljskog sloja osiguravaju ispravno raspoznavanje prijavljenih korisnika i neprijavljenih korisnika.
+			Korisnički zahtjevi razlikuju prijavljene i neprijavljene korisnike pa tako korisničko sučelje razlikuje i definira akcije dopuštene prijavljenim i neprijavljenim korisnicima. Tijekom uporabe, neprijavljeni korisnici isprva pristupaju \textbf{sigurnosnom sloju}. Sigurnosni sloj nakon uspješne prijave od poslovnog sloja dobiva dva \textit{http-only} kolačića \engl{cookie}. Oba sadržavaju \textit{JSON Web Tokens} (skraćeno JWT) i unutar sebe opisuju osnovne korisnikove podatke. Njihovim primitkom React aplikacija sigurna je da je korisnik uspješno ovjerio svoj identitet i da smije spremiti i koristiti njegove podatke.
+		 	\textit{JSON Web Tokens} podijeljeni su u tri dijela: \textit{header} dio koji opisuje tip tokena i korišteni kriptografski algoritam, \textit{payload} dio koji sadržava korisničke informacije 
+			i dio s potpisom koji je kriptirani sažetak prva dva dijela. Prvi kolačić šalje se uz svaki prijavljeni korisnički zahtjev, a drugi kolačić koristi se za obnovu prvog kolačića jer vremensko trajanje prvog kolačića vrlo je kratko (dvije minute). Odbijenost korisničkog zahtjeva zbog vremenskog isteka prvog kolačića ispravlja se pomoću \textit{Axios Response Interceptor} funkcionalnosti koja šalje novi zahtjev za obnovu kolačića s drugim kolačićem. U slučaju odbijanja produljenja JWT kolačića korisnik se odjavljuje dok se u slučaju produljenja originalno odbijen zahtjev ponovno  šalje. Provjera ispravnosti poslanih kolačića obrađuje se unutar poslovnog sloja. Kombinacija korištenja JWT kolačića i provjere spremljenih podataka unutar lokalnog spremnika internetskog preglednika tijekom promjene stranica osiguravaju ispravno raspoznavanje prijavljenih korisnika i neprijavljenih korisnika.
 			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.65]{pictures/prikazi/AxiosInterceptor.png}
@@ -531,7 +531,7 @@
 			U konačnici, \textbf{podatkovni sloj} koristi Axios biblioteku za slanje zahtjeva te React Reducer funkcionalnost Reacta za strukturirano spremanje i upravljanje podacima unutar React aplikacije.
 			
 	 		\subsubsection{Implementacija poslovnog sloja}
-	 		Poslovni sloj Codeflow aplikacije sastoji se od internetskog poslužitelja pisanog Java programskim jezikom uz pomoć Spring radnog okvira. Arhitekturni stil internetskog poslužitelja prilagođen je REST \engl{representational state transfer} stilu, koji nalaže da internetski poslužitelj, neovisno o prethodnim zahtjevima, vraća samo zahtijevane podatke prilagođene JSON \engl{Javascript Object Notation}) formatu. REST također propisuje metode za pristup i modifikaciju podataka te adrese za pristup podataka. Internetski preglednik, analogno prezentacijskom sloju, podijeljen je na interne slojeve radi kvalitetnije strukture. Slojevi po redu su: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{servisni sloj} i \textbf{podatkovni sloj}. Semantički gledano, navedeni slojevi (izuzev sigurnosnog sloja) podliježu raspodjeli koju predlaže Spring radni okvir.\\
+	 		Poslovni sloj Codeflow aplikacije sastoji se od internetskog poslužitelja pisanog Java programskim jezikom uz pomoć Spring radnog okvira. Arhitekturalni stil internetskog poslužitelja prilagođen je REST \engl{representational state transfer} arhitekturalnom stilu koji propisuje da internetski poslužitelji tražene podatke vraćaju u formatiranom tekstualnom obliku. Najčešći formati prema kojima se zahtjevi formatiraju su JSON \engl{Javascript Object Notation}, XML \engl{Extensible Markup Language} i HTML. REST također propisuje točno određene metode za pristup i modifikaciju podataka te format URL putanje određenog podatka.\\ Internetski poslužitelj, analogno prezentacijskom sloju, podijeljen je na interne slojeve radi kvalitetnije strukture. Slojevi po redu su: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{servisni sloj} i \textbf{podatkovni sloj}. Semantički gledano, navedeni slojevi (izuzev sigurnosnog sloja) podliježu raspodjeli koju predlaže Spring radni okvir.\\
 	 		Unutar \textbf{sigurnosnog sloja} dodan je poseban \textit{JwtFilter} koji služi za provjeru JWT kolačića spomenutih unutar implementacije prezentacijskog sloja. U slučaju neispravnog JWT kolačića unutar zahtjeva koji pristupa zaštićenom resursu, zahtjev biva odbijen i ne prosljeđuje se na usmjeravateljski sloj. JWT kolačić neispravan je ako je vremenski istekao ili ako se nanovo izračunati kriptografski sažetak, koji se računa  iz prva dva dijela tokena, ne podudara sa starim kriptografskim sažetkom zapisanim unutar dobivenog tokena. \textit{JwtFilter} ignorira zahtjeve za prijavu, registraciju i obnovu tokena, a uspješna prijava i obnova tokena generira nov par JWT kolačića pomoću \textbf{jjwt} maven ovisnosti. Ista maven ovisnost koristi se i za provjeru tokena.
 	 		\begin{figure}[H]
 	 			\centering
@@ -540,7 +540,7 @@
 	 			\label{fig:jwtfilter}
 	 		\end{figure}
  		
-	 		Pošto zahtjev uspješno prođe sigurnosni sloj, stiže na \textbf{usmjeravateljski sloj} sastojan od specijalnih REST Spring kontrolera koji Spring radnom okviru nalažu da vrijednost prilagodi JSON formatu i pospremi unutar tijela HTTP odgovora. Usmjeravateljski sloj sadržava kontroler za svaki od glavnih entiteta spomenutih unutar domene rješenja (\ref{sec:domenarjesenja}) te dodatni kontroler posvećen sigurnosti aplikacije. Kontroleri ne provode poslovnu logiku te pozivaju servisni sloj za daljnju obradu podataka. 
+	 		Ako zahtjev uspješno prođe sigurnosni sloj, stiže na \textbf{usmjeravateljski sloj} koji se sastoji od specijalnih REST Spring kontrolera koji Spring radnom okviru nalažu da vrijednost prilagodi JSON formatu i pospremi unutar tijela HTTP odgovora. Usmjeravateljski sloj sadržava kontroler za svaki od glavnih entiteta spomenutih unutar domene rješenja (\ref{sec:domenarjesenja}) te dodatni kontroler posvećen sigurnosti aplikacije. Kontroleri ne provode poslovnu logiku te pozivaju servisni sloj za daljnju obradu podataka. 
 	 		\begin{figure}[H]
 	 			\centering
 	 			\includegraphics[scale=0.75]{pictures/prikazi/Controllers.png}
@@ -556,10 +556,20 @@
 	 			\label{fig:services}
 	 		\end{figure}
  		
-	 		\textbf{Podatkovni sloj} sastoji se od programskih klasa (znane još kao i model) koje opisuju entitete baze podataka te JPA repozitorijska \engl{repositories} sučelja. Repozitorijska sučelja interno unutar svojih implementacija provode prevođenje programskih naredbi u SQL naredbe te redaka dobivenih SQL upitima u objekte definiranih prigodnim modelom. Interna implementacija uvelike ovisi o Hibernate ORM radnom okviru. Podatkovni sloj jedini je sloj koji šalje zahtjeve bazi podataka.
+	 		\textbf{Podatkovni sloj} sastoji se od programskih klasa (znane još kao i model) koje opisuju entitete baze podataka te JPA repozitorijska \engl{repositories} sučelja. Repozitorijska sučelja interno unutar svojih implementacija provode prevođenje programskih naredbi u SQL naredbe te redaka dobivenih SQL upitima u objekte definiranih prigodnim modelom. Interna implementacija uvelike ovisi o Hibernate ORM radnom okviru. Podatkovni sloj poslovnog sloja jedini je sloj koji šalje zahtjeve bazi podataka.
 			
 			\subsubsection{Implementacija podatkovnog sloja}
-			Podatkovni sloj sastoji se od PostgreSql sustava za upravljanje bazama podataka. Poslužuje tražene podatke i modificira specificirane podatke. Jaz između podatkovnog sloja i poslovnog sloja povezuje spomenuti Hibernate ORM.
+			Podatkovni sloj sastoji se od PostgreSql sustava za upravljanje bazama podataka. Omogućuje pohranjivanje i izmjenu specificiranih podataka.
+			
+	\chapter{Evaluacija i rangiranje rješenja programskog zadatka}
+	Evaluacija rješenja programskog zadatka unutar Codeflow aplikacije je definirana korisnička, što označava da tijekom izvođenja rješenja programskog zadatka aplikacija Codeflow provjerava jednakost dobivenog izlaza s pripremljenim testnim slučajem kojeg je korisnik zadao. Testni slučajevi unutar Codeflow aplikacije definirani su kao par ulaznih i izlaznih vrijednosti koji uvijek mora biti dobro definiran. Sama provjera dobivene izlazne vrijednosti i očekivane vrijednosti delegirana je Judge0 izvršitelju programskog koda.\\
+	Prvi korak evaluacije zadatka sastoji se od pripreme zahtjeva koji sadrži programski kod rješenja, identifikacijski broj programskog jezika rješenja te očekivani izlaz rješenja. Pošto je zahtjev pripremljen, šalje se Judge0 izvršitelju programskog koda da prevede i izvede programski kod dan unutar tijela zahtjeva. Ako Judge0 uspješno prevede i izvede rješenje usporedit će izlaz dobiven kao rezultat izvođenja programskog koda te očekivani izlaz dobiven unutar tijela zahtjeva, inače vraća grešku. Nakon što aplikacija Codeflow zaprimi Judge0-ov odgovor, pregledava tijelo odgovora. Ako odgovor sadržava obavijesti o bilo kakvim greškama nastalim tijekom prevođenja ili izvođenja, aplikacija grešku prikazuje korisniku te prestaje s daljnjom evaluacijom zadatka. Nadalje, ako se izlaz prevedenog i izvedenog rješenja ne podudara s očekivanim izlazom evaluacija se ne prekida, već se izvodi za sve dane ispitne slučajeve (nepodudarnosti se interno prate). Tek nakon izvođenja svakog od testnog slučaja bez grešaka korisnik biva obavješten o rezultatima podudarnosti dobivenih izlaza i očekivanih izlaza. Bitna napomena ovog sustava evaluacije jest da je mogućnost spremanja rješenja programskog zadatka dostupna samo u slučaju \textbf{potpune} podudarnosti svih dobivenih izlaza i očekivanih izlaza navedenih unutar testnih slučajeva. Grafički prikaz izvođenja evaluacije rješenja programskog zadatka unutar Codeflow aplikacije prikazan je na slici \ref{fig:algorithm}.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{pictures/prikazi/Algorithm.png}
+		\caption{Prikaz algoritma evaluacije rješenja zadatka unutar Codeflow aplikacije.}
+		\label{fig:algorithm}
+	\end{figure}
 			
 	\chapter{Primjer karakteristične korisničke uporabe}
 	Ovo poglavlje posvećeno je razmatranju uporabe i ostvarenih funkcionalnosti Codeflow internetske aplikacije iz perspektive novog korisnika. Očekivani radni tok novog korisnika sastoji se od:
@@ -578,7 +588,7 @@
 
 		\section{Pregled stranice dobrodošlice}
 		Korisnici prvim pristupom Codeflow aplikaciji pregledavaju stranicu dobrodošlice. Ako nemaju korisnički račun, pritiskom na gumb \textit{Register} preusmjerava ih se na stranicu za registraciju.
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/StranicaDobrodoslice.png}
 			\caption{Prikaz stranice dobrodošlice s naglašenim gumbom koji vodi na stranicu za registraciju.}
@@ -587,7 +597,7 @@
 	
 		\section{Registracija}
 		Dolaskom na stranicu posvećenu registraciji korisnika neregistrirani korisnici moraju upisati podatke koji će se koristiti za stvaranje njihovog korisničkog računa. Polja za ispunu označena na slici \ref{fig:register} obavezna su te svako od njih sadržava dodatne uvjete. \textit{Username} i \textit{Email} polja moraju biti jedinstvena, \textit{Password} polje mora sadržavati lozinku dulju od 8 znakova te sadržaj \textit{Repeat your password} polja mora biti jednak \textit{Password} polju. Tek kada su navedeni uvjeti polja ispunjeni, korisnici pritiskom gumba \textit{Register} stvaraju novi korisnički račun s kojim se mogu prijaviti.
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/Registracija.png}
 			\caption{Prikaz stranice registracije s numeriranim elementima forme za prijavu.}
@@ -595,18 +605,12 @@
 		\end{figure}
 	
 		\section{Prijava}
-		Registrirani korisnici mogu se prijaviti pomoću podataka koje su tijekom registracije definirali. Podaci koji su relevantni za prijavu su \textit{Username} i \textit{Password} (označeni na slici \ref{fig:login}). Ako tijekom prijave bilo koji od tih podataka nije ispravan, Codeflow aplikacija će obavijestiti korisnika o pogrešci, ali neće naglasiti koji od podataka nije točan (iz sigurnosnih razloga).
-		\begin{figure}[htb]
-			\centering
-			\includegraphics[width=\linewidth]{pictures/koristenje/Prijava.png}
-			\caption{Prikaz stranice dobrodošlice s naglašenom formom bitnom za prijavu.}
-			\label{fig:login}
-		\end{figure}
+		Registrirani korisnici mogu se prijaviti pomoću podataka koje su tijekom registracije definirali. Podaci koji su relevantni za prijavu su \textit{Username} i \textit{Password} (vidljivi na slici \ref{fig:welcome}). Ako tijekom prijave bilo koji od tih podataka nije ispravan, Codeflow aplikacija će obavijestiti korisnika o pogrešci, ali neće naglasiti koji od podataka nije točan (iz sigurnosnih razloga).
 	
 		\section{Pregled sažetaka zadataka}
 		\label{sec:sazetak}
-		Nakon prijave, korisnici mogu pregledavati ponuđene sažetke zadataka. Sažetak zadatka sadržava opis zadatka, korisničko ime autora zadatka i prosječnu ocjenu zadatka. Ponuđene sažetke korisnici mogu filtrirati prema \textit{Recommended}, \textit{Following} i  \textit{Fresh} opcijama. \textit{Recommended} opcija prva je opcija i ona predlaže korisnicima samo sažetke zadataka čiji su autori korisnici koje prijavljeni korisnici prate te sažetke zadataka s prosječnom ocjenom većom od određenog praga. Druga opcija, \textit{Following} opcija, prikazuje isključivo sažetke zadataka čiji su autori korisnici koje prijavljeni korisnici prate. Treća opcija, \textit{Fresh} opcija, prikazuje sažetke zadataka prema njihovoj starosti. Stranica s filtriranim sažetcima zadataka nije jedina stranica gdje je moguće vidjeti sažetke zadataka jer korisnici mogu pregledavati sažetke zadataka pojedinačnih korisnika na njihovim korisničkim stranicama. Do pojedinačnih korisničkih stranica dolazi se pritiskom na odabrano korisničko ime (strelicom naznačeno na slici \ref{fig:pregled}).
-		\begin{figure}[htb]
+		Nakon prijave, korisnici mogu pregledavati ponuđene sažetke zadataka. Sažetak zadatka sadržava opis zadatka, korisničko ime autora zadatka i prosječnu ocjenu zadatka. Ponuđene sažetke korisnici mogu filtrirati prema \textit{Recommended}, \textit{Following} i  \textit{Fresh} opcijama. \textit{Recommended} je prva opcija i ona predlaže korisnicima samo sažetke zadataka čiji su autori korisnici koje prijavljeni korisnici prate te sažetke zadataka s prosječnom ocjenom većom od određenog praga. Druga, \textit{Following} opcija, isto tako prikazuje isključivo sažetke zadataka čiji su autori korisnici koje prijavljeni korisnici prate. Treća, \textit{Fresh} opcija, prikazuje sažetke zadataka prema njihovoj starosti. Stranica s filtriranim sažetcima zadataka nije jedina stranica gdje je moguće vidjeti sažetke zadataka jer korisnici mogu pregledavati sažetke zadataka pojedinačnih korisnika na njihovim korisničkim stranicama. Do pojedinačnih korisničkih stranica dolazi se pritiskom na odabrano korisničko ime (strelicom naznačeno na slici \ref{fig:pregled}).
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/Pregled.png}
 			\caption{Prikaz stranice s mogućnošću pregleda i filtriranja ponuđenih sažetaka zadataka te naznačenim imenom korisnika koje vodi do korisničke stranice tog korisnika.}
@@ -615,13 +619,13 @@
 	
 		\section{Praćenje korisnika}
 		Korisnici Codeflow aplikacije imaju mogućnost praćenja drugih korisnika. Zahtjev za praćenjem može se predati na dva načina: direktnim pritiskom na gumb \textit{Follow} unutar rang tablice korisnika (kao što je označeno na slici \ref{fig:pracenje1}) ili direktnim odlaskom na korisničku stranicu određenog korisnika (istim mehanizmom kao i kod pregleda sažetaka zadataka pojedinog korisnika). Na korisničkoj stranici pritiskom gumba \textit{Follow} ostvaruje se ista funkcionalnost kao i u prvom navedenom načinu. Klikom na gumb Follow samo se šalje zahtjev za pratiteljstvo koje onda korisnik kojem je usmjereno pratiteljstvo mora odobriti ili odbaciti.
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/Pracenje1.png}
 			\caption{Prikaz stranice s prvim naglašenim načinom praćenja korisnika.}
 			\label{fig:pracenje1}
 		\end{figure}
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/Pracenje2.png}
 			\caption{Prikaz stranice drugog korisnika s naglašenim gumbom za praćenje.}
@@ -629,14 +633,14 @@
 		\end{figure}
 	
 		\section{Prihvaćanje ili odbijanje zahtjeva za pratiteljstvo}
-		Zahtjev za prijateljstvo korisnici mogu prihvatiti ili odbiti. Svaki od zahtjeva formiran je u obliku obavijesti. Sve obavijesti korisnici u bilo kojem trenutku korištenja Codeflow aplikacije (ako postoje) mogu pregledati klikom na \textit{dropdown} gumb označena na slici \ref{fig:notificationbutton}. Pritiskom na taj gumb sve dostupne obavijesti korisnicima su prikazane te korisnici unutar obavijesti koje sadržavaju zahtjeve za pratiteljstvo imaju pravo navedeni zahtjev prihvatiti ili odbiti.
-		\begin{figure}[htb]
+		Zahtjev za prijateljstvo korisnici mogu prihvatiti ili odbiti. Svaki od zahtjeva formiran je u obliku obavijesti. Sve obavijesti korisnici u bilo kojem trenutku korištenja Codeflow aplikacije (ako postoje) mogu pregledati klikom na \textit{dropdown} gumb označen na slici \ref{fig:notificationbutton}. Pritiskom na taj gumb sve dostupne obavijesti korisnicima su prikazane te korisnici unutar obavijesti koje sadržavaju zahtjeve za pratiteljstvo imaju pravo navedeni zahtjev prihvatiti ili odbiti.
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/GumbZaObavijesti.png}
 			\caption{Prikaz izgleda \textit{dropdown} gumba s obavijestima.}
 			\label{fig:notificationbutton}
 		\end{figure}
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/ZahtjevObavijesti.png}
 			\caption{Prikaz obavijesti koje sadržavaju zahtjeve za pratiteljstvo.}
@@ -645,7 +649,7 @@
 	
 		\section{Detaljan pregled zadatka (uz opcionalno komentiranje i ocjenjivanje)}
 		Detaljan pregled zadatka korisnici mogu obaviti pritiskom gumbiju \textit{SOLVE} (ako nije već riješio), \textit{SOLVED} (ako je već riješio) ili \textit{INSPECT} (ako je rješenje njegovo). Gumb koji vodi na detaljan pregled zadatka nalazi se na sažetku zadatka spomenutog tijekom objašnjavanja pregleda sažetaka zadataka (\ref{sec:sazetak}). Stranica koja prikazuje detaljan pregled zadatka sadržava ime autora, opis zadatka, primjer upisa i ispisa, dopuštene programske jezike rješenja zadataka te prosječnu ocjenu. Opcionalno, korisnici mogu komentirati zadatak pisanjem komentara unutar polja za pisanje komentara (naznačeno na slici \ref{fig:detaljanpregled}). Ocjenjivanje zadatka korisnicima je moguće tek nakon rješavanja zadatka.
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/DetaljanPregledZadatka.png}
 			\caption{Prikaz detaljnog pregleda zadatka s naglašenim prostorom za unos opcionalnog komentara.}
@@ -654,7 +658,7 @@
 	
 		\section{Pregled rješenja zadatka (uz opcionalno komentiranje i ocjenjivanje)}
 		Detaljan pregled rješenja zadatka korisnici mogu obaviti pritiskom gumba \textit{Inspect} unutar tablice rješenja koja se nalazi na detaljnom pregledu zadatka. Stranica koja prikazuje detaljan pregled zadatka sadržava ime autora, programski jezik rješenja, programski kod rješenja te prosječnu ocjenu. Opcionalno, korisnici mogu komentirati zadatak pisanjem komentara unutar polja za pisanje komentara (postupak je identičan kao i kod komentiranja zadatka). Također, korisnici uz opcionalno komentiranje rješenja mogu i ocijeniti rješenje ocjenom od 1 do 5.
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/PregledRjesenja.png}
 			\caption{Prikaz pregleda rješenja zadatka uz naglašene elemente opcionalnog ocjenjivanja te komentiranja.}
@@ -663,19 +667,19 @@
 	
 		\section{Rješavanje odabranog zadatka}
 		Tijekom detaljnog pregleda zadatka korisnici imaju mogućnost riješiti zadatak pritiskom na gumb \textit{Add solution}. U slučaju da je korisnik već riješio zadatak gumb \textit{Inspect my solution} bit će prikazan umjesto \textit{Add solution} gumba te će taj gumb korisnika voditi na stranicu pregleda njegovog rješenja. Pošto korisnici pritisnu gumb \textit{Add solution} bit će odvedeni na stranicu koja sadržava detalje zadatka, izlaz konzole i uređivač programskog koda. Detalji zadatka navedeni su istim redom kao i na detaljnom prikazu rješenja uz nadodanu mogućnost pregledavanja testova. Tijekom rješavanja zadatka korisnici mogu mijenjati temu uređivača programskog koda te programski kod u kojem pišu rješenje (svaki zadatak definira dopuštene programske jezike). Pošto korisnici napišu rješenje, pritisak na \textit{Evaluate} gumb prvo će rješenje poslati na provjeru Judge0 izvršitelju programskog koda, a tek nakon uspješne usporedbe izlaza programskog rješenja s testovima zadatka bit će omogućeno spremanje rješenja zadatka pritiskom na gumb \textit{Save solution}. Nakon spremanja zadatka korisnici će biti preusmjereni na pregled njihovog rješenja zadatka.
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/DodajRjesenje.png}
 			\caption{Prikaz detaljnog prikaza zadatka s naglašenim gumbom za dodavanje zadatka.}
 			\label{fig:dodajrjesenje}
 		\end{figure}
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/StranicaRjesavanja.png}
 			\caption{Prikaz stranice koja sadržava uređivač programskog koda s naglašenim opcijama za promjenu teme i programskog jezika.}
 			\label{fig:rjesavanje}
 		\end{figure}
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/RijeseniZadatak.png}
 			\caption{Prikaz stranice koja sadržava uređivač programskog koda s evaluiranim rješenjem spremnim za provjeru. Naglašeni su rezultati evaluacije rješenja te gumb za spremanje rješenja.}
@@ -684,13 +688,13 @@
 	
 		\section{Stvaranje zadatka}
 		Uz pregledavanje zadataka i rješenja te pisanja rješenja za odabrani zadatak, korisnici imaju pravo u bilo kojem trenutku napraviti zadatak. Poveznica koja vodi do stranice koja sadržava formu za stvaranje zadatka nalazi se unutar \textit{dropdown} gumba naglašenog na slici \ref{fig:dropdowntask}. Pritiskom na nju korisnici su odvedeni na stranicu na kojoj mogu definirati svoj zadatak. Stranica sadržava formu koja deklarira potrebne podatke za stvaranje programskog zadatka. Ti podaci redom su: opis zadatka, primjer ulaza i izlaza, dopušteni jezici te lista testnih slučajeva koji zadržavaju par ulaznih i izlaznih vrijednosti (redom numerirani na slici \ref{fig:stvaranjeforma}). Svaki od traženih podataka obavezan je te pojedinačno definiraju dodatne uvjete. Pojedinačni uvjeti su da opis zadatka ne smije biti kraći od 25 riječi, bar jedan programski jezik mora biti odabran te bar jedan testni zadatak mora biti definiran s popunjenim parom ulaznih i izlaznih vrijednosti. Tek nakon što korisnici zadovolje tražene uvjete mogu stvoriti novi zadatak.
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/StvoriDropdown.png}
 			\caption{Prikaz gumba koji vodi na stranicu za stvaranje zadatka.}
 			\label{fig:dropdowntask}
 		\end{figure}
-		\begin{figure}[htb]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/FormaStvaranja.png}
 			\caption{Prikaz forme za stvaranje zadatka s numeriranim traženim vrijednostima i naglašenim gumbom za stvaranje zadatka.}
@@ -700,8 +704,8 @@
 	\chapter{Budući razvitak}
 	Codeflow aplikacija sadržava potencijal za dodavanje funkcionalnosti i unaprjeđenje postojećih. Dizajnirana je na način da dodavanje novih funkcionalnosti ne mijenja funkcionalnost već ostvarenih funkcionalnosti te je time otvorena za nadogradnju. Dakle, budući razvitak podijeljen je na kategoriju \textbf{nadogradnji} i \textbf{unaprjeđenja}.
 	\subsubsection{Nadogradnje}
-	Prva preporučena nadogradnja aplikacija bilo bi uvođenje sistema "igrifikacije" (spomenuto unutar podpoglavlja \ref{sec:codewars}). Uvođenje znački, kategorija i povremenih natjecanja pozitivno bi utjecalo na sveukupno korisničko iskustvo.\\
-	Nedostatak trenutačnog sustava komentiranja i obavijesti u usporedbi s ostalim sličnim stranicama jest potreba za promjenom stranice ili, u najgorem slučaju, ponovnim učitavanjem aplikacije radi učitavanja promjena unutar komentara ili obavijesti. Ovaj nedostatak rješiv je implementacijom \textbf{WebSocket} protokola. WebSocket protokol omogućuje potpuno dvosmjernu komunikaciju između klijenta i poslužitelja u stvarnom vremenu. Makar različit od tipičnog HTTP protokola, dizajniran je da radi na istim vratima \engl{ports} (443 i 80) kao i HTTP protokol, što ga čini veoma prihvatljivim za normalnu internetsku interakciju između klijenta i poslužitelja. Podržan je na svim modernim internetskim preglednicima i njegovo bi svojstvo dvosmjerne komunikacije omogućilo internetskom pregledniku da ažuriranje komentara i obavijesti istovremeno dojavi i React aplikaciji na prezentacijskom sloju. React aplikacija bi potom ažurirala svoje korisničko sučelje da ispravno prati stanje podataka unutar podatkovnog sloja. Takav sistem bio bi prigodniji trenutačnom te bi kao nadogradnja potpuno zamijenio trenutačni.
+	Prva preporučena nadogradnja aplikacija bilo bi uvođenje sistema "igrifikacije" (spomenuto unutar potpoglavlja \ref{sec:codewars}). Uvođenje znački, kategorija i povremenih natjecanja pozitivno bi utjecalo na sveukupno korisničko iskustvo.\\
+	Nedostatak trenutačnog sustava komentiranja i obavijesti u usporedbi s ostalim sličnim stranicama jest potreba za promjenom stranice ili, u najgorem slučaju, ponovnim učitavanjem aplikacije radi učitavanja promjena unutar komentara ili obavijesti. Ovaj nedostatak rješiv je korištenjem \textbf{WebSocket} protokola. WebSocket protokol omogućuje potpuno dvosmjernu komunikaciju između klijenta i poslužitelja u stvarnom vremenu. Makar različit od tipičnog HTTP protokola, dizajniran je da radi na istim vratima \engl{ports} (443 i 80) kao i HTTP protokol, što ga čini veoma prihvatljivim za normalnu internetsku interakciju između klijenta i poslužitelja. Podržan je na svim modernim internetskim preglednicima i njegovo bi svojstvo dvosmjerne komunikacije omogućilo internetskom pregledniku da ažuriranje komentara i obavijesti istovremeno dojavi i React aplikaciji na prezentacijskom sloju. React aplikacija bi potom ažurirala svoje korisničko sučelje da ispravno prati stanje podataka unutar podatkovnog sloja. Takav sistem bio bi prigodniji trenutačnom te bi kao nadogradnja potpuno zamijenio trenutačni.
 	\subsubsection{Unaprjeđenja}
 	Najvažnije i jedino bitno unaprjeđenje trenutačnog sustava bila bi dodatna prilagodna sustava evaluacije korisničkih rješenja. Sustav u trenutnom stanju šalje rješenje pojedinačno za svaki testni slučaj tijekom evaluacije, što nije održivo za veća rješenja i veći broj testnih slučajeva. Unaprjeđenje bi sustav prilagodilo da umjesto pojedinačnog slanja pripremi takozvanu skupnu \engl{batched} pošiljku tijekom unaprijeđene evaluacije rješenja. 
 	
@@ -709,8 +713,8 @@
 	\chapter{Zaključak}
 	Velik porast zanimanja za programiranjem te sve veća potreba za održavanjem programerskog znanja rezultirala je nastankom stranica koje omogućuju vježbanje i razvijanje programerskih vještina. Neke od stranica usvojile su elemente socijalnih mreža, poput dodavanja mogućnosti raspravljanja i komentiranja zadataka i rješenja, a sve češća je i implementacija sustava "igrifikacije". Doduše, učestali zajednički čimbenik navedenih stranica jest nemogućnost da prosječni korisnik zada zadatak. Ipak, zbog podržanih funkcionalnosti rješavanja zadataka, određenih socijalnih elemenata i implementacije navedenih sustava "igrifikacije" popularnost tih stranica visoka je.\\
 	Tema ovog završnog rada bila je razvijanje i implementiranje aplikacije koja podržava učestale značajke popularnih stranica koje omogućavaju rješavanje programskih zadataka. Dodatne funkcionalnosti ove aplikacije su podržavanje najbitnijih elemenata socijalnih mreža i mogućnost zadavanja zadataka od strane bilo kojeg korisnika. \\
-	Izazovan element izrade aplikacije koja zadovoljava spomenute zahtjeve bio je organizacija i strukturiranje sistema za stvaranje zadataka i pripremanje okvirnih predložaka za rješenja stvorenih zadataka. Jednako je izazovan element razvoja aplikacije ovoga specifičnoga tipa bio podržavanje provjeravanja ispravnosti korisničkog programskog koda. Ipak, uz pomoć Judge0 izvršitelja programskog koda i ta funkcionalnost uspješno je podržana.\\
-	Odabir Spring radnog okvira i React JavaScript biblioteke bio je kvalitetan zbog bogate podrške za obje od navedenih tehnologija. Također, spomenute tehnologije veoma kvalitetno podržavaju izradu višeslojnih internetskih aplikacija te uz kombinaciju PostgreSql sustava za upravljanje bazama podataka potpuno su zadovoljile tehnološke potrebe ovog završnog rada.\\
+	Izazovan element izrade aplikacije koja zadovoljava spomenute zahtjeve bio je organizacija i strukturiranje sustava za stvaranje zadataka i pripremanje okvirnih predložaka za rješenja stvorenih zadataka. Jednako je izazovan element razvoja aplikacije ovoga specifičnoga tipa bio podržavanje provjeravanja ispravnosti korisničkog programskog koda. Ipak, uz pomoć Judge0 izvršitelja programskog koda i ta funkcionalnost uspješno je podržana.\\
+	Odabir Spring radnog okvira i React JavaScript biblioteke bio je kvalitetan jer obje spomenute tehnologije posjeduju bogatu podršku te veoma kvalitetnu dokumentaciju. Također, spomenute tehnologije kvalitetno podržavaju izradu višeslojnih internetskih aplikacija te uz kombinaciju PostgreSql sustava za upravljanje bazama podataka potpuno su zadovoljile tehnološke potrebe ovog završnog rada.\\
 	
 	
 	
