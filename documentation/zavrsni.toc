@@ -5,7 +5,7 @@
 \contentsline {subsection}{\numberline {2.1.1}Zahtjevi neregistriranog korisnika}{2}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Zahtjevi registriranog korisnika}{3}{subsection.2.1.2}%
 \contentsline {section}{\numberline {2.2}Nefunkcionalni zahtjevi}{5}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Postojeća programska rješenja te uvođenje funkcionalnosti društvenih mreža}{6}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Postojeća programska rješenja i funkcionalnosti društvenih mreža}{6}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Leetcode}{6}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Edgar}{7}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Codewars}{8}{section.3.3}%
@@ -37,19 +37,19 @@
 \contentsline {subsubsection}{Implementacija poslovnog sloja}{31}{section*.39}%
 \contentsline {subsubsection}{Implementacija podatkovnog sloja}{34}{section*.43}%
 \contentsline {chapter}{\numberline {6}Evaluacija i rangiranje rješenja programskog zadatka}{35}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Primjer karakteristične korisničke uporabe}{37}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Pregled stranice dobrodošlice}{37}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Registracija}{38}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Prijava}{39}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Pregled sažetaka zadataka}{39}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Praćenje korisnika}{40}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Prihvaćanje ili odbijanje zahtjeva za pratiteljstvo}{41}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Detaljan pregled zadatka (uz opcionalno komentiranje i ocjenjivanje)}{42}{section.7.7}%
-\contentsline {section}{\numberline {7.8}Pregled rješenja zadatka (uz opcionalno komentiranje i ocjenjivanje)}{43}{section.7.8}%
-\contentsline {section}{\numberline {7.9}Rješavanje odabranog zadatka}{44}{section.7.9}%
-\contentsline {section}{\numberline {7.10}Stvaranje zadatka}{46}{section.7.10}%
-\contentsline {chapter}{\numberline {8}Budući razvitak}{48}{chapter.8}%
-\contentsline {subsubsection}{Nadogradnje}{48}{section*.59}%
-\contentsline {subsubsection}{Unaprjeđenja}{48}{section*.60}%
-\contentsline {chapter}{\numberline {9}Zaključak}{50}{chapter.9}%
-\contentsline {chapter}{Literatura}{51}{chapter*.61}%
+\contentsline {chapter}{\numberline {7}Primjer karakteristične korisničke uporabe}{38}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Pregled stranice dobrodošlice}{38}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Registracija}{39}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Prijava}{40}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Pregled sažetaka zadataka}{40}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Praćenje korisnika}{41}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Prihvaćanje ili odbijanje zahtjeva za pratiteljstvo}{42}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Detaljan pregled zadatka (uz opcionalno komentiranje i ocjenjivanje)}{43}{section.7.7}%
+\contentsline {section}{\numberline {7.8}Pregled rješenja zadatka (uz opcionalno komentiranje i ocjenjivanje)}{44}{section.7.8}%
+\contentsline {section}{\numberline {7.9}Rješavanje odabranog zadatka}{45}{section.7.9}%
+\contentsline {section}{\numberline {7.10}Stvaranje zadatka}{47}{section.7.10}%
+\contentsline {chapter}{\numberline {8}Budući razvitak}{49}{chapter.8}%
+\contentsline {subsubsection}{Nadogradnje}{49}{section*.59}%
+\contentsline {subsubsection}{Unaprjeđenja}{49}{section*.60}%
+\contentsline {chapter}{\numberline {9}Zaključak}{51}{chapter.9}%
+\contentsline {chapter}{Literatura}{52}{chapter*.61}%
