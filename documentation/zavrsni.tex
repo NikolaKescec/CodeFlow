@@ -420,7 +420,7 @@
 			\end{tabu}
 		\end{table}
 		
-		Tablica \textbf{solution\_grading} unutar baze podataka ppredstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi solution\_grading tablice su solution\_grading\_id, grade, grader\_id i solution\_id. 
+		Tablica \textbf{solution\_grading} unutar baze podataka predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi solution\_grading tablice su solution\_grading\_id, grade, grader\_id i solution\_id. 
 		\begin{table}[H]
 			\caption{Tablica solution\_grading}
 			\label{tbl:solutiongrading}
@@ -737,7 +737,7 @@
 	Nedostatak trenutačnog sustava komentiranja i obavijesti u usporedbi s ostalim sličnim stranicama jest potreba za promjenom stranice ili, u najgorem slučaju, ponovnim učitavanjem aplikacije radi učitavanja promjena unutar komentara ili obavijesti. Ovaj nedostatak rješiv je korištenjem \textbf{WebSocket} protokola. WebSocket\cite{websocket2021} protokol omogućuje potpuno dvosmjernu komunikaciju između klijenta i poslužitelja u stvarnom vremenu. Makar različit od tipičnog HTTP protokola, dizajniran je da radi na istim vratima \engl{ports} (443 i 80) kao i HTTP protokol, što ga čini veoma prihvatljivim za normalnu internetsku interakciju između klijenta i poslužitelja. Podržan je na svim modernim internetskim preglednicima i njegovo bi svojstvo dvosmjerne komunikacije omogućilo internetskom pregledniku da ažuriranje komentara i obavijesti istovremeno dojavi i React aplikaciji na prezentacijskom sloju. React aplikacija bi potom ažurirala svoje korisničko sučelje da ispravno prati stanje podataka unutar podatkovnog sloja. Takav sistem bio bi prigodniji trenutačnom te bi kao nadogradnja potpuno zamijenio trenutačni.
 	\subsubsection{Unaprjeđenja}
 	Najvažnije unaprjeđenje bilo bi dodatna prilagodba sustava evaluacije korisničkih rješenja. Sustav u trenutnom stanju šalje rješenje pojedinačno za svaki testni slučaj tijekom evaluacije, što nije održivo za veća rješenja i veći broj testnih slučajeva. Unaprjeđenje bi sustav prilagodilo da umjesto pojedinačnog slanja pripremi takozvanu skupnu \engl{batched} pošiljku tijekom unaprijeđene evaluacije rješenja.\\
-	Unaprjeđenje sustava spremanja rješenja koje bi bilo pogodno implementirati jest projvera plagijata tijekom dodavanja novog rješenja. Trenutačna verzija aplikacije ni na koji način ne provjerava sličnost rješenja te korisnici mogu veoma jednostavno u potpunosti kopirati već postojeća rješenja drugih korisnika. Sustav spremanja također ne pruža mogučnost spremanja nedovršenog rješenja programskog zadatka. Dodavanje te mogućnosti uveliko bi poboljšalo korisničko iskustvo te je još jedno od poželjnih unaprjeđenja.
+	Unaprjeđenje sustava spremanja rješenja koje bi bilo pogodno implementirati jest provjera plagijata tijekom dodavanja novog rješenja. Trenutačna verzija aplikacije ni na koji način ne provjerava sličnost rješenja te korisnici mogu veoma jednostavno u potpunosti kopirati već postojeća rješenja drugih korisnika. Sustav spremanja također ne pruža mogućnost spremanja nedovršenog rješenja programskog zadatka. Dodavanje te mogućnosti uveliko bi poboljšalo korisničko iskustvo te je još jedno od poželjnih unaprjeđenja.
 	
 	
 	\chapter{Zaključak}
