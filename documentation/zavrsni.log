@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.1)  11 JUN 2021 00:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.10.1)  11 JUN 2021 00:41
 entering extended mode
 **./zavrsni.tex
 (zavrsni.tex
@@ -427,23 +427,23 @@ File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 ) (zavrsni.aux)
 \openout1 = `zavrsni.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 7.
 
 
 (C:\Languages\Tex\tex/latex/psnfss\t1ptm.fd
@@ -506,7 +506,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box59
-Package hyperref Info: Link coloring OFF on input line 8.
+Package hyperref Info: Link coloring OFF on input line 7.
 
 (C:\Languages\Tex\tex/latex/hyperref\nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -519,25 +519,25 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count293
 )
-LaTeX Info: Redefining \ref on input line 8.
-LaTeX Info: Redefining \pageref on input line 8.
-LaTeX Info: Redefining \nameref on input line 8.
+LaTeX Info: Redefining \ref on input line 7.
+LaTeX Info: Redefining \pageref on input line 7.
+LaTeX Info: Redefining \nameref on input line 7.
  (zavrsni.out) (zavrsni.out)
 \@outlinefile=\write3
 \openout3 = `zavrsni.out'.
 
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 20
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 19
 .
  (C:\Languages\Tex\tex/latex/psnfss\t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
 
 
 (C:\Languages\Tex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 
 
 (C:\Languages\Tex\tex/latex/amsfonts\umsb.fd
@@ -545,7 +545,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/Nikola/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 22
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 21
 .
  (C:\Languages\Tex\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -553,7 +553,7 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.25 ...kojeg ovaj zavrÅ¡ni rad ne bi bio moguÄ‡.}
+l.24 ...kojeg ovaj zavrÅ¡ni rad ne bi bio moguÄ‡.}
                                                    [1] [3] (zavrsni.toc
 [4
 
@@ -570,13 +570,13 @@ Poglavlje 2.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 34.
+(hyperref)                removing `\textasciicaron' on input line 33.
 
 <pictures/zahtjevi/nereg_korisnik.png, id=261, 796.47563pt x 518.6878pt>
 File: pictures/zahtjevi/nereg_korisnik.png Graphic file (type png)
 <use pictures/zahtjevi/nereg_korisnik.png>
 Package pdftex.def Info: pictures/zahtjevi/nereg_korisnik.png  used on input li
-ne 46.
+ne 45.
 (pdftex.def)             Requested size: 412.56497pt x 268.67448pt.
 [2
 
@@ -584,14 +584,14 @@ ne 46.
 <pictures/zahtjevi/korisnik1.png, id=271, 1093.08376pt x 756.57657pt>
 File: pictures/zahtjevi/korisnik1.png Graphic file (type png)
 <use pictures/zahtjevi/korisnik1.png>
-Package pdftex.def Info: pictures/zahtjevi/korisnik1.png  used on input line 61
+Package pdftex.def Info: pictures/zahtjevi/korisnik1.png  used on input line 60
 .
 (pdftex.def)             Requested size: 412.56497pt x 285.55107pt.
  [3 <./pictures/zahtjevi/nereg_korisnik.png>]
 <pictures/zahtjevi/korisnik2.png, id=277, 1111.15125pt x 804.00375pt>
 File: pictures/zahtjevi/korisnik2.png Graphic file (type png)
 <use pictures/zahtjevi/korisnik2.png>
-Package pdftex.def Info: pictures/zahtjevi/korisnik2.png  used on input line 67
+Package pdftex.def Info: pictures/zahtjevi/korisnik2.png  used on input line 66
 .
 (pdftex.def)             Requested size: 412.56497pt x 298.51952pt.
  [4 <./pictures/zahtjevi/korisnik1.png>] [5 <./pictures/zahtjevi/korisnik2.png>
@@ -600,7 +600,7 @@ Poglavlje 3.
 <pictures/prikazi/Leetcode.png, id=294, 1011.02719pt x 492.33937pt>
 File: pictures/prikazi/Leetcode.png Graphic file (type png)
 <use pictures/prikazi/Leetcode.png>
-Package pdftex.def Info: pictures/prikazi/Leetcode.png  used on input line 97.
+Package pdftex.def Info: pictures/prikazi/Leetcode.png  used on input line 96.
 (pdftex.def)             Requested size: 412.56497pt x 200.90636pt.
 [6
 
@@ -608,13 +608,13 @@ Package pdftex.def Info: pictures/prikazi/Leetcode.png  used on input line 97.
 <pictures/prikazi/Edgar.png, id=303, 1433.355pt x 713.66624pt>
 File: pictures/prikazi/Edgar.png Graphic file (type png)
 <use pictures/prikazi/Edgar.png>
-Package pdftex.def Info: pictures/prikazi/Edgar.png  used on input line 108.
+Package pdftex.def Info: pictures/prikazi/Edgar.png  used on input line 107.
 (pdftex.def)             Requested size: 412.56497pt x 205.41158pt.
  [7 <./pictures/prikazi/Leetcode.png>]
 <pictures/prikazi/Codewars.png, id=310, 1444.39626pt x 826.08624pt>
 File: pictures/prikazi/Codewars.png Graphic file (type png)
 <use pictures/prikazi/Codewars.png>
-Package pdftex.def Info: pictures/prikazi/Codewars.png  used on input line 120.
+Package pdftex.def Info: pictures/prikazi/Codewars.png  used on input line 119.
 
 (pdftex.def)             Requested size: 412.56497pt x 235.95383pt.
  [8 <./pictures/prikazi/Edgar.png>]
@@ -622,19 +622,19 @@ Package pdftex.def Info: pictures/prikazi/Codewars.png  used on input line 120.
 File: pictures/prikazi/HackerRank.png Graphic file (type png)
 <use pictures/prikazi/HackerRank.png>
 Package pdftex.def Info: pictures/prikazi/HackerRank.png  used on input line 13
-1.
+0.
 (pdftex.def)             Requested size: 412.56497pt x 242.11699pt.
 
 [9 <./pictures/prikazi/Codewars.png (PNG copy)>]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 136.
+(hyperref)                removing `\textasciicaron' on input line 135.
 
 [10 <./pictures/prikazi/HackerRank.png>] [11]
 Poglavlje 4.
 
-Overfull \hbox (0.49489pt too wide) in paragraph at lines 162--163
+Overfull \hbox (0.49489pt too wide) in paragraph at lines 161--162
 \T1/ptm/m/n/12 Tijekom ra-zvoja in-ter-net-ske apli-ka-cije Co-de-flow ko-ri-²t
 ene su teh-no-lo-gije koje se uglav-
  []
@@ -642,7 +642,7 @@ ene su teh-no-lo-gije koje se uglav-
 <pictures/prikazi/SPA.png, id=340, 883.04906pt x 486.31688pt>
 File: pictures/prikazi/SPA.png Graphic file (type png)
 <use pictures/prikazi/SPA.png>
-Package pdftex.def Info: pictures/prikazi/SPA.png  used on input line 172.
+Package pdftex.def Info: pictures/prikazi/SPA.png  used on input line 171.
 (pdftex.def)             Requested size: 412.56497pt x 227.211pt.
 [12
 
@@ -650,10 +650,10 @@ Package pdftex.def Info: pictures/prikazi/SPA.png  used on input line 172.
 <pictures/prikazi/React.png, id=352, 471.26062pt x 328.97906pt>
 File: pictures/prikazi/React.png Graphic file (type png)
 <use pictures/prikazi/React.png>
-Package pdftex.def Info: pictures/prikazi/React.png  used on input line 181.
+Package pdftex.def Info: pictures/prikazi/React.png  used on input line 180.
 (pdftex.def)             Requested size: 353.4446pt x 246.73369pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--184
+Underfull \hbox (badness 10000) in paragraph at lines 177--183
 
  []
 
@@ -662,43 +662,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 178--184
 File: pictures/prikazi/ReactRouter.png Graphic file (type png)
 <use pictures/prikazi/ReactRouter.png>
 Package pdftex.def Info: pictures/prikazi/ReactRouter.png  used on input line 1
-88.
+87.
 (pdftex.def)             Requested size: 338.76479pt x 178.4161pt.
  [14 <./pictures/prikazi/React.png>]
 <pictures/prikazi/Bootstrap.png, id=371, 598.48593pt x 87.32625pt>
 File: pictures/prikazi/Bootstrap.png Graphic file (type png)
 <use pictures/prikazi/Bootstrap.png>
-Package pdftex.def Info: pictures/prikazi/Bootstrap.png  used on input line 197
+Package pdftex.def Info: pictures/prikazi/Bootstrap.png  used on input line 196
 .
 (pdftex.def)             Requested size: 412.56497pt x 60.1992pt.
 <pictures/prikazi/MaterialUI.png, id=373, 451.6875pt x 358.33875pt>
 File: pictures/prikazi/MaterialUI.png Graphic file (type png)
 <use pictures/prikazi/MaterialUI.png>
 Package pdftex.def Info: pictures/prikazi/MaterialUI.png  used on input line 20
-6.
+5.
 (pdftex.def)             Requested size: 338.76479pt x 268.7534pt.
  [15 <./pictures/prikazi/ReactRouter.png> <./pictures/prikazi/Bootstrap.png>]
 <pictures/prikazi/AceEditor.png, id=385, 376.40625pt x 203.25937pt>
 File: pictures/prikazi/AceEditor.png Graphic file (type png)
 <use pictures/prikazi/AceEditor.png>
-Package pdftex.def Info: pictures/prikazi/AceEditor.png  used on input line 215
+Package pdftex.def Info: pictures/prikazi/AceEditor.png  used on input line 214
 .
 (pdftex.def)             Requested size: 282.30399pt x 152.44414pt.
  [16 <./pictures/prikazi/MaterialUI.png> <./pictures/prikazi/AceEditor.png>]
 <pictures/prikazi/Spring.png, id=400, 866.48718pt x 531.48563pt>
 File: pictures/prikazi/Spring.png Graphic file (type png)
 <use pictures/prikazi/Spring.png>
-Package pdftex.def Info: pictures/prikazi/Spring.png  used on input line 227.
+Package pdftex.def Info: pictures/prikazi/Spring.png  used on input line 226.
 (pdftex.def)             Requested size: 412.56497pt x 253.05843pt.
  [17]
 <pictures/prikazi/SpringSecurity.png, id=411, 843.90282pt x 558.58687pt>
 File: pictures/prikazi/SpringSecurity.png Graphic file (type png)
 <use pictures/prikazi/SpringSecurity.png>
 Package pdftex.def Info: pictures/prikazi/SpringSecurity.png  used on input lin
-e 236.
+e 235.
 (pdftex.def)             Requested size: 412.56497pt x 273.08775pt.
 
-Overfull \hbox (1.05862pt too wide) in paragraph at lines 233--239
+Overfull \hbox (1.05862pt too wide) in paragraph at lines 232--238
 \T1/ptm/m/n/12 ti-fi-ka-ciju (engl. \T1/ptm/m/it/12 aut-hen-ti-ca-tion\T1/ptm/m
 /n/12 ) (pro-ces je pri-ka-zan na slici []4.8[]) i auto-ri-za-ciju (engl. \T1/p
 tm/m/it/12 aut-
@@ -709,18 +709,18 @@ tm/m/it/12 aut-
 <pictures/prikazi/Axios.png, id=433, 451.6875pt x 189.70876pt>
 File: pictures/prikazi/Axios.png Graphic file (type png)
 <use pictures/prikazi/Axios.png>
-Package pdftex.def Info: pictures/prikazi/Axios.png  used on input line 261.
+Package pdftex.def Info: pictures/prikazi/Axios.png  used on input line 260.
 (pdftex.def)             Requested size: 293.59338pt x 123.30922pt.
  [20 <./pictures/prikazi/Axios.png>] [21]
 Poglavlje 5.
 <pictures/prikazi/Database.png, id=452, 836.3747pt x 730.22812pt>
 File: pictures/prikazi/Database.png Graphic file (type png)
 <use pictures/prikazi/Database.png>
-Package pdftex.def Info: pictures/prikazi/Database.png  used on input line 276.
+Package pdftex.def Info: pictures/prikazi/Database.png  used on input line 275.
 
 (pdftex.def)             Requested size: 412.56497pt x 360.21051pt.
 
-Overfull \hbox (3.44676pt too wide) in paragraph at lines 273--279
+Overfull \hbox (3.44676pt too wide) in paragraph at lines 272--278
 \T1/ptm/m/n/12 Domena rje-²e-nja os-tva-rena je de-fi-ni-ci-jom re-la-cij-ske b
 aze po-da-taka po-mo¢u Pos-t-greSQL
  []
@@ -728,69 +728,69 @@ aze po-da-taka po-mo¢u Pos-t-greSQL
 [22
 
 ]
-Overfull \hbox (4.36732pt too wide) in paragraph at lines 280--295
+Overfull \hbox (4.36732pt too wide) in paragraph at lines 279--294
 []\T1/ptm/m/n/12 Valja na-po-me-nuti da sve ta-blice di-jele atri-bute ts_creat
 ed, ts_modified, user_created,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--314
+Underfull \hbox (badness 10000) in paragraph at lines 313--313
 []\T1/ptm/m/n/12 korisnikovo ko-ris-ni£ko
  []
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 314--314
+Underfull \hbox (badness 1635) in paragraph at lines 313--313
 []\T1/ptm/m/n/12 korisnikov e-mail, mora
  []
 
 
-Underfull \hbox (badness 2111) in paragraph at lines 314--314
+Underfull \hbox (badness 2111) in paragraph at lines 313--313
 []\T1/ptm/m/n/12 bodovi koje je ko-ris-nik
  []
 
 
-Underfull \hbox (badness 2111) in paragraph at lines 314--314
+Underfull \hbox (badness 2111) in paragraph at lines 313--313
 []\T1/ptm/m/n/12 bodovi koje je ko-ris-nik
  []
 
 [23 <./pictures/prikazi/Database.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 333--333
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
 []\T1/ptm/m/n/12 autorovo rje-²e-nje (nije
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 387--387
 []\T1/ptm/m/n/12 jedinstveni iden-ti-fi-ka-
  []
 
 
-Underfull \hbox (badness 6300) in paragraph at lines 388--388
+Underfull \hbox (badness 6300) in paragraph at lines 387--387
 \T1/ptm/m/n/12 tor pro-gram-skog je-zika
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 438--438
+Underfull \hbox (badness 10000) in paragraph at lines 437--437
 []\T1/ptm/m/n/12 strani klju£ ko-ris-nika
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 438--438
+Underfull \hbox (badness 10000) in paragraph at lines 437--437
 []\T1/ptm/m/n/12 strani klju£ ocje-nje-nog
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 455--455
+Underfull \hbox (badness 10000) in paragraph at lines 454--454
 []\T1/ptm/m/n/12 strani klju£ ko-ris-nika
  []
 
 
-Overfull \hbox (3.63612pt too wide) in paragraph at lines 441--456
+Overfull \hbox (3.63612pt too wide) in paragraph at lines 440--455
 []\T1/ptm/m/n/12 Tablica \T1/ptm/b/n/12 task_grading \T1/ptm/m/n/12 pred-stav-l
 ja ocjene ve-zane uz je-dan pro-gram-ski za-da-tak. Vlas-
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 506--506
+Underfull \hbox (badness 10000) in paragraph at lines 505--505
 []\T1/ptm/m/n/12 provjera pu-no-prav-nosti
  []
 
@@ -798,21 +798,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 506--506
 File: pictures/prikazi/Arhitektura.png Graphic file (type png)
 <use pictures/prikazi/Arhitektura.png>
 Package pdftex.def Info: pictures/prikazi/Arhitektura.png  used on input line 5
-13.
+12.
 (pdftex.def)             Requested size: 412.56497pt x 235.07872pt.
 [28]
 <pictures/prikazi/AxiosInterceptor.png, id=503, 482.55281pt x 528.47438pt>
 File: pictures/prikazi/AxiosInterceptor.png Graphic file (type png)
 <use pictures/prikazi/AxiosInterceptor.png>
 Package pdftex.def Info: pictures/prikazi/AxiosInterceptor.png  used on input l
-ine 525.
+ine 524.
 (pdftex.def)             Requested size: 313.6556pt x 343.50427pt.
  [29 <./pictures/prikazi/Arhitektura.png>] [30 <./pictures/prikazi/AxiosInterce
 ptor.png>]
 <pictures/prikazi/JwtFilter.png, id=519, 815.29594pt x 505.13719pt>
 File: pictures/prikazi/JwtFilter.png Graphic file (type png)
 <use pictures/prikazi/JwtFilter.png>
-Package pdftex.def Info: pictures/prikazi/JwtFilter.png  used on input line 539
+Package pdftex.def Info: pictures/prikazi/JwtFilter.png  used on input line 538
 .
 (pdftex.def)             Requested size: 412.56497pt x 255.61253pt.
  [31]
@@ -820,12 +820,12 @@ Package pdftex.def Info: pictures/prikazi/JwtFilter.png  used on input line 539
 File: pictures/prikazi/Controllers.png Graphic file (type png)
 <use pictures/prikazi/Controllers.png>
 Package pdftex.def Info: pictures/prikazi/Controllers.png  used on input line 5
-47.
+46.
 (pdftex.def)             Requested size: 123.64912pt x 110.66315pt.
 <pictures/prikazi/Services.png, id=529, 181.42781pt x 184.43906pt>
 File: pictures/prikazi/Services.png Graphic file (type png)
 <use pictures/prikazi/Services.png>
-Package pdftex.def Info: pictures/prikazi/Services.png  used on input line 555.
+Package pdftex.def Info: pictures/prikazi/Services.png  used on input line 554.
 
 (pdftex.def)             Requested size: 136.07053pt x 138.32895pt.
  [32 <./pictures/prikazi/JwtFilter.png> <./pictures/prikazi/Controllers.png>] [
@@ -835,17 +835,17 @@ Poglavlje 6.
 File: pictures/evaluacija/pocetak.png Graphic file (type png)
 <use pictures/evaluacija/pocetak.png>
 Package pdftex.def Info: pictures/evaluacija/pocetak.png  used on input line 56
-9.
+8.
 (pdftex.def)             Requested size: 412.56497pt x 204.55408pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 566--572
+Underfull \hbox (badness 10000) in paragraph at lines 565--571
 
  []
 
 <pictures/evaluacija/error.png, id=548, 1444.64719pt x 716.6775pt>
 File: pictures/evaluacija/error.png Graphic file (type png)
 <use pictures/evaluacija/error.png>
-Package pdftex.def Info: pictures/evaluacija/error.png  used on input line 576.
+Package pdftex.def Info: pictures/evaluacija/error.png  used on input line 575.
 
 (pdftex.def)             Requested size: 412.56497pt x 204.67076pt.
 [34
@@ -855,19 +855,19 @@ Package pdftex.def Info: pictures/evaluacija/error.png  used on input line 576.
 File: pictures/evaluacija/badeval.png Graphic file (type png)
 <use pictures/evaluacija/badeval.png>
 Package pdftex.def Info: pictures/evaluacija/badeval.png  used on input line 58
-3.
+2.
 (pdftex.def)             Requested size: 412.56497pt x 204.45576pt.
  [35 <./pictures/evaluacija/error.png>]
 <pictures/evaluacija/goodeval.png, id=565, 1444.64719pt x 718.93594pt>
 File: pictures/evaluacija/goodeval.png Graphic file (type png)
 <use pictures/evaluacija/goodeval.png>
 Package pdftex.def Info: pictures/evaluacija/goodeval.png  used on input line 5
-90.
+89.
 (pdftex.def)             Requested size: 412.56497pt x 205.31573pt.
 <pictures/prikazi/Algorithm.png, id=567, 621.32124pt x 1044.90375pt>
 File: pictures/prikazi/Algorithm.png Graphic file (type png)
 <use pictures/prikazi/Algorithm.png>
-Package pdftex.def Info: pictures/prikazi/Algorithm.png  used on input line 597
+Package pdftex.def Info: pictures/prikazi/Algorithm.png  used on input line 596
 .
 (pdftex.def)             Requested size: 412.56497pt x 693.83186pt.
 [36 <./pictures/evaluacija/badeval.png> <./pictures/evaluacija/goodeval.png>]
@@ -879,19 +879,19 @@ Poglavlje 7.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 603.
+(hyperref)                removing `\textasciicaron' on input line 602.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 603.
+(hyperref)                removing `\textasciicaron' on input line 602.
 
 <pictures/koristenje/StranicaDobrodoslice.png, id=586, 1443.89438pt x 715.92468
 pt>
 File: pictures/koristenje/StranicaDobrodoslice.png Graphic file (type png)
 <use pictures/koristenje/StranicaDobrodoslice.png>
 Package pdftex.def Info: pictures/koristenje/StranicaDobrodoslice.png  used on 
-input line 622.
+input line 621.
 (pdftex.def)             Requested size: 412.56497pt x 204.55408pt.
 [39
 
@@ -900,40 +900,40 @@ input line 622.
 File: pictures/koristenje/Registracija.png Graphic file (type png)
 <use pictures/koristenje/Registracija.png>
 Package pdftex.def Info: pictures/koristenje/Registracija.png  used on input li
-ne 631.
+ne 630.
 (pdftex.def)             Requested size: 412.56497pt x 205.10074pt.
  [40 <./pictures/koristenje/StranicaDobrodoslice.png>]
 <pictures/koristenje/Pregled.png, id=612, 1443.89438pt x 715.92468pt>
 File: pictures/koristenje/Pregled.png Graphic file (type png)
 <use pictures/koristenje/Pregled.png>
 Package pdftex.def Info: pictures/koristenje/Pregled.png  used on input line 64
-4.
+3.
 (pdftex.def)             Requested size: 412.56497pt x 204.55408pt.
  [41 <./pictures/koristenje/Registracija.png>]
 <pictures/koristenje/Pracenje1.png, id=620, 1443.89438pt x 716.6775pt>
 File: pictures/koristenje/Pracenje1.png Graphic file (type png)
 <use pictures/koristenje/Pracenje1.png>
 Package pdftex.def Info: pictures/koristenje/Pracenje1.png  used on input line 
-653.
+652.
 (pdftex.def)             Requested size: 412.56497pt x 204.76918pt.
 <pictures/koristenje/Pracenje2.png, id=621, 1444.64719pt x 716.6775pt>
 File: pictures/koristenje/Pracenje2.png Graphic file (type png)
 <use pictures/koristenje/Pracenje2.png>
 Package pdftex.def Info: pictures/koristenje/Pracenje2.png  used on input line 
-659.
+658.
 (pdftex.def)             Requested size: 412.56497pt x 204.67076pt.
  [42 <./pictures/koristenje/Pregled.png>]
 <pictures/koristenje/GumbZaObavijesti.png, id=629, 370.38374pt x 319.94531pt>
 File: pictures/koristenje/GumbZaObavijesti.png Graphic file (type png)
 <use pictures/koristenje/GumbZaObavijesti.png>
 Package pdftex.def Info: pictures/koristenje/GumbZaObavijesti.png  used on inpu
-t line 668.
+t line 667.
 (pdftex.def)             Requested size: 240.74657pt x 207.96198pt.
 <pictures/koristenje/ZahtjevObavijesti.png, id=630, 555.57562pt x 356.83313pt>
 File: pictures/koristenje/ZahtjevObavijesti.png Graphic file (type png)
 <use pictures/koristenje/ZahtjevObavijesti.png>
 Package pdftex.def Info: pictures/koristenje/ZahtjevObavijesti.png  used on inp
-ut line 674.
+ut line 673.
 (pdftex.def)             Requested size: 305.56752pt x 196.25882pt.
  [43 <./pictures/koristenje/Pracenje1.png> <./pictures/koristenje/Pracenje2.png
 >]
@@ -942,7 +942,7 @@ ut line 674.
 File: pictures/koristenje/DetaljanPregledZadatka.png Graphic file (type png)
 <use pictures/koristenje/DetaljanPregledZadatka.png>
 Package pdftex.def Info: pictures/koristenje/DetaljanPregledZadatka.png  used o
-n input line 683.
+n input line 682.
 (pdftex.def)             Requested size: 412.56497pt x 204.55408pt.
  [44 <./pictures/koristenje/GumbZaObavijesti.png> <./pictures/koristenje/Zahtje
 vObavijesti.png>]
@@ -950,28 +950,28 @@ vObavijesti.png>]
 File: pictures/koristenje/PregledRjesenja.png Graphic file (type png)
 <use pictures/koristenje/PregledRjesenja.png>
 Package pdftex.def Info: pictures/koristenje/PregledRjesenja.png  used on input
- line 692.
+ line 691.
 (pdftex.def)             Requested size: 412.56497pt x 205.10074pt.
  [45 <./pictures/koristenje/DetaljanPregledZadatka.png>]
 <pictures/koristenje/DodajRjesenje.png, id=657, 1444.64719pt x 716.6775pt>
 File: pictures/koristenje/DodajRjesenje.png Graphic file (type png)
 <use pictures/koristenje/DodajRjesenje.png>
 Package pdftex.def Info: pictures/koristenje/DodajRjesenje.png  used on input l
-ine 701.
+ine 700.
 (pdftex.def)             Requested size: 412.56497pt x 204.67076pt.
 <pictures/koristenje/StranicaRjesavanja.png, id=658, 1444.64719pt x 716.6775pt>
 
 File: pictures/koristenje/StranicaRjesavanja.png Graphic file (type png)
 <use pictures/koristenje/StranicaRjesavanja.png>
 Package pdftex.def Info: pictures/koristenje/StranicaRjesavanja.png  used on in
-put line 707.
+put line 706.
 (pdftex.def)             Requested size: 412.56497pt x 204.67076pt.
  [46 <./pictures/koristenje/PregledRjesenja.png>]
 <pictures/koristenje/RijeseniZadatak.png, id=665, 1444.64719pt x 715.92468pt>
 File: pictures/koristenje/RijeseniZadatak.png Graphic file (type png)
 <use pictures/koristenje/RijeseniZadatak.png>
 Package pdftex.def Info: pictures/koristenje/RijeseniZadatak.png  used on input
- line 713.
+ line 712.
 (pdftex.def)             Requested size: 412.56497pt x 204.45576pt.
  [47 <./pictures/koristenje/DodajRjesenje.png> <./pictures/koristenje/StranicaR
 jesavanja.png>]
@@ -979,13 +979,13 @@ jesavanja.png>]
 File: pictures/koristenje/StvoriDropdown.png Graphic file (type png)
 <use pictures/koristenje/StvoriDropdown.png>
 Package pdftex.def Info: pictures/koristenje/StvoriDropdown.png  used on input 
-line 722.
+line 721.
 (pdftex.def)             Requested size: 247.59709pt x 207.96198pt.
 <pictures/koristenje/FormaStvaranja.png, id=677, 1444.64719pt x 718.93594pt>
 File: pictures/koristenje/FormaStvaranja.png Graphic file (type png)
 <use pictures/koristenje/FormaStvaranja.png>
 Package pdftex.def Info: pictures/koristenje/FormaStvaranja.png  used on input 
-line 728.
+line 727.
 (pdftex.def)             Requested size: 412.56497pt x 205.31573pt.
  [48 <./pictures/koristenje/RijeseniZadatak.png>] [49 <./pictures/koristenje/St
 voriDropdown.png> <./pictures/koristenje/FormaStvaranja.png>]
@@ -997,10 +997,10 @@ Poglavlje 9.
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 744.
+(hyperref)                removing `\textasciicaron' on input line 743.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 745--749
+Underfull \hbox (badness 10000) in paragraph at lines 744--748
 
  []
 
@@ -1039,20 +1039,20 @@ Underfull \hbox (badness 2302) in paragraph at lines 136--139
  []
 
 ) [54] [55]
-Overfull \hbox (1.33553pt too wide) in paragraph at lines 768--770
+Overfull \hbox (1.33553pt too wide) in paragraph at lines 767--769
 \T1/ptm/b/n/12 Keywords: \T1/ptm/m/n/12 Re-act, SPA, Spring, REST, JWT, Pos-t-g
 reSQL, pro-gra-ming pro-blems assin-
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 771.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 770.
 [56]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 771.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 770.
  (zavrsni.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 771.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 771.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 770.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 770.
 Package rerunfilecheck Info: File `zavrsni.out' has not changed.
 (rerunfilecheck)             Checksum: 4CE9CCA5B5459F83D3B51B2EE4D2FD2B;3180.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 771.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 770.
  ) 
 Here is how much of TeX's memory you used:
  11380 strings out of 480790
@@ -1068,7 +1068,7 @@ rw/courier/ucrr8a.pfb><C:/Languages/Tex/fonts/type1/urw/courier/ucrro8a.pfb><C:
 1/urw/helvetic/uhvr8a.pfb><C:/Languages/Tex/fonts/type1/urw/times/utmb8a.pfb><C
 :/Languages/Tex/fonts/type1/urw/times/utmr8a.pfb><C:/Languages/Tex/fonts/type1/
 urw/times/utmr8a.pfb><C:/Languages/Tex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (61 pages, 3486667 bytes).
+Output written on zavrsni.pdf (61 pages, 3486661 bytes).
 PDF statistics:
  847 PDF objects out of 1000 (max. 8388607)
  208 named destinations out of 1000 (max. 500000)
