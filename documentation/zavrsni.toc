@@ -25,31 +25,31 @@
 \contentsline {subsubsection}{Spring Boot}{19}{section*.20}%
 \contentsline {subsection}{\numberline {4.2.2}Hibernate}{19}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}Tehnologije podatkovnog sloja}{20}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}PostgreSql}{20}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.1}PostgreSQL}{20}{subsection.4.3.1}%
 \contentsline {section}{\numberline {4.4}Pomoćne tehnologije}{20}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Axios}{20}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Judge0}{21}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Git}{21}{subsection.4.4.3}%
 \contentsline {chapter}{\numberline {5}Arhitektura rješenja}{22}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Domena rješenja}{22}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Implementacija rješenja}{29}{section.5.2}%
-\contentsline {subsubsection}{Implementacija prezentacijskog sloja}{30}{section*.37}%
+\contentsline {section}{\numberline {5.2}Implementacija rješenja}{28}{section.5.2}%
+\contentsline {subsubsection}{Implementacija prezentacijskog sloja}{29}{section*.37}%
 \contentsline {subsubsection}{Implementacija poslovnog sloja}{31}{section*.39}%
-\contentsline {subsubsection}{Implementacija podatkovnog sloja}{34}{section*.43}%
-\contentsline {chapter}{\numberline {6}Evaluacija i rangiranje rješenja programskog zadatka}{35}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Primjer karakteristične korisničke uporabe}{40}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Pregled stranice dobrodošlice}{40}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Registracija}{41}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Prijava}{42}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Pregled sažetaka zadataka}{42}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Praćenje korisnika}{43}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Prihvaćanje ili odbijanje zahtjeva za pratiteljstvo}{44}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Detaljan pregled zadatka (uz opcionalno komentiranje i ocjenjivanje)}{45}{section.7.7}%
-\contentsline {section}{\numberline {7.8}Pregled rješenja zadatka (uz opcionalno komentiranje i ocjenjivanje)}{46}{section.7.8}%
-\contentsline {section}{\numberline {7.9}Rješavanje odabranog zadatka}{47}{section.7.9}%
-\contentsline {section}{\numberline {7.10}Stvaranje zadatka}{49}{section.7.10}%
-\contentsline {chapter}{\numberline {8}Budući razvitak}{51}{chapter.8}%
-\contentsline {subsubsection}{Nadogradnje}{51}{section*.63}%
-\contentsline {subsubsection}{Unaprjeđenja}{51}{section*.64}%
-\contentsline {chapter}{\numberline {9}Zaključak}{53}{chapter.9}%
-\contentsline {chapter}{Literatura}{54}{chapter*.65}%
+\contentsline {subsubsection}{Implementacija podatkovnog sloja}{33}{section*.43}%
+\contentsline {chapter}{\numberline {6}Evaluacija i rangiranje rješenja programskog zadatka}{34}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Primjer karakteristične korisničke uporabe}{39}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Pregled stranice dobrodošlice}{39}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Registracija}{40}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Prijava}{41}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Pregled sažetaka zadataka}{41}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Praćenje korisnika}{42}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Prihvaćanje ili odbijanje zahtjeva za pratiteljstvo}{43}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Detaljan pregled zadatka (uz opcionalno komentiranje i ocjenjivanje)}{44}{section.7.7}%
+\contentsline {section}{\numberline {7.8}Pregled rješenja zadatka (uz opcionalno komentiranje i ocjenjivanje)}{45}{section.7.8}%
+\contentsline {section}{\numberline {7.9}Rješavanje odabranog zadatka}{46}{section.7.9}%
+\contentsline {section}{\numberline {7.10}Stvaranje zadatka}{48}{section.7.10}%
+\contentsline {chapter}{\numberline {8}Budući razvoj}{50}{chapter.8}%
+\contentsline {subsubsection}{Nadogradnje}{50}{section*.63}%
+\contentsline {subsubsection}{Unaprjeđenja}{50}{section*.64}%
+\contentsline {chapter}{\numberline {9}Zaključak}{52}{chapter.9}%
+\contentsline {chapter}{Literatura}{53}{chapter*.65}%

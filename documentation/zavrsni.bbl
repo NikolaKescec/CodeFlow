@@ -117,11 +117,10 @@
 \newblock Red Hat, 10.6.2021.
 \newblock URL \url{https://hibernate.org/}.
 
-\bibitem[Roy(9.6.2021)]{rest2021}
+\bibitem[res(10.6.2021)]{rest2021}
 \emph{{Representational state transfer (REST)}}.
-\newblock Roy Fielding, 9.6.2021.
-\newblock URL
-  \url{https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm}.
+\newblock restfulapi.net, 10.6.2021.
+\newblock URL \url{https://restfulapi.net/}.
 
 \bibitem[Spr(7.6.2021)]{spring2021}
 \emph{{Spring Framework}}.

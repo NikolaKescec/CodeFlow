@@ -20,7 +20,7 @@
 \BOOKMARK [2][-]{subsection.4.2.1}{Spring, Spring Boot i povezane tehnologije}{section.4.2}% 20
 \BOOKMARK [2][-]{subsection.4.2.2}{Hibernate}{section.4.2}% 21
 \BOOKMARK [1][-]{section.4.3}{Tehnologije podatkovnog sloja}{chapter.4}% 22
-\BOOKMARK [2][-]{subsection.4.3.1}{PostgreSql}{section.4.3}% 23
+\BOOKMARK [2][-]{subsection.4.3.1}{PostgreSQL}{section.4.3}% 23
 \BOOKMARK [1][-]{section.4.4}{Pomocne tehnologije}{chapter.4}% 24
 \BOOKMARK [2][-]{subsection.4.4.1}{Axios}{section.4.4}% 25
 \BOOKMARK [2][-]{subsection.4.4.2}{Judge0}{section.4.4}% 26
@@ -40,6 +40,6 @@
 \BOOKMARK [1][-]{section.7.8}{Pregled rje\235enja zadatka \(uz opcionalno komentiranje i ocjenjivanje\)}{chapter.7}% 40
 \BOOKMARK [1][-]{section.7.9}{Rje\235avanje odabranog zadatka}{chapter.7}% 41
 \BOOKMARK [1][-]{section.7.10}{Stvaranje zadatka}{chapter.7}% 42
-\BOOKMARK [0][-]{chapter.8}{Buduci razvitak}{}% 43
+\BOOKMARK [0][-]{chapter.8}{Buduci razvoj}{}% 43
 \BOOKMARK [0][-]{chapter.9}{Zakljucak}{}% 44
 \BOOKMARK [0][-]{chapter*.65}{Literatura}{}% 45
