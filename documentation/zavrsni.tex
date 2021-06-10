@@ -26,7 +26,7 @@
 	\tableofcontents
 	
 	\chapter{Uvod}
-	U zadnjem desetljeću sveprisutnost računalnih sustava uveliko je doprinijela većem porastu zanimanja populacije prema svemu što je povezano s računalima.  Naravno, to podrazumijeva i  \textbf{programiranje}. Programiranje možemo opisati kao proces opisivanja algoritma nekim od programskih jezika.\\
+	U zadnjem desetljeću sveprisutnost računalnih sustava uveliko je doprinijela većem porastu zanimanja populacije prema svemu što je povezano s računalima.  Naravno, to podrazumijeva i  \textbf{programiranje}. Programiranje je proces osmišljanja skupa instrukcija koje govore računalu kako izvoditi određeni zadatak.\\
 	Iako su već početkom tisućljeća računalni sustavi bili poprilično sveprisutni, neusporedivo je koliko je njihova zastupljenost u zadnjih dva desetljeća porasla. Porastom njihove zastupljenosti porasla je potražnja za računalnom sklopovskom podrškom \engl{hardware}, a s njom i potreba za kvalitetnom programskom podrškom \engl{software}. Kvalitetna programska podrška rezultat je godina učenja, razmatranja i pisanja programskog koda, a kao i svaku drugu vještinu potrebno ju je usavršavati. Usavršavanje programiranja je moguće na mnogo načina, a jedan od popularnijih načina jest rješavanje programskih zadataka. Naravno, sva rješenja programskih zadataka nisu jednako kvalitetna stoga se nerijetko rješenja rangiraju po kvaliteti sa svrhom isticanja znanja autora kvalitetnog rješenja. Događanja na kojima se upravo takav pristup prakticira i cijeni su programerska natjecanja \engl{competitive programming competitions}.\\
 	Makar su takva događanja izrazito bogat izvor programerskog znanja, neiskusne populacije zainteresirane programiranjem teško da će svojevoljno ući na opisana događanja. Razlog tome je razlika u količini znanja između njih i regularnih sudionika jer dobar dio tih sudionika već je vrlo vješt. Stoga je postojanje internetskih stranica koje pružaju uvid u programiranje i rješavanje programskih zadataka dobrodošla novost. Ipak, često riječ vrlo iskusnog programera neiskusnom programeru može biti neprocjenjiva. Iz tog razloga zanimljiv je spoj društvenih mreža \engl{social networks} i stranica koje pružaju mogućnost rješavanja programskih zadataka. Osobi koju pisanje programskog koda interesira stranica pruža nekompetitivnu mogućnost rješavanja zadataka, a iskusnom programeru mogućnost da kroz rješavanje i objašnjavanje svojih rješenja produbi i utemelji svoja znanja. Upravo je \textbf{Codeflow}, internetska aplikacija opisanih svojstava, tema ovog završnog rada.
 	
@@ -174,7 +174,7 @@
 		\end{figure}
 				
 			\subsection{React i React Router}
-			React\cite{react2021} je biblioteka kojoj je svrha izrada korisničkih sučelja \engl{user interface}. Otvorenog je koda te ga razvijaju i održavaju različite tvrtke (od kojih je najbitnija Facebook jer ona ga je zapravo i začela) i različiti individualni programeri. Prva verzija Reacta na tržište je izašla 2013. godine, a od tada njegova popularnost kontinuirano raste. Reactov fokus jest razvoj dinamičnih i lagano skalabilnih korisničkih sučelja. Skalabilnost \engl{scalability} termin je koji definira mogućnost uspješnog mijenjanja veličine sustava, a da promjena veličine ne utječe na implementirane funkcionalnosti. React omogućuje skalabilnost  putem komponentno usmjerenog razvoja, što znači da svaka razvijana funkcionalnost enkapsulira unutar sebe svu logiku, izgled i podatke koji su potrebni za njezin rad. Sve komponente mogu unutar sebe sadržavati druge komponente, tako ostvarujući kompoziciju \engl{composition} komponenata, a njenim korištenjem razvijanje složenih korisničkih sučelja postaje jasno i strukturirano. React biblioteka spomenute komponente koristi za izgradnju konkretnog dokumenta objektnog modela koji kasnije biva prikazivan korisniku. Kako korisnička interakcija ne bi bila spora, React interno održava posebnu strukturu podataka, virtualni dokument objekt model, koja pamti stanje komponenata. Ako se ikoja komponenta promijeni, React samo promijenjenu komponentu ažurira unutar stvarnog modela objekta dokumenta. Tim pristupom održava responzivnost korisničkog sučelja.\\
+			React\cite{react2021} je biblioteka kojoj je svrha izrada korisničkih sučelja \engl{user interface}. Otvorenog je koda te ga razvijaju i održavaju različite tvrtke (od kojih je najbitnija Facebook jer ona ga je zapravo i začela) i različiti individualni programeri. Prva verzija Reacta na tržište je izašla 2013. godine, a od tada njegova popularnost kontinuirano raste. Reactov fokus jest razvoj dinamičnih i lagano nadogradivih korisničkih sučelja. React laganu nadogradivost ostvaruje putem komponentno usmjerenog razvoja, što znači da svaka razvijana funkcionalnost enkapsulira unutar sebe svu logiku, izgled i podatke koji su potrebni za njezin rad. Sve komponente mogu unutar sebe sadržavati druge komponente, tako ostvarujući kompoziciju \engl{composition} komponenata, a njenim korištenjem razvijanje složenih korisničkih sučelja postaje jasno i strukturirano. React biblioteka spomenute komponente koristi za izgradnju konkretnog dokumenta objektnog modela koji kasnije biva prikazivan korisniku. Kako korisnička interakcija ne bi bila spora, React interno održava posebnu strukturu podataka, virtualni dokument objekt model, koja pamti stanje komponenata. Ako se ikoja komponenta promijeni, React samo promijenjenu komponentu ažurira unutar stvarnog modela objekta dokumenta. Tim pristupom održava responzivnost korisničkog sučelja.\\
 			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.75]{pictures/prikazi/React.png}
@@ -199,7 +199,7 @@
 			\end{figure}
 			
 			\subsection{Material-UI}
-			Material-UI\cite{materialUI2021} je radni okvir otvorenog koda koji omogućava korištenje gotovih dijelova korisničkog sučelja koja prate načela \textit{material designa}. Specijaliziran je za React biblioteku te se bilo koja Material-UI komponenta može koristiti kao obična React komponenta. Podržava i potpunu prilagodbu komponenata koje nudi za uporabu.
+			Material-UI\cite{materialUI2021} je radni okvir otvorenog koda koji omogućava korištenje gotovih dijelova korisničkog sučelja koja prate načela \textit{material designa}. Specijaliziran je za React biblioteku te se bilo koja Material-UI komponenta može koristiti kao obična React komponenta. Podržava i potpunu prilagodbu raspoloživih komponenata.
 			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.75]{pictures/prikazi/MaterialUI.png}
@@ -269,14 +269,14 @@
 	\chapter{Arhitektura rješenja}
 		\section{Domena rješenja}
 		\label{sec:domenarjesenja}
-		Domena rješenja ostvarena je definicijom relacijske baze podataka pomoću PostgreSql sustava za upravljanje bazama. Makar korišteni ORM Hibernate podržava \textit{code-first} pristup definiranja baze podataka (shema podataka definira se programskim klasama, a ne programske klase shemom podataka) ipak je odabran pristup gdje se prije same implementacije entiteta pomoću programskih klasa prvo definira shema korištene baze podataka. Iz tog je razloga shema koja opisuje domenu problema Codeflow aplikacije sa svim entitetima prikazana na slici \ref{fig:db}.
+		Domena rješenja ostvarena je definicijom relacijske baze podataka pomoću PostgreSql sustava za upravljanje bazama. Iako korišteni ORM Hibernate podržava \textit{code-first} pristup definiranja baze podataka (tablice se definiraju  programskim razredima, a ne programski razredi tablicama) ipak je odabran pristup gdje se prvo definira shema korištene baze podataka \engl{database-first}. Iz tog je razloga shema baze podataka koja opisuje domenu problema Codeflow aplikacije sa svim tablicama i njihovim međusobnim vezama prikazana na slici \ref{fig:db}.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/prikazi/Database.png}
 			\caption{Kompletan prikaz sheme Codeflow baze podataka.}
 			\label{fig:db}
 		\end{figure}
-		Valja napomenuti da svi entiteti dijele atribute ts\_created, ts\_modified, user\_created, user\_modified radi lakšeg praćenja stvaranja i promjena točnih zapisa unutar tablica, a jer su dijeljeni neće biti dodatno spomenuti tijekom detaljnijeg opisa svakog od entiteta. Sami entiteti oblikovani su prema korisničkim zahtjevima (definirani u poglavlju \ref{cha:zahtjevi}).
+		Valja napomenuti da sve tablice dijele atribute ts\_created, ts\_modified, user\_created, user\_modified radi lakšeg praćenja stvaranja i promjena točnih zapisa unutar tablica, a jer su dijeljeni neće biti dodatno spomenuti tijekom detaljnijeg opisa svake tablice. Same tablice oblikovane su prema korisničkim zahtjevima (definirani u poglavlju \ref{cha:zahtjevi}).
 		\begin{table}[H]
 			\caption{Dijeljeni atributi}
 			\label{tbl:dij-attr}
@@ -293,9 +293,9 @@
 			\end{tabu}
 		\end{table}
 		
-		Entitet \textbf{programer} unutar baze podataka opisuje korisnika aplikacije Codeflow te predstavlja centralni entitet. Stvara se tijekom registracije korisnika te pohranjuje sve korisničke informacije. Vlastiti atributi programer entiteta su programmer\_id, username, email, password, role, taskpoints i solutionpoints. Role atribut je dodan, ali unutar ove verzije različite korisničke uloge nisu implementirane.
+		Tablica \textbf{programer} unutar baze podataka opisuje korisnika aplikacije Codeflow te predstavlja centralnu tablicu. Stvara se tijekom registracije korisnika te pohranjuje sve korisničke informacije. Vlastiti atributi programer tablice su programmer\_id, username, email, password, role, taskpoints i solutionpoints. Role atribut je dodan, ali unutar ove verzije različite korisničke uloge nisu implementirane.
 		\begin{table}[H]
-			\caption{Entitet programmer}
+			\caption{Tablica programmer}
 			\label{tbl:programmer}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -313,9 +313,9 @@
 			\end{tabu}
 		\end{table}
 		
-		Entitet \textbf{task} unutar baze opisuje zadatak kojeg je korisnik napravio. Tijekom stvaranja zadatka spremaju se novi podaci unutar entiteta task, ali i unutar test\_case entiteta jer ti podaci su neophodni za dinamičku provjeru ispravnosti zadatka. Vlastiti atributi task entiteta su task\_id, author\_id, task\_text, author\_solution\_id, input\_format i output\_format.
+		Tablica \textbf{task} unutar baze opisuje zadatak kojeg je korisnik napravio. Tijekom stvaranja zadatka spremaju se novi podaci unutar tablice task, ali i unutar test\_case tablice jer ti podaci su neophodni za dinamičku provjeru ispravnosti zadatka. Vlastiti atributi task tablice su task\_id, author\_id, task\_text, author\_solution\_id, input\_format i output\_format.
 		\begin{table}[H]
-			\caption{Entitet task}
+			\caption{Tablica task}
 			\label{tbl:task}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -333,9 +333,9 @@
 		\end{table}
 	
 
-		Entitet \textbf{solution} unutar baze podataka opisuje rješenje  kojeg je korisnik napravio. Vlastiti atributi solution entiteta su solution\_id, code, task\_id, author\_id, task\_text i language\_id.
+		Tablica \textbf{solution} unutar baze podataka opisuje rješenje  kojeg je korisnik napravio. Vlastiti atributi solution tablice su solution\_id, code, task\_id, author\_id, task\_text i language\_id.
 		\begin{table}[H]
-			\caption{Entitet solution}
+			\caption{Tablica solution}
 			\label{tbl:solution}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -351,9 +351,9 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{notification} unutar baze podataka opisuje obavijest koja biva poslana korisniku tijekom nekog događaja unutar aplikacije. Vlastiti atributi notification entiteta su notification\_id, notification\_text, type, notifier\_id, notificator\_id. Prate se tipovi obavijesti jer ovisno o njima vizualno se razlikuju prikazane notifikacije.
+		Tablica \textbf{notification} unutar baze podataka opisuje obavijest koja biva poslana korisniku tijekom nekog događaja unutar aplikacije. Vlastiti atributi notification tablice su notification\_id, notification\_text, type, notifier\_id, notificator\_id. Prate se tipovi obavijesti jer ovisno o njima vizualno se razlikuju prikazane notifikacije.
 		\begin{table}[H]
-			\caption{Entitet notification}
+			\caption{Tablica notification}
 			\label{tbl:notification}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -369,9 +369,9 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{language} unutar baze podataka opisuje jezik koji je korisniku dostupan tijekom stvaranja zadataka kao podržani jezik, a korisniku koji rješava, ako je ponuđen, mogući jezik rješenja. Vlastiti atributi language entiteta su language\_id, language, imports, main, judgeId. Atribut judgeId koristi se tijekom interakcije aplikacije s Judge0 izvršiteljem računskog koda. 
+		Tablica \textbf{language} unutar baze podataka opisuje podržani jezik koji je korisniku dostupan tijekom stvaranja zadataka. Korisniku koji rješava, ako je ponuđen unutar opisa zadatka, mogući jezik rješenja. Vlastiti atributi language tablice su language\_id, language, imports, main, judgeId. Atribut judgeId koristi se tijekom interakcije aplikacije s Judge0 izvršiteljem računskog koda. 
 		\begin{table}[H]
-			\caption{Entitet language}
+			\caption{Tablica language}
 			\label{tbl:language}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -387,9 +387,9 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{test\_case} unutar baze opisuje testni slučaj koji korisnik zadaje tijekom izrade zadatka, a koji se koristi kod dinamičke provjere zadatka. Vlastiti atributi test\_case entiteta su test\_case\_id, task\_id, input i output. 
+		Tablica \textbf{test\_case} unutar baze opisuje testni slučaj koji korisnik zadaje tijekom izrade zadatka, a koji se koristi kod dinamičke provjere zadatka. Vlastiti atributi test\_case tablice su test\_case\_id, task\_id, input i output. 
 		\begin{table}[H]
-			\caption{Entitet test\_case}
+			\caption{Tablica test\_case}
 			\label{tbl:testcase}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -404,9 +404,9 @@
 			\end{tabu}
 		\end{table}
 		
-		Entitet \textbf{written\_in} unutar baze podataka je spojna relacija kojom se ostvaruje NN odnos između entiteta language i task. Vlastiti atributi written\_in entiteta su written\_in\_id, task\_id i language\_id. 
+		Tablica \textbf{written\_in} unutar baze podataka je spojna relacija kojom se ostvaruje NN odnos između tablica language i task. Vlastiti atributi written\_in tablice su written\_in\_id, task\_id i language\_id. 
 		\begin{table}[H]
-			\caption{Entitet written\_in}
+			\caption{Tablica written\_in}
 			\label{tbl:writtenin}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -420,9 +420,9 @@
 			\end{tabu}
 		\end{table}
 		
-		Entitet \textbf{solution\_grading} unutar baze podataka ppredstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi solution\_grading entiteta su solution\_grading\_id, grade, grader\_id i solution\_id. 
+		Tablica \textbf{solution\_grading} unutar baze podataka ppredstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi solution\_grading tablice su solution\_grading\_id, grade, grader\_id i solution\_id. 
 		\begin{table}[H]
-			\caption{Entitet solution\_grading}
+			\caption{Tablica solution\_grading}
 			\label{tbl:solutiongrading}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -437,9 +437,9 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{task\_grading} unutar baze podataka predstavlja ocjene povezane uz jedan programski zadatak. Vlastiti atributi task\_grading entiteta su task\_grading\_id, grade, grader\_id i task\_id. 
+		Tablica \textbf{task\_grading} unutar baze podataka predstavlja ocjene povezane uz jedan programski zadatak. Vlastiti atributi task\_grading tablice su task\_grading\_id, grade, grader\_id i task\_id. 
 		\begin{table}[H]
-			\caption{Entitet task \_rading}
+			\caption{Tablica task \_rading}
 			\label{tbl:taskgrading}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -454,9 +454,9 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{solution\_comment} unutar baze podataka predstavlja komentare povezane uz jedno programsko rješenje. Vlastiti atributi solution\_comment entiteta su solution\_comment\_id, comment, commenter\_id i task\_id. 
+		Tablica \textbf{solution\_comment} unutar baze podataka predstavlja komentare povezane uz jedno programsko rješenje. Vlastiti atributi solution\_comment tablice su solution\_comment\_id, comment, commenter\_id i task\_id. 
 		\begin{table}[H]
-			\caption{Entitet solution\_comment}
+			\caption{Tablica solution\_comment}
 			\label{tbl:solutioncomment}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -471,9 +471,9 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{task\_comment} unutar baze podataka ppredstavlja komentare povezane uz jedan programski zadatak. Vlastiti atributi task\_comment entiteta su task\_comment\_id, comment, grader\_id i commenter\_id. 
+		Tablica \textbf{task\_comment} unutar baze podataka predstavlja komentare povezane uz jedan programski zadatak. Vlastiti atributi task\_comment tablice su task\_comment\_id, comment, grader\_id i commenter\_id. 
 		\begin{table}[H]
-			\caption{Entitet task\_comment}
+			\caption{Tablica task\_comment}
 			\label{tbl:taskcomment}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -488,9 +488,9 @@
 			\end{tabu}
 		\end{table}
 	
-		Entitet \textbf{follower} unutar baze podataka opisuje pratiteljstva između korisnika. Vlastiti atributi follower entiteta su followers\_id, follower i pending. Pending atribut označava je li prihvaćeno pratiteljstvo. Tek ako je pending atribut postavljen na \textit{false} pratiteljstvo se smatra punopravnim.
+		Tablica \textbf{follower} unutar baze podataka opisuje pratiteljstva između korisnika. Vlastiti atributi follower tablice su followers\_id, follower i pending. Pending atribut označava je li prihvaćeno pratiteljstvo. Tek ako je pending atribut postavljen na \textit{false} pratiteljstvo se smatra punopravnim.
 		\begin{table}[H]
-			\caption{Entitet follower}
+			\caption{Tablica follower}
 			\label{tbl:follower}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -518,7 +518,7 @@
 			Prezentacijski sloj definira korisničko sučelje aplikacije te je za njegovu izradu korišten React. React aplikacija prezentacijskog sloja sastoji se od jedanaest stranica od kojih svaka predstavlja određeni pogled definiran korisničkim zahtjevima, a same stranice koriste i dijele manje komponente. Radi bolje strukturiranog razvoja, React aplikacija dodatno je podijeljena je u četiri interna sloja: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{sloj logike aplikacije} i \textbf{podatkovni sloj}.\\
 			Korisnički zahtjevi razlikuju prijavljene i neprijavljene korisnike pa tako korisničko sučelje razlikuje i definira akcije dopuštene prijavljenim i neprijavljenim korisnicima. Tijekom uporabe, neprijavljeni korisnici isprva pristupaju \textbf{sigurnosnom sloju}. Sigurnosni sloj nakon uspješne prijave od poslovnog sloja dobiva dva \textit{http-only} kolačića \engl{cookie}. Oba sadržavaju \textit{JSON Web Tokens}\cite{jwt2021} (skraćeno JWT) i unutar sebe opisuju osnovne korisnikove podatke. Njihovim primitkom React aplikacija sigurna je da je korisnik uspješno ovjerio svoj identitet i da smije spremiti i koristiti njegove podatke.
 		 	\textit{JSON Web Tokens} podijeljeni su u tri dijela: \textit{header} dio koji opisuje tip tokena i korišteni kriptografski algoritam, \textit{payload} dio koji sadržava korisničke informacije 
-			i dio s potpisom koji je kriptirani sažetak prva dva dijela. Prvi kolačić šalje se uz svaki prijavljeni korisnički zahtjev, a drugi kolačić koristi se za obnovu prvog kolačića jer vremensko trajanje prvog kolačića vrlo je kratko (dvije minute). Odbijenost korisničkog zahtjeva zbog vremenskog isteka prvog kolačića ispravlja se pomoću \textit{Axios Response Interceptor} funkcionalnosti koja šalje novi zahtjev za obnovu kolačića s drugim kolačićem. U slučaju odbijanja produljenja JWT kolačića korisnik se odjavljuje dok se u slučaju produljenja originalno odbijen zahtjev ponovno  šalje. Provjera ispravnosti poslanih kolačića obrađuje se unutar poslovnog sloja. Kombinacija korištenja JWT kolačića i provjere spremljenih podataka unutar lokalnog spremnika internetskog preglednika tijekom promjene stranica osiguravaju ispravno raspoznavanje prijavljenih korisnika i neprijavljenih korisnika.
+			i dio s potpisom koji je kriptirani sažetak prva dva dijela. Prvi kolačić šalje se uz svaki prijavljeni korisnički zahtjev, a drugi kolačić koristi se za obnovu prvog kolačića jer vremensko trajanje prvog kolačića vrlo je kratko (dvije minute). Odbijenost korisničkog zahtjeva zbog vremenskog isteka prvog kolačića ispravlja se pomoću \textit{Axios Response Interceptor} funkcionalnosti koja šalje novi zahtjev za obnovu kolačića. Novi zahtjev sadržava drugi kolačić. U slučaju odbijanja produljenja JWT kolačića korisnik se odjavljuje dok se u slučaju produljenja originalno odbijen zahtjev ponovno  šalje. Provjera ispravnosti poslanih kolačića obrađuje se unutar poslovnog sloja. Kombinacija JWT kolačića i provjere spremljenih podataka unutar lokalnog spremnika internetskog preglednika tijekom promjene stranica osiguravaju ispravno raspoznavanje prijavljenih korisnika i neprijavljenih korisnika.
 			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.65]{pictures/prikazi/AxiosInterceptor.png}
@@ -531,7 +531,7 @@
 			U konačnici, \textbf{podatkovni sloj} koristi Axios biblioteku za slanje zahtjeva te React Reducer funkcionalnost Reacta za strukturirano spremanje i upravljanje podacima unutar React aplikacije.
 			
 	 		\subsubsection{Implementacija poslovnog sloja}
-	 		Poslovni sloj Codeflow aplikacije sastoji se od internetskog poslužitelja pisanog Java programskim jezikom uz pomoć Spring radnog okvira. Arhitekturalni stil internetskog poslužitelja prilagođen je REST\cite{rest2021} \engl{representational state transfer} arhitekturalnom stilu koji propisuje da internetski poslužitelji tražene podatke vraćaju u formatiranom tekstualnom obliku. Najčešći formati prema kojima se zahtjevi formatiraju su JSON \engl{Javascript Object Notation}, XML \engl{Extensible Markup Language} i HTML. REST također propisuje točno određene metode za pristup i modifikaciju podataka te format URL putanje određenog podatka.\\ Internetski poslužitelj, analogno prezentacijskom sloju, podijeljen je na interne slojeve radi kvalitetnije strukture. Slojevi po redu su: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{servisni sloj} i \textbf{podatkovni sloj}. Semantički gledano, navedeni slojevi (izuzev sigurnosnog sloja) podliježu raspodjeli koju predlaže Spring radni okvir.\\
+	 		Poslovni sloj Codeflow aplikacije sastoji se od internetskog poslužitelja pisanog Java programskim jezikom uz pomoć Spring radnog okvira. Arhitekturalni stil internetskog poslužitelja prilagođen je REST\cite{rest2021} \engl{representational state transfer} arhitekturalnom stilu. REST arhitekturalni stil propisuje da internetski poslužitelji odgovaraju na zahtjeve klijenata koji traže ili modificiraju neki podatak. Klijenti tijekom traženja podataka mogu navesti medijski tip podatka, često zvan MIME \engl{Multipurpose Internet Mail Extensions}, unutar \textit{Accept} polja zaglavlja zahtjeva. Najčešći medijski tipovi podataka prema kojima se podaci oblikuju su JSON \engl{Javascript Object Notation}, XML \engl{Extensible Markup Language} i HTML. REST također propisuje točno određene metode za pristup i modifikaciju podataka te format URL putanje određenog podatka.\\ Internetski poslužitelj, analogno prezentacijskom sloju, podijeljen je na interne slojeve radi kvalitetnije strukture. Slojevi po redu su: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{servisni sloj} i \textbf{podatkovni sloj}. Semantički gledano, navedeni slojevi (izuzev sigurnosnog sloja) podliježu raspodjeli koju predlaže Spring radni okvir.\\
 	 		Unutar \textbf{sigurnosnog sloja} dodan je poseban \textit{JwtFilter} koji služi za provjeru JWT kolačića spomenutih unutar implementacije prezentacijskog sloja. U slučaju neispravnog JWT kolačića unutar zahtjeva koji pristupa zaštićenom resursu, zahtjev biva odbijen i ne prosljeđuje se na usmjeravateljski sloj. JWT kolačić neispravan je ako je vremenski istekao ili ako se nanovo izračunati kriptografski sažetak, koji se računa  iz prva dva dijela tokena, ne podudara sa starim kriptografskim sažetkom zapisanim unutar dobivenog tokena. \textit{JwtFilter} ignorira zahtjeve za prijavu, registraciju i obnovu tokena, a uspješna prijava i obnova tokena generira nov par JWT kolačića pomoću \textbf{jjwt}\cite{jjwt2021} maven ovisnosti. Ista maven ovisnost koristi se i za provjeru tokena.
 	 		\begin{figure}[H]
 	 			\centering
@@ -559,18 +559,45 @@
 	 		\textbf{Podatkovni sloj} sastoji se od programskih klasa (znane još kao i model) koje opisuju entitete baze podataka te JPA repozitorijska \engl{repositories} sučelja. Repozitorijska sučelja interno unutar svojih implementacija provode prevođenje programskih naredbi u SQL naredbe te redaka dobivenih SQL upitima u objekte definiranih prigodnim modelom. Interna implementacija uvelike ovisi o Hibernate ORM radnom okviru. Podatkovni sloj poslovnog sloja jedini je sloj koji šalje zahtjeve bazi podataka.
 			
 			\subsubsection{Implementacija podatkovnog sloja}
-			Podatkovni sloj sastoji se od PostgreSql sustava za upravljanje bazama podataka. Omogućuje pohranjivanje i izmjenu specificiranih podataka.
+			Podatkovni sloj sastoji se od PostgreSql sustava za upravljanje bazama podataka. Omogućuje pohranjivanje i izmjenu podataka.
 			
 	\chapter{Evaluacija i rangiranje rješenja programskog zadatka}
-	Evaluaciju rješenja programskog zadatka unutar Codeflow aplikacije definiraju korisnici tijekom zadavanja zadatka, što označava da tijekom izvođenja rješenja programskog zadatka aplikacija Codeflow provjerava jednakost dobivenog izlaza rješenja s pripremljenim izlazom testnog slučaja kojeg je korisnik zadao. Testni slučajevi unutar Codeflow aplikacije definirani su kao par ulaznih i izlaznih vrijednosti koji uvijek mora biti dobro definiran. Sama provjera dobivene izlazne vrijednosti i očekivane vrijednosti delegirana je Judge0 izvršitelju programskog koda.\\
-	Prvi korak evaluacije zadatka sastoji se od pripreme zahtjeva koji sadrži programski kod rješenja, identifikacijski broj programskog jezika rješenja, dio testnog slučaja koji definira ulaz te dio testnog slučaja koji definira očekivani izlaz rješenja. Pošto je zahtjev pripremljen, šalje se Judge0 izvršitelju programskog koda da prevede i izvede programski kod dan unutar tijela zahtjeva. Ako Judge0 uspješno prevede i izvede rješenje uspoređuje izlaz dobiven kao rezultat izvođenja programskog koda s očekivanim izlazom unutar tijela zahtjeva, inače vraća grešku. Nakon što aplikacija Codeflow zaprimi odgovor, pregledava tijelo odgovora. Ako tijelo odgovora sadržava obavijesti o bilo kakvim greškama nastalim tijekom prevođenja ili izvođenja, aplikacija grešku prikazuje korisniku te prestaje s daljnjom evaluacijom zadatka. Nadalje, ako se izlaz prevedenog i izvedenog rješenja ne podudara s očekivanim izlazom evaluacija se ne prekida, već se izvodi za sve dane ispitne slučajeve (nepodudarnosti se interno prate). Tek nakon izvođenja svakog od testnog slučaja bez grešaka korisnik biva obavješten o rezultatima podudarnosti dobivenih izlaza i očekivanih izlaza. Bitna napomena ovog sustava evaluacije jest da mogućnost spremanja rješenja programskog zadatka postaje dostupna samo u slučaju \textbf{potpune} podudarnosti svih dobivenih izlaza i očekivanih izlaza navedenih unutar testnih slučajeva. Grafički prikaz izvođenja evaluacije rješenja programskog zadatka unutar Codeflow aplikacije prikazan je na slici \ref{fig:algorithm}.
+	Evaluaciju rješenja programskog zadatka unutar Codeflow aplikacije definiraju korisnici tijekom zadavanja zadatka. Tijekom izvođenja rješenja programskog zadatka aplikacija Codeflow provjerava jednakost dobivenog izlaza rješenja s pripremljenim izlazom testnog slučaja kojeg je korisnik zadao. Testni slučajevi unutar Codeflow aplikacije definirani su kao par ulaznih i izlaznih vrijednosti koji nikad ne mogu biti prazni. Sama provjera dobivene izlazne vrijednosti i očekivane vrijednosti delegirana je Judge0 izvršitelju programskog koda.\\
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{pictures/evaluacija/pocetak.png}
+		\caption{Prikaz rješenja zadatka spremnog za evaluaciju. S lijeve strane unutar opisa zadatka vidljiv je primjer ulaznih i izlaznih testnih vrijednosti. Ispod detaljnog prikaza smješteno je područje koje ispisuje rezultate evaluacije.}
+		\label{fig:start}
+	\end{figure}
+	Prvi korak evaluacije zadatka sastoji se od pripreme zahtjeva koji sadrži programski kod rješenja, identifikacijski broj programskog jezika rješenja, dio testnog slučaja koji definira ulaz te dio testnog slučaja koji definira očekivani izlaz rješenja. Pošto je zahtjev pripremljen, šalje se Judge0 izvršitelju programskog koda. Ako Judge0 uspješno prevede i izvede rješenje uspoređuje izlaz dobiven kao rezultat izvođenja programskog koda s očekivanim izlazom unutar tijela zahtjeva, inače vraća grešku. Nakon što aplikacija Codeflow zaprimi odgovor, pregledava tijelo odgovora. Ako tijelo odgovora sadržava obavijesti o bilo kakvim greškama nastalim tijekom prevođenja ili izvođenja, aplikacija grešku prikazuje korisniku te prestaje s daljnjom evaluacijom zadatka (prikazano na slici \ref{fig:error}).
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{pictures/evaluacija/error.png}
+		\caption{Prikaz rezultata evaluacije rješenja koje sadržava sintaksnu pogrešku.}
+		\label{fig:error}
+	\end{figure}
+	Nadalje, ako se izlaz prevedenog i izvedenog rješenja ne podudara s očekivanim izlazom evaluacija se ne prekida, već se izvodi za sve dane ispitne slučajeve (nepodudarnosti se interno prate). Tek nakon izvođenja svakog od testnog slučaja bez grešaka korisnik biva obavješten o rezultatima podudarnosti dobivenih izlaza i očekivanih izlaza (prikaz je vidljiv na slici \ref{fig:badeval}).
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{pictures/evaluacija/badeval.png}
+		\caption{Prikaz evaluacije s nepodudaranjima. Naglašen je prostor rezultata usporedbe.}
+		\label{fig:badeval}
+	\end{figure} 
+	Bitna napomena ovog sustava evaluacije jest da mogućnost spremanja rješenja programskog zadatka postaje dostupna samo u slučaju \textbf{potpune} podudarnosti svih dobivenih izlaza i očekivanih izlaza navedenih unutar testnih slučajeva. Prikaz uspješne evaluacije vidljiv je na slici \ref{fig:goodeval}. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{pictures/evaluacija/goodeval.png}
+		\caption{Prikaz evaluacije s potpunim podudaranjem. Naglašen je prostor rezultata usporedbe i omogućeno spremanje rješenja zadatka.}
+		\label{fig:goodeval}
+	\end{figure}
+	Grafički prikaz izvođenja evaluacije rješenja programskog zadatka unutar Codeflow aplikacije prikazan je na slici \ref{fig:algorithm}.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\linewidth]{pictures/prikazi/Algorithm.png}
 		\caption{Prikaz algoritma evaluacije rješenja zadatka unutar Codeflow aplikacije.}
 		\label{fig:algorithm}
 	\end{figure}
-	Rangiranje rješenja provedeno je rangiranjem prosječne ocjene rješenja. Korisnici aplikacije ocjenjuju rješenja te se na temelju njihovih ocjena izračunava prosječna ocjena. Korisnici rješenje mogu ocijeniti samo jednom, a ako promijene svoje mišljenje u vezi dane ocjene, mogu ju izbrisati ili promijeniti. Pristup rangiranja prosječnom ocjenom odabran je zbog klijentske interakcije. Alternativan pristup rangiranja korisničkih rješenja bio bi po trajanju izvršavanja rješenja, ali on nije odabran zbog nemogućnosti osiguravanja potpuno identičnih uvjeta tijekom izvođenja svakog korisničkog rješenja.
+	Rangiranje rješenja provedeno je rangiranjem prosječne ocjene rješenja. Korisnici aplikacije ocjenjuju rješenja te se na temelju njihovih ocjena izračunava prosječna ocjena. Korisnici rješenje mogu ocijeniti samo jednom, a ako promijene svoje mišljenje u vezi dane ocjene, mogu ju izbrisati ili promijeniti. Pristup rangiranja prosječnom ocjenom odabran je zbog klijentske interakcije. Alternativan pristup rangiranja korisničkih rješenja bio bi temeljen trajanjem izvršavanja rješenja, ali on nije odabran zbog nemogućnosti osiguravanja potpuno identičnih uvjeta tijekom izvođenja svakog korisničkog rješenja.
 	
 	\chapter{Primjer karakteristične korisničke uporabe}
 	Ovo poglavlje posvećeno je razmatranju uporabe i ostvarenih funkcionalnosti Codeflow internetske aplikacije iz perspektive novog korisnika. Očekivani radni tok novog korisnika sastoji se od:
@@ -703,20 +730,21 @@
 		\end{figure}
 		
 	\chapter{Budući razvitak}
-	Codeflow aplikacija sadržava potencijal za dodavanje funkcionalnosti i unaprjeđenje postojećih. Dizajnirana je na način da dodavanje novih funkcionalnosti ne mijenja funkcionalnost već ostvarenih funkcionalnosti te je time otvorena za nadogradnju. Dakle, budući razvitak podijeljen je na kategoriju \textbf{nadogradnji} i \textbf{unaprjeđenja}.
+	Codeflow aplikacija sadržava potencijal za dodavanje funkcionalnosti i unaprjeđenje postojećih. Dizajnirana je na način da dodavanje novih funkcionalnosti ne mijenja funkcionalnost već ostvarenih funkcionalnosti te je time otvorena za nadogradnju.
+	Dakle, budući razvitak podijeljen je na kategoriju \textbf{nadogradnji} i \textbf{unaprjeđenja}.
 	\subsubsection{Nadogradnje}
 	Prva preporučena nadogradnja aplikacija bilo bi uvođenje sistema "igrifikacije" (spomenuto unutar potpoglavlja \ref{sec:codewars}). Uvođenje znački, kategorija i povremenih natjecanja pozitivno bi utjecalo na sveukupno korisničko iskustvo.\\
 	Nedostatak trenutačnog sustava komentiranja i obavijesti u usporedbi s ostalim sličnim stranicama jest potreba za promjenom stranice ili, u najgorem slučaju, ponovnim učitavanjem aplikacije radi učitavanja promjena unutar komentara ili obavijesti. Ovaj nedostatak rješiv je korištenjem \textbf{WebSocket} protokola. WebSocket\cite{websocket2021} protokol omogućuje potpuno dvosmjernu komunikaciju između klijenta i poslužitelja u stvarnom vremenu. Makar različit od tipičnog HTTP protokola, dizajniran je da radi na istim vratima \engl{ports} (443 i 80) kao i HTTP protokol, što ga čini veoma prihvatljivim za normalnu internetsku interakciju između klijenta i poslužitelja. Podržan je na svim modernim internetskim preglednicima i njegovo bi svojstvo dvosmjerne komunikacije omogućilo internetskom pregledniku da ažuriranje komentara i obavijesti istovremeno dojavi i React aplikaciji na prezentacijskom sloju. React aplikacija bi potom ažurirala svoje korisničko sučelje da ispravno prati stanje podataka unutar podatkovnog sloja. Takav sistem bio bi prigodniji trenutačnom te bi kao nadogradnja potpuno zamijenio trenutačni.
 	\subsubsection{Unaprjeđenja}
-	Najvažnije unaprjeđenje trenutačnog sustava bila bi dodatna prilagodna sustava evaluacije korisničkih rješenja. Sustav u trenutnom stanju šalje rješenje pojedinačno za svaki testni slučaj tijekom evaluacije, što nije održivo za veća rješenja i veći broj testnih slučajeva. Unaprjeđenje bi sustav prilagodilo da umjesto pojedinačnog slanja pripremi takozvanu skupnu \engl{batched} pošiljku tijekom unaprijeđene evaluacije rješenja.\\
-	Unaprjeđenje sustava evaluacije rješenja koje bi bilo pogodno implementirati jest projvera plagijata tijekom dodavanja novog rješenja. Trenutačna verzija aplikacije ni na koji način ne provjerava sličnost rješenja te korisnici mogu veoma jednostavno u potpunosti kopirati već postojeća rješenja drugih korisnika.
+	Najvažnije unaprjeđenje bilo bi dodatna prilagodba sustava evaluacije korisničkih rješenja. Sustav u trenutnom stanju šalje rješenje pojedinačno za svaki testni slučaj tijekom evaluacije, što nije održivo za veća rješenja i veći broj testnih slučajeva. Unaprjeđenje bi sustav prilagodilo da umjesto pojedinačnog slanja pripremi takozvanu skupnu \engl{batched} pošiljku tijekom unaprijeđene evaluacije rješenja.\\
+	Unaprjeđenje sustava spremanja rješenja koje bi bilo pogodno implementirati jest projvera plagijata tijekom dodavanja novog rješenja. Trenutačna verzija aplikacije ni na koji način ne provjerava sličnost rješenja te korisnici mogu veoma jednostavno u potpunosti kopirati već postojeća rješenja drugih korisnika. Sustav spremanja također ne pruža mogučnost spremanja nedovršenog rješenja programskog zadatka. Dodavanje te mogućnosti uveliko bi poboljšalo korisničko iskustvo te je još jedno od poželjnih unaprjeđenja.
 	
 	
 	\chapter{Zaključak}
 	Velik porast zanimanja za programiranjem te sve veća potreba za održavanjem programerskog znanja rezultirala je nastankom stranica koje omogućuju vježbanje i razvijanje programerskih vještina. Neke od stranica usvojile su elemente socijalnih mreža, poput dodavanja mogućnosti raspravljanja i komentiranja zadataka i rješenja, a sve češća je i implementacija sustava "igrifikacije". Doduše, učestali zajednički čimbenik navedenih stranica jest nemogućnost da prosječni korisnik zada zadatak. Ipak, zbog podržanih funkcionalnosti rješavanja zadataka, određenih socijalnih elemenata i implementacije navedenih sustava "igrifikacije" popularnost tih stranica visoka je.\\
 	Tema ovog završnog rada bila je razvijanje i implementiranje aplikacije koja podržava učestale značajke popularnih stranica koje omogućavaju rješavanje programskih zadataka. Dodatne funkcionalnosti ove aplikacije su podržavanje najbitnijih elemenata socijalnih mreža i mogućnost zadavanja zadataka od strane bilo kojeg korisnika. \\
 	Izazovan element izrade aplikacije koja zadovoljava spomenute zahtjeve bio je organizacija i strukturiranje sustava za stvaranje zadataka i pripremanje okvirnih predložaka za rješenja stvorenih zadataka. Jednako je izazovan element razvoja aplikacije ovoga specifičnoga tipa bio podržavanje provjeravanja ispravnosti korisničkog programskog koda. Ipak, uz pomoć Judge0 izvršitelja programskog koda i ta funkcionalnost uspješno je podržana.\\
-	Odabir Spring radnog okvira i React JavaScript biblioteke bio je kvalitetan jer obje spomenute tehnologije posjeduju bogatu podršku te veoma kvalitetnu dokumentaciju. Također, spomenute tehnologije kvalitetno podržavaju izradu višeslojnih internetskih aplikacija te uz kombinaciju PostgreSql sustava za upravljanje bazama podataka potpuno su zadovoljile tehnološke potrebe ovog završnog rada.\\
+	Odabir Spring radnog okvira i React JavaScript biblioteke bio je kvalitetan jer obje spomenute tehnologije posjeduju bogatu podršku te veoma kvalitetnu dokumentaciju. Također, spomenute tehnologije kvalitetno podržavaju izradu višeslojnih internetskih aplikacija te su uz kombinaciju PostgreSql sustava za upravljanje bazama podataka potpuno zadovoljile tehnološke potrebe ovog završnog rada.\\
 	
 	
 	
