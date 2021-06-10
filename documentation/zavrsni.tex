@@ -4,6 +4,7 @@
 \usepackage{float}
 \usepackage[hidelinks]{hyperref}
 
+
 \begin{document}
 	
 	% TODO: Navedite broj rada.
@@ -27,7 +28,7 @@
 	
 	\chapter{Uvod}
 	U zadnjem desetljeću sveprisutnost računalnih sustava uveliko je doprinijela većem porastu zanimanja populacije prema svemu što je povezano s računalima.  Naravno, to podrazumijeva i  \textbf{programiranje}. Programiranje je proces osmišljanja skupa instrukcija koje govore računalu kako izvoditi određeni zadatak.\\
-	Iako su već početkom tisućljeća računalni sustavi bili poprilično sveprisutni, neusporedivo je koliko je njihova zastupljenost u zadnjih dva desetljeća porasla. Porastom njihove zastupljenosti porasla je potražnja za računalnom sklopovskom podrškom \engl{hardware}, a s njom i potreba za kvalitetnom programskom podrškom \engl{software}. Kvalitetna programska podrška rezultat je godina učenja, razmatranja i pisanja programskog koda, a kao i svaku drugu vještinu potrebno ju je usavršavati. Usavršavanje programiranja je moguće na mnogo načina, a jedan od popularnijih načina jest rješavanje programskih zadataka. Naravno, sva rješenja programskih zadataka nisu jednako kvalitetna stoga se nerijetko rješenja rangiraju po kvaliteti sa svrhom isticanja znanja autora kvalitetnog rješenja. Događanja na kojima se upravo takav pristup prakticira i cijeni su programerska natjecanja \engl{competitive programming competitions}.\\
+	Iako su već početkom tisućljeća računalni sustavi bili poprilično sveprisutni, njihova je zastupljenost u zadnjih dva desetljeća još porasla. Porastom njihove zastupljenosti porasla je potražnja za računalnom sklopovskom podrškom \engl{hardware}, a s njom i potreba za kvalitetnom programskom podrškom \engl{software}. Kvalitetna programska podrška rezultat je godina učenja, razmatranja i pisanja programskog koda, a kao i svaku drugu vještinu potrebno ju je usavršavati. Usavršavanje programiranja je moguće na mnogo načina, a jedan od popularnijih načina jest rješavanje programskih zadataka. Naravno, sva rješenja programskih zadataka nisu jednako kvalitetna stoga se nerijetko rješenja rangiraju po kvaliteti sa svrhom isticanja znanja autora kvalitetnog rješenja. Događanja na kojima se upravo takav pristup prakticira i cijeni su programerska natjecanja \engl{competitive programming competitions}.\\
 	Makar su takva događanja izrazito bogat izvor programerskog znanja, neiskusne populacije zainteresirane programiranjem teško da će svojevoljno ući na opisana događanja. Razlog tome je razlika u količini znanja između njih i regularnih sudionika jer dobar dio tih sudionika već je vrlo vješt. Stoga je postojanje internetskih stranica koje pružaju uvid u programiranje i rješavanje programskih zadataka dobrodošla novost. Ipak, često riječ vrlo iskusnog programera neiskusnom programeru može biti neprocjenjiva. Iz tog razloga zanimljiv je spoj društvenih mreža \engl{social networks} i stranica koje pružaju mogućnost rješavanja programskih zadataka. Osobi koju pisanje programskog koda interesira stranica pruža nekompetitivnu mogućnost rješavanja zadataka, a iskusnom programeru mogućnost da kroz rješavanje i objašnjavanje svojih rješenja produbi i utemelji svoja znanja. Upravo je \textbf{Codeflow}, internetska aplikacija opisanih svojstava, tema ovog završnog rada.
 	
 	\chapter{Korisnički zahtjevi}
@@ -100,8 +101,8 @@
 	
 		\section{Edgar}
 		Edgar je internetska aplikacija koju Fakultet elektrotehnike i računarstva koristi u edukacijske svrhe, primarno kao sustav provođenja provjera vezanih uz temu programiranja. Na Fakultetu elektrotehnike i računarstva se intenzivno koristi zbog svojih mogućnosti definiranja i provođenja testova. \\
-		Pristup internetskoj aplikacije moguć je samo ovlaštenim osobama pomoću njihovih korisničkih računa. Korisnici koji imaju ulogu predavača mogu definirati testove koje onda ostali studenti rješavaju nakon što se prijave sa svojim korisničkim računima. Edgar podržava mnoge programske jezike te tijekom rješavanja testnih zadataka vraća povratne informacije korisniku. Također, Edgar podržava stvaranja edukacijskih materijala poput edukacijskih vježbi. Isto tako, korisniku je na raspolaganju i pisanje proizvoljnog koda unutar "Code sandbox" funkcionalnosti stranice. Korisnici Edgara ne mogu ući u interakciju jedni s drugima.\\
-		Internetska stranica Edgar primarno pruža funkcionalnosti provjere programskog koda. Ne fokusira se na interakciju korisnika te sadržava poveći broj funkcionalnosti od kojih su ovdje navedene samo osnovne.
+		Pristup internetskoj aplikaciji moguć je samo ovlaštenim osobama pomoću njihovih korisničkih računa. Korisnici koji imaju ulogu predavača mogu definirati testove koje onda ostali studenti rješavaju nakon što se prijave sa svojim korisničkim računima. Edgar podržava mnoge programske jezike te tijekom rješavanja testnih zadataka vraća povratne informacije korisniku. Također, Edgar podržava stvaranja edukacijskih materijala poput edukacijskih vježbi. Isto tako, korisniku je na raspolaganju i pisanje proizvoljnog koda unutar "Code sandbox" funkcionalnosti stranice. Korisnici Edgara ne mogu ući u interakciju jedni s drugima.\\
+		Internetska stranica Edgar primarno pruža funkcionalnost provjere programskog koda. Ne fokusira se na interakciju korisnika te sadržava poveći broj funkcionalnosti od kojih su ovdje navedene samo osnovne.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/prikazi/Edgar.png}
@@ -165,7 +166,7 @@
 		
 		\subsubsection{Single Page Application tip stranica}
 		SPA\cite{SPA2021} \engl{Single page Application} tip internetskih aplikacija pri promjeni stranice ne dohvaćaju HTML datoteku sa sadržajem nove stranice već dinamički prepisuju sadržaj trenutačne stranice uz pomoć JavaScript programskog jezika te podataka dobivenih s internetskog poslužitelja. Cilj \textit{Single Page Application} tipa internetske aplikacije jest doživljaj korištenja aplikacije učiniti sličnim onomu kojeg imaju aplikacije pokrenute na računalu.\\ 
-		Budući da se stranice mijenjaju isključivo manipulacijom elemenata DOM-a \engl{Document Object Model}, tijekom korištenja aplikacije učitavanje stranice potrebno je obaviti samo jednom tijekom prvog pristupa stranici. Glavni nedostaci SPA internetskih aplikacija jesu sporo prvo učitavanje internetske aplikacije i loša optimizacija zastupljenosti tijekom pretrage internetskim pretraživačima. Sporo učitavanje aplikacije uzrokovano je potrebom za učitavanjem cjelokupne internetske aplikacije tijekom prvog pristupa stranici, a loša optimizacija zastupljenosti tijekom pretrage inicijalnim nedostatkom HTML-a prilikom inicijalnog učitavanja. Ipak, brzina odaziva na korisničke zahtjeve uveliko unaprjeđuje korisničko iskustvo, pa je upravo korisničko sučelje Codeflow aplikacije SPA tip internetske aplikacije. Kratak pregled interakcije i arhitekture SPA tipa internetske aplikacije i internetskog poslužitelja prikazan je na slici \ref{fig:spa}.
+		Budući da se stranice mijenjaju isključivo manipulacijom elemenata DOM-a \engl{Document Object Model}, tijekom korištenja aplikacije učitavanje stranice potrebno je obaviti samo jednom tijekom prvog pristupa stranici. Glavni nedostaci SPA internetskih aplikacija jesu sporo prvo učitavanje internetske aplikacije i loša optimizacija zastupljenosti tijekom pretrage internetskim pretraživačima. Sporo učitavanje aplikacije uzrokovano je potrebom za učitavanjem cjelokupne internetske aplikacije tijekom prvog pristupa stranici, a loša optimizacija zastupljenosti tijekom pretrage inicijalnim nedostatkom HTML-a prilikom početnog učitavanja. Ipak, brzina odaziva na korisničke zahtjeve uveliko unaprjeđuje korisničko iskustvo, pa je upravo korisničko sučelje Codeflow aplikacije SPA tip internetske aplikacije. Kratak pregled interakcije i arhitekture SPA tipa internetske aplikacije i internetskog poslužitelja prikazan je na slici \ref{fig:spa}.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/prikazi/SPA.png}
@@ -208,7 +209,7 @@
 			\end{figure}
 			
 			\subsection{Ace}
-			Ace\cite{ace2021} je uređivač programskog koda namijenjen za lagano integriranje unutar internetske stranice ili JavaScript aplikacije. Otvorena je koda te podržava sve funkcionalnosti koje uobičajen uređivač teksta podržava. Budući da je prvotno namijenjen pisanju programskog koda, podržava mnoštvo različitih jezika. Ima mogućnosti naglašavanje sintakse odabranog podržanog programskog jezika, a također implementira rudimentarno nadopunjavanje programskog koda. Uz sve napomenute mogućnosti, sadržava različite teme te se one mogu mijenjati tijekom korištenja uređivača.
+			Ace\cite{ace2021} je uređivač programskog koda kojeg je lagano integrirati unutar internetske stranice ili JavaScript aplikacije. Otvorena je koda te podržava sve funkcionalnosti koje uobičajen uređivač teksta podržava. Budući da je prvotno namijenjen pisanju programskog koda, podržava mnoštvo različitih jezika. Ima mogućnost naglašavanja sintakse odabranog programskog jezika, a također implementira rudimentarno nadopunjavanje programskog koda. Uz sve spomenute mogućnosti, sadržava različite teme te se one mogu mijenjati tijekom korištenja uređivača.
 			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.75]{pictures/prikazi/AceEditor.png}
@@ -219,7 +220,7 @@
 		\section{Tehnologije poslovnog sloja}
 		Korištene tehnologije poslovnog sloja temeljene su na programskom jeziku Javi\cite{java2021}. Uz Javu korišten je i Maven\cite{maven2021}, alat za upravljanje projektom koji nudi mogućnosti upravljanja Java ovisnostima \engl{dependencies}. Java ovisnosti su već napisani Java paketi koji proširuju osnovnu Javinu funkcionalnost.
 			\subsection{Spring, Spring Boot i povezane tehnologije}
-			Spring\cite{spring2021} je radni okvir za različite programske jezike, od kojih je jedan Java. Otvorena je koda te podliježe svim zahtjevima modernih radnih okvira, a namjera mu je da olakša razvoj modernih poslovnih aplikacija. Razvoj olakšava pružanjem implementacija često korištenih funkcionalnosti i pružanjem mogućnosti uključivanja novih. Temeljna tehnika kojom Spring omogućuje uključivanje novih funkcionalnosti jest inverzija upravljanja \engl{inversion of control} koja omogućava radnom okviru da transparentno poziva klijentski kod korištenjem različitih dobro poznatih oblikovnih obrazaca \engl{design patterns}. Inverziju upravljanja Spring radni okvir postiže korištenjem injekcije ovisnosti \engl{dependency injection}, a ona je zapravo mogućnost radnog okvira da zadovolji tražene objektne ovisnosti. Drugim riječima, radni okvir Spring sam stvara potrebne objekte te ih "injektira" tamo gdje su traženi (za razliku od tradicionalnog pristupa gdje korisnik sam stvara tražene objekte). Sama implementacija funkcionalnosti injekcije ovisnosti unutar Springa veoma je složena, ali uporaba funkcionalnosti izrazito je jednostavna. Tražene objekte potrebno je anotirati s posebnom anotacijom \textit{@Autowired}. Objekte koje treba stvoriti potrebno je anotirati s \textit{@Bean} anotacijom. Pomoću tih anotacija, Spring može sam stvoriti i injektirati objekt. Inverzija ovisnosti i injekcija ovisnosti omogućava Springu prilagodljiv i skalabilan razvoj, što ga čini veoma pogodnim za razvoj internetskih aplikacija. Dodatno, da bi održao kvalitetnu strukturu razvijane aplikacije, Spring preporuča internu raspodjelu Spring aplikacije u tri sloja: "\textbf{Controller}" sloj (definira interakciju s klijentskim zahtjevima), "\textbf{Service}" sloj (ostvaruje temeljne funkcionalnosti) i "\textbf{Repository}" sloj (ostvaruje interakcije s podatkovnim slojem sveukupne aplikacije).\\
+			Spring\cite{spring2021} je radni okvir za različite programske jezike, od kojih je jedan Java. Otvorena je koda te podliježe svim zahtjevima modernih radnih okvira, a namjera mu je da olakša razvoj modernih poslovnih aplikacija. Razvoj olakšava pružanjem implementacija često korištenih funkcionalnosti i pružanjem mogućnosti uključivanja novih. Temeljna tehnika kojom Spring omogućuje uključivanje novih funkcionalnosti jest inverzija upravljanja \engl{inversion of control} koja omogućava radnom okviru da transparentno poziva klijentski kod korištenjem različitih dobro poznatih oblikovnih obrazaca \engl{design patterns}. Inverziju upravljanja Spring radni okvir postiže korištenjem injekcije ovisnosti \engl{dependency injection}, a ona je zapravo mogućnost radnog okvira da zadovolji tražene objektne ovisnosti. Drugim riječima, radni okvir Spring sam stvara potrebne objekte te ih "injektira" tamo gdje su traženi (za razliku od tradicionalnog pristupa gdje korisnik sam stvara tražene objekte). Sama implementacija funkcionalnosti injekcije ovisnosti unutar Springa veoma je složena, ali uporaba funkcionalnosti izrazito je jednostavna. Tražene objekte potrebno je anotirati s posebnom anotacijom \textit{@Autowired}. Objekte koje treba stvoriti potrebno je anotirati s \textit{@Bean} anotacijom. Pomoću tih anotacija, Spring može sam stvoriti i injektirati objekt. Inverzija ovisnosti i injekcija ovisnosti omogućava Springu prilagodljiv i lagano nadogradiv razvoj, što ga čini veoma pogodnim za razvoj internetskih aplikacija. Dodatno, da bi održao kvalitetnu strukturu razvijane aplikacije, Spring preporuča internu raspodjelu Spring aplikacije u tri sloja: "\textbf{Controller}" sloj (definira interakciju s klijentskim zahtjevima), "\textbf{Service}" sloj (ostvaruje temeljne funkcionalnosti) i "\textbf{Repository}" sloj (ostvaruje interakcije s podatkovnim slojem sveukupne aplikacije).\\
 			Spring radni okvir podržava velik broj dodataka koji zadovoljavaju različite korisničke potrebe, a od njih su korištene Spring Security\cite{springsecurity2021} i Spring Data JPA\cite{springdatajpa2021}.
 			\begin{figure}[H]
 				\centering
@@ -254,7 +255,7 @@
 			\section{Pomoćne tehnologije}
 			Tehnologije koje se same po sebi ne mogu svrstati ni u jedan od navedenih glavnih slojeva spomenute su u ovom potpoglavlju.
 			\subsection{Axios}
-			Axios\cite{axios2021} je lagan HTTP \engl{Hypertext Transfer Protocol} klijent pisan u JavaScriptu. Podržava asinkrono slanje zahtjeva, funkcionalnost presretanja i modificiranje zahtjeva i odgovora. 
+			Axios\cite{axios2021} je lagan HTTP \engl{Hypertext Transfer Protocol} klijent pisan JavaScriptom. Podržava asinkrono slanje zahtjeva, funkcionalnost presretanja i modificiranje zahtjeva i odgovora. 
 			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.65]{pictures/prikazi/Axios.png}
@@ -262,7 +263,7 @@
 				\label{fig:axios}
 			\end{figure}
 			\subsection{Judge0}
-			Judge0\cite{judge02021} je izvršitelj programskoga koda otvorena koda kojeg Codeflow aplikacija koristi za provjeravanje rješenja pisanih za korisničke programske zadatke. Skalabilne je arhitekture te podržava preko 60 programskih jezika. Uz podršku prevođenja i izvođenja jednodatotečnih rješenja, Judge0 podržava prevođenje te izvođenje programskih rješenja koja se sastoje od više datoteka. Omogućava konfiguriranje postavki korištenih prevoditelja, postavljanje argumenata komandne linije te još mnogo drugih funkcionalnosti.
+			Judge0\cite{judge02021} je izvršitelj programskoga koda otvorena koda kojeg Codeflow aplikacija koristi za provjeravanje rješenja pisanih za korisničke programske zadatke. Skalabilne je arhitekture te podržava preko 60 programskih jezika. Uz podršku prevođenja i izvođenja jednodatotečnih rješenja, Judge0 podržava prevođenje te izvođenje programskih rješenja koja se sastoje od više datoteka. Podržava konfiguriranje postavki korištenih prevoditelja, postavljanje argumenata komandne linije te još mnogo drugih funkcionalnosti.
 			\subsection{Git}
 			Git\cite{git2021} je sustav za upravljanje izvornim kodom distribuiranog tipa otvorena koda \engl{distributed version control}. Upravljanje izvornim kodom vrši se pohranjivanjem koda unutar Git repozitorija koji mogu biti udaljeni ili lokalni. Udaljeni repozitoriji \engl{remote} najčešće su smješteni unutar nekog oblaka \engl{cloud} na nekoj Git platformi (primjer takve platforme je GitHub). Budući da je sustav distribuiran, lokalni repozitoriji sadržavaju svu povijest programskog koda koju i udaljeni. Inicijalne promjene izvornog koda događaju se unutar lokalnog repozitorija te tek nakon što se spreme unutar lokalnog repozitorija mogu se poslati na udaljeni repozitorij. Korištenje Gita osigurava strukturirano i kvalitetno praćenje te spremanje projekta.
 	
@@ -276,7 +277,7 @@
 			\caption{Kompletan prikaz sheme Codeflow baze podataka.}
 			\label{fig:db}
 		\end{figure}
-		Valja napomenuti da sve tablice dijele atribute ts\_created, ts\_modified, user\_created, user\_modified radi lakšeg praćenja stvaranja i promjena točnih zapisa unutar tablica, a jer su dijeljeni neće biti dodatno spomenuti tijekom detaljnijeg opisa svake tablice. Same tablice oblikovane su prema korisničkim zahtjevima (definirani u poglavlju \ref{cha:zahtjevi}).
+		Valja napomenuti da sve tablice dijele atribute ts\_created, ts\_modified, user\_created, user\_modified radi lakšeg praćenja stvaranja i promjena zapisa unutar tablica. Zbog toga što su dijeljeni neće biti dodatno spomenuti tijekom detaljnijeg opisa svake tablice. Same tablice oblikovane su prema korisničkim zahtjevima (definirani u poglavlju \ref{cha:zahtjevi}).
 		\begin{table}[H]
 			\caption{Dijeljeni atributi}
 			\label{tbl:dij-attr}
@@ -369,7 +370,7 @@
 			\end{tabu}
 		\end{table}
 	
-		Tablica \textbf{language} opisuje podržani jezik koji je korisniku dostupan tijekom stvaranja zadataka. Korisniku koji rješava, ako je ponuđen unutar opisa zadatka, mogući jezik rješenja. Vlastiti atributi tablice language su language\_id, language, imports, main, judgeId. Atribut judgeId koristi se tijekom interakcije aplikacije s Judge0 izvršiteljem računskog koda. 
+		Tablica \textbf{language} opisuje podržani jezik koji je korisniku dostupan tijekom stvaranja zadataka. Korisniku koji rješava predstavlja, ako je ponuđen unutar opisa zadatka, mogući jezik rješenja. Vlastiti atributi tablice language su language\_id, language, imports, main, judgeId. Atribut judgeId koristi se tijekom interakcije aplikacije s Judge0 izvršiteljem računskog koda. 
 		\begin{table}[H]
 			\caption{Tablica language}
 			\label{tbl:language}
@@ -420,7 +421,7 @@
 			\end{tabu}
 		\end{table}
 		
-		Tablica \textbf{solution\_grading} predstavlja ocjene povezane uz jedno programsko rješenje. Vlastiti atributi tablice solution\_grading su solution\_grading\_id, grade, grader\_id i solution\_id. 
+		Tablica \textbf{solution\_grading} predstavlja ocjene vezane uz jedno programsko rješenje. Vlastiti atributi tablice solution\_grading su solution\_grading\_id, grade, grader\_id i solution\_id. 
 		\begin{table}[H]
 			\caption{Tablica solution\_grading}
 			\label{tbl:solutiongrading}
@@ -437,9 +438,9 @@
 			\end{tabu}
 		\end{table}
 	
-		Tablica \textbf{task\_grading} predstavlja ocjene povezane uz jedan programski zadatak. Vlastiti atributi tablice task\_grading su task\_grading\_id, grade, grader\_id i task\_id. 
+		Tablica \textbf{task\_grading} predstavlja ocjene vezane uz jedan programski zadatak. Vlastiti atributi tablice task\_grading su task\_grading\_id, grade, grader\_id i task\_id. 
 		\begin{table}[H]
-			\caption{Tablica task \_rading}
+			\caption{Tablica task\_grading}
 			\label{tbl:taskgrading}
 			\centering
 			\begin{tabu} to \textwidth {XXX}
@@ -454,7 +455,7 @@
 			\end{tabu}
 		\end{table}
 	
-		Tablica \textbf{solution\_comment} predstavlja komentare povezane uz jedno programsko rješenje. Vlastiti atributi tablice solution\_comment su solution\_comment\_id, comment, commenter\_id i task\_id. 
+		Tablica \textbf{solution\_comment} predstavlja komentare vezane uz jedno programsko rješenje. Vlastiti atributi tablice solution\_comment su solution\_comment\_id, comment, commenter\_id i task\_id. 
 		\begin{table}[H]
 			\caption{Tablica solution\_comment}
 			\label{tbl:solutioncomment}
@@ -471,7 +472,7 @@
 			\end{tabu}
 		\end{table}
 	
-		Tablica \textbf{task\_comment} predstavlja komentare povezane uz jedan programski zadatak. Vlastiti atributi tablice task\_comment su task\_comment\_id, comment, grader\_id i commenter\_id. 
+		Tablica \textbf{task\_comment} predstavlja komentare vezane uz jedan programski zadatak. Vlastiti atributi tablice task\_comment su task\_comment\_id, comment, grader\_id i commenter\_id. 
 		\begin{table}[H]
 			\caption{Tablica task\_comment}
 			\label{tbl:taskcomment}
@@ -515,10 +516,10 @@
 		\end{figure}
 	
 			\subsubsection{Implementacija prezentacijskog sloja}
-			Prezentacijski sloj definira korisničko sučelje aplikacije te je za njegovu izradu korišten React. React aplikacija prezentacijskog sloja sastoji se od jedanaest stranica od kojih svaka predstavlja određeni pogled definiran korisničkim zahtjevima, a same stranice koriste i dijele manje komponente. Radi bolje strukturiranog razvoja, React aplikacija dodatno je podijeljena je u četiri interna sloja: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{sloj logike aplikacije} i \textbf{podatkovni sloj}.\\
+			Prezentacijski sloj definira korisničko sučelje aplikacije te je za njegovu izradu korišten React. React aplikacija prezentacijskog sloja sastoji se od trinaest stranica od kojih svaka predstavlja određeni pogled definiran korisničkim zahtjevima, a same stranice koriste i dijele manje komponente. Radi bolje strukturiranog razvoja, React aplikacija dodatno je podijeljena je u četiri interna sloja: \textbf{sigurnosni sloj}, \textbf{usmjeravateljski sloj}, \textbf{sloj logike aplikacije} i \textbf{podatkovni sloj}.\\
 			Korisnički zahtjevi razlikuju prijavljene i neprijavljene korisnike pa tako korisničko sučelje razlikuje i definira akcije dopuštene prijavljenim i neprijavljenim korisnicima. Tijekom uporabe, neprijavljeni korisnici isprva pristupaju \textbf{sigurnosnom sloju}. Sigurnosni sloj nakon uspješne prijave od poslovnog sloja dobiva dva \textit{http-only} kolačića \engl{cookie}. Oba sadržavaju \textit{JSON Web Tokens}\cite{jwt2021} (skraćeno JWT) i unutar sebe opisuju osnovne korisnikove podatke. Njihovim primitkom React aplikacija sigurna je da je korisnik uspješno ovjerio svoj identitet i da smije spremiti i koristiti njegove podatke.
 		 	\textit{JSON Web Tokens} podijeljeni su u tri dijela: \textit{header} dio koji opisuje tip tokena i korišteni kriptografski algoritam, \textit{payload} dio koji sadržava korisničke informacije 
-			i dio s potpisom koji je kriptirani sažetak prva dva dijela. Prvi kolačić šalje se uz svaki prijavljeni korisnički zahtjev, a drugi kolačić koristi se za obnovu prvog kolačića jer vremensko trajanje prvog kolačića vrlo je kratko (dvije minute). Odbijenost korisničkog zahtjeva zbog vremenskog isteka prvog kolačića ispravlja se pomoću \textit{Axios Response Interceptor} funkcionalnosti koja šalje novi zahtjev za obnovu kolačića. Novi zahtjev sadržava drugi kolačić. U slučaju odbijanja produljenja JWT kolačića korisnik se odjavljuje dok se u slučaju produljenja originalno odbijen zahtjev ponovno  šalje. Provjera ispravnosti poslanih kolačića obrađuje se unutar poslovnog sloja. Kombinacija JWT kolačića i provjere spremljenih podataka unutar lokalnog spremnika internetskog preglednika tijekom promjene stranica osiguravaju ispravno raspoznavanje prijavljenih korisnika i neprijavljenih korisnika.
+			i dio s potpisom koji je kriptirani sažetak prva dva dijela. Prvi kolačić šalje se uz svaki prijavljeni korisnički zahtjev, a drugi kolačić koristi se za obnovu prvog kolačića jer vremensko trajanje prvog kolačića vrlo je kratko (dvije minute). Odbijenost korisničkog zahtjeva zbog vremenskog isteka prvog kolačića ispravlja se pomoću \textit{Axios Response Interceptor} funkcionalnosti koja šalje novi zahtjev za obnovu kolačića. Novi zahtjev sadržava drugi kolačić. U slučaju odbijanja produljenja JWT kolačića korisnik se odjavljuje dok se u slučaju produljenja originalno odbijen zahtjev ponovno  šalje. Provjera ispravnosti poslanih kolačića obrađuje se unutar poslovnog sloja. Kombinacija JWT kolačića i provjere spremljenih podataka unutar lokalnog spremnika internetskog preglednika tijekom promjene stranica osigurava ispravno raspoznavanje prijavljenih korisnika i neprijavljenih korisnika.
 			\begin{figure}[H]
 				\centering
 				\includegraphics[scale=0.65]{pictures/prikazi/AxiosInterceptor.png}
@@ -676,7 +677,7 @@
 		\end{figure}
 	
 		\section{Detaljan pregled zadatka (uz opcionalno komentiranje i ocjenjivanje)}
-		Detaljan pregled zadatka korisnici mogu obaviti pritiskom gumbiju \textit{SOLVE} (ako nije već riješio), \textit{SOLVED} (ako je već riješio) ili \textit{INSPECT} (ako je rješenje njegovo). Gumb koji vodi na detaljan pregled zadatka nalazi se na sažetku zadatka spomenutog tijekom objašnjavanja pregleda sažetaka zadataka (\ref{sec:sazetak}). Stranica koja prikazuje detaljan pregled zadatka sadržava ime autora, opis zadatka, primjer upisa i ispisa, dopuštene programske jezike rješenja zadataka te prosječnu ocjenu. Opcionalno, korisnici mogu komentirati zadatak pisanjem komentara unutar polja za pisanje komentara (naznačeno na slici \ref{fig:detaljanpregled}). Ocjenjivanje zadatka korisnicima je moguće tek nakon rješavanja zadatka.
+		Detaljan pregled zadatka korisnici mogu obaviti pritiskom gumbiju \textit{SOLVE} (ako nije već riješio), \textit{SOLVED} (ako je već riješio) ili \textit{INSPECT} (ako je zadatak njegov). Gumb koji vodi na detaljan pregled zadatka nalazi se na sažetku zadatka spomenutog tijekom objašnjavanja pregleda sažetaka zadataka (\ref{sec:sazetak}). Stranica koja prikazuje detaljan pregled zadatka sadržava ime autora, opis zadatka, primjer upisa i ispisa, dopuštene programske jezike rješenja zadataka te prosječnu ocjenu. Opcionalno, korisnici mogu komentirati zadatak pisanjem komentara unutar polja za pisanje komentara (naznačeno na slici \ref{fig:detaljanpregled}). Ocjenjivanje zadatka korisnicima je moguće tek nakon rješavanja zadatka.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/DetaljanPregledZadatka.png}
@@ -694,7 +695,7 @@
 		\end{figure}
 	
 		\section{Rješavanje odabranog zadatka}
-		Tijekom detaljnog pregleda zadatka korisnici imaju mogućnost riješiti zadatak pritiskom na gumb \textit{Add solution}. U slučaju da je korisnik već riješio zadatak gumb \textit{Inspect my solution} bit će prikazan umjesto \textit{Add solution} gumba te će taj gumb korisnika voditi na stranicu pregleda njegovog rješenja. Pošto korisnici pritisnu gumb \textit{Add solution} bit će odvedeni na stranicu koja sadržava detalje zadatka, izlaz konzole i uređivač programskog koda. Detalji zadatka navedeni su istim redom kao i na detaljnom prikazu rješenja uz nadodanu mogućnost pregledavanja testova. Tijekom rješavanja zadatka korisnici mogu mijenjati temu uređivača programskog koda te programski kod u kojem pišu rješenje (svaki zadatak definira dopuštene programske jezike). Pošto korisnici napišu rješenje, pritisak na \textit{Evaluate} gumb prvo će rješenje poslati na provjeru Judge0 izvršitelju programskog koda, a tek nakon uspješne usporedbe izlaza programskog rješenja s testovima zadatka bit će omogućeno spremanje rješenja zadatka pritiskom na gumb \textit{Save solution}. Nakon spremanja zadatka korisnici će biti preusmjereni na pregled njihovog rješenja zadatka.
+		Tijekom detaljnog pregleda zadatka korisnici imaju mogućnost riješiti zadatak pritiskom na gumb \textit{Add solution}. U slučaju da je korisnik već riješio zadatak gumb \textit{Inspect my solution} bit će prikazan umjesto \textit{Add solution} gumba te će taj gumb korisnika voditi na stranicu pregleda njegovog rješenja. Pošto korisnici pritisnu gumb \textit{Add solution} bit će odvedeni na stranicu koja sadržava detalje zadatka, izlaz konzole i uređivač programskog koda. Detalji zadatka navedeni su istim redom kao i na detaljnom prikazu zadatka uz nadodanu mogućnost pregledavanja testova. Tijekom rješavanja zadatka korisnici mogu mijenjati temu uređivača programskog koda te programski jezik u kojem pišu rješenje (svaki zadatak definira dopuštene programske jezike). Pošto korisnici napišu rješenje, pritisak na \textit{Evaluate} gumb prvo će rješenje poslati na provjeru Judge0 izvršitelju programskog koda, a tek nakon uspješne usporedbe izlaza programskog rješenja s testovima zadatka bit će omogućeno spremanje rješenja zadatka pritiskom na gumb \textit{Save solution}. Nakon spremanja zadatka korisnici će biti preusmjereni na pregled njihovog rješenja zadatka.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{pictures/koristenje/DodajRjesenje.png}
@@ -715,7 +716,7 @@
 		\end{figure}
 	
 		\section{Stvaranje zadatka}
-		Uz pregledavanje zadataka i rješenja te pisanja rješenja za odabrani zadatak, korisnici imaju pravo u bilo kojem trenutku napraviti zadatak. Poveznica koja vodi do stranice koja sadržava formu za stvaranje zadatka nalazi se unutar \textit{dropdown} gumba naglašenog na slici \ref{fig:dropdowntask}. Pritiskom na nju korisnici su odvedeni na stranicu na kojoj mogu definirati svoj zadatak. Stranica sadržava formu koja deklarira potrebne podatke za stvaranje programskog zadatka. Ti podaci redom su: opis zadatka, primjer ulaza i izlaza, dopušteni jezici te lista testnih slučajeva koji zadržavaju par ulaznih i izlaznih vrijednosti (redom numerirani na slici \ref{fig:stvaranjeforma}). Svaki od traženih podataka obavezan je te pojedinačno definiraju dodatne uvjete. Pojedinačni uvjeti su da opis zadatka ne smije biti kraći od 25 riječi, bar jedan programski jezik mora biti odabran te bar jedan testni zadatak mora biti definiran s popunjenim parom ulaznih i izlaznih vrijednosti. Tek nakon što korisnici zadovolje tražene uvjete mogu stvoriti novi zadatak.
+		Uz pregledavanje zadataka i rješenja te pisanja rješenja za odabrani zadatak, korisnici imaju pravo u bilo kojem trenutku napraviti zadatak. Poveznica koja vodi do stranice koja sadržava formu za stvaranje zadatka nalazi se unutar \textit{dropdown} gumba naglašenom na slici \ref{fig:dropdowntask}. Pritiskom na nju korisnici su odvedeni na stranicu na kojoj mogu definirati svoj zadatak. Stranica sadržava formu koja deklarira potrebne podatke za stvaranje programskog zadatka. Ti podaci redom su: opis zadatka, primjer ulaza i izlaza, dopušteni jezici te lista testnih slučajeva koji zadržavaju par ulaznih i izlaznih vrijednosti (naglašeni na slici \ref{fig:stvaranjeforma}). Svaki od traženih podataka obavezan je te pojedinačno definiraju dodatne uvjete. Pojedinačni uvjeti su da opis zadatka ne smije biti kraći od 25 riječi, bar jedan programski jezik mora biti odabran te bar jedan testni zadatak mora biti definiran s popunjenim parom ulaznih i izlaznih vrijednosti. Tek nakon što korisnici zadovolje tražene uvjete mogu stvoriti novi zadatak.
 		\begin{figure}[H]
 			\centering
 			\includegraphics[scale=0.65]{pictures/koristenje/StvoriDropdown.png}
@@ -741,7 +742,7 @@
 	
 	
 	\chapter{Zaključak}
-	Velik porast zanimanja za programiranjem te sve veća potreba za održavanjem programerskog znanja rezultirala je nastankom stranica koje omogućuju vježbanje i razvijanje programerskih vještina. Neke od stranica usvojile su elemente socijalnih mreža, poput dodavanja mogućnosti raspravljanja i komentiranja zadataka i rješenja, a sve češća je i implementacija sustava "igrifikacije". Doduše, učestali zajednički čimbenik navedenih stranica jest nemogućnost da prosječni korisnik zada zadatak. Ipak, zbog podržanih funkcionalnosti rješavanja zadataka, određenih socijalnih elemenata i implementacije navedenih sustava "igrifikacije" popularnost tih stranica visoka je.\\
+	Velik porast zanimanja za programiranjem te sve veća potreba za održavanjem programerskog znanja rezultirala je nastankom stranica koje omogućuju vježbanje i razvijanje programerskih vještina. Neke od stranica usvojile su elemente društvenih mreža, poput dodavanja mogućnosti raspravljanja i komentiranja zadataka i rješenja, a sve češća je i implementacija sustava "igrifikacije". Doduše, učestali zajednički čimbenik navedenih stranica jest nemogućnost da prosječni korisnik zada zadatak. Ipak, zbog podržanih funkcionalnosti rješavanja zadataka, određenih socijalnih elemenata i implementacije navedenih sustava "igrifikacije" popularnost tih stranica visoka je.\\
 	Tema ovog završnog rada bila je razvijanje i implementiranje aplikacije koja podržava učestale značajke popularnih stranica koje omogućavaju rješavanje programskih zadataka. Dodatne funkcionalnosti ove aplikacije su podržavanje najbitnijih elemenata socijalnih mreža i mogućnost zadavanja zadataka od strane bilo kojeg korisnika. \\
 	Izazovan element izrade aplikacije koja zadovoljava spomenute zahtjeve bio je organizacija i strukturiranje sustava za stvaranje zadataka i pripremanje okvirnih predložaka za rješenja stvorenih zadataka. Jednako je izazovan element razvoja aplikacije ovoga specifičnoga tipa bio podržavanje provjeravanja ispravnosti korisničkog programskog koda. Ipak, uz pomoć Judge0 izvršitelja programskog koda i ta funkcionalnost uspješno je podržana.\\
 	Odabir Spring radnog okvira i React JavaScript biblioteke bio je kvalitetan jer obje spomenute tehnologije posjeduju bogatu podršku te veoma kvalitetnu dokumentaciju. Također, spomenute tehnologije kvalitetno podržavaju izradu višeslojnih internetskih aplikacija te su uz kombinaciju PostgreSQL sustava za upravljanje bazama podataka potpuno zadovoljile tehnološke potrebe ovog završnog rada.\\
@@ -753,17 +754,18 @@
 	\bibliographystyle{fer}
 	
 	\begin{sazetak}
+		Završni rad razmatra izradu web-aplikacije za rješavanje programskih zadataka s elementima društvene mreže. Funkcionalnosti razvijene web-aplikacije dobivene su promatranjem čestih funkcionalnosti već postojećih programskih rješenja te dodavanjem temeljnih funkcionalnosti društvene mreže. Korisnici razvijene web-aplikacije mogu zadavati i rješavati programske zadatke, a provjera rješenja ostvarena je korištenjem Judge0 izvršitelja programskog koda. Tijekom zadavanja zadataka korisnici biraju programske jezike koji će biti dostupni tijekom rješavanja te navode testne slučaje koji određuju ispravnost rješenja. Podržane funkcionalnosti društvene mreže unutar web-aplikacije su praćenje korisnika, ocjenjivanje i komentiranje sadržaja te pregledavanje korisničkih profila drugih korisnika. Razvijena web-aplikacija sastoji se od React internetske aplikacije, Spring internetskog poslužitelja i PostgreSQL baze podataka. 
 		
-		
-		\kljucnerijeci{Spring, REST, React, SPA, JWT, PostgreSQL, zadavanje programskih zadataka.}
+		\kljucnerijeci{React, SPA, Spring, REST, JWT, PostgreSQL, zadavanje programskih zadataka, Judge0.}
 	\end{sazetak}
 	
-	% TODO: Navedite naslov na engleskom jeziku.
+	\pagebreak
+
 	\engtitle{Web application for solving programming tasks with social network elements}
 	\begin{abstract}
+		Final work considers the development of web-application for solving programming tasks with social network elements. Functionalities of developed web-application have been obtained by observation of functionalities of already existing programming solutions and additional adding of fundamental social network functionalities. Users of developed web-application can assign and solve programming tasks. Solution evaluation is supported with usage of Judge0 code execution engine. While assigning programming task Users choose programming languages that will be available for usage in task solving and they also state test cases that will be used to determine solution correctness. Supported social network functionalities of developed web-application are user following, content grading and commenting and user profile page examination. Developed web-application is consisted of React web-application, Spring web server and PostgreSQL database.
 		
-		
-		\keywords{Spring, REST, React, SPA, JWT, PostgreSQL, programing problems assingment.}
+		\keywords{React, SPA ,Spring, REST, JWT, PostgreSQL, programing problems assingment, Judge0.}
 	\end{abstract}
 	
 \end{document}
