@@ -7,6 +7,7 @@
 ### Short description
 
 Web application implements most common social network features (commenting, grading and following) with features of programming task assignment and solving.
+**Note**: detailed application documentation is written in Croatian
 
 #### Application
 
