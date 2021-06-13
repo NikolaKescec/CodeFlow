@@ -1,0 +1,150 @@
+\begin{thebibliography}{28}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ace(10.6.2021)]{ace2021}
+\emph{{Ace}}.
+\newblock Ace, 10.6.2021.
+\newblock URL \url{https://ace.c9.io/#nav=about}.
+
+\bibitem[Apa(9.6.2021)]{maven2021}
+\emph{{Maven}}.
+\newblock Apache, 9.6.2021.
+\newblock URL \url{https://maven.apache.org/}.
+
+\bibitem[Aut(10.6.2021)]{jwt2021}
+\emph{{JWT}}.
+\newblock Auth0, 10.6.2021.
+\newblock URL \url{https://jwt.io/}.
+
+\bibitem[Boo(10.6.2021)]{bootstrap2021}
+\emph{{Bootstrap, Getting Started}}.
+\newblock Bootstrap Team, 10.6.2021.
+\newblock URL
+  \url{https://getbootstrap.com/docs/5.0/getting-started/introduction/}.
+
+\bibitem[Com(10.6.2021)]{axios2021}
+\emph{{Axios}}.
+\newblock Community Project, 10.6.2021.
+\newblock URL \url{https://axios-http.com/docs/intro}.
+
+\bibitem[ECM(10.6.2021)]{JavaScript2021}
+\emph{{JavaScript}}.
+\newblock ECMAScript, 10.6.2021.
+\newblock URL \url{https://www.javascript.com/}.
+
+\bibitem[Fac(10.6.2021)]{react2021}
+\emph{{React, Getting Started}}.
+\newblock Facebook, 10.6.2021.
+\newblock URL \url{https://reactjs.org/docs/getting-started.html}.
+
+\bibitem[Fak(10.6.2021)]{Edgar2021}
+\emph{{Edgar}}.
+\newblock Fakultet elektrotehnike i računarstva, 10.6.2021.
+\newblock URL \url{https://edgar.fer.hr/}.
+
+\bibitem[Hac(10.6.2021)]{HackerRank2021}
+\emph{{HackerRank}}.
+\newblock HackerRank, 10.6.2021.
+\newblock URL \url{https://www.hackerrank.com/}.
+
+\bibitem[Her(10.6.2021)]{judge02021}
+\emph{{Judge0}}.
+\newblock Herman-Zvonimir Došilović, 10.6.2021.
+\newblock URL \url{https://judge0.com/}.
+
+\bibitem[Jun(10.6.2021)]{git2021}
+\emph{{Git}}.
+\newblock Junio Hamano and others, 10.6.2021.
+\newblock URL \url{https://axios-http.com/docs/intro}.
+
+\bibitem[Lee(10.6.2021{\natexlab{a}})]{Codewars2021}
+\emph{{Codewars}}.
+\newblock LeetCode, 10.6.2021{\natexlab{a}}.
+\newblock URL \url{https://leetcode.com/}.
+
+\bibitem[Lee(10.6.2021{\natexlab{b}})]{Leetcode2021}
+\emph{{Leetcode}}.
+\newblock LeetCode, 10.6.2021{\natexlab{b}}.
+\newblock URL \url{https://leetcode.com/}.
+
+\bibitem[Les(10.6.2021)]{jjwt2021}
+\emph{{jjwt}}.
+\newblock Les Hazlewood, 10.6.2021.
+\newblock URL \url{https://github.com/jwtk/jjwt}.
+
+\bibitem[Mat(10.6.2021)]{materialUI2021}
+\emph{{Material-UI, Getting Started}}.
+\newblock Material-UI, 10.6.2021.
+\newblock URL \url{https://material-ui.com/getting-started/installation/}.
+
+\bibitem[Moz(10.6.2021)]{websocket2021}
+\emph{{WebSocket}}.
+\newblock Mozilla, 10.6.2021.
+\newblock URL
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API}.
+
+\bibitem[Moz(9.6.2021)]{SPA2021}
+\emph{{Single Page Application}}.
+\newblock Mozzila, 9.6.2021.
+\newblock URL \url{https://developer.mozilla.org/en-US/docs/Glossary/SPA}.
+
+\bibitem[npm(10.6.2021)]{NPM2021}
+\emph{{NPM}}.
+\newblock npm, Inc., 10.6.2021.
+\newblock URL \url{https://www.npmjs.com/}.
+
+\bibitem[Ope(10.6.2021)]{Nodejs2021}
+\emph{{Node.js}}.
+\newblock OpenJS Foundation, 10.6.2021.
+\newblock URL \url{https://nodejs.org/en/}.
+
+\bibitem[Ora(9.6.2021)]{java2021}
+\emph{{Java}}.
+\newblock Oracle, 9.6.2021.
+\newblock URL \url{https://www.oracle.com/java/technologies/}.
+
+\bibitem[Rea(10.6.2021)]{react-router2021}
+\emph{{React Router}}.
+\newblock ReactTraining, 10.6.2021.
+\newblock URL \url{https://reactrouter.com/web/guides/quick-start}.
+
+\bibitem[Red(10.6.2021)]{hibernate2021}
+\emph{{Hibernate}}.
+\newblock Red Hat, 10.6.2021.
+\newblock URL \url{https://hibernate.org/}.
+
+\bibitem[res(10.6.2021)]{rest2021}
+\emph{{Representational state transfer (REST)}}.
+\newblock restfulapi.net, 10.6.2021.
+\newblock URL \url{https://restfulapi.net/}.
+
+\bibitem[Spr(7.6.2021)]{spring2021}
+\emph{{Spring Framework}}.
+\newblock Spring, 7.6.2021.
+\newblock URL \url{https://spring.io/projects/spring-framework}.
+
+\bibitem[Spr(8.6.2021)]{springsecurity2021}
+\emph{{Spring Security}}.
+\newblock Spring, 8.6.2021.
+\newblock URL \url{https://spring.io/projects/spring-security}.
+
+\bibitem[Spr(9.6.2021)]{springdatajpa2021}
+\emph{{Spring Data JPA}}.
+\newblock Spring, 9.6.2021.
+\newblock URL \url{https://spring.io/projects/spring-data-jpa}.
+
+\bibitem[The(10.6.2021{\natexlab{a}})]{V82021}
+\emph{{Node.js}}.
+\newblock The Chromium Project, 10.6.2021{\natexlab{a}}.
+\newblock URL \url{https://v8.dev/}.
+
+\bibitem[The(10.6.2021{\natexlab{b}})]{postgresql2021}
+\emph{{PostgreSql}}.
+\newblock The PostgreSQL Global Development Group, 10.6.2021{\natexlab{b}}.
+\newblock URL \url{https://www.postgresql.org/}.
+
+\end{thebibliography}
