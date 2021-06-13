@@ -7,11 +7,13 @@
 ### Short description
 
 Web application implements most common social network features (commenting, grading and following) with features of programming task assignment and solving.
+
 **Note**: detailed application documentation is written in Croatian
 
 #### Application
 
 Live application available on this [link](https://code-flow-zr.herokuapp.com/).
+
 **Note**: because of the way that the application is hosted it may not be available at all times
 
 ---
